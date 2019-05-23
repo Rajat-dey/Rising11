@@ -55,7 +55,7 @@
                     android:hint="Name"
                     android:inputType="textPersonName"
                     android:drawablePadding="8dp"
-                    android:drawableStart="@drawable/outline_mail_white_18dp"
+                    android:drawableStart="@drawable/name"
                     android:textColor="@color/white_text"
                     android:textColorHint="@android:color/white" />
             </android.support.design.widget.TextInputLayout>
@@ -72,7 +72,7 @@
                     android:layout_marginBottom="8dp"
                     android:hint="Enter your Email"
                     android:drawablePadding="8dp"
-                    android:drawableStart="@drawable/outline_mail_black_18dp"
+                    android:drawableStart="@drawable/name"
                     android:inputType="textEmailAddress"
                     android:textColor="@color/white_text"
                     android:textColorHint="@color/white_text" />
@@ -90,7 +90,7 @@
                     android:padding="8dp"
                     android:hint="Enter your Number"
                     android:drawablePadding="8dp"
-                    android:drawableStart="@drawable/outline_enhanced_encryption_white_18dp"
+                    android:drawableStart="@drawable/mobile"
                     android:inputType="number"
                     android:textColor="@color/white_text"
                     android:textColorHint="@color/white_text" />
@@ -108,7 +108,7 @@
                     android:padding="8dp"
                     android:hint="Enter your Password"
                     android:drawablePadding="8dp"
-                    android:drawableStart="@drawable/outline_enhanced_encryption_white_18dp"
+                    android:drawableStart="@drawable/password"
                     android:inputType="textPassword"
                     android:textColor="@color/white_text"
                     android:textColorHint="@color/white_text" />
@@ -127,7 +127,7 @@
                     android:padding="8dp"
                     android:hint="Invalid Code"
                     android:drawablePadding="8dp"
-                    android:drawableStart="@drawable/outline_enhanced_encryption_white_18dp"
+                    android:drawableStart="@drawable/password"
                     android:inputType="none"
                     android:textColor="@color/white_text"
                     android:textColorHint="@color/white_text" />

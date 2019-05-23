@@ -12,7 +12,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".CreateContest"></activity>
+        <activity android:name=".CreateContest"
+            android:label="@string/title_activity_create_contest" />
+
         <activity
             android:name=".Login"
             android:theme="@style/Theme.AppCompat.DayNight.NoActionBar"></activity>
