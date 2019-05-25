@@ -169,7 +169,7 @@
                     android:layout_height="wrap_content"
                     android:gravity="center"
                     android:padding="10dp"
-                    tools:text="Entry is calculated based on total prize amount and contest size" />
+                    android:text="Entry is calculated based on total prize amount and contest size" />
             </LinearLayout>
 
         </android.support.v7.widget.CardView>
