@@ -125,7 +125,7 @@
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="7dp"
                     android:padding="8dp"
-                    android:hint="Invalid Code"
+                    android:hint="Invited Code"
                     android:drawablePadding="8dp"
                     android:drawableStart="@drawable/password"
                     android:inputType="none"
