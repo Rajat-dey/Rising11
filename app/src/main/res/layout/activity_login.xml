@@ -131,12 +131,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="8dip"
-                android:background="#000000"
+                android:background="@drawable/button_shape"
                 android:text="Login ->"
                 android:padding="16dp"
                 android:layout_gravity="center"
                 android:textColor="#FFFF"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                />
 
 
 
