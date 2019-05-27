@@ -8,7 +8,7 @@ import android.widget.Button;
 
 public class Login extends AppCompatActivity {
 
-    Button contest;
+    Button contest,login;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,12 +17,21 @@ public class Login extends AppCompatActivity {
 
 
         contest=findViewById(R.id.signup);
+        login=findViewById(R.id.btn_login);
 
 
         contest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Login.this, CreateContest.class);
+                startActivity(intent);
+            }
+        });
+
+        login.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Login.this, HomeActivity.class);
                 startActivity(intent);
             }
         });
