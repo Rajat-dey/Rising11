@@ -11,8 +11,8 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Contest"></activity>
-
+        <activity android:name=".JoinedContest"></activity>
+        <activity android:name=".Contest" />
         <activity
             android:name=".HomeActivity"
             android:label="@string/title_activity_home"
