@@ -43,7 +43,8 @@ public class RestClient extends Application {
                 });
     }
 
-    public static synchronized RestClient getInstance(Context context) {
+    public static synchronized RestClient getInstance(Context context)
+    {
         if (instance == null) {
             instance = new RestClient(context);
         }
@@ -59,11 +60,13 @@ public class RestClient extends Application {
         return requestQueue;
     }
 
-    public <T> void addToRequestQueue(Request<T> req) {
+    public <T> void addToRequestQueue(Request<T> req)
+    {
         getRequestQueue().add(req);
     }
 
-    public ImageLoader getImageLoader() {
+    public ImageLoader getImageLoader()
+    {
         return imageLoader;
     }
 }
