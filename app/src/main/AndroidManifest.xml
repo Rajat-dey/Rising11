@@ -12,6 +12,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".Contest"></activity>
+
         <activity
             android:name=".HomeActivity"
             android:label="@string/title_activity_home"
@@ -42,6 +43,12 @@
                 <action android:name="android.intent.action.MAIN" />
             </intent-filter>
         </activity>
+        <activity android:name=".MyBalanceActivity" />
+        <activity android:name=".MyProfileActivity" />
+        <activity android:name=".MyReferralsActivity" />
+        <activity android:name=".MySettingsActivity" />
+        <activity android:name=".RewardOffer1Activity" />
+        <activity android:name=".RewardOffer2Activity" />
     </application>
 
 </manifest>
