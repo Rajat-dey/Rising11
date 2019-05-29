@@ -13,6 +13,8 @@
         android:theme="@style/AppTheme">
         <activity android:name=".AddCashActivity"></activity>
         <activity android:name=".Contest" />
+        <activity android:name=".wining_breakup"></activity>
+        <activity android:name=".JoinedContest" />
         <activity
             android:name=".HomeActivity"
             android:label="@string/title_activity_home"
