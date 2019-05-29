@@ -11,11 +11,18 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Contest"></activity>
+        <activity android:name=".AddCashActivity"></activity>
+        <activity android:name=".Contest" />
         <activity
             android:name=".HomeActivity"
             android:label="@string/title_activity_home"
             android:theme="@style/AppTheme.NoActionBar" />
+        <activity android:name=".MyProfileActivity" />
+        <activity android:name=".RewardOffer1Activity" />
+        <activity android:name=".MyBalanceActivity" />
+        <activity android:name=".RewardOffer2Activity" />
+        <activity android:name=".MySettingsActivity" />
+        <activity android:name=".MyReferralsActivity" />
         <activity
             android:name=".CreateContest"
             android:label="@string/title_activity_create_contest" />

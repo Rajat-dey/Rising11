@@ -24,4 +24,9 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <!-- apis-->
+    <string name="signup">http://rising11.com/apps/apis/register-user.php</string>
+    <string name="signin">http://rising11.com/apps/apis/login.php</string>
+
 </resources>
