@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context="com.line.rising11.AddCashActivity">
+
+
+<EditText
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:hint="Enter Amount(₹)"
+    android:inputType="number"
+    android:id="@+id/etcash"/>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="16dp"
+        android:weightSum="4">
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:text="10"
+            android:id="@+id/r10"
+            android:textColor="@color/colorPrimary"
+            android:background="@drawable/button_design_round_blue_border"
+            android:layout_weight="1"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:textColor="@color/colorPrimary"
+            android:text="20"
+            android:id="@+id/r20"
+            android:background="@drawable/button_design_round_blue_border"
+            android:layout_weight="1"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:text="100"
+            android:id="@+id/r100"
+            android:textColor="@color/colorPrimary"
+            android:background="@drawable/button_design_round_blue_border"
+            android:layout_weight="1"/>
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="4dp"
+            android:text="200"
+            android:id="@+id/r200"
+            android:textColor="@color/colorPrimary"
+            android:background="@drawable/button_design_round_blue_border"
+            android:layout_weight="1"/>
+    </LinearLayout>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="@drawable/button_design_round_blue_add_cash"
+        android:layout_marginTop="24dp"
+        android:id="@+id/add_cash"
+        android:text="Add Money"
+        android:textColor="@color/white_text"/>
+
+</LinearLayout>
