@@ -23,7 +23,7 @@ public class Login extends AppCompatActivity {
         contest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Login.this, CreateContest.class);
+                Intent intent = new Intent(Login.this, SignUp.class);
                 startActivity(intent);
             }
         });

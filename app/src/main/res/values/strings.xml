@@ -20,6 +20,14 @@
     <string name="title_dashboard">Dashboard</string>
     <string name="title_notifications">Notifications</string>
 
+    <string name="underline_string"><u>Know more</u></string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+
+
+    <!-- API URLs -->
+    <string name="paytm_mid">TechBu42759838671196</string>
+    <string name="generate_checksum_url">http://rising11.com/apps/apis/paytm/generateChecksum.php</string>
+    <string name="callback_url">https://pguat.paytm.com/paytmchecksum/paytmCallback.jsp</string>
 </resources>
