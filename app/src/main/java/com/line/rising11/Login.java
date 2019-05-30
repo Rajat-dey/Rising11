@@ -18,7 +18,7 @@ import org.json.JSONObject;
 
 public class Login extends AppCompatActivity {
 
-    Button contest,login;
+    Button contest,login,btn_reset_password;
     private EditText email,password;
 
     @Override
@@ -32,7 +32,16 @@ public class Login extends AppCompatActivity {
 
         email=findViewById(R.id.email);
         password=findViewById(R.id.password);
+        btn_reset_password=findViewById(R.id.btn_reset_password);
 
+
+        btn_reset_password.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(Login.this,OtpVerify_Activity.class);
+                startActivity(intent);
+            }
+        });
 
         contest.setOnClickListener(new View.OnClickListener() {
             @Override
