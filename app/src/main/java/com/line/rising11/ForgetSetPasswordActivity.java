@@ -21,7 +21,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class ForgetSetPasswordActivity extends AppCompatActivity {
-    private EditText pass;
+    private EditText pass,cpass;
     private Button setpass;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,17 +29,26 @@ public class ForgetSetPasswordActivity extends AppCompatActivity {
         setContentView(R.layout.activity_forget_set_password);
         setTitle("Set Password");
         pass=findViewById(R.id.pass);
+        cpass=findViewById(R.id.cpass);
         setpass=findViewById(R.id.setpass);
 
         setpass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v)
             {
-              if(pass.getText().toString().trim().equals(""))
+              if(pass.getText().toString().trim().equals("")|| cpass.getText().toString().trim().equals(""))
               {
-                  pass.setError("Enter New Password");
+                  if(pass.getText().toString().trim().equals(""))
+                  {
+                      pass.setError("Enter New Password");
+                  }
+                  else
+                  {
+                      cpass.setError("Enter Confirm New Password");
+                  }
               }
-              else
+
+              else if(pass.getText().toString().trim().equals(cpass.getText().toString().trim()))
               {
                   boolean connected = false;
                   ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -101,6 +110,10 @@ public class ForgetSetPasswordActivity extends AppCompatActivity {
                               .setAction("Action", null).show();
                   }
 
+              }
+              else
+              {
+                  Toast.makeText(ForgetSetPasswordActivity.this, "Password not matches", Toast.LENGTH_SHORT).show();
               }
             }
         });
