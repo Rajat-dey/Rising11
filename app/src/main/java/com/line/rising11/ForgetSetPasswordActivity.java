@@ -56,7 +56,7 @@ public class ForgetSetPasswordActivity extends AppCompatActivity {
                           connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED) {
 
                       JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
-                              (Request.Method.GET, getString(R.string.forgetpass)+"?mobile="+getIntent().getStringExtra("mob")+"&step=3&password="+pass.getText().toString().trim(), null, new Response.Listener<JSONObject>() {
+                              (Request.Method.GET, getString(R.string.forget_pass)+"?mobile="+getIntent().getStringExtra("mob")+"&step=3&password="+pass.getText().toString().trim(), null, new Response.Listener<JSONObject>() {
                                   @Override
                                   public void onResponse(JSONObject response) {
                                       // Log.d("Response: ", response.toString());

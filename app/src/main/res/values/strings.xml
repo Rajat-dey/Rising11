@@ -28,6 +28,8 @@
     <!-- apis-->
     <string name="signup">http://rising11.com/apps/apis/register-user.php</string>
     <string name="signin">http://rising11.com/apps/apis/login.php</string>
-    <string name="forgetpass">http://rising11.com/apps/apis/forget-pass.php</string>
+    <string name="forget_pass">http://rising11.com/apps/apis/forget-pass.php</string>
+
+    <string name="verify_number">http://rising11.com/apps/apis/verify-mobile.php</string>
 
 </resources>

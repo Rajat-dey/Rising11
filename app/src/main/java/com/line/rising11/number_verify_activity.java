@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -20,12 +19,14 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class OtpVerify_Activity extends AppCompatActivity {
+public class number_verify_activity extends AppCompatActivity {
+
     private TextView one,two,three,four,five,six,seven,eight,nine,zero;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_otp_verify_);
+        setContentView(R.layout.activity_number_verify_activity);
         setTitle("OTP VERIFICATION");
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -112,7 +113,7 @@ public class OtpVerify_Activity extends AppCompatActivity {
 
                     if (str.toString().length()==4)
                     {
-                        if(getIntent().getStringExtra("type").equals("forget_pass"))
+                      //  if(getIntent().getStringExtra("mob").equals("mob"))
                         {
                             boolean connected = false;
                             ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -120,7 +121,7 @@ public class OtpVerify_Activity extends AppCompatActivity {
                                     connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED) {
 
                                 JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
-                                        (Request.Method.GET, getString(R.string.forget_pass)+"?mobile="+getIntent().getStringExtra("mob")+"&step=2&otp="+str.toString(), null, new Response.Listener<JSONObject>() {
+                                        (Request.Method.GET, getString(R.string.verify_number)+"?mobile="+getIntent().getStringExtra("mob")+"&otp="+str.toString(), null, new Response.Listener<JSONObject>() {
                                             @Override
                                             public void onResponse(JSONObject response) {
                                                 // Log.d("Response: ", response.toString());
@@ -132,8 +133,8 @@ public class OtpVerify_Activity extends AppCompatActivity {
                                                     {
 
 
-                                                        Toast.makeText(OtpVerify_Activity.this, response.getString("msg"), Toast.LENGTH_SHORT).show();
-                                                        Intent intent = new Intent(OtpVerify_Activity.this, ForgetSetPasswordActivity.class);
+                                                        Toast.makeText(number_verify_activity.this, response.getString("msg"), Toast.LENGTH_SHORT).show();
+                                                        Intent intent = new Intent(number_verify_activity.this, HomeActivity.class);
                                                         intent.putExtra("mob",getIntent().getStringExtra("mob"));
                                                         startActivity(intent);
                                                         finish();
@@ -142,7 +143,7 @@ public class OtpVerify_Activity extends AppCompatActivity {
                                                     {
 
                                                         pinEntry.setText(null);
-                                                        Toast.makeText(OtpVerify_Activity.this, response.getString("msg"), Toast.LENGTH_SHORT).show();
+                                                        Toast.makeText(number_verify_activity.this, response.getString("msg"), Toast.LENGTH_SHORT).show();
                                                /* Toast.makeText(getApplicationContext(), "Error "
                                                         + response.getString("code") + ": "
                                                         + response.getString("message"), Toast.LENGTH_LONG)
@@ -165,7 +166,7 @@ public class OtpVerify_Activity extends AppCompatActivity {
                                         });
 
                                 // Access the RequestQueue through your singleton class.
-                                RestClient.getInstance(OtpVerify_Activity.this).addToRequestQueue(jsonObjectRequest);
+                                RestClient.getInstance(number_verify_activity.this).addToRequestQueue(jsonObjectRequest);
 
 
 

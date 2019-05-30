@@ -27,7 +27,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_forgot_password);
-        setTitle("Forget Passowrd");
+        setTitle("Forget Password");
         mob=findViewById(R.id.mob);
         getotp=findViewById(R.id.getotp);
         getotp.setOnClickListener(new View.OnClickListener() {
@@ -46,7 +46,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
                             connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED) {
 
                         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
-                                (Request.Method.GET, getString(R.string.forgetpass)+"?mobile="+mob.getText().toString().trim()+"&step=1", null, new Response.Listener<JSONObject>() {
+                                (Request.Method.GET, getString(R.string.forget_pass)+"?mobile="+mob.getText().toString().trim()+"&step=1", null, new Response.Listener<JSONObject>() {
                                     @Override
                                     public void onResponse(JSONObject response) {
                                         // Log.d("Response: ", response.toString());
@@ -60,7 +60,7 @@ public class ForgotPasswordActivity extends AppCompatActivity {
 
                                                 Toast.makeText(ForgotPasswordActivity.this, response.getString("msg"), Toast.LENGTH_SHORT).show();
                                                 Intent intent = new Intent(ForgotPasswordActivity.this, OtpVerify_Activity.class);
-                                                intent.putExtra("type","forgetpass");
+                                                intent.putExtra("type","forget_pass");
                                                 intent.putExtra("mob",mob.getText().toString().trim());
                                                 startActivity(intent);
                                                 finish();
