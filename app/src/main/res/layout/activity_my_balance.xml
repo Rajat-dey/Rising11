@@ -42,6 +42,7 @@ tools:context="com.line.rising11.MyBalanceActivity">
                     android:layout_width="100dp"
                     android:layout_height="28dp"
                     android:text="ADD CASH"
+                    android:id="@+id/add_cash"
                     android:background="@drawable/button_design_round_corner"
                     android:textColor="@color/button_text_color"
                     android:layout_marginTop="16dp"
