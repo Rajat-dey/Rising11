@@ -1,5 +1,10 @@
 package com.line.rising11;
 
+import android.content.Context;
+import android.content.Intent;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -7,6 +12,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.alimuzaffar.lib.pin.PinEntryEditText;
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class OtpVerify_Activity extends AppCompatActivity {
     private TextView one,two,three,four,five,six,seven,eight,nine,zero;
@@ -92,14 +104,81 @@ public class OtpVerify_Activity extends AppCompatActivity {
             }
         });
         if (pinEntry != null) {
-            pinEntry.setOnPinEnteredListener(new PinEntryEditText.OnPinEnteredListener() {
+            pinEntry.setOnPinEnteredListener(new PinEntryEditText.OnPinEnteredListener()
+            {
                 @Override
-                public void onPinEntered(CharSequence str) {
-                    if (str.toString().equals("1234")) {
-                        Toast.makeText(OtpVerify_Activity.this, "SUCCESS", Toast.LENGTH_SHORT).show();
-                    } else {
-                        Toast.makeText(OtpVerify_Activity.this, "FAIL", Toast.LENGTH_SHORT).show();
-                        pinEntry.setText(null);
+                public void onPinEntered(CharSequence str)
+                {
+
+                    if (str.toString().length()==4)
+                    {
+                        if(getIntent().getStringExtra("type").equals("forgetpass"))
+                        {
+                            boolean connected = false;
+                            ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
+                            if(connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED ||
+                                    connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED) {
+
+                                JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
+                                        (Request.Method.GET, getString(R.string.forgetpass)+"?mobile="+getIntent().getStringExtra("mob")+"&step=2&otp="+str.toString(), null, new Response.Listener<JSONObject>() {
+                                            @Override
+                                            public void onResponse(JSONObject response) {
+                                                // Log.d("Response: ", response.toString());
+                                                //Log.d("Link",getString(R.string.signup) +"?mobile="+email.getText().toString().trim()+"&password="+password.getText().toString().trim());
+
+
+                                                try {
+                                                    if(response.getString("code").equals("1"))
+                                                    {
+
+
+                                                        Toast.makeText(OtpVerify_Activity.this, response.getString("msg"), Toast.LENGTH_SHORT).show();
+                                                        Intent intent = new Intent(OtpVerify_Activity.this, ForgetSetPasswordActivity.class);
+                                                        intent.putExtra("mob",getIntent().getStringExtra("mob"));
+                                                        startActivity(intent);
+                                                        finish();
+                                                    }
+                                                    else
+                                                    {
+
+                                                        pinEntry.setText(null);
+                                                        Toast.makeText(OtpVerify_Activity.this, response.getString("msg"), Toast.LENGTH_SHORT).show();
+                                               /* Toast.makeText(getApplicationContext(), "Error "
+                                                        + response.getString("code") + ": "
+                                                        + response.getString("message"), Toast.LENGTH_LONG)
+                                                        .show();*/
+                                                    }
+                                                } catch (JSONException e) {
+                                                    e.printStackTrace();
+                                                }
+
+                                            }
+                                        }, new Response.ErrorListener() {
+
+                                            @Override
+                                            public void onErrorResponse(VolleyError error) {
+                                                // TODO: Handle error
+                                                Toast.makeText(getApplicationContext(), "Error: "
+                                                        + error.getLocalizedMessage(), Toast.LENGTH_LONG)
+                                                        .show();
+                                            }
+                                        });
+
+                                // Access the RequestQueue through your singleton class.
+                                RestClient.getInstance(OtpVerify_Activity.this).addToRequestQueue(jsonObjectRequest);
+
+
+
+                                connected = true;
+                            }
+                            else
+                            {
+                               /* Snackbar.make(v, "Please check your Internet connection", Snackbar.LENGTH_LONG)
+                                        .setAction("Action", null).show();*/
+                            }
+
+                        }
+
                     }
                 }
             });

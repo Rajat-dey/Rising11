@@ -27,7 +27,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:cursorVisible="false"
-            android:digits="1234"
+            android:digits="1234567890"
             android:inputType="none"
             android:clickable="false"
             android:maxLength="4"

@@ -11,7 +11,9 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".OtpVerify_Activity"></activity>
+        <activity android:name=".ForgetSetPasswordActivity"></activity>
+        <activity android:name=".ForgotPasswordActivity" />
+        <activity android:name=".OtpVerify_Activity" />
         <activity android:name=".AddCashActivity" />
         <activity android:name=".Contest" />
         <activity android:name=".wining_breakup" />
