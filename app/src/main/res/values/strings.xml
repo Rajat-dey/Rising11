@@ -25,6 +25,12 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
+
+    <!-- API URLs -->
+    <string name="paytm_mid">TechBu42759838671196</string>
+    <string name="generate_checksum_url">http://rising11.com/apps/apis/paytm/generateChecksum.php</string>
+    <string name="callback_url">https://pguat.paytm.com/paytmchecksum/paytmCallback.jsp</string>
+
     <!-- apis-->
     <string name="signup">http://rising11.com/apps/apis/register-user.php</string>
     <string name="signin">http://rising11.com/apps/apis/login.php</string>
