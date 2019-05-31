@@ -200,7 +200,7 @@ public class OtpVerify_Activity extends AppCompatActivity {
 
 
                                                         Toast.makeText(OtpVerify_Activity.this, response.getString("msg"), Toast.LENGTH_SHORT).show();
-                                                        Intent intent = new Intent(OtpVerify_Activity.this, ForgetSetPasswordActivity.class);
+                                                        Intent intent = new Intent(OtpVerify_Activity.this, Login.class);
                                                         intent.putExtra("mob",getIntent().getStringExtra("mob"));
                                                         startActivity(intent);
                                                         finish();

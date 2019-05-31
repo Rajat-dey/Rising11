@@ -25,12 +25,12 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class MySettingsActivity extends AppCompatActivity {
-    EditText name,email,password,dob,address,city,pin,country,mob;
+    EditText name,email,password,dob,address,city,pin,country;
     SharedPreferences sharedPreferences;
     LinearLayout male,female;
     String sex="female";
     SharedPreferences.Editor editor;
-    private TextView update,logout;
+    private TextView update,logout,mob;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
