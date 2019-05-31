@@ -67,10 +67,9 @@ private Button signup;
                                     try {
                                         if(response.getString("code").equals("1"))
                                         {
-                                            Intent intent = new Intent(SignUp.this, number_verify_activity.class);
-
+                                            Intent intent = new Intent(SignUp.this, OtpVerify_Activity.class);
+                                            intent.putExtra("type","signup");
                                             intent.putExtra("mob",number.getText().toString().trim());
-
                                             startActivity(intent);
 
                                             Toast.makeText(SignUp.this, response.getString("msg"), Toast.LENGTH_SHORT).show();

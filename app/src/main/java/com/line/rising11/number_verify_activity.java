@@ -121,7 +121,7 @@ public class number_verify_activity extends AppCompatActivity {
                                     connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED) {
 
                                 JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
-                                        (Request.Method.GET, getString(R.string.verify_number)+"?mobile="+getIntent().getStringExtra("mob")+"&otp="+str.toString(), null, new Response.Listener<JSONObject>() {
+                                        (Request.Method.GET, getString(R.string.verifymobile)+"?mobile="+getIntent().getStringExtra("mob")+"&otp="+str.toString(), null, new Response.Listener<JSONObject>() {
                                             @Override
                                             public void onResponse(JSONObject response) {
                                                 // Log.d("Response: ", response.toString());

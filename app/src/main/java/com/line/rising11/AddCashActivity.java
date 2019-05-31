@@ -110,7 +110,7 @@ public class AddCashActivity extends AppCompatActivity implements PaytmPaymentTr
              else
              {
                  money=Integer.parseInt(etcash.getText().toString().trim());
-                 Toast.makeText(AddCashActivity.this, String.valueOf(money) +"add ho gai", Toast.LENGTH_SHORT).show();
+               //  Toast.makeText(AddCashActivity.this, String.valueOf(money) +"add ho gai", Toast.LENGTH_SHORT).show();
 
                  // ----------------------add paytm api here-----------------------
                  sendUserDetailTOServerdd dl = new sendUserDetailTOServerdd();
@@ -161,7 +161,7 @@ public class AddCashActivity extends AppCompatActivity implements PaytmPaymentTr
             if (dialog.isShowing()) {
                 dialog.dismiss();
             }
-            PaytmPGService Service = PaytmPGService.getStagingService();
+            PaytmPGService Service = PaytmPGService.getProductionService();
             // when app is ready to publish use production service
             // PaytmPGService  Service = PaytmPGService.getProductionService();
             // now call paytm service here

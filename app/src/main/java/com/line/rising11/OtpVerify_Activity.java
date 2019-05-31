@@ -120,7 +120,7 @@ public class OtpVerify_Activity extends AppCompatActivity {
                                     connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED) {
 
                                 JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
-                                        (Request.Method.GET, getString(R.string.forget_pass)+"?mobile="+getIntent().getStringExtra("mob")+"&step=2&otp="+str.toString(), null, new Response.Listener<JSONObject>() {
+                                        (Request.Method.GET, getString(R.string.forgetpass)+"?mobile="+getIntent().getStringExtra("mob")+"&step=2&otp="+str.toString(), null, new Response.Listener<JSONObject>() {
                                             @Override
                                             public void onResponse(JSONObject response) {
                                                 // Log.d("Response: ", response.toString());
@@ -170,6 +170,7 @@ public class OtpVerify_Activity extends AppCompatActivity {
 
 
                                 connected = true;
+
                             }
                             else
                             {
@@ -178,6 +179,74 @@ public class OtpVerify_Activity extends AppCompatActivity {
                             }
 
                         }
+                        else if(getIntent().getStringExtra("type").equals("signup"))
+                        {
+                            boolean connected = false;
+                            ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
+                            if(connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED ||
+                                    connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED) {
+
+                                JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
+                                        (Request.Method.GET, getString(R.string.verifymobile)+"?mobile="+getIntent().getStringExtra("mob")+"&otp="+str.toString(), null, new Response.Listener<JSONObject>() {
+                                            @Override
+                                            public void onResponse(JSONObject response) {
+                                                // Log.d("Response: ", response.toString());
+                                                //Log.d("Link",getString(R.string.signup) +"?mobile="+email.getText().toString().trim()+"&password="+password.getText().toString().trim());
+
+
+                                                try {
+                                                    if(response.getString("code").equals("1"))
+                                                    {
+
+
+                                                        Toast.makeText(OtpVerify_Activity.this, response.getString("msg"), Toast.LENGTH_SHORT).show();
+                                                        Intent intent = new Intent(OtpVerify_Activity.this, Login.class);
+                                                        intent.putExtra("mob",getIntent().getStringExtra("mob"));
+                                                        startActivity(intent);
+                                                        finish();
+                                                    }
+                                                    else
+                                                    {
+
+                                                        pinEntry.setText(null);
+                                                        Toast.makeText(OtpVerify_Activity.this, response.getString("msg"), Toast.LENGTH_SHORT).show();
+                                               /* Toast.makeText(getApplicationContext(), "Error "
+                                                        + response.getString("code") + ": "
+                                                        + response.getString("message"), Toast.LENGTH_LONG)
+                                                        .show();*/
+                                                    }
+                                                } catch (JSONException e) {
+                                                    e.printStackTrace();
+                                                }
+
+                                            }
+                                        }, new Response.ErrorListener() {
+
+                                            @Override
+                                            public void onErrorResponse(VolleyError error) {
+                                                // TODO: Handle error
+                                                Toast.makeText(getApplicationContext(), "Error: "
+                                                        + error.getLocalizedMessage(), Toast.LENGTH_LONG)
+                                                        .show();
+                                            }
+                                        });
+
+                                // Access the RequestQueue through your singleton class.
+                                RestClient.getInstance(OtpVerify_Activity.this).addToRequestQueue(jsonObjectRequest);
+
+
+
+                                connected = true;
+
+                            }
+                            else
+                            {
+                               /* Snackbar.make(v, "Please check your Internet connection", Snackbar.LENGTH_LONG)
+                                        .setAction("Action", null).show();*/
+                            }
+
+                        }
+
 
                     }
                 }
