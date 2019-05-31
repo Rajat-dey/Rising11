@@ -27,7 +27,7 @@
 
 
     <!-- API URLs -->
-    <string name="paytm_mid">TechBu42759838671196</string>
+    <string name="paytm_mid">YfSFky58226330996541</string>
     <string name="generate_checksum_url">http://rising11.com/apps/apis/paytm/generateChecksum.php</string>
     <string name="callback_url">https://pguat.paytm.com/paytmchecksum/paytmCallback.jsp</string>
 

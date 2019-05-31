@@ -161,7 +161,7 @@ public class AddCashActivity extends AppCompatActivity implements PaytmPaymentTr
             if (dialog.isShowing()) {
                 dialog.dismiss();
             }
-            PaytmPGService Service = PaytmPGService.getStagingService();
+            PaytmPGService Service = PaytmPGService.getProductionService();
             // when app is ready to publish use production service
             // PaytmPGService  Service = PaytmPGService.getProductionService();
             // now call paytm service here
