@@ -86,8 +86,8 @@
                     android:padding="16dp"
                     android:drawableStart="@drawable/name"
                     android:drawablePadding="8dp"
-                    android:hint="Enter your Username"
-                    android:inputType="textEmailAddress"
+                    android:hint="Enter your Mobile Number"
+                    android:inputType="number"
                     android:textColor="@color/black_text"
                     android:textColorHint="@android:color/black" />
             </android.support.design.widget.TextInputLayout>

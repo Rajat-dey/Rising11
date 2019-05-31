@@ -22,7 +22,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:hint="Name"
-                android:text="Dheeraj Kumawat"
+                android:id="@+id/name"
                 android:inputType="text"
                 android:textColor="@color/black_text"
                 android:textColorHint="@android:color/white" />
@@ -39,7 +39,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:hint="Email"
-                android:text="dheeraj98kumawat27@gmail.com"
+                android:id="@+id/email"
                 android:inputType="textEmailAddress"
                 android:textColor="#c0c0c0"
                 android:textColorHint="@android:color/white" />
@@ -56,7 +56,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:hint="Password"
-                android:text="1234"
+                android:id="@+id/password"
                 android:inputType="textPassword"
                 android:textColor="#c0c0c0"
                 android:textColorHint="@android:color/white" />
@@ -73,8 +73,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
+                android:id="@+id/dob"
+                android:maxLength="10"
                 android:hint="Date of Birth"
-                android:text="1998-09-29"
                 android:inputType="date"
                 android:textColor="@color/black_text"
                 android:textColorHint="@android:color/white" />
@@ -98,8 +99,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_weight="1"
+                android:id="@+id/male"
                 android:orientation="horizontal"
-                android:background="@drawable/button_design_round_simple"
+                android:background="@drawable/button_design_round_simple_white_gray_border"
                 android:layout_marginRight="6dp">
                     <ImageView
                         android:layout_width="30dp"
@@ -119,6 +121,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="48dp"
                 android:layout_weight="1"
+                android:id="@+id/female"
                 android:orientation="horizontal"
                 android:background="@drawable/button_design_round_simple"
                 android:layout_marginLeft="6dp">
@@ -140,9 +143,12 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:id="@+id/mob"
                 android:layout_marginBottom="10dp"
-                android:text="8952847208"
                 android:inputType="phone"
+                android:clickable="false"
+                android:editable="false"
+                android:maxLength="11"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="8dp"
                 android:layout_marginTop="8dp"
@@ -167,6 +173,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:hint="Address"
+                android:id="@+id/address"
                 android:inputType="text"
                 android:textColor="@color/black_text"
                 android:textColorHint="@android:color/white" />
@@ -183,6 +190,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:hint="City"
+                android:id="@+id/city"
                 android:inputType="text"
                 android:textColor="@color/black_text"
                 android:textColorHint="@android:color/white" />
@@ -198,6 +206,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="10dp"
                 android:hint="Pin code"
+                android:maxLength="6"
+                android:id="@+id/pin"
                 android:inputType="text"
                 android:textColor="@color/black_text"
                 android:textColorHint="@android:color/white" />
@@ -215,6 +225,7 @@
                 android:layout_marginBottom="10dp"
                 android:textColor="#c0c0c0"
                 android:hint="Country"
+                android:id="@+id/country"
                 android:inputType="text"
                 android:textColorHint="@android:color/white" />
         </android.support.design.widget.TextInputLayout>
@@ -224,6 +235,7 @@
             android:layout_height="wrap_content"
             android:drawablePadding="8dp"
             android:text="Logout"
+            android:id="@+id/logout"
             android:layout_marginLeft="16dp"
             android:layout_marginTop="24dp"
             android:textColor="#526dad"
@@ -251,6 +263,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="#526dad"
+                    android:id="@+id/update"
                     android:text="UPDATE PROFILE"/>
             </LinearLayout>
         </LinearLayout>
