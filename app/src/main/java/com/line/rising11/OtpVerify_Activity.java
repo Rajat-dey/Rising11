@@ -254,4 +254,12 @@ public class OtpVerify_Activity extends AppCompatActivity {
 
         }
     }
+
+
+    @Override
+    public void onBackPressed() {
+        // super.onBackPressed();
+        Toast.makeText(OtpVerify_Activity.this,"Please enter the OTP otherwise you can't login",Toast.LENGTH_LONG).show();
+        return;
+    }
 }

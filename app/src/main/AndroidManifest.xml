@@ -18,7 +18,6 @@
         <activity android:name=".how_it_works" />
         <activity android:name=".fair_play_rules" />
         <activity android:name=".Verify_User_card" />
-        <activity android:name=".number_verify_activity" />
         <activity android:name=".ForgetSetPasswordActivity" />
         <activity android:name=".ForgotPasswordActivity" />
         <activity android:name=".OtpVerify_Activity" />

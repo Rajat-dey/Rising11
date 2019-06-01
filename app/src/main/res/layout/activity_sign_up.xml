@@ -90,6 +90,7 @@
                     android:padding="8dp"
                     android:hint="Enter your Number"
                     android:drawablePadding="8dp"
+                    android:maxLength="10"
                     android:drawableStart="@drawable/mobile"
                     android:inputType="number"
                     android:textColor="@color/black_text"
@@ -107,6 +108,7 @@
                     android:layout_marginBottom="7dp"
                     android:padding="8dp"
                     android:hint="Enter your Password"
+
                     android:drawablePadding="8dp"
                     android:drawableStart="@drawable/password"
                     android:inputType="textPassword"

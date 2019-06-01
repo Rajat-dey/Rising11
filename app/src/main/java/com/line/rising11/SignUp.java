@@ -84,6 +84,7 @@ private Button signup;
                                             intent.putExtra("type","signup");
                                             intent.putExtra("mob",number.getText().toString().trim());
                                             startActivity(intent);
+                                            finish();
 
                                             Toast.makeText(SignUp.this, response.getString("msg"), Toast.LENGTH_SHORT).show();
                                         }
