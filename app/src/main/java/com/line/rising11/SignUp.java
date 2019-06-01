@@ -97,6 +97,7 @@ private Button signup;
                                 }
                             });
 
+                    jsonObjectRequest.setShouldCache(false);
                     // Access the RequestQueue through your singleton class.
                     RestClient.getInstance(SignUp.this).addToRequestQueue(jsonObjectRequest);
 

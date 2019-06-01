@@ -118,4 +118,9 @@ public class HomeActivity extends AppCompatActivity
         drawer.closeDrawer(GravityCompat.START);
         return true;
     }
+
+    public void openJoinContest(View view) {
+        Intent intent = new Intent(HomeActivity.this, JoinedContest.class);
+        startActivity(intent);
+    }
 }
