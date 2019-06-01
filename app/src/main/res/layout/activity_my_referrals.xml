@@ -32,7 +32,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAlignment="center"
-            android:text="For every friend that plays,you both get ₹50 for free"
+            android:text="For every friend that sign-up with your referral code, you will get ₹25 for free"
             android:gravity="center"
             android:textColor="@color/black_text"
             android:paddingRight="16dp"
@@ -51,12 +51,15 @@
                 android:layout_height="wrap_content"
                 android:gravity="right"
                 android:layout_weight="2">
-                <TextView
+                <Button
+                    android:id="@+id/how_works"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="How it works"
+                    android:textAllCaps="false"
+                    android:background="@null"
                     android:textColor="#526dad"
-                    android:textSize="20sp"
+                    android:textSize="16sp"
                     android:textStyle="bold"/>
             </RelativeLayout>
             <RelativeLayout
@@ -74,11 +77,14 @@
                 android:layout_height="wrap_content"
                 android:gravity="left"
                 android:layout_weight="2">
-                <TextView
+                <Button
+                    android:id="@+id/fair_plays"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Rule of FairPlay"
-                    android:textSize="20sp"
+                    android:textAllCaps="false"
+                    android:background="@null"
+                    android:textSize="16sp"
                     android:textColor="#526dad"
                     android:textStyle="bold"/>
             </RelativeLayout>
@@ -88,7 +94,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:cardElevation="4dp"
-            app:cardCornerRadius="4dp"
+            app:cardCornerRadius="8dp"
+            android:layout_marginBottom="32dp"
             android:layout_marginTop="16dp"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp">
@@ -96,7 +103,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical"
-                android:paddingBottom="32dp"
+                android:paddingBottom="20dp"
                 android:paddingLeft="16dp"
                 android:paddingRight="16dp"
                 android:gravity="center_horizontal">
@@ -114,6 +121,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:textAlignment="center"
+                    android:id="@+id/sharetv"
                     android:text="DHEER22070KL"
                     android:gravity="center"
                     android:textColor="@color/black_text"
@@ -121,14 +129,24 @@
                     android:paddingLeft="16dp"
                     android:textStyle="bold"
                     android:textSize="28sp"
+                    android:textAllCaps="true"
                     android:layout_marginTop="16dp"/>
                 <RelativeLayout
                     android:paddingLeft="16dp"
                     android:paddingRight="16dp"
                     android:layout_marginTop="24dp"
+                    android:id="@+id/sharerl"
+                    android:layout_gravity="center_vertical"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:background="@drawable/button_design_round_invite">
+                    <ImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginLeft="10dp"
+                        android:src="@drawable/whatsapp"
+                        android:layout_alignParentLeft="true" />
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
@@ -140,8 +158,10 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="More optinos"
-                    android:layout_marginTop="28dp"
+                    android:text="More options"
+                    android:id="@+id/moreshare"
+                    android:padding="16dp"
+                    android:layout_marginTop="20dp"
                     android:textSize="20sp"
                     android:textColor="#526dad"
                     android:textStyle="bold"/>

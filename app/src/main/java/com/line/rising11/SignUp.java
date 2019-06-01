@@ -1,6 +1,7 @@
 package com.line.rising11;
 
 import android.content.Intent;
+import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -18,7 +19,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class SignUp extends AppCompatActivity {
-private EditText name,email,number,password;
+private EditText name,email,number,password,code;
 private Button signup;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +29,7 @@ private Button signup;
         email=findViewById(R.id.email);
         number=findViewById(R.id.number);
         password=findViewById(R.id.password);
+        code=findViewById(R.id.code);
         signup=findViewById(R.id.btn_signup);
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,9 +57,20 @@ private Button signup;
                 else
                 {
                     //http://rising11.com/apps/apis/register-user.php?name=Vivek&mobile=7034234575&password=123&email=v@gmail.com
+                    String id = Settings.Secure.getString(getApplicationContext().getContentResolver(), Settings.Secure.ANDROID_ID);
+                    String link="http://rising11.com/apps/apis/register-user.php"+"?name="+name.getText().toString()+"&mobile="+number.getText().toString()+"&password="+password.getText().toString()+"&email="+email.getText().toString();
+                    if(code.getText().toString().trim().equals(""))
+                   {
+                      link="http://rising11.com/apps/apis/register-user.php"+"?name="+name.getText().toString()+"&mobile="+number.getText().toString()+"&password="+password.getText().toString()+"&email="+email.getText().toString()+"&device_id="+id;
 
+                   }
+                   else
+                   {
+                       link="http://rising11.com/apps/apis/register-user.php"+"?name="+name.getText().toString()+"&mobile="+number.getText().toString()+"&password="+password.getText().toString()+"&email="+email.getText().toString()+"&invite_code="+code.getText().toString().trim()+"&device_id="+id;
+
+                   }
                     JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
-                            (Request.Method.GET, "http://rising11.com/apps/apis/register-user.php"+"?name="+name.getText().toString()+"&mobile="+number.getText().toString()+"&password="+password.getText().toString()+"&email="+email.getText().toString(), null, new Response.Listener<JSONObject>() {
+                            (Request.Method.GET, link, null, new Response.Listener<JSONObject>() {
                                 @Override
                                 public void onResponse(JSONObject response) {
                                     // Log.d("Response: ", response.toString());

@@ -140,20 +140,23 @@
                     android:textSize="18sp"/>
             </LinearLayout>
         </LinearLayout>
-            <EditText
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:id="@+id/mob"
                 android:layout_marginBottom="10dp"
-                android:inputType="phone"
-                android:clickable="false"
-                android:editable="false"
-                android:maxLength="11"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="8dp"
                 android:layout_marginTop="8dp"
+                android:textSize="18sp"
                 android:textColor="@color/black_text"
                 android:textColorHint="@android:color/white" />
+        <View
+            android:layout_width="fill_parent"
+            android:layout_height="1dp"
+            android:layout_marginLeft="16dp"
+            android:layout_marginRight="16dp"
+            android:background="#c0c0c0" />
 
             <android.support.v7.widget.SwitchCompat
                 android:layout_width="match_parent"

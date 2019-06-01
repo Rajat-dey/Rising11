@@ -28,7 +28,7 @@ public class AddCashActivity extends AppCompatActivity implements PaytmPaymentTr
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_cash);
-        setTitle("Add  Money from Paytm");
+        setTitle("Add Cash");
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
@@ -110,7 +110,7 @@ public class AddCashActivity extends AppCompatActivity implements PaytmPaymentTr
              else
              {
                  money=Integer.parseInt(etcash.getText().toString().trim());
-                 Toast.makeText(AddCashActivity.this, String.valueOf(money) +"add ho gai", Toast.LENGTH_SHORT).show();
+               //  Toast.makeText(AddCashActivity.this, String.valueOf(money) +"add ho gai", Toast.LENGTH_SHORT).show();
 
                  // ----------------------add paytm api here-----------------------
                  sendUserDetailTOServerdd dl = new sendUserDetailTOServerdd();

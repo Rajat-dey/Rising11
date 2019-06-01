@@ -11,7 +11,7 @@ import android.view.View;
 import android.widget.Button;
 
 public class MyBalanceActivity extends AppCompatActivity  {
-    private Button add_cash;
+    private Button add_cash, verify_user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,6 +26,8 @@ public class MyBalanceActivity extends AppCompatActivity  {
         }
 
        add_cash=findViewById(R.id.add_cash);
+       verify_user=findViewById(R.id.verify);
+
        add_cash.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v)
@@ -34,7 +36,25 @@ public class MyBalanceActivity extends AppCompatActivity  {
                startActivity(intent);
            }
        });
+
+
+        verify_user.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+                Intent intent=new Intent(MyBalanceActivity.this,Verify_User_card.class);
+                startActivity(intent);
+            }
+        });
+
+
+
+
     }
+
+
+
+
 
     @Override
     public boolean onSupportNavigateUp() {
