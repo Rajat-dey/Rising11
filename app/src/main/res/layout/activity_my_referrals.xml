@@ -32,7 +32,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAlignment="center"
-            android:text="For every friend that plays,you both get ₹50 for free"
+            android:text="For every friend that sign-up with your referral code, you will get ₹25 for free"
             android:gravity="center"
             android:textColor="@color/black_text"
             android:paddingRight="16dp"
@@ -51,10 +51,13 @@
                 android:layout_height="wrap_content"
                 android:gravity="right"
                 android:layout_weight="2">
-                <TextView
+                <Button
+                    android:id="@+id/how_works"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="How it works"
+                    android:textAllCaps="false"
+                    android:background="@null"
                     android:textColor="#526dad"
                     android:textSize="16sp"
                     android:textStyle="bold"/>
@@ -74,10 +77,13 @@
                 android:layout_height="wrap_content"
                 android:gravity="left"
                 android:layout_weight="2">
-                <TextView
+                <Button
+                    android:id="@+id/fair_plays"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Rule of FairPlay"
+                    android:textAllCaps="false"
+                    android:background="@null"
                     android:textSize="16sp"
                     android:textColor="#526dad"
                     android:textStyle="bold"/>

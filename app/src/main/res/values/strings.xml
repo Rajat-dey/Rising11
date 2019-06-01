@@ -40,4 +40,29 @@
     <string name="verifymobile">http://rising11.com/apps/apis/verify-mobile.php</string>
     <string name="userdetails">http://rising11.com/apps/apis/get-user-details.php</string>
 
+
+
+
+
+
+
+
+    <string name="how_it_works_step">Step-1:- Verify your email &amp; mobile no.
+Step-2:-Refer your Friend Rising11 by unique referral code.
+Step-3:-When your Friend Register and Verify their email &amp; mobile no. , your friend will get ₹50 instantly and you will get ₹15 cash bonus instantly.
+Step-4:-when your Friend Verify their pan-card &amp; Bank-account further you will get ₹10 cash bonus.</string>
+
+
+
+    <string name="how_it_works_button">***If any user will found to miss-use of cash bonus by creating multiple accounts &amp; verify them by fake documents then it will be considered under fair-play violation.
+*Please refer Terms &amp; Conditions (Refer &amp; Earn) and Fair-Play Violation.</string>
+
+
+
+
+    <string name="fair_play_rules_top">What are the rules of FairPlay?</string>
+    <string name="fair_play_rules_middle">You cannot..</string>
+
+
+
 </resources>

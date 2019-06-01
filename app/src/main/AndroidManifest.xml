@@ -14,7 +14,10 @@
         android:networkSecurityConfig="@xml/network_security_config"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Verify_User_card"></activity>
+        <activity android:name=".fairPlay_TC"></activity>
+        <activity android:name=".how_it_works" />
+        <activity android:name=".fair_play_rules" />
+        <activity android:name=".Verify_User_card" />
         <activity android:name=".number_verify_activity" />
         <activity android:name=".ForgetSetPasswordActivity" />
         <activity android:name=".ForgotPasswordActivity" />
