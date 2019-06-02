@@ -3,10 +3,13 @@ package com.line.rising11;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentManager;
+import android.util.Log;
 import android.view.View;
 import android.support.v4.view.GravityCompat;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -17,11 +20,24 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class HomeActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
+
+    TextView username,verified;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,6 +57,80 @@ public class HomeActivity extends AppCompatActivity
 
         FragmentManager manager = getSupportFragmentManager();
         manager.beginTransaction().replace(R.id.rl_fragment, new HomeFragment()).commit();
+
+
+        username=findViewById(R.id.tv_user_name);
+        verified=findViewById(R.id.tv_verified);
+
+
+        boolean connected = false;
+        ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
+        if(connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED ||
+                connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED) {
+
+            JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
+                    (Request.Method.GET, getString(R.string.userdetails)+"?mobile="+sharedPreferences.getString("number",""), null, new Response.Listener<JSONObject>() {
+                        @Override
+                        public void onResponse(JSONObject response) {
+                            Log.d("Response: ", response.toString());
+                            //Log.d("Link",getString(R.string.signup) +"?mobile="+email.getText().toString().trim()+"&password="+password.getText().toString().trim());
+
+
+                            try {
+                                if(response.getString("code").equals("1"))
+                                {
+                                    JSONObject obj=response.getJSONObject("contest");
+
+                                /*   username.setText(obj.getString("name"));
+
+                                  //  Toast.makeText(HomeActivity.this, response.getString("msg"), Toast.LENGTH_SHORT).show();
+
+                                    if(!obj.getString("is_verified").equals("1")) {
+                                        verified.setText("Verified");
+                                    }*/
+                                }
+                                else
+                                {
+                                    Toast.makeText(HomeActivity.this, response.getString("msg"), Toast.LENGTH_SHORT).show();
+                                               /* Toast.makeText(getApplicationContext(), "Error "
+                                                        + response.getString("code") + ": "
+                                                        + response.getString("message"), Toast.LENGTH_LONG)
+                                                        .show();*/
+                                }
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+
+                        }
+                    }, new Response.ErrorListener() {
+
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            // TODO: Handle error
+                            Toast.makeText(getApplicationContext(), "Error: "
+                                    + error.getLocalizedMessage(), Toast.LENGTH_LONG)
+                                    .show();
+                        }
+                    });
+
+            // Access the RequestQueue through your singleton class.
+            RestClient.getInstance(HomeActivity.this).addToRequestQueue(jsonObjectRequest);
+
+
+
+            connected = true;
+        }
+        else
+        {
+            /*Snackbar.make(v, "Please check your Internet connection", Snackbar.LENGTH_LONG)
+                    .setAction("Action", null).show();*/
+        }
+
+
+
+
+
+
 
     }
 
@@ -117,5 +207,10 @@ public class HomeActivity extends AppCompatActivity
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    public void openJoinContest(View view) {
+        Intent intent = new Intent(HomeActivity.this, JoinedContest.class);
+        startActivity(intent);
     }
 }

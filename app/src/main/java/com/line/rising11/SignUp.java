@@ -84,6 +84,7 @@ private Button signup;
                                             intent.putExtra("type","signup");
                                             intent.putExtra("mob",number.getText().toString().trim());
                                             startActivity(intent);
+                                            finish();
 
                                             Toast.makeText(SignUp.this, response.getString("msg"), Toast.LENGTH_SHORT).show();
                                         }
@@ -110,6 +111,7 @@ private Button signup;
                                 }
                             });
 
+                    jsonObjectRequest.setShouldCache(false);
                     // Access the RequestQueue through your singleton class.
                     RestClient.getInstance(SignUp.this).addToRequestQueue(jsonObjectRequest);
 

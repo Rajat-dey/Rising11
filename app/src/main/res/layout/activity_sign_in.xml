@@ -28,6 +28,7 @@
             android:textColor="@color/white_text"
             android:gravity="center"
             android:textSize="35sp"
+            android:textStyle="bold"
             android:text="WELCOME" />
 
         <TextView
@@ -36,6 +37,7 @@
             android:textColor="@color/white_text"
             android:textSize="30sp"
             android:gravity="center"
+            android:textStyle="bold"
             android:text="TO" />
 
         <TextView
@@ -44,6 +46,7 @@
             android:textColor="@color/white_text"
             android:gravity="center"
             android:textSize="30sp"
+            android:textStyle="bold"
             android:text="RISING 11" />
     </LinearLayout>
 
@@ -60,6 +63,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
+        android:textStyle="bold"
         android:text="WWW.RISING11.COM"
         android:textColor="@color/white_text"
         android:textSize="20sp"

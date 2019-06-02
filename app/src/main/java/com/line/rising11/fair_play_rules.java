@@ -4,29 +4,33 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.TextView;
+import android.widget.Button;
 
-public class Contest extends AppCompatActivity {
+public class fair_play_rules extends AppCompatActivity {
 
-    TextView playerpoints;
+    Button TC;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_contest);
-        setTitle("JOINED CONTEST");
+        setContentView(R.layout.fair_play);
+        setTitle("Fair Play Rules");
+
+        TC = findViewById(R.id.fair_play_TC);
 
 
-        playerpoints=findViewById(R.id.player_points);
-
-
-        playerpoints.setOnClickListener(new View.OnClickListener() {
+        TC.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v)
             {
-                Intent intent=new Intent(Contest.this,player_points.class);
+                Intent intent=new Intent(fair_play_rules.this,fairPlay_TC.class);
                 startActivity(intent);
             }
         });
+
+
+
+
 
     }
 }
