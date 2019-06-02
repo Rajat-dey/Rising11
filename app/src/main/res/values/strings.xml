@@ -73,4 +73,13 @@
         \n\n• Further, in other scenario the total amount present in the Rising11 wallet of the user violating the Fair Play terms of Rising11 will be reduced to zero.</string>
 
 
+
+
+
+
+    <!-- CRIC_API -->
+
+    <string name="Cric_APi_Key">5Z3TcFtqIPPg2mT1TCcwhHFNKs72</string>
+    <string name="Cric_cricket_score">https://cricapi.com/api/cricketScore</string>
+
 </resources>

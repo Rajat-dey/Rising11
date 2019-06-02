@@ -103,73 +103,43 @@
             android:layout_marginTop="5dp"
             android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/tm1"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center|left"
-                android:padding="5dp"
-                android:text="SRH" />
+
 
             <TextView
                 android:id="@+id/score1"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center|right"
+                android:layout_weight="3"
+                android:gravity="center"
                 android:padding="5dp"
-                android:text="150-4" />
+               />
+
+
 
             <TextView
-                android:id="@+id/overs1"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center|left"
-                android:padding="5dp"
-                android:text="(20.0)" />
-
-            <TextView
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:padding="5dp"
                 android:text="|" />
 
-            <TextView
-                android:id="@+id/tm2"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:padding="5dp"
-
-                android:text="KXIP" />
 
             <TextView
                 android:id="@+id/score2"
-                android:layout_width="match_parent"
+                android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center|right"
+                android:layout_weight="3"
+                android:gravity="center"
                 android:padding="5dp"
-                android:text="151-4" />
+                />
 
-            <TextView
-                android:id="@+id/overs2"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:gravity="center|left"
-                android:padding="5dp"
-                android:text="(19.0)" />
+
         </LinearLayout>
 
 
         <TextView
-            android:id="@+id/textView9"
+            android:id="@+id/statics"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"
