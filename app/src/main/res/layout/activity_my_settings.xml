@@ -8,7 +8,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="wrap_content"
         android:orientation="vertical">
         <android.support.design.widget.TextInputLayout
             android:layout_width="match_parent"
@@ -37,7 +37,7 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="5dp"
                 android:hint="Email"
                 android:id="@+id/email"
                 android:inputType="textEmailAddress"
@@ -54,7 +54,7 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="5dp"
                 android:hint="Password"
                 android:id="@+id/password"
                 android:inputType="textPassword"
@@ -72,7 +72,7 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="5dp"
                 android:id="@+id/dob"
                 android:maxLength="10"
                 android:hint="Date of Birth"
@@ -89,24 +89,24 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="50dp"
             android:orientation="horizontal"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="4dp"
             android:weightSum="2"
             >
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="48dp"
+                android:layout_height="38dp"
                 android:layout_weight="1"
                 android:id="@+id/male"
                 android:orientation="horizontal"
                 android:background="@drawable/button_design_round_simple_white_gray_border"
                 android:layout_marginRight="6dp">
                     <ImageView
-                        android:layout_width="30dp"
-                        android:layout_height="30dp"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
                         android:layout_marginLeft="16dp"
                         android:src="@drawable/male"
                         android:layout_gravity="center_vertical"/>
@@ -116,19 +116,19 @@
                     android:text="male"
                     android:layout_marginLeft="16dp"
                     android:layout_gravity="center_vertical"
-                    android:textSize="18sp"/>
+                    android:textSize="16sp"/>
             </LinearLayout>
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="48dp"
+                android:layout_height="38dp"
                 android:layout_weight="1"
                 android:id="@+id/female"
                 android:orientation="horizontal"
                 android:background="@drawable/button_design_round_simple"
                 android:layout_marginLeft="6dp">
                 <ImageView
-                    android:layout_width="30dp"
-                    android:layout_height="30dp"
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
                     android:layout_marginLeft="16dp"
                     android:src="@drawable/female"
                     android:layout_gravity="center_vertical"/>
@@ -138,7 +138,7 @@
                     android:text="female"
                     android:layout_marginLeft="16dp"
                     android:layout_gravity="center_vertical"
-                    android:textSize="18sp"/>
+                    android:textSize="16sp"/>
             </LinearLayout>
         </LinearLayout>
             <TextView
@@ -175,7 +175,7 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="5dp"
                 android:hint="Address"
                 android:id="@+id/address"
                 android:inputType="text"
@@ -192,7 +192,7 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="5dp"
                 android:hint="City"
                 android:id="@+id/city"
                 android:inputType="text"
@@ -208,7 +208,7 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="5dp"
                 android:hint="Pin code"
                 android:maxLength="6"
                 android:id="@+id/pin"
@@ -226,7 +226,7 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
+                android:layout_marginBottom="5dp"
                 android:textColor="#c0c0c0"
                 android:hint="Country"
                 android:id="@+id/country"
@@ -254,9 +254,9 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="80dp"
+            android:layout_height="70dp"
             android:background="#526dad"
-            android:layout_marginTop="32dp"
+            android:layout_marginTop="22dp"
             android:gravity="center">
             <LinearLayout
                 android:layout_width="200dp"
