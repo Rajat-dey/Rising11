@@ -42,11 +42,6 @@
     <string name="wallet">http://rising11.com/apps/apis/get-wallet-balance.php</string>
 
 
-
-
-
-
-
     <string name="how_it_works_step">Step-1:- Verify your email &amp; mobile no.\n\nStep-2:-Refer your Friend <b>Rising11</b> by unique referral code.
         \n\nStep-3:-When your Friend Register and Verify their email &amp; mobile no. , your friend will get ₹50 instantly and you will get ₹15 cash bonus instantly.
         \n\nStep-4:-when your Friend Verify their pan-card &amp; Bank-account further you will get ₹10 cash bonus.</string>
@@ -76,7 +71,6 @@
 
     <string name="fair_play_TC_3">\n\n• As a part of consequences for violating the terms of Fair Play at Rising11, the account of the user found to be violating the Fair Play terms will be blocked.
         \n\n• Further, in other scenario the total amount present in the Rising11 wallet of the user violating the Fair Play terms of Rising11 will be reduced to zero.</string>
-
 
 
 </resources>
