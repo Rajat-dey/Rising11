@@ -21,6 +21,8 @@
     <string name="title_notifications">Notifications</string>
 
     <string name="underline_string"><u>Know more</u></string>
+    <string name="line1_bullet">\u2022 Track the status of withdrawals</string>
+    <string name="line2_bullet">\u2022 Enjoy access to exciting features &amp; rewards</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -71,10 +73,6 @@
 
     <string name="fair_play_TC_3">\n\n• As a part of consequences for violating the terms of Fair Play at Rising11, the account of the user found to be violating the Fair Play terms will be blocked.
         \n\n• Further, in other scenario the total amount present in the Rising11 wallet of the user violating the Fair Play terms of Rising11 will be reduced to zero.</string>
-
-
-
-
 
 
     <!-- CRIC_API -->
