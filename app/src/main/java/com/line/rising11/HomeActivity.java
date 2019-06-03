@@ -90,7 +90,7 @@ public class HomeActivity extends AppCompatActivity
         verified=headerview.findViewById(R.id.tv_verified);
         right=headerview.findViewById(R.id.right);
 
-        verified.setText("Non Verified");
+        verified.setText("Unverified");
         right.setVisibility(View.INVISIBLE);
 
 
