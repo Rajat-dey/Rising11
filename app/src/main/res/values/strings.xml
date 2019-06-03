@@ -21,6 +21,8 @@
     <string name="title_notifications">Notifications</string>
 
     <string name="underline_string"><u>Know more</u></string>
+    <string name="line1_bullet">\u2022 Track the status of withdrawals</string>
+    <string name="line2_bullet">\u2022 Enjoy access to exciting features &amp; rewards</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
@@ -39,30 +41,43 @@
 
     <string name="verifymobile">http://rising11.com/apps/apis/verify-mobile.php</string>
     <string name="userdetails">http://rising11.com/apps/apis/get-user-details.php</string>
+    <string name="wallet">http://rising11.com/apps/apis/get-wallet-balance.php</string>
 
 
-
-
-
-
-
-
-    <string name="how_it_works_step">Step-1:- Verify your email &amp; mobile no.
-Step-2:-Refer your Friend Rising11 by unique referral code.
-Step-3:-When your Friend Register and Verify their email &amp; mobile no. , your friend will get ₹50 instantly and you will get ₹15 cash bonus instantly.
-Step-4:-when your Friend Verify their pan-card &amp; Bank-account further you will get ₹10 cash bonus.</string>
-
-
+    <string name="how_it_works_step">Step-1:- Verify your email &amp; mobile no.\n\nStep-2:-Refer your Friend <b>Rising11</b> by unique referral code.
+        \n\nStep-3:-When your Friend Register and Verify their email &amp; mobile no. , your friend will get ₹50 instantly and you will get ₹15 cash bonus instantly.
+        \n\nStep-4:-when your Friend Verify their pan-card &amp; Bank-account further you will get ₹10 cash bonus.</string>
 
     <string name="how_it_works_button">***If any user will found to miss-use of cash bonus by creating multiple accounts &amp; verify them by fake documents then it will be considered under fair-play violation.
-*Please refer Terms &amp; Conditions (Refer &amp; Earn) and Fair-Play Violation.</string>
-
-
-
+        \n\n*Please refer Terms &amp; Conditions (Refer &amp; Earn) and Fair-Play Violation.</string>
 
     <string name="fair_play_rules_top">What are the rules of FairPlay?</string>
-    <string name="fair_play_rules_middle">You cannot..</string>
+    <string name="fair_play_rules_middle">• You cannot create multipe account.
+        \n\n• You cannot misuse your invite code in any way.
+         \n\n• You cannot misuse your cash bonus in any way.
+         \n \n\nWhat happens when:
+          \n\n• You misuse your Invite Code by creating multiple account:
+         \n\n<b> WE BLOCK THE CASH BONUS AND THE INVITE CODE</b>
+         \n\n• You misuse the cash bonus and win multiple contests:
+         \n\n<b>WE TAKE BACK WINNING OF THAT CONTEST</b>
+    </string>
+
+    <string name="fair_play_TC_1">Rising11 considers Fair Play to be a priority at its platform and any user violating the Fair Play Terms of Rising11 shall be entitled to bear various consequences including Blocking of the user Account.</string>
+
+    <string name="fair_play_TC_2">• The people you are referring should all be genuine accounts and the user should not use any fake accounts to gain the “Refer &amp; Earn” cash bonus amount.
+        \n\n• The PAN card of all your referred friends should be verified. In an event, the PAN card of more than 3 of your referred friends are not verified the user will be considered as violating the Fair Play Terms of Rising11.
+        \n\n• A user creating more than one account on Rising11 platform will be considered as violating the Fair Play Terms of Rising11 as Rising11 neither allows nor encourages any user to create more than one user account on Rising11.
+        \n\n• Withdrawing money by using any unlawful or illegal means or trying to withdraw money by illegal manners is considered as Fair Play violation at Rising11.
+        \n\n• If a user is found submitting fake copies or someone else’s documents while registering with Rising11, the act will be considered as violating the Fair Play Terms of Rising11.
+        \n\n• In case a user is found to be creating and using multiple accounts on a single device amid regular platform audits, then, the case shall be considered to violate Fair Play Terms of Rising11 and shall attract needed actions. As part of the action, the withdrawal request of the user shall be put on hold.</string>
+
+    <string name="fair_play_TC_3">\n\n• As a part of consequences for violating the terms of Fair Play at Rising11, the account of the user found to be violating the Fair Play terms will be blocked.
+        \n\n• Further, in other scenario the total amount present in the Rising11 wallet of the user violating the Fair Play terms of Rising11 will be reduced to zero.</string>
 
 
+    <!-- CRIC_API -->
+
+    <string name="Cric_APi_Key">5Z3TcFtqIPPg2mT1TCcwhHFNKs72</string>
+    <string name="Cric_cricket_score">https://cricapi.com/api/cricketScore</string>
 
 </resources>

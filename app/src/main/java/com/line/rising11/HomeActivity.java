@@ -3,10 +3,15 @@ package com.line.rising11;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentManager;
+import android.util.Log;
 import android.view.View;
 import android.support.v4.view.GravityCompat;
 import android.support.v7.app.ActionBarDrawerToggle;
@@ -17,11 +22,26 @@ import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
+import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import com.android.volley.Request;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+
+import org.json.JSONException;
+import org.json.JSONObject;
 
 public class HomeActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     SharedPreferences sharedPreferences;
     SharedPreferences.Editor editor;
+    ImageView right;
+
+    TextView username,verified;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +52,7 @@ public class HomeActivity extends AppCompatActivity
         editor=sharedPreferences.edit();
         DrawerLayout drawer = findViewById(R.id.drawer_layout);
         NavigationView navigationView = findViewById(R.id.nav_view);
+        View headerview=navigationView.getHeaderView(0);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
                 this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
@@ -41,6 +62,105 @@ public class HomeActivity extends AppCompatActivity
 
         FragmentManager manager = getSupportFragmentManager();
         manager.beginTransaction().replace(R.id.rl_fragment, new HomeFragment()).commit();
+
+        BottomNavigationView bottomNavigationView=findViewById(R.id.nav_bottom_view);
+        bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem menuItem)
+            {
+                if(menuItem.getItemId()==R.id.navigation_home)
+                {
+
+                }
+                else if (menuItem.getItemId()==R.id.navigation_dashboard)
+                {
+
+                }
+                else if(menuItem.getItemId()==R.id.navigation_notifications)
+                {
+                    Intent intent=new Intent(HomeActivity.this,HomeMoreActivity.class);
+                    startActivity(intent);
+                }
+                return true;
+            }
+        });
+
+
+        username=headerview.findViewById(R.id.tv_user_name);
+        verified=headerview.findViewById(R.id.tv_verified);
+        right=headerview.findViewById(R.id.right);
+
+        verified.setText("Non Verified");
+        right.setVisibility(View.INVISIBLE);
+
+
+        boolean connected = false;
+        ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
+        if(connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED ||
+                connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED) {
+
+            JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
+                    (Request.Method.GET, getString(R.string.userdetails)+"?mobile="+sharedPreferences.getString("number",""), null, new Response.Listener<JSONObject>() {
+                        @Override
+                        public void onResponse(JSONObject response) {
+                            //Log.d("Link",getString(R.string.signup) +"?mobile="+email.getText().toString().trim()+"&password="+password.getText().toString().trim());
+
+
+                            try {
+                                if(response.getString("code").equals("1"))
+                                {
+                                    JSONObject obj=response.getJSONObject("contest");
+
+                                username.setText(obj.getString("name"));
+                                    /*
+                                  //  Toast.makeText(HomeActivity.this, response.getString("msg"), Toast.LENGTH_SHORT).show();
+
+                                    if(!obj.getString("is_verified").equals("1")) {
+                                        verified.setText("Verified");
+                                    }*/
+                                }
+                                else
+                                {
+                                    Toast.makeText(HomeActivity.this, response.getString("msg"), Toast.LENGTH_SHORT).show();
+                                               /* Toast.makeText(getApplicationContext(), "Error "
+                                                        + response.getString("code") + ": "
+                                                        + response.getString("message"), Toast.LENGTH_LONG)
+                                                        .show();*/
+                                }
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+
+                        }
+                    }, new Response.ErrorListener() {
+
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            // TODO: Handle error
+                            Toast.makeText(getApplicationContext(), "Error: "
+                                    + error.getLocalizedMessage(), Toast.LENGTH_LONG)
+                                    .show();
+                        }
+                    });
+
+            // Access the RequestQueue through your singleton class.
+            RestClient.getInstance(HomeActivity.this).addToRequestQueue(jsonObjectRequest);
+
+
+
+            connected = true;
+        }
+        else
+        {
+            /*Snackbar.make(v, "Please check your Internet connection", Snackbar.LENGTH_LONG)
+                    .setAction("Action", null).show();*/
+        }
+
+
+
+
+
+
 
     }
 

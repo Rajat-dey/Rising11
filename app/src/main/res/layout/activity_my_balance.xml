@@ -30,14 +30,16 @@ tools:context="com.line.rising11.MyBalanceActivity">
                     android:text="TOTAL BALANCE"
                     android:gravity="center"
                     android:layout_marginTop="16dp"/>
+
                 <TextView
+                    android:id="@+id/balance"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:textSize="18dp"
-                    android:textColor="@color/black_text"
                     android:layout_marginTop="8dp"
-                    android:text="₹0"/>
+                    android:gravity="center"
+                    android:text="₹0"
+                    android:textColor="@color/black_text"
+                    android:textSize="18dp" />
                 <Button
                     android:layout_width="100dp"
                     android:layout_height="28dp"
@@ -66,12 +68,14 @@ tools:context="com.line.rising11.MyBalanceActivity">
                     android:paddingLeft="16dp"
                     android:paddingRight="16dp"
                     android:layout_marginTop="8dp">
+
                     <TextView
+                        android:id="@+id/deposit"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="18dp"
+                        android:text="₹0"
                         android:textColor="@color/black_text"
-                        android:text="₹0"/>
+                        android:textSize="18dp" />
                     <ImageView
                         android:layout_width="30dp"
                         android:layout_height="30dp"
@@ -99,14 +103,16 @@ tools:context="com.line.rising11.MyBalanceActivity">
                     android:weightSum="2"
                    android:orientation="horizontal"
                     android:layout_marginTop="8dp">
+
                     <TextView
+                        android:id="@+id/winnings"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="18dp"
                         android:layout_marginLeft="16dp"
-                        android:textColor="@color/black_text"
                         android:layout_weight="1"
-                        android:text="₹0"/>
+                        android:text="₹0"
+                        android:textColor="@color/black_text"
+                        android:textSize="18dp" />
                    <RelativeLayout
                        android:layout_width="wrap_content"
                        android:layout_height="wrap_content"
@@ -159,12 +165,14 @@ tools:context="com.line.rising11.MyBalanceActivity">
                     android:paddingLeft="16dp"
                     android:paddingRight="16dp"
                     android:layout_marginTop="8dp">
+
                     <TextView
+                        android:id="@+id/cash_bonus"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:textSize="18dp"
+                        android:text="₹0"
                         android:textColor="@color/black_text"
-                        android:text="₹0"/>
+                        android:textSize="18dp" />
                     <ImageView
                         android:layout_width="30dp"
                         android:layout_height="30dp"

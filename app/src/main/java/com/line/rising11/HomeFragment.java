@@ -33,7 +33,8 @@ public class HomeFragment extends Fragment {
         // Inflate the layout for this fragment
 
         View view = inflater.inflate(R.layout.fragment_home, container, false);
-
+        view.findViewById(R.id.rv_home_matches).setFocusable(false);
+        view.findViewById(R.id.rl).requestFocus();
         rvHomeMatches = view.findViewById(R.id.rv_home_matches);
         rvHomeMatches.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
         rvHomeMatches.setAdapter(new CustomMatchAdapter(new JSONArray()));
