@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".TeamSelectionActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/cardview_dark_background"
+            android:padding="16dp">
+
+            <TextView
+                android:id="@+id/tv_inst_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Max 7 Players from a Team"
+                android:textColor="@android:color/white"
+                android:layout_centerHorizontal="true"
+                android:layout_marginBottom="16dp"/>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:weightSum="2"
+                android:layout_below="@id/tv_inst_title">
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginRight="8dp">
+
+                    <TextView
+                        android:id="@+id/tv_title_players"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Players"
+                        android:textColor="#FFCEC5C5"/>
+
+                    <TextView
+                        android:id="@+id/tv_player_selected_count"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="0"
+                        android:textStyle="bold"
+                        android:textColor="@android:color/white"
+                        android:textSize="24sp"
+                        android:layout_below="@id/tv_title_players"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="/11"
+                        android:textColor="#FFCEC5C5"
+                        android:textSize="20sp"
+                        android:layout_toRightOf="@id/tv_player_selected_count"
+                        android:layout_alignBottom="@id/tv_player_selected_count"/>
+
+
+                    <TextView
+                        android:id="@+id/tv_title_team1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="AFGH"
+                        android:textColor="#FFCEC5C5"
+                        android:layout_alignParentRight="true"/>
+
+                    <TextView
+                        android:id="@+id/tv_team1_player_count"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="3"
+                        android:textColor="@android:color/white"
+                        android:textSize="20sp"
+                        android:layout_below="@id/tv_title_team1"
+                        android:layout_alignStart="@id/tv_title_team1"/>
+
+                    <ImageView
+                        android:id="@+id/iv_team1_logo"
+                        android:layout_width="56dp"
+                        android:layout_height="56dp"
+                        android:src="@drawable/ic_default_avatar"
+                        android:layout_toLeftOf="@id/tv_team1_player_count"/>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="8dp">
+
+                    <TextView
+                        android:id="@+id/tv_title_credits_left"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="Credits Left"
+                        android:textColor="#FFCEC5C5"
+                        android:layout_alignParentRight="true"/>
+
+                    <TextView
+                        android:id="@+id/tv_credits_left"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="73.0"
+                        android:textStyle="bold"
+                        android:textColor="@android:color/white"
+                        android:textSize="24sp"
+                        android:layout_below="@id/tv_title_credits_left"
+                        android:layout_alignRight="@id/tv_title_credits_left"/>
+
+
+                    <TextView
+                        android:id="@+id/tv_title_team2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="SL"
+                        android:textColor="#FFCEC5C5"
+                        android:layout_alignParentLeft="true"/>
+
+                    <TextView
+                        android:id="@+id/tv_team2_player_count"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="5"
+                        android:textColor="@android:color/white"
+                        android:textSize="20sp"
+                        android:layout_below="@id/tv_title_team2"
+                        android:layout_alignEnd="@id/tv_title_team2"/>
+
+                    <ImageView
+                        android:id="@+id/iv_team2_logo"
+                        android:layout_width="56dp"
+                        android:layout_height="56dp"
+                        android:src="@drawable/ic_default_avatar"
+                        android:layout_toRightOf="@id/tv_team2_player_count"/>
+                </RelativeLayout>
+
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tb_home"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            app:tabTextColor="#e3e3e3"
+            app:tabSelectedTextColor="#3c3c3c">
+
+            <android.support.design.widget.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="WK (0)" />
+
+            <android.support.design.widget.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="BAT (0)" />
+
+            <android.support.design.widget.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="AR (0)" />
+
+            <android.support.design.widget.TabItem
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="BOWL (0)" />
+
+        </android.support.design.widget.TabLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="8dp"
+            android:background="@color/colorPrimary">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Select at least 1 Player"
+                android:textColor="@android:color/white"
+                android:layout_centerHorizontal="true"/>
+
+            <ImageView
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:src="@drawable/ic_info_black_24dp"
+                android:tint="@android:color/white"
+                android:layout_alignParentRight="true"/>
+
+        </RelativeLayout>
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_team_selection"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        </android.support.v7.widget.RecyclerView>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:orientation="horizontal"
+        android:layout_gravity="bottom"
+        android:gravity="center_horizontal"
+        android:layout_marginBottom="32dp">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Team Preview"
+            android:paddingLeft="32dp"
+            android:paddingRight="32dp"
+            android:textColor="#00a650"/>
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Continue"
+            android:textColor="@android:color/darker_gray"
+            android:paddingLeft="32dp"
+            android:paddingRight="32dp"/>
+
+    </LinearLayout>
+
+</FrameLayout>
