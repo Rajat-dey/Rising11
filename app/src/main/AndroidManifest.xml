@@ -14,7 +14,9 @@
         android:networkSecurityConfig="@xml/network_security_config"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Whatsapp_Update_Activity"></activity>
+        <activity android:name=".FantasyPointSystemActivity"></activity>
+        <activity android:name=".MyMatchActivity" />
+        <activity android:name=".Whatsapp_Update_Activity" />
         <activity android:name=".How_To_Play_Activity" />
         <activity android:name=".Invite_Code_Activity" />
         <activity android:name=".HomeMoreActivity" />
