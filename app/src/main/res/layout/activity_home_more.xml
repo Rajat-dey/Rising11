@@ -35,8 +35,8 @@
                             android:orientation="horizontal"
                             android:gravity="center_vertical">
                             <ImageView
-                                android:layout_width="40dp"
-                                android:layout_height="40dp"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
                                 android:src="@drawable/invitefriends"/>
                             <TextView
                                 android:layout_width="wrap_content"
@@ -72,8 +72,8 @@
                             android:orientation="horizontal"
                             android:gravity="center_vertical">
                             <ImageView
-                                android:layout_width="40dp"
-                                android:layout_height="40dp"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
                                 android:src="@drawable/mgs"/>
                             <TextView
                                 android:layout_width="wrap_content"
@@ -109,8 +109,8 @@
                             android:orientation="horizontal"
                             android:gravity="center_vertical">
                             <ImageView
-                                android:layout_width="40dp"
-                                android:layout_height="40dp"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
                                 android:src="@drawable/whatsappgray"/>
                             <TextView
                                 android:layout_width="wrap_content"
@@ -145,8 +145,8 @@
                             android:orientation="horizontal"
                             android:gravity="center_vertical">
                             <ImageView
-                                android:layout_width="40dp"
-                                android:layout_height="40dp"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
                                 android:src="@drawable/pointsystem"/>
                             <TextView
                                 android:layout_width="wrap_content"
@@ -182,8 +182,8 @@
                             android:orientation="horizontal"
                             android:gravity="center_vertical">
                             <ImageView
-                                android:layout_width="40dp"
-                                android:layout_height="40dp"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
                                 android:src="@drawable/howtoplay"/>
                             <TextView
                                 android:layout_width="wrap_content"
@@ -218,8 +218,8 @@
                             android:orientation="horizontal"
                             android:gravity="center_vertical">
                             <ImageView
-                                android:layout_width="40dp"
-                                android:layout_height="40dp"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
                                 android:src="@drawable/helpdesk"/>
                             <TextView
                                 android:layout_width="wrap_content"
@@ -254,8 +254,8 @@
                             android:orientation="horizontal"
                             android:gravity="center_vertical">
                             <ImageView
-                                android:layout_width="40dp"
-                                android:layout_height="40dp"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
                                 android:src="@drawable/jobs"/>
                             <TextView
                                 android:layout_width="wrap_content"
@@ -290,8 +290,8 @@
                             android:orientation="horizontal"
                             android:gravity="center_vertical">
                             <ImageView
-                                android:layout_width="40dp"
-                                android:layout_height="40dp"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
                                 android:src="@drawable/aboutus" />
                             <TextView
                                 android:layout_width="wrap_content"
@@ -326,8 +326,8 @@
                             android:orientation="horizontal"
                             android:gravity="center_vertical">
                             <ImageView
-                                android:layout_width="40dp"
-                                android:layout_height="40dp"
+                                android:layout_width="30dp"
+                                android:layout_height="30dp"
                                 android:src="@drawable/legal" />
                             <TextView
                                 android:layout_width="wrap_content"
