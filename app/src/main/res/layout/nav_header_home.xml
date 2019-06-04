@@ -38,6 +38,7 @@
                 android:layout_height="wrap_content"
                 android:paddingTop="@dimen/nav_header_vertical_spacing"
                 android:text="Deeraj Kumawat"
+                android:textStyle="bold"
                 android:textSize="16sp"
                 android:textColor="@android:color/white"
                 android:textAllCaps="true"
@@ -49,6 +50,7 @@
                 android:layout_height="wrap_content"
                 android:text="Verified"
                 android:textSize="16sp"
+                android:textStyle="bold"
                 android:textColor="@android:color/white"
                 android:layout_below="@id/tv_user_name"/>
 

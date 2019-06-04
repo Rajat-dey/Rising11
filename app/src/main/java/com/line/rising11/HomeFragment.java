@@ -37,7 +37,7 @@ public class HomeFragment extends Fragment {
         view.findViewById(R.id.rl).requestFocus();
         rvHomeMatches = view.findViewById(R.id.rv_home_matches);
         rvHomeMatches.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
-        rvHomeMatches.setAdapter(new CustomMatchAdapter(new JSONArray()));
+        rvHomeMatches.setAdapter(new CustomMatchAdapter(getContext(), new JSONArray()));
 
         return view;
     }

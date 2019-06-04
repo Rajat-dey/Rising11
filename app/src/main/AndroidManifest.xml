@@ -17,6 +17,7 @@
         <activity android:name=".FantasyPointSystemActivity"></activity>
         <activity android:name=".MyMatchActivity" />
         <activity android:name=".Whatsapp_Update_Activity" />
+        <activity android:name=".TeamSelectionActivity"></activity>
         <activity android:name=".How_To_Play_Activity" />
         <activity android:name=".Invite_Code_Activity" />
         <activity android:name=".HomeMoreActivity" />
