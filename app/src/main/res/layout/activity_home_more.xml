@@ -206,35 +206,41 @@
                         android:background="#c0c0c0"
                         android:layout_marginLeft="2dp"
                         android:layout_marginRight="2dp"/>
+
                     <RelativeLayout
+                        android:id="@+id/help_desk"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:paddingLeft="16dp"
-                        android:paddingRight="16dp"
                         android:paddingTop="24dp"
+                        android:paddingRight="16dp"
                         android:paddingBottom="24dp">
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:gravity="center_vertical">
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
                             <ImageView
                                 android:layout_width="30dp"
                                 android:layout_height="30dp"
-                                android:src="@drawable/helpdesk"/>
+                                android:src="@drawable/helpdesk" />
+
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
+                                android:layout_marginLeft="12dp"
                                 android:text="Helpdesk"
-                                android:layout_marginLeft="12dp"
                                 android:textColor="@color/black_text"
-                                android:textStyle="bold"/>
+                                android:textStyle="bold" />
                         </LinearLayout>
+
                         <ImageView
                             android:layout_width="30dp"
                             android:layout_height="30dp"
-                            android:src="@drawable/ic_arrow_right_gray_24dp"
-                            android:layout_alignParentRight="true"/>
+                            android:layout_alignParentRight="true"
+                            android:src="@drawable/ic_arrow_right_gray_24dp" />
                     </RelativeLayout>
                     <View
                         android:layout_width="match_parent"
@@ -242,35 +248,41 @@
                         android:background="#c0c0c0"
                         android:layout_marginLeft="2dp"
                         android:layout_marginRight="2dp"/>
+
                     <RelativeLayout
+                        android:id="@+id/jobs"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:paddingLeft="16dp"
-                        android:paddingRight="16dp"
                         android:paddingTop="24dp"
+                        android:paddingRight="16dp"
                         android:paddingBottom="24dp">
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:gravity="center_vertical">
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
                             <ImageView
                                 android:layout_width="30dp"
                                 android:layout_height="30dp"
-                                android:src="@drawable/jobs"/>
+                                android:src="@drawable/jobs" />
+
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Jobs"
                                 android:layout_marginLeft="12dp"
+                                android:text="Jobs"
                                 android:textColor="@color/black_text"
-                                android:textStyle="bold"/>
+                                android:textStyle="bold" />
                         </LinearLayout>
+
                         <ImageView
                             android:layout_width="30dp"
                             android:layout_height="30dp"
-                            android:src="@drawable/ic_arrow_right_gray_24dp"
-                            android:layout_alignParentRight="true"/>
+                            android:layout_alignParentRight="true"
+                            android:src="@drawable/ic_arrow_right_gray_24dp" />
                     </RelativeLayout>
                     <View
                         android:layout_width="match_parent"
@@ -278,35 +290,41 @@
                         android:background="#c0c0c0"
                         android:layout_marginLeft="2dp"
                         android:layout_marginRight="2dp"/>
+
                     <RelativeLayout
+                        android:id="@+id/about"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:paddingLeft="16dp"
-                        android:paddingRight="16dp"
                         android:paddingTop="24dp"
+                        android:paddingRight="16dp"
                         android:paddingBottom="24dp">
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:gravity="center_vertical">
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
                             <ImageView
                                 android:layout_width="30dp"
                                 android:layout_height="30dp"
                                 android:src="@drawable/aboutus" />
+
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="About Us"
                                 android:layout_marginLeft="12dp"
+                                android:text="About Us"
                                 android:textColor="@color/black_text"
-                                android:textStyle="bold"/>
+                                android:textStyle="bold" />
                         </LinearLayout>
+
                         <ImageView
                             android:layout_width="30dp"
                             android:layout_height="30dp"
-                            android:src="@drawable/ic_arrow_right_gray_24dp"
-                            android:layout_alignParentRight="true"/>
+                            android:layout_alignParentRight="true"
+                            android:src="@drawable/ic_arrow_right_gray_24dp" />
                     </RelativeLayout>
                     <View
                         android:layout_width="match_parent"
@@ -314,35 +332,41 @@
                         android:background="#c0c0c0"
                         android:layout_marginLeft="2dp"
                         android:layout_marginRight="2dp"/>
+
                     <RelativeLayout
+                        android:id="@+id/legality"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:paddingLeft="16dp"
-                        android:paddingRight="16dp"
                         android:paddingTop="24dp"
+                        android:paddingRight="16dp"
                         android:paddingBottom="24dp">
+
                         <LinearLayout
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:orientation="horizontal"
-                            android:gravity="center_vertical">
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
                             <ImageView
                                 android:layout_width="30dp"
                                 android:layout_height="30dp"
                                 android:src="@drawable/legal" />
+
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="Legality"
                                 android:layout_marginLeft="12dp"
+                                android:text="Legality"
                                 android:textColor="@color/black_text"
-                                android:textStyle="bold"/>
+                                android:textStyle="bold" />
                         </LinearLayout>
+
                         <ImageView
                             android:layout_width="30dp"
                             android:layout_height="30dp"
-                            android:src="@drawable/ic_arrow_right_gray_24dp"
-                            android:layout_alignParentRight="true"/>
+                            android:layout_alignParentRight="true"
+                            android:src="@drawable/ic_arrow_right_gray_24dp" />
                     </RelativeLayout>
                 </LinearLayout>
             </android.support.v7.widget.CardView>

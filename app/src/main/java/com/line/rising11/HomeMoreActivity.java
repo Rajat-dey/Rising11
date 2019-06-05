@@ -10,7 +10,7 @@ import android.view.View;
 import android.widget.RelativeLayout;
 
 public class HomeMoreActivity extends AppCompatActivity {
-    RelativeLayout  invite_rl,invite_code_rl,whatsapp_rl,how_to_play_rl,fantasy_rl;
+    RelativeLayout  invite_rl,invite_code_rl,whatsapp_rl,how_to_play_rl,fantasy_rl,helpdesk,job,aboutus,legality;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -25,6 +25,10 @@ public class HomeMoreActivity extends AppCompatActivity {
         whatsapp_rl=findViewById(R.id.whatsapp_rl);
         how_to_play_rl=findViewById(R.id.how_to_play_rl);
         fantasy_rl=findViewById(R.id.fantasy_rl);
+        helpdesk=findViewById(R.id.help_desk);
+        job=findViewById(R.id.jobs);
+        aboutus=findViewById(R.id.about);
+        legality=findViewById(R.id.legality);
 
         invite_rl.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,6 +61,55 @@ public class HomeMoreActivity extends AppCompatActivity {
                 
             }
         });
+
+
+        helpdesk.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(HomeMoreActivity.this,Help_desk.class);
+                startActivity(intent);
+
+            }
+        });
+
+
+        job.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(HomeMoreActivity.this,jobs.class);
+                startActivity(intent);
+
+            }
+        });
+
+        aboutus.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(HomeMoreActivity.this,about_us.class);
+                startActivity(intent);
+
+            }
+        });
+
+        legality.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(HomeMoreActivity.this,legality.class);
+                startActivity(intent);
+
+            }
+        });
+
+
+
+
+
+
+
+
+
+
+
         fantasy_rl.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
