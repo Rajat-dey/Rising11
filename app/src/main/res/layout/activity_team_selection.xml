@@ -219,6 +219,7 @@
         android:layout_marginBottom="32dp">
 
         <Button
+            android:id="@+id/btn_team_preview"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Team Preview"
@@ -227,6 +228,7 @@
             android:textColor="#00a650"/>
 
         <Button
+            android:id="@+id/btn_continue"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Continue"

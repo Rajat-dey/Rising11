@@ -18,9 +18,11 @@
         <activity android:name=".Football_Home_Activity" />
         <activity android:name=".ContestsActivity" />
         <activity android:name=".FantasyPointSystemActivity" />
+        <activity android:name=".TeamPreviewActivity"></activity>
+        <activity android:name=".CaptainViceCaptainSelectionActivity" />
+        <activity android:name=".TeamSelectionActivity" />
         <activity android:name=".MyMatchActivity" />
         <activity android:name=".Whatsapp_Update_Activity" />
-        <activity android:name=".TeamSelectionActivity" />
         <activity android:name=".How_To_Play_Activity" />
         <activity android:name=".Invite_Code_Activity" />
         <activity android:name=".HomeMoreActivity" />
