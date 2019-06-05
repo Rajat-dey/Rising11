@@ -36,8 +36,8 @@ public class HomeMoreActivity extends AppCompatActivity {
         invite_code_rl.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Intent intent=new Intent(HomeMoreActivity.this,Invite_Code_Activity.class);
-                Intent intent=new Intent(HomeMoreActivity.this,ContestsActivity.class);
+                Intent intent=new Intent(HomeMoreActivity.this,Invite_Code_Activity.class);
+               // Intent intent=new Intent(HomeMoreActivity.this,ContestsActivity.class);
                 startActivity(intent);
             }
         });
