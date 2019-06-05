@@ -31,8 +31,8 @@ public class RewardOffer1Activity extends AppCompatActivity {
         });
 
         MyActiveOfferDataClass[] myListData = new MyActiveOfferDataClass[] {
-                new MyActiveOfferDataClass("25","Expires in 6 Days!","you've got a Rs.25 discount to any Rs.40+ contest!","Received on 11 Apr, 2019"),
-                new MyActiveOfferDataClass("35","Expires in 7 Days!","you've got a Rs.25 discount to any Rs.50+ contest!","Received on 12 Apr, 2019")
+                new MyActiveOfferDataClass("₹25","Expires in 6 Days!","you've got a Rs.25 discount to any Rs.40+ contest!","Received on 11 Apr, 2019"),
+                new MyActiveOfferDataClass("₹35","Expires in 7 Days!","you've got a Rs.25 discount to any Rs.50+ contest!","Received on 12 Apr, 2019")
 
         };
 
