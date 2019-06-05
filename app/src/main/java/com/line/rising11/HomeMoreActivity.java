@@ -10,7 +10,7 @@ import android.view.View;
 import android.widget.RelativeLayout;
 
 public class HomeMoreActivity extends AppCompatActivity {
-    RelativeLayout  invite_rl,invite_code_rl,whatsapp_rl,how_to_play_rl;
+    RelativeLayout  invite_rl,invite_code_rl,whatsapp_rl,how_to_play_rl,fantasy_rl;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +24,7 @@ public class HomeMoreActivity extends AppCompatActivity {
         invite_code_rl=findViewById(R.id.invite_code_rl);
         whatsapp_rl=findViewById(R.id.whatsapp_rl);
         how_to_play_rl=findViewById(R.id.how_to_play_rl);
+        fantasy_rl=findViewById(R.id.fantasy_rl);
 
         invite_rl.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -55,6 +56,14 @@ public class HomeMoreActivity extends AppCompatActivity {
                 
             }
         });
+        fantasy_rl.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(HomeMoreActivity.this,FantasyPointSystemActivity.class);
+                startActivity(intent);
+
+            }
+        });
         BottomNavigationView bottomNavigationView=findViewById(R.id.nav_bottom_view);
         bottomNavigationView.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
             @Override
@@ -66,7 +75,9 @@ public class HomeMoreActivity extends AppCompatActivity {
                 }
                 else if (menuItem.getItemId()==R.id.navigation_dashboard)
                 {
-
+                    Intent intent=new Intent(HomeMoreActivity.this,MyMatchActivity.class);
+                    startActivity(intent);
+                    finish();
                 }
                 else if(menuItem.getItemId()==R.id.navigation_notifications)
                 {
@@ -75,6 +86,8 @@ public class HomeMoreActivity extends AppCompatActivity {
                 return true;
             }
         });
+
+
     }
     @Override
     public boolean onSupportNavigateUp()

@@ -74,7 +74,8 @@ public class HomeActivity extends AppCompatActivity
                 }
                 else if (menuItem.getItemId()==R.id.navigation_dashboard)
                 {
-
+                    Intent intent=new Intent(HomeActivity.this,MyMatchActivity.class);
+                    startActivity(intent);
                 }
                 else if(menuItem.getItemId()==R.id.navigation_notifications)
                 {
