@@ -80,4 +80,10 @@
     <string name="Cric_APi_Key">5Z3TcFtqIPPg2mT1TCcwhHFNKs72</string>
     <string name="Cric_cricket_score">https://cricapi.com/api/cricketScore</string>
 
+
+    <string-array name="sort_by_value">
+        <item>Player Type</item>
+        <item>Points</item>
+    </string-array>
+
 </resources>
