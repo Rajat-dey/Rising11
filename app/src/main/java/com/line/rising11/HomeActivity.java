@@ -227,6 +227,11 @@ public class HomeActivity extends AppCompatActivity
               Intent intent=new Intent(HomeActivity.this,MyProfileActivity.class);
               startActivity(intent);
           }
+          else if(id==R.id.nav_point_system)
+          {
+              Intent intent=new Intent(HomeActivity.this,FantasyPointSystemActivity.class);
+              startActivity(intent);
+          }
           else if(id==R.id.nav_logout)
           {
               editor.putString("login","no");
