@@ -14,11 +14,15 @@
         android:networkSecurityConfig="@xml/network_security_config"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".Kabaddi_Home_Activity"></activity>
+        <activity android:name=".legality"></activity>
+        <activity android:name=".about_us" />
+        <activity android:name=".jobs" />
+        <activity android:name=".Help_desk" />
+        <activity android:name=".Kabaddi_Home_Activity" />
         <activity android:name=".Football_Home_Activity" />
         <activity android:name=".ContestsActivity" />
         <activity android:name=".FantasyPointSystemActivity" />
-        <activity android:name=".TeamPreviewActivity"></activity>
+        <activity android:name=".TeamPreviewActivity" />
         <activity android:name=".CaptainViceCaptainSelectionActivity" />
         <activity android:name=".TeamSelectionActivity" />
         <activity android:name=".MyMatchActivity" />

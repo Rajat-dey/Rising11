@@ -1,11 +1,16 @@
 package com.line.rising11;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.View;
+import android.widget.TextView;
 
 public class ContestsActivity extends AppCompatActivity {
+
+    TextView create_team,contest_code,create_contest;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +33,37 @@ public class ContestsActivity extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
+
+        create_team=findViewById(R.id.create_team);
+        contest_code=findViewById(R.id.contest_code);
+        create_contest=findViewById(R.id.create_contest);
+
+
+        create_team.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ContestsActivity.this, TeamSelectionActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        contest_code.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ContestsActivity.this, Invite_Code_Activity.class);
+                startActivity(intent);
+            }
+        });
+
+
+        create_contest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ContestsActivity.this, CreateContest.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
     @Override

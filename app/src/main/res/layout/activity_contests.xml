@@ -56,12 +56,14 @@
                     android:layout_marginLeft="16dp"
                     android:gravity="center_vertical"
                     android:layout_marginRight="16dp">
+
                     <TextView
+                        android:id="@+id/contest_code"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Enter Contest Code"
-                        android:textSize="11sp"
-                        android:textColor="@color/black_text"/>
+                        android:textColor="@color/black_text"
+                        android:textSize="11sp" />
                     <ImageView
                         android:layout_width="10dp"
                         android:layout_height="10dp"
@@ -79,15 +81,18 @@
                     android:layout_marginLeft="16dp"
                     android:gravity="center_vertical"
                     android:layout_marginRight="16dp">
+
                     <TextView
+                        android:id="@+id/create_contest"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Enter Contest Code"
-                        android:textSize="11sp"
-                        android:textColor="@color/black_text"/>
+                        android:text="Create a Contest"
+                        android:textColor="@color/black_text"
+                        android:textSize="11sp" />
                     <ImageView
-                        android:layout_width="10dp"
-                        android:layout_height="10dp"
+                        android:layout_width="15dp"
+                        android:layout_height="15dp"
+                        android:background="@drawable/create_contest"
                         android:layout_alignParentRight="true"/>
                 </RelativeLayout>
             </android.support.v7.widget.CardView>
@@ -196,12 +201,15 @@
             android:layout_gravity="bottom"
             android:layout_marginTop="24dp"
             android:background="#3ab54a">
+
             <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="24dp"
+                android:id="@+id/create_team"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="CREATE TEAM"
                 android:textColor="@color/white_text"
-                android:text="CREATE TEAM"/>
+                android:textSize="24sp" />
         </LinearLayout>
     </LinearLayout>
 </ScrollView>

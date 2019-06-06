@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.line.rising11.ContestsActivity;
 import com.line.rising11.R;
 import com.line.rising11.TeamSelectionActivity;
 import com.mikhaellopez.circularimageview.CircularImageView;
@@ -57,7 +58,7 @@ public class CustomMatchAdapter extends RecyclerView.Adapter<CustomMatchAdapter.
             cvTeam.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(context, TeamSelectionActivity.class);
+                    Intent intent = new Intent(context, ContestsActivity.class);
                     context.startActivity(intent);
                 }
             });
