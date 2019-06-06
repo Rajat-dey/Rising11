@@ -1,9 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".legality">
+    tools:context=".fairPlay_TC"
+    android:fitsSystemWindows="true">
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
 
-</android.support.constraint.ConstraintLayout>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="30sp"
+            android:textColor="@color/colorPrimary"
+            android:layout_marginTop="10dp"
+            android:gravity="center"
+            android:textStyle="bold"
+            android:text="LEGALITIES" />
+
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/colorPrimary"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:text="GAME OF SKILLS" />
+
+        <TextView
+            android:layout_marginTop="20dp"
+            android:textColor="@color/black_text"
+            android:textSize="18sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/legality_part_1" />
+
+
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/colorPrimary"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:text="ALIGNMENT WITH THE INDIAN LAWS" />
+
+        <TextView
+            android:id="@+id/textView32"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/black_text"
+            android:textSize="18sp"
+            android:text="@string/legality_part_2" />
+        <TextView
+            android:id="@+id/textView33"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/colorPrimary"
+            android:textSize="25sp"
+            android:textStyle="bold"
+            android:text="UNCLEARED AREAS IN INDIA TO PLAY- FANTASY" />
+
+        <TextView
+            android:id="@+id/textView34"
+            android:layout_marginTop="20dp"
+            android:textColor="@color/black_text"
+            android:textSize="18sp"
+            android:layout_marginBottom="10dp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/legality_part_3" />
+    </LinearLayout>
+</ScrollView>

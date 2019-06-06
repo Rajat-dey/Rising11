@@ -8,6 +8,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -21,7 +22,9 @@ import org.json.JSONObject;
 
 public class JoinedContest extends AppCompatActivity {
 
-    TextView prizepool,spots,entry,joined_with,points,rank,playerpoints,TM1,TM2,match_status,score1,score2,statics;
+    TextView playerpoints,TM1,TM2,match_status,score1,score2,statics;
+
+    LinearLayout joinedcontest;
 
     String scorepart1,scorepart2;
 
@@ -32,13 +35,10 @@ public class JoinedContest extends AppCompatActivity {
         setContentView(R.layout.activity_joined_contest);
         setTitle("JOINED CONTEST");
 
-        prizepool=findViewById(R.id.prize_pool);
-        spots=findViewById(R.id.spots);
-        entry=findViewById(R.id.entry);
-        joined_with=findViewById(R.id.joined_with);
-        points=findViewById(R.id.points);
-        rank=findViewById(R.id.rank);
+
         playerpoints=findViewById(R.id.player_points);
+
+        joinedcontest=findViewById(R.id.joined_contest);
 
 
         TM1=findViewById(R.id.TM1);
@@ -48,47 +48,8 @@ public class JoinedContest extends AppCompatActivity {
         score2=findViewById(R.id.score2);
         statics=findViewById(R.id.statics);
 
-        prizepool.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v)
-            {
-                Intent intent=new Intent(JoinedContest.this,Contest.class);
-                startActivity(intent);
-            }
-        });
 
-
-        spots.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v)
-            {
-                Intent intent=new Intent(JoinedContest.this,Contest.class);
-                startActivity(intent);
-            }
-        });
-        entry.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v)
-            {
-                Intent intent=new Intent(JoinedContest.this,Contest.class);
-                startActivity(intent);
-            }
-        });
-        joined_with.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v)
-            {
-                Intent intent=new Intent(JoinedContest.this,Contest.class);
-                startActivity(intent);
-            }
-        }); points.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v)
-            {
-                Intent intent=new Intent(JoinedContest.this,Contest.class);
-                startActivity(intent);
-            }
-        }); rank.setOnClickListener(new View.OnClickListener() {
+        joinedcontest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v)
             {
