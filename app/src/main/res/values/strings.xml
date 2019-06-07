@@ -95,7 +95,7 @@
         \n\nYou can also message us on WhatsApp at -  <b>7023083083</b>
     </string>
 
-    <string name="fb">https://www.facebook.com/Rising11kk/?ti=as</string>
+    <string name="facebook">https://www.facebook.com/Rising11kk/?ti=as</string>
     <string name="insta">https://www.instagram.com/rising11kk</string>
     <string name="twitter">https://twitter.com/Rising11_kk?s=08</string>
     <string name="youtube">https://www.youtube.com/channel/UCMWcWW4oLaTOZGDo1enSpHg</string>
@@ -441,8 +441,13 @@
 \n\n
 \n\nWhat type of cards can be Saved/Used?
 \n\nYou can use all major types of credit/debit cards including Visa, MasterCard, Maestro, etc.
-
-
     </string>
+
+
+
+
+
+
+
 
 </resources>
