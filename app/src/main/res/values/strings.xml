@@ -43,6 +43,7 @@
     <string name="userdetails">http://rising11.com/apps/apis/get-user-details.php</string>
     <string name="wallet">http://rising11.com/apps/apis/get-wallet-balance.php</string>
     <string name="create_contest">http://rising11.com/apps/apis/create-contest.php</string>
+    <string name="add_contets_prize">http://rising11.com/apps/apis/add-contest-prize.php</string>
 
 
     <string name="how_it_works_step">Step-1:- Verify your email &amp; mobile no.\n\nStep-2:-Refer your Friend <b>Rising11</b> by unique referral code.

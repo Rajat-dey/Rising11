@@ -42,7 +42,7 @@
 
 
                 <EditText
-                    android:id="@+id/editText"
+                    android:id="@+id/cname"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -65,11 +65,12 @@
                     android:text="Total Winning Amount(Rs)" />
 
                 <EditText
-                    android:id="@+id/editText2"
+                    android:id="@+id/wammount"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:ems="10"
+                    android:maxLength="5"
                     android:textColor="@color/black_text"
                     android:inputType="number" />
 
@@ -89,7 +90,8 @@
                     android:text="Contest Size" />
 
                 <EditText
-                    android:id="@+id/editText3"
+                    android:id="@+id/csize"
+                    android:maxLength="2"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -152,7 +154,7 @@
                         />
 
                     <TextView
-                        android:id="@+id/textView7"
+                        android:id="@+id/eammount"
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="2"
