@@ -210,91 +210,86 @@
             card_view:cardUseCompatPadding="true">
 
             <LinearLayout
+                android:id="@+id/joined_contest"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
 
 
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
-            <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="Prize Pool"
+                        android:textSize="20sp" />
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="2"
-                android:gravity="center"
-                android:text="Prize Pool"
-                android:textSize="20sp"
-                android:padding="5dp"
-                />
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="Spots"
+                        android:textSize="20sp" />
 
-            <TextView
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="2"
-                android:gravity="center"
-                android:text="Spots"
-                android:textSize="20sp"
-                android:padding="5dp"
-                />
+                    <TextView
 
-            <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="Entry"
+                        android:textSize="20sp" />
 
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="2"
-                android:gravity="center"
-                android:text="Entry"
-                android:textSize="20sp"
-                android:padding="5dp"
-                />
-
-        </LinearLayout>
+                </LinearLayout>
 
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/prize_pool"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="2"
-                android:gravity="center"
-                android:text="RS.1000000"
-                android:textSize="20sp"
-                android:textColor="@color/black_text"
-                android:padding="5dp"
-                />
+                    <TextView
+                        android:id="@+id/prize_pool"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="RS.1000000"
+                        android:textColor="@color/black_text"
+                        android:textSize="20sp" />
 
 
-            <TextView
-                android:id="@+id/spots"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="2"
-                android:gravity="center"
-                android:text="50"
-                android:textSize="20sp"
-                android:padding="5dp"
-                android:textColor="@color/black_text"
-                />
+                    <TextView
+                        android:id="@+id/spots"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:gravity="center"
+                        android:padding="5dp"
+                        android:text="50"
+                        android:textColor="@color/black_text"
+                        android:textSize="20sp" />
 
-            <TextView
-                android:id="@+id/entry"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="2"
-                android:gravity="center"
-                android:textSize="20sp"
-                android:textColor="@color/black_text"
-                android:text="RS.20" />
-        </LinearLayout>
+                    <TextView
+                        android:id="@+id/entry"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="2"
+                        android:gravity="center"
+                        android:text="RS.20"
+                        android:textColor="@color/black_text"
+                        android:textSize="20sp" />
+                </LinearLayout>
 
 
                 <LinearLayout
@@ -308,20 +303,18 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:gravity="center"
+                        android:padding="5dp"
                         android:text="Joined With"
-                        android:textSize="20sp"
-                        android:padding="5dp"
-                        />
+                        android:textSize="20sp" />
 
                     <TextView
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:gravity="center"
+                        android:padding="5dp"
                         android:text="Points"
-                        android:textSize="20sp"
-                        android:padding="5dp"
-                        />
+                        android:textSize="20sp" />
 
                     <TextView
 
@@ -329,10 +322,9 @@
                         android:layout_height="match_parent"
                         android:layout_weight="1"
                         android:gravity="center"
-                        android:text="Rank"
-                        android:textSize="20sp"
                         android:padding="5dp"
-                        />
+                        android:text="Rank"
+                        android:textSize="20sp" />
 
                 </LinearLayout>
 
@@ -348,11 +340,10 @@
                         android:layout_height="match_parent"
                         android:layout_weight="2"
                         android:gravity="center"
-                        android:text="Team 1"
-                        android:textSize="20sp"
-                        android:textColor="@color/black_text"
                         android:padding="5dp"
-                        />
+                        android:text="Team 1"
+                        android:textColor="@color/black_text"
+                        android:textSize="20sp" />
 
 
                     <TextView
@@ -361,11 +352,10 @@
                         android:layout_height="match_parent"
                         android:layout_weight="2"
                         android:gravity="center"
-                        android:text="181.25"
-                        android:textSize="20sp"
                         android:padding="5dp"
+                        android:text="181.25"
                         android:textColor="@color/black_text"
-                        />
+                        android:textSize="20sp" />
 
                     <TextView
                         android:id="@+id/rank"
@@ -373,11 +363,10 @@
                         android:layout_height="match_parent"
                         android:layout_weight="2"
                         android:gravity="center"
-                        android:textSize="20sp"
+                        android:text="#81859"
                         android:textColor="@color/black_text"
-                        android:text="#81859" />
+                        android:textSize="20sp" />
                 </LinearLayout>
-
 
 
                 <LinearLayout
@@ -390,13 +379,11 @@
                         android:layout_height="match_parent"
                         android:layout_weight="4"
                         android:gravity="center|left"
+                        android:padding="5dp"
+                        android:paddingStart="12dp"
                         android:text="View leaderboard"
                         android:textColor="@color/black_text"
-                        android:paddingStart="12dp"
-                        android:textSize="17sp"
-                        android:padding="5dp"
-                        />
-
+                        android:textSize="17sp" />
 
 
                     <TextView
@@ -404,26 +391,13 @@
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
                         android:layout_weight="1"
-                        android:textColor="@color/black_text"
                         android:gravity="center|right"
                         android:padding="10dp"
                         android:paddingEnd="10dp"
-                        android:textSize="17sp"
-                        android:text=">" />
+                        android:text=">"
+                        android:textColor="@color/black_text"
+                        android:textSize="17sp" />
                 </LinearLayout>
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
             </LinearLayout>

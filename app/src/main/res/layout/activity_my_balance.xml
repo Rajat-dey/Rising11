@@ -215,13 +215,8 @@ tools:context="com.line.rising11.MyBalanceActivity">
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
                                 android:textSize="12sp"
-                                android:text="Maximum usable cash bonus per match = 10% of entry fees."/>
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:textSize="12sp"
-                                android:textColor="@color/button_text_color"
-                                android:text="@string/underline_string"/>
+                                android:text="Maximum usable cash bonus per match = 50% of entry fees."/>
+
                         </LinearLayout>
                         <ImageView
                             android:layout_width="match_parent"

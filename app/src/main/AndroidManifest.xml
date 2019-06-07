@@ -16,6 +16,11 @@
         android:theme="@style/AppTheme">
         <activity android:name=".ContestsFilterActivity"></activity>
         <activity android:name=".legality" />
+        <activity android:name=".more_faqs"></activity>
+        <activity android:name=".more_createteam" />
+        <activity android:name=".more_introduction" />
+        <activity android:name=".more_managing_team" />
+        <activity android:name=".more_Account_Balance" />
         <activity android:name=".about_us" />
         <activity android:name=".jobs" />
         <activity android:name=".Help_desk" />
