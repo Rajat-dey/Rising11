@@ -7,9 +7,6 @@
     <uses-permission android:name="android.permission.READ_SMS" />
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
 
-
-
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher_foreground"
@@ -17,9 +14,10 @@
         android:networkSecurityConfig="@xml/network_security_config"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ContestsFilterActivity"></activity>
+        <activity android:name=".withdrawl"></activity>
+        <activity android:name=".ContestsFilterActivity" />
         <activity android:name=".legality" />
-        <activity android:name=".more_faqs"></activity>
+        <activity android:name=".more_faqs" />
         <activity android:name=".more_createteam" />
         <activity android:name=".more_introduction" />
         <activity android:name=".more_managing_team" />
@@ -28,40 +26,29 @@
         <activity android:name=".jobs" />
         <activity android:name=".Help_desk">
             <intent-filter android:autoVerify="true">
-                <action android:name="android.intent.action.VIEW"/>
-                <category android:name="android.intent.category.DEFAULT"/>
-                <category android:name="android.intent.category.BROWSABLE"/>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
                 <data
                     android:host="www.facebook.com"
-                    android:scheme="https"
                     android:pathPrefix="/Rising11kk/?ti=as"
-                />
-
+                    android:scheme="https" />
                 <data
                     android:host="www.instagram.com"
-                    android:scheme="https"
                     android:pathPrefix="/rising11kk"
-                    />
-
+                    android:scheme="https" />
                 <data
                     android:host="twitter.com"
-                    android:scheme="https"
                     android:pathPrefix="/Rising11_kk?s=08"
-                    />
-
+                    android:scheme="https" />
                 <data
                     android:host="www.youtube.com"
-                    android:scheme="https"
                     android:pathPrefix="/channel/UCMWcWW4oLaTOZGDo1enSpHg"
-                    />
+                    android:scheme="https" />
             </intent-filter>
-
         </activity>
-
-
-
-
-
         <activity android:name=".Kabaddi_Home_Activity" />
         <activity android:name=".Football_Home_Activity" />
         <activity android:name=".ContestsActivity" />

@@ -20,7 +20,7 @@ import org.json.JSONObject;
 
 public class MyProfileActivity extends AppCompatActivity {
 
-    TextView user_name;
+    TextView user_name, user_id;
     SharedPreferences sharedPreferences;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +33,8 @@ public class MyProfileActivity extends AppCompatActivity {
 
         sharedPreferences=getSharedPreferences("loginstatus", Context.MODE_PRIVATE);
         user_name=findViewById(R.id.name);
+        user_id=findViewById(R.id.user_unique_id);
+
 
 
 
@@ -61,6 +63,7 @@ public class MyProfileActivity extends AppCompatActivity {
                                     JSONObject obj=response.getJSONObject("contest");
 
                                     user_name.setText(obj.getString("name"));
+                                    user_id.setText(obj.getString("id"));
 
 
 

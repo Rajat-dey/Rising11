@@ -16,25 +16,60 @@
             android:layout_height="200dp"
             android:background="@drawable/profile_wallpaper"
             android:gravity="center_horizontal">
+
             <ImageView
                 android:id="@+id/avatar"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
                 android:layout_marginTop="8dp"
-                android:src="@drawable/default_avatar"/>
+                android:src="@drawable/default_avatar" />
 
-            <TextView
-                android:id="@+id/name"
+            <LinearLayout
+
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:paddingStart="30dp"
                 android:layout_below="@+id/avatar"
                 android:layout_marginTop="10dp"
-                android:gravity="center"
-                android:text="User"
-                android:textColor="@color/white_text"
-                android:textSize="20sp"
-                android:textStyle="bold" />
+                android:orientation="horizontal">
+
+
+                <TextView
+                    android:id="@+id/name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/avatar"
+                    tools:text="User"
+                    android:textColor="@color/white_text"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/seperator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/avatar"
+                    android:gravity="center"
+                    android:text="-"
+                    android:textColor="@color/white_text"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+                <TextView
+                    android:id="@+id/user_unique_id"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/avatar"
+                    android:layout_alignStart="@id/seperator"
+                    android:gravity="center"
+                    tools:text="2344"
+                    android:textColor="@color/white_text"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+
+
+
+            </LinearLayout>
+
+
 
         </RelativeLayout>
 
@@ -247,7 +282,8 @@
                    android:layout_marginTop="8dp"/>
                <RelativeLayout
                    android:layout_width="match_parent"
-                   android:layout_height="wrap_content">
+                   android:layout_height="wrap_content"
+                   android:layout_marginBottom="10dp">
                    <LinearLayout
                        android:layout_width="match_parent"
                        android:layout_height="wrap_content"
@@ -376,76 +412,6 @@
            </LinearLayout>
 
        </android.support.v7.widget.CardView>
-        <android.support.v7.widget.CardView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp">
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="40dp"
-                    android:gravity="center">
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="Ranking"
-                        android:textSize="18sp"
-                        android:textColor="@color/black_text"
-                        android:layout_marginLeft="16dp" />
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@drawable/ic_arrow_right_gray_24dp"
-                        android:layout_alignParentRight="true"
-                        android:layout_marginRight="16dp"/>
-                </RelativeLayout>
-                <View
-                    android:layout_width="match_parent"
-                    android:layout_height="1dp"
-                    android:background="#c0c0c0"
-                    android:layout_marginTop="8dp"/>
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:layout_marginLeft="16dp"
-                    android:layout_marginTop="16dp"
-                    android:layout_marginBottom="16dp"
-                    android:weightSum="2">
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1"
-                        android:gravity="center_vertical"
-                        android:paddingLeft="16dp"
-                        android:paddingTop="4dp"
-                        android:paddingBottom="4dp"
-                        android:orientation="vertical"
-                        android:background="@drawable/button_design_round_simple_white_gray_border">
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="#95,50,695"
-                            android:textColor="@color/black_text"
-                            android:textStyle="bold"
-                            android:textSize="20sp"/>
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="IPL"/>
-                    </LinearLayout>
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_weight="1">
-
-                    </LinearLayout>
-                </LinearLayout>
-            </LinearLayout>
-        </android.support.v7.widget.CardView>
     </LinearLayout>
 
 </ScrollView>

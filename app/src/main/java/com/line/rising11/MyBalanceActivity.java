@@ -26,7 +26,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class MyBalanceActivity extends AppCompatActivity  {
-    private Button add_cash, verify_user;
+    private Button add_cash, verify_user,withdrawl;
     TextView bonus,deposits,win,Balance;
     SharedPreferences sharedPreferences;
 
@@ -46,7 +46,9 @@ public class MyBalanceActivity extends AppCompatActivity  {
         }
 
        add_cash=findViewById(R.id.add_cash);
-       verify_user=findViewById(R.id.verify);
+       verify_user=findViewById(R.id.verify_user);
+       withdrawl=findViewById(R.id.withdrawl);
+
        bonus=findViewById(R.id.cash_bonus);
        deposits=findViewById(R.id.deposit);
        win=findViewById(R.id.winnings);
@@ -67,6 +69,16 @@ public class MyBalanceActivity extends AppCompatActivity  {
             public void onClick(View v)
             {
                 Intent intent=new Intent(MyBalanceActivity.this,Verify_User_card.class);
+                startActivity(intent);
+            }
+        });
+
+
+        withdrawl.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+                Intent intent=new Intent(MyBalanceActivity.this,withdrawl.class);
                 startActivity(intent);
             }
         });
