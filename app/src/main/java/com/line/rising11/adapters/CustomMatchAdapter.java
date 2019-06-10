@@ -30,7 +30,7 @@ public class CustomMatchAdapter extends RecyclerView.Adapter<CustomMatchAdapter.
     @Override
     public CustomViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         final View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.custom_match_card, parent, false);
+                .inflate(R.layout.custom_match_card_new, parent, false);
         return new CustomViewHolder(view);
     }
 
