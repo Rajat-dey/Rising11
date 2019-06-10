@@ -159,22 +159,26 @@
 
             <android.support.design.widget.TabItem
                 android:layout_width="wrap_content"
+                android:id="@+id/t1"
                 android:layout_height="wrap_content"
                 android:text="WK (0)" />
 
             <android.support.design.widget.TabItem
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:id="@+id/t2"
                 android:text="BAT (0)" />
 
             <android.support.design.widget.TabItem
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:id="@+id/t3"
                 android:text="AR (0)" />
 
             <android.support.design.widget.TabItem
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:id="@+id/t4"
                 android:text="BOWL (0)" />
 
         </android.support.design.widget.TabLayout>
@@ -201,12 +205,18 @@
 
         </RelativeLayout>
 
-        <android.support.v7.widget.RecyclerView
+        <!--<android.support.v7.widget.RecyclerView
             android:id="@+id/rv_team_selection"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-        </android.support.v7.widget.RecyclerView>
+        </android.support.v7.widget.RecyclerView>-->
+        <android.support.v4.view.ViewPager
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/pageview">
+
+        </android.support.v4.view.ViewPager>
 
     </LinearLayout>
 

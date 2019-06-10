@@ -15,6 +15,7 @@ import com.line.rising11.TeamSelectionActivity;
 import com.mikhaellopez.circularimageview.CircularImageView;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 public class CustomMatchAdapter extends RecyclerView.Adapter<CustomMatchAdapter.CustomViewHolder> {
@@ -34,14 +35,23 @@ public class CustomMatchAdapter extends RecyclerView.Adapter<CustomMatchAdapter.
     }
 
     @Override
-    public void onBindViewHolder(CustomViewHolder holder, int position) {
+    public void onBindViewHolder(CustomViewHolder holder, int position)
+    {
+        try
+        {
+            holder.name1.setText(customerList.getJSONObject(position).get("team-1").toString());
+            holder.name2.setText(customerList.getJSONObject(position).get("team-2").toString());
+        }
+        catch (JSONException e)
+        {
 
+        }
     }
 
 
     @Override
     public int getItemCount() {
-        return 10;
+        return customerList.length();
     }
 
     class CustomViewHolder extends RecyclerView.ViewHolder{
@@ -50,11 +60,14 @@ public class CustomMatchAdapter extends RecyclerView.Adapter<CustomMatchAdapter.
         private TextView tvMsg;
         private TextView tvDateTime;
         private CardView cvTeam;
+        private TextView name1,name2;
 
         public CustomViewHolder (View view) {
             super(view);
 
             cvTeam = view.findViewById(R.id.cv_team);
+            name1=view.findViewById(R.id.tv_team1_name);
+            name2=view.findViewById(R.id.tv_team2_name);
             cvTeam.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {

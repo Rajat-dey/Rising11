@@ -2,12 +2,10 @@ package com.line.rising11;
 
 
 import android.content.Context;
-import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.design.widget.Snackbar;
-import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -15,14 +13,13 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TableLayout;
 import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
-import com.line.rising11.adapters.CustomMatchAdapter;
+import com.google.gson.JsonArray;
 import com.line.rising11.adapters.CustomTeamSelectionAdapter;
 
 import org.json.JSONArray;
@@ -33,53 +30,20 @@ import org.json.JSONObject;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class HomeFragment extends Fragment {
+public class WicketFragment extends Fragment {
+    RecyclerView rvTeamSelection;
 
-
-    public HomeFragment() {
+    public WicketFragment() {
         // Required empty public constructor
     }
 
-    private RecyclerView rvHomeMatches;
-    private TabLayout tb_home;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState)
-    {
+                             Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-
-        View view = inflater.inflate(R.layout.fragment_home, container, false);
-        view.findViewById(R.id.rv_home_matches).setFocusable(false);
-        view.findViewById(R.id.rl).requestFocus();
-        tb_home=view.findViewById(R.id.tb_home);
-
-        rvHomeMatches = view.findViewById(R.id.rv_home_matches);
-
-        tb_home.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
-            @Override
-            public void onTabSelected(TabLayout.Tab tab) {
-                if(tab.getPosition()==1 )
-                {
-                    Intent intent=new Intent(getContext(),Football_Home_Activity.class);
-                    startActivity(intent);
-                }
-                else if(tab.getPosition()==2)
-                {
-                    Intent intent=new Intent(getContext(),Kabaddi_Home_Activity.class);
-                    startActivity(intent);
-                }
-            }
-
-            @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
-
-            }
-
-            @Override
-            public void onTabReselected(TabLayout.Tab tab) {
-
-            }
-        });
+        View v=inflater.inflate(R.layout.fragment_wicket, container, false);
+        rvTeamSelection = v.findViewById(R.id.rv_team_selection);
 
         boolean connected = false;
         ConnectivityManager connectivityManager = (ConnectivityManager)getActivity().getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -87,40 +51,36 @@ public class HomeFragment extends Fragment {
                 connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED) {
 
             JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
-                    (Request.Method.GET, "http://rising11.com/apps/apis/get-upcoming-matches.php", null, new Response.Listener<JSONObject>() {
+                    (Request.Method.GET, "http://rising11.com/apps/apis/get-fantasy-squad.php?unique_id=1034809", null, new Response.Listener<JSONObject>() {
                         @Override
                         public void onResponse(JSONObject response) {
-                            // Log.d("Response: ", response.toString());
-                            //Log.d("Link",getString(R.string.signup) +"?mobile="+email.getText().toString().trim()+"&password="+password.getText().toString().trim());
-
 
                             try {
-
                                 if(response.getString("code").equals("1"))
                                 {
-                                    JSONObject obj=response.getJSONObject("data");
-                                    JSONArray array=obj.getJSONArray("matches");
+                                    JSONArray jsonArray=response.getJSONArray("players");
+                                    JSONArray jsonArrayWK=new JSONArray();
 
-
-                                    JSONArray jsonArray=new JSONArray();
-
-                                    for(int i=0;i<array.length();i++)
+                                    for(int i=0;i<jsonArray.length();i++)
                                     {
 
-                                        if(array.getJSONObject(i).get("unique_id").toString().equals("1144494"))
+                                       if(jsonArray.getJSONObject(i).get("role").toString().equals("Wicketkeeper batsman"))
                                         {
-                                            jsonArray.put(array.getJSONObject(i));
+                                            jsonArrayWK.put(jsonArray.getJSONObject(i));
                                         }
 
                                     }
-                                    rvHomeMatches.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
-                                    rvHomeMatches.setAdapter(new CustomMatchAdapter(getContext(), jsonArray));
+                                    rvTeamSelection.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
+                                    rvTeamSelection.setAdapter(new CustomTeamSelectionAdapter(jsonArrayWK));
 
                                 }
                                 else
                                 {
                                     Toast.makeText(getContext(), response.getString("msg"), Toast.LENGTH_SHORT).show();
-
+                                               /* Toast.makeText(getApplicationContext(), "Error "
+                                                        + response.getString("code") + ": "
+                                                        + response.getString("message"), Toast.LENGTH_LONG)
+                                                        .show();*/
                                 }
                             } catch (JSONException e) {
                                 e.printStackTrace();
@@ -147,18 +107,10 @@ public class HomeFragment extends Fragment {
         }
         else
         {
-            Snackbar.make(view, "Please check your Internet connection", Snackbar.LENGTH_LONG)
+            Snackbar.make(v, "Please check your Internet connection", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show();
         }
-
-        return view;
+        return v;
     }
-
-    public void openJoinContest(View view) {
-        Intent intent = new Intent(getContext(), JoinedContest.class);
-        startActivity(intent);
-    }
-
-
 
 }
