@@ -78,7 +78,7 @@ public class JoinedContest extends AppCompatActivity {
                 connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED) {
 
             JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
-                    (Request.Method.GET, getString(R.string.Cric_cricket_score)+"?apikey="+ getString(R.string.Cric_APi_Key)+"&unique_id=1144487", null, new Response.Listener<JSONObject>() {
+                    (Request.Method.GET, getString(R.string.Cric_cricket_score)+"&unique_id=1144494", null, new Response.Listener<JSONObject>() {
                         @Override
                         public void onResponse(JSONObject response) {
                             Log.d("Response: ", response.toString());
@@ -96,9 +96,7 @@ public class JoinedContest extends AppCompatActivity {
                                     if(!response.getString("matchStarted").equals("true")) {
                                         match_status.setText("COMPLETED");
                                     }
-                                    else {
-                                        match_status.setText("IN-PLAY");
-                                    }
+
 
                                     String ScoreData = response.getString("description");
 

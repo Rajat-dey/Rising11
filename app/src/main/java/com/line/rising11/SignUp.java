@@ -1,6 +1,8 @@
 package com.line.rising11;
 
 import android.content.Intent;
+import android.content.pm.PackageManager;
+import android.net.Uri;
 import android.provider.Settings;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -8,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -21,6 +24,8 @@ import org.json.JSONObject;
 public class SignUp extends AppCompatActivity {
 private EditText name,email,number,password,code;
 private Button signup;
+
+    ImageView fb,insta,twitter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +36,25 @@ private Button signup;
         password=findViewById(R.id.password);
         code=findViewById(R.id.code);
         signup=findViewById(R.id.btn_signup);
+
+
+
+        fb=findViewById(R.id.fb);
+        insta=findViewById(R.id.instagram);
+        twitter=findViewById(R.id.twitter);
+
+
+        fb.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                OpenFacebookPage();
+            }
+        });
+
+
+
+
         signup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -120,4 +144,36 @@ private Button signup;
             }
         });
     }
+
+
+
+
+    protected void OpenFacebookPage () {
+
+        String facebookPageID = "Rising11kk/?ti=as";
+
+        // URL
+        String facebookUrl = "https://www.facebook.com/" + facebookPageID;
+
+        String facebookUrlScheme = "fb://page/" + facebookPageID;
+
+        try {
+            int versionCode = getPackageManager().getPackageInfo("com.facebook.katana", 0).versionCode;
+
+            if (versionCode >= 3002850) {
+                Uri uri = Uri.parse("fb://facewebmodal/f?href=" + facebookUrl);
+                startActivity(new Intent(Intent.ACTION_VIEW, uri));
+            } else {
+
+                startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(facebookUrlScheme)));
+            }
+        } catch (PackageManager.NameNotFoundException e) {
+            startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(facebookUrl)));
+
+        }
+
+    }
+
+
+
 }

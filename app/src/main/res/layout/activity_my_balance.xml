@@ -24,31 +24,93 @@ tools:context="com.line.rising11.MyBalanceActivity">
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical">
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="TOTAL BALANCE"
-                    android:gravity="center"
-                    android:layout_marginTop="16dp"/>
 
-                <TextView
-                    android:id="@+id/balance"
+                <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:gravity="center"
-                    android:text="₹0"
-                    android:textColor="@color/black_text"
-                    android:textSize="18dp" />
-                <Button
-                    android:layout_width="100dp"
-                    android:layout_height="28dp"
-                    android:text="ADD CASH"
-                    android:id="@+id/add_cash"
-                    android:background="@drawable/button_design_round_corner"
-                    android:textColor="@color/button_text_color"
-                    android:layout_marginTop="16dp"
-                    android:layout_gravity="center_horizontal"/>
+                    android:orientation="horizontal">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="TOTAL BALANCE"
+                            android:gravity="center"
+                            android:layout_marginTop="16dp"/>
+
+                        <TextView
+                            android:id="@+id/balance"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:gravity="center"
+                            android:text="₹0"
+                            android:textColor="@color/black_text"
+                            android:textSize="18sp" />
+                        <Button
+                            android:layout_width="100dp"
+                            android:layout_height="28dp"
+                            android:text="ADD CASH"
+                            android:id="@+id/add_cash"
+                            android:background="@drawable/button_design_round_corner"
+                            android:textColor="@color/button_text_color"
+                            android:layout_marginTop="16dp"
+                            android:layout_gravity="center_horizontal"/>
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:text="VERIFICATION"
+                            android:gravity="center"
+                            android:textSize="18sp"
+                            android:layout_marginTop="16dp"/>
+
+                        <TextView
+                            android:id="@+id/verify"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="8dp"
+                            android:gravity="center"
+                            android:text="Mandatory Step"
+                            android:textColor="@color/red"
+                            android:textStyle="italic"
+                            android:textSize="14sp" />
+                        <Button
+                            android:layout_width="100dp"
+                            android:layout_height="28dp"
+                            android:text="VERIFY NOW"
+                            android:id="@+id/verify_user"
+                            android:background="@drawable/button_design_round_corner"
+                            android:textColor="@color/button_text_color"
+                            android:layout_marginTop="16dp"
+                            android:layout_gravity="center_horizontal"/>
+
+                    </LinearLayout>
+
+
+
+
+
+
+                </LinearLayout>
+
+
+
+
+
+
+
+
                <View
                     android:layout_width="fill_parent"
                     android:layout_height="1dp"
@@ -120,10 +182,10 @@ tools:context="com.line.rising11.MyBalanceActivity">
                        android:paddingRight="16dp"
                        android:gravity="right">
                        <Button
-                           android:id="@+id/verify"
+                           android:id="@+id/withdrawl"
                            android:layout_width="100dp"
                            android:layout_height="28dp"
-                           android:text="VERIFY NOW"
+                           android:text="WITHDRAW"
                            android:background="@drawable/button_design_round_corner"
                            android:textColor="@color/button_text_color"
                            android:layout_gravity="center_horizontal"/>
@@ -230,10 +292,12 @@ tools:context="com.line.rising11.MyBalanceActivity">
 
             </LinearLayout>
         </android.support.v7.widget.CardView>
+
         <android.support.v7.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="60dp"
             android:layout_gravity="center_vertical"
+            android:layout_marginBottom="64dp"
             app:cardCornerRadius="4dp"
             android:layout_marginTop="24dp">
             <RelativeLayout
@@ -255,6 +319,8 @@ tools:context="com.line.rising11.MyBalanceActivity">
                     android:layout_alignParentRight="true"/>
             </RelativeLayout>
         </android.support.v7.widget.CardView>
+
+       <!--
         <android.support.v7.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -292,5 +358,9 @@ tools:context="com.line.rising11.MyBalanceActivity">
                     android:layout_alignParentRight="true"/>
             </RelativeLayout>
         </android.support.v7.widget.CardView>
+
+        -->
+
+
     </LinearLayout>
 </ScrollView>

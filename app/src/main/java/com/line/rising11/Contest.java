@@ -21,7 +21,9 @@ import org.json.JSONObject;
 
 public class Contest extends AppCompatActivity {
 
-    TextView playerpoints;
+
+    String scorepart1,scorepart2;
+    TextView playerpoints,TM1,TM2,match_status,score1,score2,statics;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,7 +44,12 @@ public class Contest extends AppCompatActivity {
         });
 
 
-
+        TM1=findViewById(R.id.TM1);
+        TM2=findViewById(R.id.TM2);
+        match_status=findViewById(R.id.match_status);
+        score1=findViewById(R.id.score1);
+        score2=findViewById(R.id.score2);
+        statics=findViewById(R.id.statics);
 
 
 
@@ -54,7 +61,7 @@ public class Contest extends AppCompatActivity {
                 connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED) {
 
             JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
-                    (Request.Method.GET, getString(R.string.userdetails)+"?mobile=", null, new Response.Listener<JSONObject>() {
+                    (Request.Method.GET, getString(R.string.Cric_cricket_score)+"&unique_id=1144494", null, new Response.Listener<JSONObject>() {
                         @Override
                         public void onResponse(JSONObject response) {
                             Log.d("Response: ", response.toString());
@@ -64,10 +71,29 @@ public class Contest extends AppCompatActivity {
                             try {
                                 if(response != null)
                                 {
-                                  //  JSONObject obj=response.getJSONObject("contest");
 
-                                 //   user_name.setText(obj.getString("name"));
 
+                                    TM1.setText(response.getString("team-1"));
+                                    TM2.setText(response.getString("team-2"));
+
+                                    if(!response.getString("matchStarted").equals("true")) {
+                                        match_status.setText("COMPLETED");
+                                    }
+
+
+                                    String ScoreData = response.getString("description");
+
+                                    String[] parts = ScoreData.split("v");
+
+                                    scorepart1 =  parts[0];
+                                    scorepart2= parts[1];
+
+
+                                    score1.setText(scorepart1);
+                                    score2.setText(scorepart2);
+
+
+                                    statics.setText(response.getString("stat"));
 
 
                                     /*editor.putString("login","yes");
@@ -114,14 +140,6 @@ public class Contest extends AppCompatActivity {
             /*Snackbar.make(v, "Please check your Internet connection", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show();*/
         }
-
-
-
-
-
-
-
-
 
 
 

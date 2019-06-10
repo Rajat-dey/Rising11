@@ -33,20 +33,20 @@
                     android:layout_height="match_parent"
                     android:layout_weight="2"
                     android:gravity="center"
-                    android:text="SRH"
-                    android:textSize="20sp"
-                    android:padding="5dp"
+                    tools:text="SRH"
+                    android:textSize="17sp"
+                    android:padding="10dp"
                     />
 
                 <TextView
 
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="2"
+                    android:layout_weight="1"
                     android:gravity="center"
                     android:text="vs"
-                    android:textSize="20sp"
-                    android:padding="5dp"
+                    android:textSize="17sp"
+                    android:padding="10dp"
                     />
 
                 <TextView
@@ -55,19 +55,20 @@
                     android:layout_height="match_parent"
                     android:layout_weight="2"
                     android:gravity="center"
-                    android:text="KXI"
-                    android:textSize="20sp"
-                    android:padding="5dp"
+                    tools:text="KXI"
+                    android:textSize="17sp"
+                    android:padding="10dp"
                     />
 
                 <TextView
                     android:id="@+id/match_status"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
-                    android:layout_weight="4"
+                    android:layout_weight="3"
                     android:textColor="#A0F092"
                     android:gravity="center"
-                    android:textSize="20sp"
+                    android:padding="10dp"
+                    android:textSize="17sp"
                     android:text="COMPLETED" />
             </LinearLayout>
         </android.support.v7.widget.CardView>
@@ -84,6 +85,7 @@
                 android:layout_weight="1"
                 android:gravity="center|left"
                 android:padding="5dp"
+                android:textSize="15sp"
                 android:text="SCORECARD" />
 
             <TextView
@@ -93,7 +95,8 @@
                 android:padding="5dp"
                 android:gravity="center|right"
                 android:textColor="@color/black_text"
-                android:textSize="18sp"
+                android:textSize="15sp"
+                android:textStyle="bold"
                 android:text="Powered By Rising Guru" />
         </LinearLayout>
 
@@ -103,14 +106,13 @@
             android:layout_marginTop="5dp"
             android:orientation="horizontal">
 
-
-
             <TextView
                 android:id="@+id/score1"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="3"
                 android:gravity="center"
+                android:textColor="@color/black_text"
                 android:padding="5dp"
                />
 
@@ -131,6 +133,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="3"
                 android:gravity="center"
+                android:textColor="@color/black_text"
                 android:padding="5dp"
                 />
 
@@ -143,7 +146,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="10dp"
-            android:text="KXIP beats SRH by 6 wickets" />
+            tools:text="KXIP beats SRH by 6 wickets" />
 
 
         <android.support.v7.widget.CardView
@@ -165,6 +168,16 @@
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
 
+                <ImageView
+                    android:id="@+id/imageView3"
+                    android:layout_width="30dp"
+                    android:layout_marginStart="10dp"
+                    android:layout_height="30dp"
+                    android:layout_margin="10dp"
+                    android:background="@drawable/bill"
+
+                     />
+
                 <TextView
                     android:id="@+id/player_points"
                     android:layout_width="0dp"
@@ -172,6 +185,7 @@
                     android:layout_weight="4"
                     android:gravity="center|left"
                     android:padding="5dp"
+                    android:textStyle="bold"
                     android:text="View Player Stats"
                     android:textColor="@color/colorPrimary"
                     android:textSize="17sp" />
@@ -370,8 +384,10 @@
 
 
                 <LinearLayout
+                    android:id="@+id/leaderboard"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_marginTop="10dp"
                     android:orientation="horizontal">
 
                     <TextView
@@ -403,23 +419,6 @@
             </LinearLayout>
 
         </android.support.v7.widget.CardView>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     </LinearLayout>
 

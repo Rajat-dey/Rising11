@@ -6,4 +6,6 @@
     <color name="white_text">#FFFF</color>
     <color name="black_text">#000000</color>
     <color name="button_text_color">#526dad</color>
+
+    <color name="red">#FF0000</color>
 </resources>
