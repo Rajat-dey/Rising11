@@ -107,23 +107,10 @@ public class HomeFragment extends Fragment {
                                     for(int i=0;i<array.length();i++)
                                     {
 
-                                        if(array.getJSONObject(i).get("unique_id").toString().equals("1166934"))
-                                        {
-                                            jsonArray.put(array.getJSONObject(i));
-                                        }
-                                        if(array.getJSONObject(i).get("unique_id").toString().equals("1144495"))
-                                        {
-                                            jsonArray.put(array.getJSONObject(i));
-                                        }
-                                        if(array.getJSONObject(i).get("unique_id").toString().equals("1166935"))
-                                        {
-                                            jsonArray.put(array.getJSONObject(i));
-                                        }
 
-                                        if(array.getJSONObject(i).get("unique_id").toString().equals("1177889"))
-                                        {
                                             jsonArray.put(array.getJSONObject(i));
-                                        }
+
+
 
                                     }
                                     rvHomeMatches.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
