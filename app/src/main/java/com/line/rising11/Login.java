@@ -75,17 +75,17 @@ public class Login extends AppCompatActivity {
 
 
 
-/*
-        fb.setOnClickListener(new View.OnClickListener() {
+
+        twitter.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                OpenFacebookPage();
+                twitterpage();
             }
         });
 
 
-*/
+
 
 
 
@@ -240,6 +240,21 @@ public class Login extends AppCompatActivity {
     }
 
 
+    protected  void twitterpage()
+    {
+        Intent intent = null;
+        try {
+            // get the Twitter app if possible
+            this.getPackageManager().getPackageInfo("com.twitter.android", 0);
+            intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://twitter.com/Rising11_kk?s=08"));
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        } catch (Exception e) {
+            // no Twitter app, revert to browser
+            intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://twitter.com/Rising11_kk?s=08"));
+        }
+        this.startActivity(intent);
+
+    }
 
 
 }

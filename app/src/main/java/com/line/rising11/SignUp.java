@@ -1,5 +1,6 @@
 package com.line.rising11;
 
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
@@ -49,6 +50,23 @@ private Button signup;
             public void onClick(View v) {
 
                 OpenFacebookPage();
+            }
+        });
+
+        insta.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                OpenInstaPage();
+            }
+        });
+
+
+        twitter.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                twitterpage();
             }
         });
 
@@ -171,6 +189,40 @@ private Button signup;
             startActivity(new Intent(Intent.ACTION_VIEW, Uri.parse(facebookUrl)));
 
         }
+
+    }
+
+
+
+
+
+
+    protected void OpenInstaPage ()
+    {
+        Intent likeIng = new Intent(Intent.ACTION_VIEW,  Uri.parse("https://www.instagram.com/rising11kk"));
+        likeIng.setPackage("com.instagram.android");
+        try {
+            startActivity(likeIng);
+        } catch (ActivityNotFoundException e) {
+            startActivity(new Intent(Intent.ACTION_VIEW,
+                    Uri.parse("https://www.instagram.com/rising11kk")));
+        }
+    }
+
+
+    protected  void twitterpage()
+    {
+        Intent intent = null;
+        try {
+            // get the Twitter app if possible
+            this.getPackageManager().getPackageInfo("com.twitter.android", 0);
+            intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://twitter.com/Rising11_kk?s=08"));
+            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        } catch (Exception e) {
+            // no Twitter app, revert to browser
+            intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://twitter.com/Rising11_kk?s=08"));
+        }
+        this.startActivity(intent);
 
     }
 
