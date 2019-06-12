@@ -1,9 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_marginTop="20dp"
+    android:orientation="vertical"
     tools:context=".withdrawl">
 
-</android.support.constraint.ConstraintLayout>
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/colorPrimary"
+        android:textSize="16sp"
+        android:text="Please choose your desired Payment Gateway" />
+
+    <TextView
+        android:layout_marginTop="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textColor="@color/red"
+        android:textStyle="bold"
+        android:textSize="22sp"
+        android:text="BANK WITHDRAW" />
+
+    <Button
+        android:id="@+id/bnk_withdraw"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_gravity="center"
+        android:background="@drawable/withdraw_button"
+        android:text="Enter"
+        android:textColor="@color/white_text"
+        android:textSize="16sp" />
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textSize="22sp"
+        android:textColor="@color/red"
+        android:text="PAYTM WITHDRAW" />
+
+
+    <Button
+        android:id="@+id/paytm_withdrawl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="20dp"
+        android:layout_gravity="center"
+        android:background="@drawable/withdraw_button"
+        android:text="Enter"
+        android:textColor="@color/white_text"
+        android:textSize="16sp" />
+
+
+</LinearLayout>

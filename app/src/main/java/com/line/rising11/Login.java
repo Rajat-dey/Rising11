@@ -63,8 +63,19 @@ public class Login extends AppCompatActivity {
         });
 
 
+
+
+        insta.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                OpenInstaPage();
+            }
+        });
+
+
+
 /*
-
         fb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -73,15 +84,6 @@ public class Login extends AppCompatActivity {
             }
         });
 
-
-
-        fb.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                OpenFacebookPage();
-            }
-        });
 
 */
 
@@ -221,18 +223,21 @@ public class Login extends AppCompatActivity {
         }
 
     }
+
+
+
+
     protected void OpenInstaPage ()
     {
-        Intent likeIng = new Intent(Intent.ACTION_VIEW,  Uri.parse("http://instagram.com/aarohanpoornima"));
+        Intent likeIng = new Intent(Intent.ACTION_VIEW,  Uri.parse("https://www.instagram.com/rising11kk"));
         likeIng.setPackage("com.instagram.android");
         try {
             startActivity(likeIng);
         } catch (ActivityNotFoundException e) {
             startActivity(new Intent(Intent.ACTION_VIEW,
-                    Uri.parse("http://instagram.com/aarohanpoornima")));
+                    Uri.parse("https://www.instagram.com/rising11kk")));
         }
     }
-
 
 
 
