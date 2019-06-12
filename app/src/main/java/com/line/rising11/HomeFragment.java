@@ -127,7 +127,7 @@ public class HomeFragment extends Fragment {
                             }
 
                         }
-                    }, new Response.ErrorListener() {
+                    },new Response.ErrorListener() {
 
                         @Override
                         public void onErrorResponse(VolleyError error) {

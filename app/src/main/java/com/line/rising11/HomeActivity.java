@@ -1,3 +1,4 @@
+
 package com.line.rising11;
 
 import android.content.Context;
@@ -23,6 +24,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -89,11 +91,19 @@ public class HomeActivity extends AppCompatActivity
 
         username=headerview.findViewById(R.id.tv_user_name);
         verified=headerview.findViewById(R.id.tv_verified);
+        LinearLayout linearLayout=headerview.findViewById(R.id.nav_ll);
         right=headerview.findViewById(R.id.right);
 
         verified.setText("Unverified");
         right.setVisibility(View.INVISIBLE);
 
+        linearLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(HomeActivity.this,MyProfileActivity.class);
+                startActivity(intent);
+            }
+        });
 
         boolean connected = false;
         ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
