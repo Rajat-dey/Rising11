@@ -1,5 +1,6 @@
 package com.line.rising11;
 
+import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -219,6 +220,17 @@ public class Login extends AppCompatActivity {
 
         }
 
+    }
+    protected void OpenInstaPage ()
+    {
+        Intent likeIng = new Intent(Intent.ACTION_VIEW,  Uri.parse("http://instagram.com/aarohanpoornima"));
+        likeIng.setPackage("com.instagram.android");
+        try {
+            startActivity(likeIng);
+        } catch (ActivityNotFoundException e) {
+            startActivity(new Intent(Intent.ACTION_VIEW,
+                    Uri.parse("http://instagram.com/aarohanpoornima")));
+        }
     }
 
 
