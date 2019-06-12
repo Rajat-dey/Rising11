@@ -11,7 +11,7 @@ import android.widget.TextView;
 
 public class ContestsActivity extends AppCompatActivity {
 
-    TextView create_team,contest_code,create_contest;
+    TextView create_team,contest_code,create_contest,more_contest;
     CardView entryfee;
 
     @Override
@@ -40,6 +40,7 @@ public class ContestsActivity extends AppCompatActivity {
         contest_code=findViewById(R.id.contest_code);
         create_contest=findViewById(R.id.create_contest);
         entryfee=findViewById(R.id.entryfee);
+        more_contest=findViewById(R.id.more_contest);
 
         entryfee.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,6 +71,15 @@ public class ContestsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ContestsActivity.this, CreateContest.class);
+                startActivity(intent);
+            }
+        });
+
+
+        more_contest.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ContestsActivity.this, ContestsFilterActivity.class);
                 startActivity(intent);
             }
         });

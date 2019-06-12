@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
     tools:context=".ContestsActivity">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -166,16 +167,42 @@
             android:layout_height="1dp"
             android:layout_marginTop="16dp"
             android:background="#c0c0c0"/>
-        <TextView
-            android:layout_width="wrap_content"
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Mega Contest"
-            android:textStyle="bold"
-            android:layout_marginTop="24dp"
-            android:layout_marginLeft="16dp"
-            android:textSize="18sp"
-            android:textColor="@color/black_text"
-            />
+            android:orientation="horizontal">
+
+
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="24dp"
+                android:text="Mega Contest"
+                android:layout_weight="1"
+                android:textColor="@color/black_text"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:id="@+id/more_contest"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_marginTop="24dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:textColor="@color/black_text"
+                android:textSize="16sp"
+                android:text="More Contest >>" />
+
+
+
+        </LinearLayout>
+
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -190,27 +217,26 @@
             android:layout_height="match_parent"
             android:layout_marginTop="16dp"
             android:scrollbars="vertical"
+            android:layout_marginBottom="70dp"
             android:id="@+id/recyclerview"
             >
 
 
         </android.support.v7.widget.RecyclerView>
-        <LinearLayout
+
+    </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/create_team"
             android:layout_width="match_parent"
             android:layout_height="60dp"
+            android:layout_alignParentBottom="true"
             android:gravity="center"
-            android:layout_gravity="bottom"
-            android:layout_marginTop="24dp"
-            android:background="#3ab54a">
+            android:background="#3ab54a"
+            android:text="CREATE TEAM"
+            android:textColor="@color/white_text"
+            android:textSize="24sp" />
 
-            <TextView
-                android:id="@+id/create_team"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center"
-                android:text="CREATE TEAM"
-                android:textColor="@color/white_text"
-                android:textSize="24sp" />
-        </LinearLayout>
-    </LinearLayout>
-</ScrollView>
+
+</RelativeLayout>
