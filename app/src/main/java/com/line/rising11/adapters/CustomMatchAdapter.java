@@ -100,7 +100,7 @@ public class CustomMatchAdapter extends RecyclerView.Adapter<CustomMatchAdapter.
                     holder.tvDateTime.setTextColor(Color.RED);
                     if(holder.tday>0)
                     {
-                        holder.tvDateTime.setText(String.valueOf(holder.tday)+" days left");
+                        holder.tvDateTime.setText(String.valueOf(holder.tday)+" days");
                     }
                     else
                     {
@@ -110,21 +110,21 @@ public class CustomMatchAdapter extends RecyclerView.Adapter<CustomMatchAdapter.
                             String minsString = (mins == 0) ? "00" : ((mins < 10) ? "0" + mins : "" + mins);
                             String secsString = (secs == 0) ? "00" : ((secs < 10) ? "0" + secs : "" + secs);
                             if (hours > 0) {
-                                holder.tvDateTime.setText(hours + "h " + minsString + "m left");
+                                holder.tvDateTime.setText(hours + "h " + minsString + "m");
                             }
                             else if (mins > 0) {
-                                holder.tvDateTime.setText(mins + "m " + secsString+"s left");
+                                holder.tvDateTime.setText(mins + "m " + secsString+"s");
 
                             }
                             else
                             {
-                                holder.tvDateTime.setText(secsString+"s left");
+                                holder.tvDateTime.setText(secsString+"s");
                             }
 
                         }
                         else
                         {
-                            holder.tvDateTime.setText("0s left");
+                            holder.tvDateTime.setText("0s");
                         }
                     }
 
@@ -136,7 +136,7 @@ public class CustomMatchAdapter extends RecyclerView.Adapter<CustomMatchAdapter.
                 @Override
                 public void onFinish()
                 {
-                    holder.tvDateTime.setText("0"+"s left");
+                    holder.tvDateTime.setText("0"+"s");
                     holder.cvTeam.setClickable(false);
                     holder.cvTeam.setEnabled(false);
                     holder.tvDateTime.setTextColor(Color.RED);
