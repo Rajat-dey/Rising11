@@ -9,16 +9,23 @@ import android.widget.TextView;
 
 import com.line.rising11.R;
 import com.mikhaellopez.circularimageview.CircularImageView;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
+
+import java.util.ArrayList;
 
 public class CustomCapViceCapSelectionAdapter extends RecyclerView.Adapter<CustomCapViceCapSelectionAdapter.CustomViewHolder> {
     private JSONArray customerList;
     private Context context;
+    ArrayList<String>pname,pimage;
 
-    public CustomCapViceCapSelectionAdapter(Context context, JSONArray customerList) {
-        this.customerList = customerList;
+    public CustomCapViceCapSelectionAdapter(Context context, ArrayList<String> pname,ArrayList<String>pimage) {
+        /*this.customerList = customerList;*/
+
         this.context = context;
+        this.pname=pname;
+        this.pimage=pimage;
     }
 
     @Override
@@ -29,14 +36,16 @@ public class CustomCapViceCapSelectionAdapter extends RecyclerView.Adapter<Custo
     }
 
     @Override
-    public void onBindViewHolder(CustomViewHolder holder, int position) {
-
+    public void onBindViewHolder(CustomViewHolder holder, int position)
+    {
+        Picasso.get().load(pimage.get(position)).into(holder.civDP);
+        holder.tvUsername.setText(pname.get(position));
     }
 
 
     @Override
     public int getItemCount() {
-        return 10;
+        return pname.size();
     }
 
     class CustomViewHolder extends RecyclerView.ViewHolder{
@@ -48,6 +57,8 @@ public class CustomCapViceCapSelectionAdapter extends RecyclerView.Adapter<Custo
         public CustomViewHolder (View view)
         {
             super(view);
+            civDP=view.findViewById(R.id.iv_player_photo);
+            tvUsername=view.findViewById(R.id.tv_player_name);
 
         }
 

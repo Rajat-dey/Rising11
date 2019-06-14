@@ -50,6 +50,7 @@ public class TeamSelectionActivity extends AppCompatActivity  implements CustomT
     private PageviewPlayerAdapter pageviewPlayerAdapter;
     JSONArray jsonArrayWK , jsonArrayBAT, jsonArrayAR, jsonArrayBOWL;
     private TabLayout tab_home;
+    ArrayList<String> pname,pimage;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -61,11 +62,75 @@ public class TeamSelectionActivity extends AppCompatActivity  implements CustomT
         rvTeamSelection.setAdapter(new CustomTeamSelectionAdapter(new JSONArray()));*/
 
         btnContinue = findViewById(R.id.btn_continue);
+        pname=new ArrayList<>();
+        pimage=new ArrayList<>();
         btnContinue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(TeamSelectionActivity.this, CaptainViceCaptainSelectionActivity.class);
-                startActivity(intent);
+                if(selectar>=1&&selectbat>=1&&selectbowl>=1&&selectwk>=1 && selectedtotalplayer==11)
+                {
+                    for(int i=0;i<listwk.size();i++)
+                    {
+                        if(listwk.get(i).equals("1"))
+                        {
+                            try {
+                                pname.add( jsonArrayWK.getJSONObject(i).getString("player_name"));
+                                pimage.add( jsonArrayWK.getJSONObject(i).getString("image"));
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }
+                    for(int i=0;i<listbat.size();i++)
+                    {
+                        if(listbat.get(i).equals("1"))
+                        {
+                            try {
+                                pname.add( jsonArrayBAT.getJSONObject(i).getString("player_name"));
+                                pimage.add( jsonArrayBAT.getJSONObject(i).getString("image"));
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }
+                    for(int i=0;i<listar.size();i++)
+                    {
+                        if(listar.get(i).equals("1"))
+                        {
+                            try {
+                                pname.add( jsonArrayAR.getJSONObject(i).getString("player_name"));
+                                pimage.add( jsonArrayAR.getJSONObject(i).getString("image"));
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }
+                    for(int i=0;i<listbowl.size();i++)
+                    {
+                        if(listbowl.get(i).equals("1"))
+                        {
+                            try {
+                                pname.add( jsonArrayBOWL.getJSONObject(i).getString("player_name"));
+                                pimage.add( jsonArrayBOWL.getJSONObject(i).getString("image"));
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+                        }
+                    }
+                    for(int i=0;i<pname.size();i++)
+                    {
+                        Log.d("data send",pname.get(i));
+                    }
+                    Intent intent = new Intent(TeamSelectionActivity.this, CaptainViceCaptainSelectionActivity.class);
+                    intent.putStringArrayListExtra("pname",pname);
+                    intent.putStringArrayListExtra("pimage",pimage);
+                    startActivity(intent);
+                }
+                else
+                {
+                    Toast.makeText(TeamSelectionActivity.this, "Please select at least one from all type player and total player should be 11", Toast.LENGTH_LONG).show();
+                }
+
             }
         });
 

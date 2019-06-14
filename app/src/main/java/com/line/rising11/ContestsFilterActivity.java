@@ -24,7 +24,7 @@ import org.json.JSONObject;
 
 public class ContestsFilterActivity extends AppCompatActivity {
     ContestFilterRecyclerDataClass[] myListData;
-    private TextView price,spots,winners,entry;
+    private TextView price,spots,winners,entry,contestavail;
     RecyclerView recyclerView;
     ContestFilterRecyclerAdapter adapter;
     @Override
@@ -40,6 +40,7 @@ public class ContestsFilterActivity extends AppCompatActivity {
         spots=findViewById(R.id.spots);
         winners=findViewById(R.id.winners);
         entry=findViewById(R.id.entry);
+        contestavail=findViewById(R.id.contestavail);
 
 
         boolean connected = false;
@@ -63,7 +64,7 @@ public class ContestsFilterActivity extends AppCompatActivity {
                                     myListData = new ContestFilterRecyclerDataClass[jsonArray.length()];
 
                                     JSONArray jsonArrayAR=new JSONArray();
-
+                                    contestavail.setText(String.valueOf(jsonArray.length())+" Contests Available");
                                     for(int i=0;i<jsonArray.length();i++)
                                     {
 
@@ -73,6 +74,7 @@ public class ContestsFilterActivity extends AppCompatActivity {
 
 
                                     }
+
                                     recyclerView = (RecyclerView) findViewById(R.id.recyclerview);
                                     adapter = new ContestFilterRecyclerAdapter(myListData);
                                     recyclerView.setHasFixedSize(true);

@@ -111,17 +111,37 @@ public class CustomTeamSelectionAdapter extends RecyclerView.Adapter<CustomTeamS
         {
             int p = getAdapterPosition();
 
-            /*if(tabplayerselected<maxlimittabplayer && totalselectedplayer<11)
+            /*if()
             {*/
 
-                if (listforcheckadd.get(p).equals("1")) {
-                    iv_add_btn.setImageResource(R.drawable.ic_add_circle_outline_green_24dp);
+                if (listforcheckadd.get(p).equals("0")  ) {
+                    if(tabplayerselected<maxlimittabplayer && totalselectedplayer<11) {
 
+                        iv_add_btn.setImageResource(R.drawable.ic_remove_circle_outline_red_24dp);
+                        tabplayerselected=tabplayerselected+1;
+                        totalselectedplayer=totalselectedplayer+1;
+                        credit_left=credit_left-Float.parseFloat(credit.get(p));
+                        onAddListner.onAddClick(p);
+                    }
+                    else if(Float.parseFloat(credit.get(p))<credit_left)
+                    {
+                        onAddListner.onAddClick(-1);
+                    }
+                    else
+                    {
+                        onAddListner.onAddClick(-2);
+                    }
 
-                } else {
-                    iv_add_btn.setImageResource(R.drawable.ic_remove_circle_outline_red_24dp);
                 }
-                onAddListner.onAddClick(p);
+                else  {
+                    iv_add_btn.setImageResource(R.drawable.ic_add_circle_outline_green_24dp);
+                    tabplayerselected=tabplayerselected-1;
+                    totalselectedplayer=totalselectedplayer-1;
+                    credit_left=credit_left+Float.parseFloat(credit.get(p));
+                    onAddListner.onAddClick(p);
+
+                }
+
 
            /* }
             else if(credit_left<Float.parseFloat(credit.get(p)))
