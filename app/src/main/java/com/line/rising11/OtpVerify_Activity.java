@@ -165,7 +165,7 @@ public class OtpVerify_Activity extends AppCompatActivity {
                                         });
 
                                 // Access the RequestQueue through your singleton class.
-                                RestClient.getInstance(OtpVerify_Activity.this).addToRequestQueue(jsonObjectRequest.setShouldCache(false));
+                                RestClient.getInstance(OtpVerify_Activity.this).addToRequestQueue(jsonObjectRequest);
 
 
 
@@ -232,7 +232,7 @@ public class OtpVerify_Activity extends AppCompatActivity {
                                         });
 
                                 // Access the RequestQueue through your singleton class.
-                                RestClient.getInstance(OtpVerify_Activity.this).addToRequestQueue(jsonObjectRequest.setShouldCache(false));
+                                RestClient.getInstance(OtpVerify_Activity.this).addToRequestQueue(jsonObjectRequest);
 
 
 

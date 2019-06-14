@@ -7,6 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -20,6 +21,7 @@ import org.json.JSONObject;
 
 public class ContestsFilterActivity extends AppCompatActivity {
     ContestFilterRecyclerDataClass[] myListData;
+    private TextView price,spots,winners,entry;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +30,11 @@ public class ContestsFilterActivity extends AppCompatActivity {
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+        price=findViewById(R.id.price);
+        spots=findViewById(R.id.spots);
+        winners=findViewById(R.id.winners);
+        entry=findViewById(R.id.winners);
 
 
         boolean connected = false;
@@ -90,7 +97,7 @@ public class ContestsFilterActivity extends AppCompatActivity {
                     });
 
             // Access the RequestQueue through your singleton class.
-            RestClient.getInstance(ContestsFilterActivity.this).addToRequestQueue(jsonObjectRequest.setShouldCache(false));
+            RestClient.getInstance(ContestsFilterActivity.this).addToRequestQueue(jsonObjectRequest);
 
 
 

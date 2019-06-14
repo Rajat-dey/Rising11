@@ -182,7 +182,7 @@ public class CreateContest extends AppCompatActivity {
                                });
 
                        // Access the RequestQueue through your singleton class.
-                       RestClient.getInstance(CreateContest.this).addToRequestQueue(jsonObjectRequest.setShouldCache(false));
+                       RestClient.getInstance(CreateContest.this).addToRequestQueue(jsonObjectRequest);
 
 
 

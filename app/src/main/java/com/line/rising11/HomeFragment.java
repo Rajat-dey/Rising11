@@ -139,7 +139,7 @@ public class HomeFragment extends Fragment {
                     });
 
             // Access the RequestQueue through your singleton class.
-            RestClient.getInstance(getContext()).addToRequestQueue(jsonObjectRequest.setShouldCache(false));
+            RestClient.getInstance(getContext()).addToRequestQueue(jsonObjectRequest);
 
 
 
