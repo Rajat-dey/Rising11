@@ -93,7 +93,7 @@ public class BowlerFragment extends Fragment {
                     });
 
             // Access the RequestQueue through your singleton class.
-            RestClient.getInstance(getContext()).addToRequestQueue(jsonObjectRequest);
+            RestClient.getInstance(getContext()).addToRequestQueue(jsonObjectRequest.setShouldCache(false));
 
 
 

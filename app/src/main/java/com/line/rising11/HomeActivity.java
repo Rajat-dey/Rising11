@@ -36,6 +36,10 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class HomeActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     SharedPreferences sharedPreferences;
@@ -97,6 +101,10 @@ public class HomeActivity extends AppCompatActivity
         verified.setText("Unverified");
         right.setVisibility(View.INVISIBLE);
 
+
+
+
+
         linearLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -155,7 +163,7 @@ public class HomeActivity extends AppCompatActivity
                     });
 
             // Access the RequestQueue through your singleton class.
-            RestClient.getInstance(HomeActivity.this).addToRequestQueue(jsonObjectRequest);
+            RestClient.getInstance(HomeActivity.this).addToRequestQueue(jsonObjectRequest.setShouldCache(false));
 
 
 

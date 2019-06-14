@@ -100,7 +100,7 @@ public class MyProfileActivity extends AppCompatActivity {
                     });
 
             // Access the RequestQueue through your singleton class.
-            RestClient.getInstance(MyProfileActivity.this).addToRequestQueue(jsonObjectRequest);
+            RestClient.getInstance(MyProfileActivity.this).addToRequestQueue(jsonObjectRequest.setShouldCache(false));
 
 
 

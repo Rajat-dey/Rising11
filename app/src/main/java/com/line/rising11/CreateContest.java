@@ -15,6 +15,7 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Switch;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -34,6 +35,8 @@ public class CreateContest extends AppCompatActivity {
     private EditText cname,csize,wammount;
     private TextView eammount;
     String efees="10",pamount="1";
+    Switch switch1;
+    int swithval=0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -46,6 +49,7 @@ public class CreateContest extends AppCompatActivity {
         wammount=findViewById(R.id.wammount);
         csize=findViewById(R.id.csize);
         eammount=findViewById(R.id.eammount);
+        switch1=findViewById(R.id.switch1);
         csize.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -124,13 +128,17 @@ public class CreateContest extends AppCompatActivity {
                }
                else
                {
+                   if(switch1.isChecked())
+                   {
+                       swithval=1;
+                   }
                    boolean connected = false;
                    ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
                    if(connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED ||
                            connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED) {
                        SharedPreferences sharedPreferences=getSharedPreferences("loginstatus", Context.MODE_PRIVATE);
                        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
-                               (Request.Method.GET, getString(R.string.create_contest)+"?contest_name="+cname.getText().toString().trim()+"&total_winning_amount="+wammount.getText().toString().trim()+"&contest_size="+csize.getText().toString().trim()+"&entry_fees="+efees+"&mobile="+sharedPreferences.getString("number",""), null, new Response.Listener<JSONObject>() {
+                               (Request.Method.GET, getString(R.string.create_contest)+"?contest_name="+cname.getText().toString().trim()+"&total_winning_amount="+wammount.getText().toString().trim()+"&contest_size="+csize.getText().toString().trim()+"&entry_fees="+efees+"&mobile="+sharedPreferences.getString("number","")+"&is_multiple="+String.valueOf(swithval)+"&type=private", null, new Response.Listener<JSONObject>() {
                                    @Override
                                    public void onResponse(JSONObject response) {
                                        Log.d("Response: ", response.toString());
@@ -174,7 +182,7 @@ public class CreateContest extends AppCompatActivity {
                                });
 
                        // Access the RequestQueue through your singleton class.
-                       RestClient.getInstance(CreateContest.this).addToRequestQueue(jsonObjectRequest);
+                       RestClient.getInstance(CreateContest.this).addToRequestQueue(jsonObjectRequest.setShouldCache(false));
 
 
 

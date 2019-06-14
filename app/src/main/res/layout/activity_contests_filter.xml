@@ -61,22 +61,26 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:gravity="center"
+            android:id="@+id/price"
             android:text="PRIZE POOL"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/spots"
             android:layout_weight="1"
             android:text="SPOTS"
             android:gravity="center"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/winners"
             android:layout_weight="1"
             android:gravity="center"
             android:text="WINNERS"/>
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:id="@+id/entry"
             android:layout_weight="1"
             android:gravity="center"
             android:text="ENTRY"/>

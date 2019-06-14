@@ -13,13 +13,22 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.android.volley.DefaultRetryPolicy;
+import com.android.volley.NetworkResponse;
 import com.android.volley.Request;
+import com.android.volley.RequestQueue;
 import com.android.volley.Response;
+import com.android.volley.ServerError;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.HttpHeaderParser;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.JsonRequest;
+import com.android.volley.toolbox.Volley;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+
+import java.io.UnsupportedEncodingException;
 
 public class SignUp extends AppCompatActivity {
 private EditText name,email,number,password,code;
@@ -93,7 +102,7 @@ private Button signup;
                        link="http://rising11.com/apps/apis/register-user.php"+"?name="+name.getText().toString()+"&mobile="+number.getText().toString()+"&password="+password.getText().toString()+"&email="+email.getText().toString()+"&invite_code="+code.getText().toString().trim()+"&device_id="+id;
 
                    }
-                    JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
+                    final JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
                             (Request.Method.GET, link, null, new Response.Listener<JSONObject>() {
                                 @Override
                                 public void onResponse(JSONObject response) {
@@ -102,6 +111,7 @@ private Button signup;
 
 
                                     try {
+
                                         if(response.getString("code").equals("1"))
                                         {
                                             Intent intent = new Intent(SignUp.this, OtpVerify_Activity.class);
@@ -128,14 +138,20 @@ private Button signup;
 
                                 @Override
                                 public void onErrorResponse(VolleyError error) {
+
+
                                     // TODO: Handle error
                                     Toast.makeText(getApplicationContext(), "Error: "
                                             + error.getLocalizedMessage(), Toast.LENGTH_LONG)
                                             .show();
                                 }
                             });
+                    //jsonObjectRequest.setShouldCache(false);
 
-                    jsonObjectRequest.setShouldCache(false);
+                    /*RequestQueue queue = Volley.newRequestQueue(SignUp.this);
+                    queue.getCache().clear();
+                    queue.add(jsonObjectRequest);*/
+
                     // Access the RequestQueue through your singleton class.
                     RestClient.getInstance(SignUp.this).addToRequestQueue(jsonObjectRequest);
 

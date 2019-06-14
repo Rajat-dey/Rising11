@@ -98,7 +98,7 @@ public class ForgetSetPasswordActivity extends AppCompatActivity {
                               });
 
                       // Access the RequestQueue through your singleton class.
-                      RestClient.getInstance(ForgetSetPasswordActivity.this).addToRequestQueue(jsonObjectRequest);
+                      RestClient.getInstance(ForgetSetPasswordActivity.this).addToRequestQueue(jsonObjectRequest.setShouldCache(false));
 
 
 

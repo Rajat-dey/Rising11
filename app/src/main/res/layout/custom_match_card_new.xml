@@ -81,8 +81,9 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:layout_marginTop="5dp"
-                android:background="#00a650"
                 android:paddingLeft="20dp"
+                android:textSize="12sp"
+                android:textStyle="bold"
                 android:paddingRight="20dp"
                 android:text="VS"
                 android:textColor="@android:color/white" />

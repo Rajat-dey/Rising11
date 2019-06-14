@@ -171,7 +171,7 @@ public class MySettingsActivity extends AppCompatActivity {
                     });
 
             // Access the RequestQueue through your singleton class.
-            RestClient.getInstance(MySettingsActivity.this).addToRequestQueue(jsonObjectRequest);
+            RestClient.getInstance(MySettingsActivity.this).addToRequestQueue(jsonObjectRequest.setShouldCache(false));
 
 
 
@@ -236,7 +236,7 @@ public class MySettingsActivity extends AppCompatActivity {
                             });
 
                     // Access the RequestQueue through your singleton class.
-                    RestClient.getInstance(MySettingsActivity.this).addToRequestQueue(jsonObjectRequest);
+                    RestClient.getInstance(MySettingsActivity.this).addToRequestQueue(jsonObjectRequest.setShouldCache(false));
 
 
 
