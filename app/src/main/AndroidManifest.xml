@@ -14,7 +14,9 @@
         android:networkSecurityConfig="@xml/network_security_config"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".withdrawl"></activity>
+        <activity android:name=".paytm_withdrawl"></activity>
+        <activity android:name=".bank_withdrawl" />
+        <activity android:name=".withdrawl" />
         <activity android:name=".ContestsFilterActivity" />
         <activity android:name=".legality" />
         <activity android:name=".more_faqs" />

@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_marginTop="20dp"
+    android:orientation="vertical"
+    tools:context=".withdrawl">
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/acc_number"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:hint="Account Number"
+            android:inputType="number"
+            android:padding="7dp"
+            android:textColor="@color/black_text"
+            android:textColorHint="@android:color/white" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/name"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:hint="Account Holder's Name"
+            android:inputType="textPersonName"
+            android:textColor="@color/black_text"
+            android:textColorHint="@color/black_text" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/ifsc"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="7dp"
+
+            android:hint="IFSC Code"
+            android:inputType="text"
+
+            android:textColor="@color/black_text"
+            android:textColorHint="@color/black_text" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/total_amount"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="7dp"
+            android:hint="Amount(RS)"
+            android:inputType="number"
+            android:textColor="@color/black_text"
+            android:textColorHint="@color/black_text" />
+    </android.support.design.widget.TextInputLayout>
+
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/desc"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="7dp"
+            android:hint="Description (Optional)"
+            android:inputType="none"
+            android:textColor="@color/black_text"
+            android:textColorHint="@color/black_text" />
+    </android.support.design.widget.TextInputLayout>
+
+    <Button
+        android:id="@+id/btn_signup"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_gravity="center"
+        android:background="@drawable/withdraw_button"
+        android:text="SEND"
+        android:textColor="@color/white_text"
+        android:textSize="16sp" />
+
+
+</LinearLayout>

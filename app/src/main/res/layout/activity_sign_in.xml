@@ -56,7 +56,7 @@
         android:layout_width="250dp"
         android:layout_height="250dp"
         android:layout_centerInParent="true"
-        android:src="@drawable/welcome_screen_icon"/>
+        android:src="@drawable/center_screen_logo"/>
 
     <TextView
         android:id="@+id/website"
