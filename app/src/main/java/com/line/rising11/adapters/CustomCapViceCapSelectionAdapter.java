@@ -45,7 +45,8 @@ public class CustomCapViceCapSelectionAdapter extends RecyclerView.Adapter<Custo
         private TextView tvMsg;
         private TextView tvDateTime;
 
-        public CustomViewHolder (View view) {
+        public CustomViewHolder (View view)
+        {
             super(view);
 
         }

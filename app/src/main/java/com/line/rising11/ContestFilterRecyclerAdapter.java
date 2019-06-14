@@ -28,11 +28,11 @@ public class ContestFilterRecyclerAdapter extends RecyclerView.Adapter<ContestFi
     public void onBindViewHolder(ViewHolder holder, int position) {
         final ContestFilterRecyclerDataClass myListData = listdata[position];
 
-        holder.contesttv1.setText(listdata[position].getPrize());
-        holder.contestbt1.setText(listdata[position].getEntry());
-        holder.contesttv2.setText(listdata[position].getMin_pb_val());
-        holder.contesttv3.setText(listdata[position].getMax_pb_val());
-        holder.contesttv4.setText(listdata[position].getWinner());
+        holder.contesttv1.setText("₹"+listdata[position].getPrize());
+        holder.contestbt1.setText("₹"+listdata[position].getEntry());
+        holder.contesttv2.setText(listdata[position].getMin_pb_val()+" spots left");
+        holder.contesttv3.setText(listdata[position].getMax_pb_val()+" spots");
+        holder.contesttv4.setText(listdata[position].getWinner()+" Winners");
         holder.contesttv5.setText(listdata[position].getBox1());
         holder.contesttv6.setText(listdata[position].getBox2());
 

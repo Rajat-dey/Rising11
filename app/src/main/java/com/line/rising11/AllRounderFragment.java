@@ -72,8 +72,8 @@ public class AllRounderFragment extends Fragment {
                                         }
 
                                     }
-                                    rvTeamSelection.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
-                                    rvTeamSelection.setAdapter(new CustomTeamSelectionAdapter(jsonArrayAR));
+                                    /*rvTeamSelection.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
+                                    rvTeamSelection.setAdapter(new CustomTeamSelectionAdapter(jsonArrayAR,));*/
 
                                 }
                                 else

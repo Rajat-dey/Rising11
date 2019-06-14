@@ -1,12 +1,15 @@
 package com.line.rising11;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,6 +25,8 @@ import org.json.JSONObject;
 public class ContestsFilterActivity extends AppCompatActivity {
     ContestFilterRecyclerDataClass[] myListData;
     private TextView price,spots,winners,entry;
+    RecyclerView recyclerView;
+    ContestFilterRecyclerAdapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,7 +39,7 @@ public class ContestsFilterActivity extends AppCompatActivity {
         price=findViewById(R.id.price);
         spots=findViewById(R.id.spots);
         winners=findViewById(R.id.winners);
-        entry=findViewById(R.id.winners);
+        entry=findViewById(R.id.entry);
 
 
         boolean connected = false;
@@ -62,14 +67,14 @@ public class ContestsFilterActivity extends AppCompatActivity {
                                     for(int i=0;i<jsonArray.length();i++)
                                     {
 
-                                        myListData[i]=new ContestFilterRecyclerDataClass("₹"+jsonArray.getJSONObject(i).getString("total_winning_amount"),"₹"+jsonArray.getJSONObject(i).getString("entry_fees"),jsonArray.getJSONObject(i).getString("contest_size")+" spots","1,654 spots left","2,500 Winners","C","M");
+                                        myListData[i]=new ContestFilterRecyclerDataClass(jsonArray.getJSONObject(i).getString("total_winning_amount"),jsonArray.getJSONObject(i).getString("entry_fees"),jsonArray.getJSONObject(i).getString("contest_size"),"1654","2500","C","M");
 
                                         //jsonArrayAR.put(jsonArray.getJSONObject(i));
 
 
                                     }
-                                    RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerview);
-                                    ContestFilterRecyclerAdapter adapter = new ContestFilterRecyclerAdapter(myListData);
+                                    recyclerView = (RecyclerView) findViewById(R.id.recyclerview);
+                                    adapter = new ContestFilterRecyclerAdapter(myListData);
                                     recyclerView.setHasFixedSize(true);
                                     recyclerView.setLayoutManager(new LinearLayoutManager(ContestsFilterActivity.this));
                                     recyclerView.setAdapter(adapter);
@@ -96,7 +101,6 @@ public class ContestsFilterActivity extends AppCompatActivity {
                         }
                     });
 
-            // Access the RequestQueue through your singleton class.
             RestClient.getInstance(ContestsFilterActivity.this).addToRequestQueue(jsonObjectRequest);
 
 
@@ -108,6 +112,239 @@ public class ContestsFilterActivity extends AppCompatActivity {
             /*Snackbar.make(, "Please check your Internet connection", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show();*/
         }
+
+        price.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+                price.setTextSize(15.0f);
+                price.setTextColor(Color.BLUE);
+                spots.setTextColor(Color.BLACK);
+                spots.setTextSize(14.0f);
+                winners.setTextColor(Color.BLACK);
+                winners.setTextSize(14.0f);
+                entry.setTextColor(Color.BLACK);
+                entry.setTextSize(14.0f);
+
+                String tempprize=null,tempentry=null,tempwinners=null,tempspotstotal=null,tempspotsleft=null;
+                boolean swapped;
+                for (int i = 0; i < myListData.length - 1; i++)
+                {
+                    swapped = false;
+                    for (int j = 0; j < myListData.length - i - 1; j++)
+                    {
+
+                        if ( Float.parseFloat(myListData[j].getPrize())>Float.parseFloat(myListData[j+1].getPrize()) )
+                        {
+                            tempprize=myListData[j].getPrize();
+                            myListData[j].setPrize(myListData[j+1].getPrize());
+                            myListData[j+1].setPrize(tempprize);
+
+                            tempentry=myListData[j].getEntry();
+                            myListData[j].setEntry(myListData[j+1].getEntry());
+                            myListData[j+1].setEntry(tempentry);
+
+                            tempwinners=myListData[j].getWinner();
+                            myListData[j].setWinner(myListData[j+1].getWinner());
+                            myListData[j+1].setWinner(tempwinners);
+
+                            tempspotstotal=myListData[j].getMax_pb_val();
+                            myListData[j].setMax_pb_val(myListData[j+1].getMax_pb_val());
+                            myListData[j+1].setMax_pb_val(tempspotstotal);
+
+                            tempspotsleft=myListData[j].getMin_pb_val();
+                            myListData[j].setMin_pb_val(myListData[j+1].getMin_pb_val());
+                            myListData[j+1].setMin_pb_val(tempspotsleft);
+
+
+                            swapped = true;
+                        }
+                    }
+
+                    if (swapped == false)
+                        break;
+                }
+                adapter.notifyDataSetChanged();
+
+            }
+        });
+
+        spots.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+                spots.setTextSize(15.0f);
+                spots.setTextColor(Color.BLUE);
+                price.setTextColor(Color.BLACK);
+                price.setTextSize(14.0f);
+                winners.setTextColor(Color.BLACK);
+                winners.setTextSize(14.0f);
+                entry.setTextColor(Color.BLACK);
+                entry.setTextSize(14.0f);
+                String tempprize=null,tempentry=null,tempwinners=null,tempspotstotal=null,tempspotsleft=null;
+                boolean swapped;
+                for (int i = 0; i < myListData.length - 1; i++)
+                {
+                    swapped = false;
+                    for (int j = 0; j < myListData.length - i - 1; j++)
+                    {
+                        if (Integer.parseInt(myListData[j].getMax_pb_val()) > Integer.parseInt(myListData[j+1].getMax_pb_val()))
+                        {
+                            // swap arr[j] and arr[j+1]
+
+                            tempprize=myListData[j].getPrize();
+                            myListData[j].setPrize(myListData[j+1].getPrize());
+                            myListData[j+1].setPrize(tempprize);
+
+                            tempentry=myListData[j].getEntry();
+                            myListData[j].setEntry(myListData[j+1].getEntry());
+                            myListData[j+1].setEntry(tempentry);
+
+                            tempwinners=myListData[j].getWinner();
+                            myListData[j].setWinner(myListData[j+1].getWinner());
+                            myListData[j+1].setWinner(tempwinners);
+
+                            tempspotstotal=myListData[j].getMax_pb_val();
+                            myListData[j].setMax_pb_val(myListData[j+1].getMax_pb_val());
+                            myListData[j+1].setMax_pb_val(tempspotstotal);
+
+                            tempspotsleft=myListData[j].getMin_pb_val();
+                            myListData[j].setMin_pb_val(myListData[j+1].getMin_pb_val());
+                            myListData[j+1].setMin_pb_val(tempspotsleft);
+
+
+                            swapped = true;
+                        }
+                    }
+
+                    // IF no two elements were
+                    // swapped by inner loop, then break
+                    if (swapped == false)
+                        break;
+                }
+                adapter.notifyDataSetChanged();
+            }
+        });
+
+        winners.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+                winners.setTextSize(15.0f);
+                winners.setTextColor(Color.BLUE);
+                spots.setTextColor(Color.BLACK);
+                spots.setTextSize(14.0f);
+                price.setTextColor(Color.BLACK);
+                price.setTextSize(14.0f);
+                entry.setTextColor(Color.BLACK);
+                entry.setTextSize(14.0f);
+                String tempprize=null,tempentry=null,tempwinners=null,tempspotstotal=null,tempspotsleft=null;
+                boolean swapped;
+                for (int i = 0; i < myListData.length - 1; i++)
+                {
+                    swapped = false;
+                    for (int j = 0; j < myListData.length - i - 1; j++)
+                    {
+                        if (Integer.parseInt(myListData[j].getWinner()) > Integer.parseInt(myListData[j+1].getWinner()))
+                        {
+                            // swap arr[j] and arr[j+1]
+
+                            tempprize=myListData[j].getPrize();
+                            myListData[j].setPrize(myListData[j+1].getPrize());
+                            myListData[j+1].setPrize(tempprize);
+
+                            tempentry=myListData[j].getEntry();
+                            myListData[j].setEntry(myListData[j+1].getEntry());
+                            myListData[j+1].setEntry(tempentry);
+
+                            tempwinners=myListData[j].getWinner();
+                            myListData[j].setWinner(myListData[j+1].getWinner());
+                            myListData[j+1].setWinner(tempwinners);
+
+                            tempspotstotal=myListData[j].getMax_pb_val();
+                            myListData[j].setMax_pb_val(myListData[j+1].getMax_pb_val());
+                            myListData[j+1].setMax_pb_val(tempspotstotal);
+
+                            tempspotsleft=myListData[j].getMin_pb_val();
+                            myListData[j].setMin_pb_val(myListData[j+1].getMin_pb_val());
+                            myListData[j+1].setMin_pb_val(tempspotsleft);
+
+
+                            swapped = true;
+                        }
+                    }
+
+                    // IF no two elements were
+                    // swapped by inner loop, then break
+                    if (swapped == false)
+                        break;
+                }
+                adapter.notifyDataSetChanged();
+
+            }
+        });
+
+        entry.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+
+                entry.setTextSize(15.0f);
+                entry.setTextColor(Color.BLUE);
+                spots.setTextColor(Color.BLACK);
+                spots.setTextSize(14.0f);
+                winners.setTextColor(Color.BLACK);
+                winners.setTextSize(14.0f);
+                price.setTextColor(Color.BLACK);
+                price.setTextSize(14.0f);
+                String tempprize=null,tempentry=null,tempwinners=null,tempspotstotal=null,tempspotsleft=null;
+                boolean swapped;
+                for (int i = 0; i < myListData.length - 1; i++)
+                {
+                    swapped = false;
+                    for (int j = 0; j < myListData.length - i - 1; j++)
+                    {
+                        if (Float.parseFloat(myListData[j].getEntry()) > Float.parseFloat(myListData[j+1].getEntry()))
+                        {
+                            // swap arr[j] and arr[j+1]
+
+                            tempprize=myListData[j].getPrize();
+                            myListData[j].setPrize(myListData[j+1].getPrize());
+                            myListData[j+1].setPrize(tempprize);
+
+                            tempentry=myListData[j].getEntry();
+                            myListData[j].setEntry(myListData[j+1].getEntry());
+                            myListData[j+1].setEntry(tempentry);
+
+                            tempwinners=myListData[j].getWinner();
+                            myListData[j].setWinner(myListData[j+1].getWinner());
+                            myListData[j+1].setWinner(tempwinners);
+
+                            tempspotstotal=myListData[j].getMax_pb_val();
+                            myListData[j].setMax_pb_val(myListData[j+1].getMax_pb_val());
+                            myListData[j+1].setMax_pb_val(tempspotstotal);
+
+                            tempspotsleft=myListData[j].getMin_pb_val();
+                            myListData[j].setMin_pb_val(myListData[j+1].getMin_pb_val());
+                            myListData[j+1].setMin_pb_val(tempspotsleft);
+
+
+                            swapped = true;
+                        }
+                    }
+
+                    // IF no two elements were
+                    // swapped by inner loop, then break
+                    if (swapped == false)
+                        break;
+                }
+
+                adapter.notifyDataSetChanged();
+
+            }
+        });
+
+
 
 
 

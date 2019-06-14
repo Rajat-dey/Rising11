@@ -80,8 +80,8 @@ public class BatingFragment extends Fragment {
                                             jsonArrayBAT.put(jsonArray.getJSONObject(i));
                                         }
                                     }
-                                    rvTeamSelection.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
-                                    rvTeamSelection.setAdapter(new CustomTeamSelectionAdapter(jsonArrayBAT));
+                                    /*rvTeamSelection.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
+                                    rvTeamSelection.setAdapter(new CustomTeamSelectionAdapter(jsonArrayBAT));*/
 
                                 }
                                 else

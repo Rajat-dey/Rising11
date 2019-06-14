@@ -21,7 +21,7 @@
                 android:id="@+id/tv_inst_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Max 7 Players from a Team"
+                android:text="Max 11 Players from a Team"
                 android:textColor="@android:color/white"
                 android:layout_centerHorizontal="true"
                 android:layout_marginBottom="16dp"/>
@@ -111,7 +111,7 @@
                         android:id="@+id/tv_credits_left"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="73.0"
+                        android:text="100.0"
                         android:textStyle="bold"
                         android:textColor="@android:color/white"
                         android:textSize="24sp"
@@ -192,6 +192,7 @@
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:id="@+id/howmuch_can_select"
                 android:text="Select at least 1 Player"
                 android:textColor="@android:color/white"
                 android:layout_centerHorizontal="true"/>
@@ -205,18 +206,18 @@
 
         </RelativeLayout>
 
-        <!--<android.support.v7.widget.RecyclerView
+        <android.support.v7.widget.RecyclerView
             android:id="@+id/rv_team_selection"
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-        </android.support.v7.widget.RecyclerView>-->
-        <android.support.v4.view.ViewPager
+        </android.support.v7.widget.RecyclerView>
+        <!--<android.support.v4.view.ViewPager
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:id="@+id/pageview">
 
-        </android.support.v4.view.ViewPager>
+        </android.support.v4.view.ViewPager>-->
 
     </LinearLayout>
 

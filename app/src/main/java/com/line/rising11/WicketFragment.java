@@ -70,8 +70,8 @@ public class WicketFragment extends Fragment {
                                         }
 
                                     }
-                                    rvTeamSelection.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
-                                    rvTeamSelection.setAdapter(new CustomTeamSelectionAdapter(jsonArrayWK));
+                                    /*rvTeamSelection.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
+                                    rvTeamSelection.setAdapter(new CustomTeamSelectionAdapter(jsonArrayWK));*/
 
                                 }
                                 else

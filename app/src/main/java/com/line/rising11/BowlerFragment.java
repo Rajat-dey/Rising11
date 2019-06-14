@@ -68,8 +68,8 @@ public class BowlerFragment extends Fragment {
                                         }
 
                                     }
-                                    rvTeamSelection.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
-                                    rvTeamSelection.setAdapter(new CustomTeamSelectionAdapter(jsonArrayBOWL));
+                                    /*rvTeamSelection.setLayoutManager(new LinearLayoutManager(getContext(), LinearLayoutManager.VERTICAL, false));
+                                    rvTeamSelection.setAdapter(new CustomTeamSelectionAdapter(jsonArrayBOWL));*/
 
                                 }
                                 else

@@ -33,7 +33,7 @@ import java.util.concurrent.TimeUnit;
 public class CustomMatchAdapter extends RecyclerView.Adapter<CustomMatchAdapter.CustomViewHolder> {
     private JSONArray customerList;
     private Context context;
-    int a[]={52000,50000,40000,45000,25000,55000,28000,36000,59000};
+
 
     public CustomMatchAdapter(Context context, JSONArray customerList) {
         this.customerList = customerList;
@@ -64,9 +64,9 @@ public class CustomMatchAdapter extends RecyclerView.Adapter<CustomMatchAdapter.
             String currenttime=outputFormat1.format(cal.getTime());
             Date time1=outputFormat1.parse(formattedDate1);
             Date time2=outputFormat1.parse(currenttime);
-            long diffInMillies = Math.abs(outputFormat.parse(formattedDate).getTime() - outputFormat.parse(currentdate).getTime());
+            long diffInMillies = outputFormat.parse(formattedDate).getTime() - outputFormat.parse(currentdate).getTime();
             holder.tday = TimeUnit.DAYS.convert(diffInMillies, TimeUnit.MILLISECONDS);
-            holder.ttime = Math.abs(time1.getTime() - time2.getTime());
+            holder.ttime = time1.getTime() - time2.getTime();
 
         } catch (ParseException e) {
             e.printStackTrace();
@@ -105,20 +105,27 @@ public class CustomMatchAdapter extends RecyclerView.Adapter<CustomMatchAdapter.
                     else
                     {
                         //holder.tvDateTime.setText(timeformate+"s left");
-                        String minsString = (mins == 0) ? "00" : ((mins < 10) ? "0" + mins : "" + mins);
-                        String secsString = (secs == 0) ? "00" : ((secs < 10) ? "0" + secs : "" + secs);
-                        if (hours > 0) {
-                            holder.tvDateTime.setText(hours + "h " + minsString + "m left");
-                        }
-                        else if (mins > 0) {
-                            holder.tvDateTime.setText(mins + "m " + secsString+"s left");
+                        if(holder.ttime>0)
+                        {
+                            String minsString = (mins == 0) ? "00" : ((mins < 10) ? "0" + mins : "" + mins);
+                            String secsString = (secs == 0) ? "00" : ((secs < 10) ? "0" + secs : "" + secs);
+                            if (hours > 0) {
+                                holder.tvDateTime.setText(hours + "h " + minsString + "m left");
+                            }
+                            else if (mins > 0) {
+                                holder.tvDateTime.setText(mins + "m " + secsString+"s left");
+
+                            }
+                            else
+                            {
+                                holder.tvDateTime.setText(secsString+"s left");
+                            }
 
                         }
                         else
                         {
-                            holder.tvDateTime.setText(secsString+"s left");
+                            holder.tvDateTime.setText("0s left");
                         }
-
                     }
 
 
@@ -130,9 +137,10 @@ public class CustomMatchAdapter extends RecyclerView.Adapter<CustomMatchAdapter.
                 public void onFinish()
                 {
                     holder.tvDateTime.setText("0"+"s left");
-
-                    holder.tvDateTime.setTextColor(Color.RED);
                     holder.cvTeam.setClickable(false);
+                    holder.cvTeam.setEnabled(false);
+                    holder.tvDateTime.setTextColor(Color.RED);
+
                     holder.cvTeam.setAlpha(0.6f);
                 }
             }.start();
