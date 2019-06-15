@@ -66,7 +66,7 @@ public class CustomMatchAdapter extends RecyclerView.Adapter<CustomMatchAdapter.
             Date time2=outputFormat1.parse(currenttime);
             long diffInMillies = outputFormat.parse(formattedDate).getTime() - outputFormat.parse(currentdate).getTime();
             holder.tday = TimeUnit.DAYS.convert(diffInMillies, TimeUnit.MILLISECONDS);
-            holder.ttime = time1.getTime() - time2.getTime();
+            holder.ttime = (time1.getTime() - time2.getTime())+330*60*1000;
 
         } catch (ParseException e) {
             e.printStackTrace();
@@ -137,11 +137,12 @@ public class CustomMatchAdapter extends RecyclerView.Adapter<CustomMatchAdapter.
                 public void onFinish()
                 {
                     holder.tvDateTime.setText("0"+"s left");
-                    holder.cvTeam.setClickable(false);
-                    holder.cvTeam.setEnabled(false);
-                    holder.tvDateTime.setTextColor(Color.RED);
 
-                    holder.cvTeam.setAlpha(0.6f);
+                    holder.tvDateTime.setTextColor(Color.RED);
+                    /*holder.cvTeam.setClickable(false);
+                    holder.cvTeam.setEnabled(false);
+                    holder.cvTeam.setAlpha(0.6f);*/
+
                 }
             }.start();
             holder.name1.setText(customerList.getJSONObject(position).get("team-1").toString());

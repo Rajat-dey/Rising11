@@ -21,7 +21,7 @@
                 android:id="@+id/tv_inst_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Max 11 Players from a Team"
+                android:text="Max 8 Players from a Team"
                 android:textColor="@android:color/white"
                 android:layout_centerHorizontal="true"
                 android:layout_marginBottom="16dp"/>
@@ -72,6 +72,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="AFGH"
+                        android:textSize="10sp"
                         android:textColor="#FFCEC5C5"
                         android:layout_alignParentRight="true"/>
 
@@ -79,7 +80,7 @@
                         android:id="@+id/tv_team1_player_count"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="3"
+                        android:text="0"
                         android:textColor="@android:color/white"
                         android:textSize="20sp"
                         android:layout_below="@id/tv_title_team1"
@@ -124,6 +125,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="SL"
+                        android:textSize="10sp"
                         android:textColor="#FFCEC5C5"
                         android:layout_alignParentLeft="true"/>
 
@@ -131,7 +133,7 @@
                         android:id="@+id/tv_team2_player_count"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="5"
+                        android:text="0"
                         android:textColor="@android:color/white"
                         android:textSize="20sp"
                         android:layout_below="@id/tv_title_team2"

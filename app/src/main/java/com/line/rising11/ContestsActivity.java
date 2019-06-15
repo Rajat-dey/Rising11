@@ -133,6 +133,7 @@ public class ContestsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ContestsActivity.this, TeamSelectionActivity.class);
+                intent.putExtra("uid",getIntent().getStringExtra("uid"));
                 startActivity(intent);
             }
         });
@@ -150,6 +151,7 @@ public class ContestsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ContestsActivity.this, CreateContest.class);
+                intent.putExtra("uid",getIntent().getStringExtra("uid"));
                 startActivity(intent);
             }
         });

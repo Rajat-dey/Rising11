@@ -27,6 +27,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="RR - WK"
+        android:textSize="12sp"
         android:layout_toRightOf="@id/iv_player_photo"
         android:layout_below="@id/tv_player_name"/>
 

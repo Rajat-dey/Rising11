@@ -138,7 +138,7 @@ public class CreateContest extends AppCompatActivity {
                            connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED) {
                        SharedPreferences sharedPreferences=getSharedPreferences("loginstatus", Context.MODE_PRIVATE);
                        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
-                               (Request.Method.GET, getString(R.string.create_contest)+"?contest_name="+cname.getText().toString().trim()+"&total_winning_amount="+wammount.getText().toString().trim()+"&contest_size="+csize.getText().toString().trim()+"&entry_fees="+efees+"&mobile="+sharedPreferences.getString("number","")+"&is_multiple="+String.valueOf(swithval)+"&type=private", null, new Response.Listener<JSONObject>() {
+                               (Request.Method.GET, getString(R.string.create_contest)+"?contest_name="+cname.getText().toString().trim()+"&total_winning_amount="+wammount.getText().toString().trim()+"&contest_size="+csize.getText().toString().trim()+"&entry_fees="+efees+"&mobile="+sharedPreferences.getString("number","")+"&is_multiple="+String.valueOf(swithval)+"&type=private&unique_id="+getIntent().getStringExtra("uid"), null, new Response.Listener<JSONObject>() {
                                    @Override
                                    public void onResponse(JSONObject response) {
                                        Log.d("Response: ", response.toString());

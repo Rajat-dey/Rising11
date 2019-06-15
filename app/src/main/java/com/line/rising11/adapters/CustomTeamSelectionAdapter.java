@@ -25,10 +25,11 @@ public class CustomTeamSelectionAdapter extends RecyclerView.Adapter<CustomTeamS
     private OnAddListner monAddListner;
     ArrayList<String> listforcheckadd;
     float credit_left;
+    int tposition;
     ArrayList<String> credit=new ArrayList<>();
     int totalselectedplayer,tabplayerselected,maxlimittabplayer;
 
-    public CustomTeamSelectionAdapter(JSONArray customerList,OnAddListner onAddListner,ArrayList<String> listforchekadd,float credit_left,int totalselectedplayer,int tabplayerselected,int maxlimittabplayer) {
+    public CustomTeamSelectionAdapter(JSONArray customerList,OnAddListner onAddListner,ArrayList<String> listforchekadd,float credit_left,int totalselectedplayer,int tabplayerselected,int maxlimittabplayer,int tposition) {
         this.customerList = customerList;
         this.monAddListner=onAddListner;
         this.listforcheckadd=listforchekadd;
@@ -36,6 +37,7 @@ public class CustomTeamSelectionAdapter extends RecyclerView.Adapter<CustomTeamS
         this.totalselectedplayer=totalselectedplayer;
         this.tabplayerselected=tabplayerselected;
         this.maxlimittabplayer=maxlimittabplayer;
+        this.tposition=tposition;
     }
 
     @Override
@@ -50,12 +52,29 @@ public class CustomTeamSelectionAdapter extends RecyclerView.Adapter<CustomTeamS
     {
         try
         {
-
+            String teamname="India";
+            if(tposition==0)
+            {
+                teamname=customerList.getJSONObject(position).getString("team_name")+" - WK";
+            }
+            else if(tposition==1)
+            {
+                teamname=customerList.getJSONObject(position).getString("team_name")+" - BAT";
+            }
+            else if(tposition==2)
+            {
+                teamname=customerList.getJSONObject(position).getString("team_name")+" - ALL";
+            }
+            else if(tposition==3)
+            {
+                teamname=customerList.getJSONObject(position).getString("team_name")+" - BOWL";
+            }
 
             Picasso.get().load(customerList.getJSONObject(position).get("image").toString()).into(holder.civDP);
             holder.tvUsername.setText(customerList.getJSONObject(position).get("player_name").toString());
             holder.tvCredits.setText(customerList.getJSONObject(position).get("credits").toString());
            credit.add(customerList.getJSONObject(position).get("credits").toString());
+           holder.tv_teams.setText(teamname);
             if(listforcheckadd.get(position).equals("0"))
             {
                 holder.iv_add_btn.setImageResource(R.drawable.ic_add_circle_outline_green_24dp);
@@ -90,6 +109,7 @@ public class CustomTeamSelectionAdapter extends RecyclerView.Adapter<CustomTeamS
         private TextView tvDateTime;
         private TextView tvCredits;
         private ImageView iv_add_btn;
+        private TextView tv_teams;
         OnAddListner onAddListner;
 
 
@@ -101,6 +121,7 @@ public class CustomTeamSelectionAdapter extends RecyclerView.Adapter<CustomTeamS
             tvCredits=view.findViewById(R.id.tv_credits);
 
             iv_add_btn=view.findViewById(R.id.iv_add_button);
+            tv_teams=view.findViewById(R.id.tv_teams);
             iv_add_btn.setOnClickListener(this);
 
 
@@ -111,8 +132,7 @@ public class CustomTeamSelectionAdapter extends RecyclerView.Adapter<CustomTeamS
         {
             int p = getAdapterPosition();
 
-            /*if()
-            {*/
+
 
                 if (listforcheckadd.get(p).equals("0")  ) {
                     if(tabplayerselected<maxlimittabplayer && totalselectedplayer<11) {
@@ -143,18 +163,9 @@ public class CustomTeamSelectionAdapter extends RecyclerView.Adapter<CustomTeamS
                 }
 
 
-           /* }
-            else if(credit_left<Float.parseFloat(credit.get(p)))
-            {
-                onAddListner.onAddClick(-2);
-            }
 
-            else
-            {
-                onAddListner.onAddClick(-1);
-            }
-*/
         }
+
     }
     public interface OnAddListner
     {

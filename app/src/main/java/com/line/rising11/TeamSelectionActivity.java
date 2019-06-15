@@ -36,11 +36,13 @@ public class TeamSelectionActivity extends AppCompatActivity  implements CustomT
     private RecyclerView rvTeamSelection;
     private Button btnContinue;
     private Button btnTeamPreview;
-    private TextView tv_player_selected_count,tv_credits_left,howmuch_can_select;
+    private TextView tv_player_selected_count,tv_credits_left,howmuch_can_select,tv_title_team1,tv_title_team2,tv_team1_player_count,tv_team2_player_count;
     private ViewPager pageview;
     int tposition=0;
     Float credit_left=100.0f;
-    int selectedtotalplayer=0,selectwk=0,selectbat=0,selectar=0,selectbowl=0;
+    int dataload=0;
+    String country1="India",country2="India";
+    int selectedtotalplayer=0,selectwk=0,selectbat=0,selectar=0,selectbowl=0,team1count=0,team2count=0;
     ArrayList<String> listwk,listbat,listar,listbowl;
     private TabItem t1,t2,t3,t4;
 
@@ -50,24 +52,27 @@ public class TeamSelectionActivity extends AppCompatActivity  implements CustomT
     private PageviewPlayerAdapter pageviewPlayerAdapter;
     JSONArray jsonArrayWK , jsonArrayBAT, jsonArrayAR, jsonArrayBOWL;
     private TabLayout tab_home;
-    ArrayList<String> pname,pimage;
+    ArrayList<String> pname,pimage,pteam;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_team_selection);
 
-        /*rvTeamSelection = findViewById(R.id.rv_team_selection);
-        rvTeamSelection.setLayoutManager(new LinearLayoutManager(this, LinearLayoutManager.VERTICAL, false));
-        rvTeamSelection.setAdapter(new CustomTeamSelectionAdapter(new JSONArray()));*/
+
 
         btnContinue = findViewById(R.id.btn_continue);
+        tv_title_team1=findViewById(R.id.tv_title_team1);
+        tv_title_team2=findViewById(R.id.tv_title_team2);
+        tv_team1_player_count=findViewById(R.id.tv_team1_player_count);
+        tv_team2_player_count=findViewById(R.id.tv_team2_player_count);
         pname=new ArrayList<>();
         pimage=new ArrayList<>();
+        pteam=new ArrayList<>();
         btnContinue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(selectar>=1&&selectbat>=1&&selectbowl>=1&&selectwk>=1 && selectedtotalplayer==11)
+                if(selectar>=1&&selectbat>=3&&selectbowl>=3&&selectwk>=1 && selectedtotalplayer==11)
                 {
                     for(int i=0;i<listwk.size();i++)
                     {
@@ -76,6 +81,8 @@ public class TeamSelectionActivity extends AppCompatActivity  implements CustomT
                             try {
                                 pname.add( jsonArrayWK.getJSONObject(i).getString("player_name"));
                                 pimage.add( jsonArrayWK.getJSONObject(i).getString("image"));
+                                pteam.add( jsonArrayWK.getJSONObject(i).getString("team_name")+" - WK");
+
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
@@ -88,6 +95,7 @@ public class TeamSelectionActivity extends AppCompatActivity  implements CustomT
                             try {
                                 pname.add( jsonArrayBAT.getJSONObject(i).getString("player_name"));
                                 pimage.add( jsonArrayBAT.getJSONObject(i).getString("image"));
+                                pteam.add( jsonArrayBAT.getJSONObject(i).getString("team_name")+" - BAT");
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
@@ -100,6 +108,7 @@ public class TeamSelectionActivity extends AppCompatActivity  implements CustomT
                             try {
                                 pname.add( jsonArrayAR.getJSONObject(i).getString("player_name"));
                                 pimage.add( jsonArrayAR.getJSONObject(i).getString("image"));
+                                pteam.add( jsonArrayAR.getJSONObject(i).getString("team_name")+" - ALL");
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
@@ -112,6 +121,7 @@ public class TeamSelectionActivity extends AppCompatActivity  implements CustomT
                             try {
                                 pname.add( jsonArrayBOWL.getJSONObject(i).getString("player_name"));
                                 pimage.add( jsonArrayBOWL.getJSONObject(i).getString("image"));
+                                pteam.add( jsonArrayBOWL.getJSONObject(i).getString("team_name")+" - BOWL");
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
@@ -124,11 +134,36 @@ public class TeamSelectionActivity extends AppCompatActivity  implements CustomT
                     Intent intent = new Intent(TeamSelectionActivity.this, CaptainViceCaptainSelectionActivity.class);
                     intent.putStringArrayListExtra("pname",pname);
                     intent.putStringArrayListExtra("pimage",pimage);
+                    intent.putStringArrayListExtra("pteam",pteam);
                     startActivity(intent);
                 }
                 else
                 {
-                    Toast.makeText(TeamSelectionActivity.this, "Please select at least one from all type player and total player should be 11", Toast.LENGTH_LONG).show();
+                  if(selectwk<1)
+                  {
+                      Toast.makeText(TeamSelectionActivity.this, "Please select at least one Player from Wicket Keeper", Toast.LENGTH_LONG).show();
+
+                  }
+                  else if(selectbat<3)
+                  {
+                      Toast.makeText(TeamSelectionActivity.this, "Please select at least three Player from Bating", Toast.LENGTH_LONG).show();
+
+                  }
+                  else if(selectar<1)
+                  {
+                      Toast.makeText(TeamSelectionActivity.this, "Please select at least one Player from All Rounder", Toast.LENGTH_LONG).show();
+
+                  }
+                  else if(selectbowl<3)
+                  {
+                      Toast.makeText(TeamSelectionActivity.this, "Please select at least three Player from Bowler", Toast.LENGTH_LONG).show();
+
+                  }
+                    else
+                    {
+                        Toast.makeText(TeamSelectionActivity.this, "Please select total 11 Player", Toast.LENGTH_LONG).show();
+
+                    }
                 }
 
             }
@@ -186,13 +221,14 @@ public class TeamSelectionActivity extends AppCompatActivity  implements CustomT
                 connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED) {
 
             JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
-                    (Request.Method.GET, "http://rising11.com/apps/apis/get-fantasy-squad.php?unique_id=1144501", null, new Response.Listener<JSONObject>() {
+                    (Request.Method.GET, "http://rising11.com/apps/apis/get-fantasy-squad.php?unique_id="+getIntent().getStringExtra("uid"), null, new Response.Listener<JSONObject>() {
                         @Override
                         public void onResponse(JSONObject response) {
 
                             try {
                                 if(response.getString("code").equals("1"))
                                 {
+                                    dataload=1;
                                     JSONArray jsonArray=response.getJSONArray("players");
                                     jsonArrayWK=new JSONArray();
                                     jsonArrayBAT=new JSONArray();
@@ -202,8 +238,23 @@ public class TeamSelectionActivity extends AppCompatActivity  implements CustomT
                                     listbat=new ArrayList<>();
                                     listar=new ArrayList<>();
                                     listbowl=new ArrayList<>();
+                                    int p=0;
                                     for(int i=0;i<jsonArray.length();i++)
                                     {
+                                        if(p==0)
+                                        {
+                                            country1=jsonArray.getJSONObject(i).getString("team_name");
+                                            p=1;
+                                        }
+                                        else if(p!=2)
+                                        {
+                                            if(!jsonArray.getJSONObject(i).getString("team_name").equals(country1))
+                                            {
+                                                country2=jsonArray.getJSONObject(i).getString("team_name");
+                                                p=2;
+                                            }
+
+                                        }
 
                                         if(jsonArray.getJSONObject(i).get("role").toString().equals("Bowler"))
                                         {
@@ -227,9 +278,11 @@ public class TeamSelectionActivity extends AppCompatActivity  implements CustomT
                                             listbat.add("0");
                                         }
                                     }
+                                    tv_title_team1.setText(country1);
+                                    tv_title_team2.setText(country2);
                                     rvTeamSelection = findViewById(R.id.rv_team_selection);
                                     rvTeamSelection.setLayoutManager(new LinearLayoutManager(TeamSelectionActivity.this, LinearLayoutManager.VERTICAL, false));
-                                    rvTeamSelection.setAdapter(new CustomTeamSelectionAdapter(jsonArrayWK,TeamSelectionActivity.this,listwk,credit_left,selectedtotalplayer,selectwk,4));
+                                    rvTeamSelection.setAdapter(new CustomTeamSelectionAdapter(jsonArrayWK,TeamSelectionActivity.this,listwk,credit_left,selectedtotalplayer,selectwk,4, tposition));
 
                                 }
                                 else
@@ -274,39 +327,54 @@ public class TeamSelectionActivity extends AppCompatActivity  implements CustomT
                 if(tab.getPosition()==0)
                 {
 
-                    tposition=0;
-                    howmuch_can_select.setText("Pick 1 - 4 Wicket-Keepers");
-                    rvTeamSelection = findViewById(R.id.rv_team_selection);
-                    rvTeamSelection.setLayoutManager(new LinearLayoutManager(TeamSelectionActivity.this, LinearLayoutManager.VERTICAL, false));
-                    rvTeamSelection.setAdapter(new CustomTeamSelectionAdapter(jsonArrayWK,TeamSelectionActivity.this,listwk,credit_left,selectedtotalplayer,selectwk,4));
-                    for(int i=0;i<listwk.size();i++)
-                    {
-                        Log.d("data WK LIST",listwk.get(i));
-                    }
+                   if(dataload==1)
+                   {
+                       tposition=0;
+                       howmuch_can_select.setText("Pick 1 - 4 Wicket-Keepers");
+                       rvTeamSelection = findViewById(R.id.rv_team_selection);
+                       rvTeamSelection.setLayoutManager(new LinearLayoutManager(TeamSelectionActivity.this, LinearLayoutManager.VERTICAL, false));
+                       rvTeamSelection.setAdapter(new CustomTeamSelectionAdapter(jsonArrayWK,TeamSelectionActivity.this,listwk,credit_left,selectedtotalplayer,selectwk,4,tposition));
+                       for(int i=0;i<listwk.size();i++)
+                       {
+                           Log.d("data WK LIST",listwk.get(i));
+                       }
+                   }
                 }
                 else if(tab.getPosition()==1)
                 {
-                    howmuch_can_select.setText("Pick 3 - 6 Batsmen");
-                    tposition=1;
-                    rvTeamSelection = findViewById(R.id.rv_team_selection);
-                    rvTeamSelection.setLayoutManager(new LinearLayoutManager(TeamSelectionActivity.this, LinearLayoutManager.VERTICAL, false));
-                    rvTeamSelection.setAdapter(new CustomTeamSelectionAdapter(jsonArrayBAT,TeamSelectionActivity.this,listbat,credit_left,selectedtotalplayer,selectbat,6));
+                        if(dataload==1)
+                        {
+                            howmuch_can_select.setText("Pick 3 - 6 Batsmen");
+                            tposition=1;
+                            rvTeamSelection = findViewById(R.id.rv_team_selection);
+                            rvTeamSelection.setLayoutManager(new LinearLayoutManager(TeamSelectionActivity.this, LinearLayoutManager.VERTICAL, false));
+                            rvTeamSelection.setAdapter(new CustomTeamSelectionAdapter(jsonArrayBAT,TeamSelectionActivity.this,listbat,credit_left,selectedtotalplayer,selectbat,6,tposition));
+
+                        }
                 }
                 else if(tab.getPosition()==2)
                 {
-                    tposition=2;
-                    howmuch_can_select.setText("Pick 1 - 4 All-Rounders");
-                    rvTeamSelection = findViewById(R.id.rv_team_selection);
-                    rvTeamSelection.setLayoutManager(new LinearLayoutManager(TeamSelectionActivity.this, LinearLayoutManager.VERTICAL, false));
-                    rvTeamSelection.setAdapter(new CustomTeamSelectionAdapter(jsonArrayAR,TeamSelectionActivity.this,listar,credit_left,selectedtotalplayer,selectar,4));
+                   if(dataload==1)
+                   {
+                       tposition=2;
+                       howmuch_can_select.setText("Pick 1 - 4 All-Rounders");
+                       rvTeamSelection = findViewById(R.id.rv_team_selection);
+                       rvTeamSelection.setLayoutManager(new LinearLayoutManager(TeamSelectionActivity.this, LinearLayoutManager.VERTICAL, false));
+                       rvTeamSelection.setAdapter(new CustomTeamSelectionAdapter(jsonArrayAR,TeamSelectionActivity.this,listar,credit_left,selectedtotalplayer,selectar,4,tposition));
+
+                   }
                 }
                 else if(tab.getPosition()==3)
                 {
-                    tposition=3;
-                    howmuch_can_select.setText("Pick 3 - 6 Bowlers");
-                    rvTeamSelection = findViewById(R.id.rv_team_selection);
-                    rvTeamSelection.setLayoutManager(new LinearLayoutManager(TeamSelectionActivity.this, LinearLayoutManager.VERTICAL, false));
-                    rvTeamSelection.setAdapter(new CustomTeamSelectionAdapter(jsonArrayBOWL,TeamSelectionActivity.this,listbowl,credit_left,selectedtotalplayer,selectbowl,6));
+                    if(dataload==1)
+                    {
+                        tposition=3;
+                        howmuch_can_select.setText("Pick 3 - 6 Bowlers");
+                        rvTeamSelection = findViewById(R.id.rv_team_selection);
+                        rvTeamSelection.setLayoutManager(new LinearLayoutManager(TeamSelectionActivity.this, LinearLayoutManager.VERTICAL, false));
+                        rvTeamSelection.setAdapter(new CustomTeamSelectionAdapter(jsonArrayBOWL,TeamSelectionActivity.this,listbowl,credit_left,selectedtotalplayer,selectbowl,6,tposition));
+
+                    }
                 }
 
             }
@@ -351,8 +419,19 @@ public class TeamSelectionActivity extends AppCompatActivity  implements CustomT
                 }
 
                 if(listwk.get(position).equals("0"))
-                {
-
+                { String contry="India";
+                    try {
+                       contry =jsonArrayWK.getJSONObject(position).getString("team_name");
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    if(contry.equals(country1))
+                    {
+                        team1count=team1count+1;
+                    }
+                    else {
+                        team2count=team2count+1;
+                    }
                     listwk.set(position, "1");
                     selectedtotalplayer=selectedtotalplayer+1;
                     selectwk=selectwk+1;
@@ -360,7 +439,19 @@ public class TeamSelectionActivity extends AppCompatActivity  implements CustomT
                 }
                 else
                 {
-
+                    String contry="India";
+                    try {
+                        contry =jsonArrayWK.getJSONObject(position).getString("team_name");
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    if(contry.equals(country1))
+                    {
+                        team1count=team1count-1;
+                    }
+                    else {
+                        team2count=team2count-1;
+                    }
                     listwk.set(position, "0");
                     selectedtotalplayer=selectedtotalplayer-1;
                     selectwk=selectwk-1;
@@ -377,6 +468,19 @@ public class TeamSelectionActivity extends AppCompatActivity  implements CustomT
                     e.printStackTrace();
                 }
                 if(listbat.get(position).equals("0")) {
+                    String contry="India";
+                    try {
+                        contry =jsonArrayBAT.getJSONObject(position).getString("team_name");
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    if(contry.equals(country1))
+                    {
+                        team1count=team1count+1;
+                    }
+                    else {
+                        team2count=team2count+1;
+                    }
                     listbat.set(position, "1");
                     selectedtotalplayer=selectedtotalplayer+1;
                     selectbat=selectbat+1;
@@ -384,6 +488,19 @@ public class TeamSelectionActivity extends AppCompatActivity  implements CustomT
                 }
                 else
                 {
+                    String contry="India";
+                    try {
+                        contry =jsonArrayBAT.getJSONObject(position).getString("team_name");
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    if(contry.equals(country1))
+                    {
+                        team1count=team1count-1;
+                    }
+                    else {
+                        team2count=team2count-1;
+                    }
                     listbat.set(position, "0");
                     selectedtotalplayer=selectedtotalplayer-1;
                     selectbat=selectbat-1;
@@ -400,6 +517,19 @@ public class TeamSelectionActivity extends AppCompatActivity  implements CustomT
                 }
 
                 if(listar.get(position).equals("0")) {
+                    String contry="India";
+                    try {
+                        contry =jsonArrayAR.getJSONObject(position).getString("team_name");
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    if(contry.equals(country1))
+                    {
+                        team1count=team1count+1;
+                    }
+                    else {
+                        team2count=team2count+1;
+                    }
                     listar.set(position, "1");
                     selectedtotalplayer=selectedtotalplayer+1;
                     selectar=selectar+1;
@@ -411,6 +541,19 @@ public class TeamSelectionActivity extends AppCompatActivity  implements CustomT
                     selectedtotalplayer=selectedtotalplayer-1;
                     selectar=selectar-1;
                     credit_left=credit_left+credit;
+                    String contry="India";
+                    try {
+                        contry =jsonArrayAR.getJSONObject(position).getString("team_name");
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    if(contry.equals(country1))
+                    {
+                        team1count=team1count-1;
+                    }
+                    else {
+                        team2count=team2count-1;
+                    }
                 }
             }
             else if(tposition==3)
@@ -427,6 +570,19 @@ public class TeamSelectionActivity extends AppCompatActivity  implements CustomT
                     selectedtotalplayer=selectedtotalplayer+1;
                     selectbowl=selectbowl+1;
                     credit_left=credit_left-credit;
+                    String contry="India";
+                    try {
+                        contry =jsonArrayBOWL.getJSONObject(position).getString("team_name");
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    if(contry.equals(country1))
+                    {
+                        team1count=team1count+1;
+                    }
+                    else {
+                        team2count=team2count+1;
+                    }
                 }
                 else
                 {
@@ -434,6 +590,19 @@ public class TeamSelectionActivity extends AppCompatActivity  implements CustomT
                     selectedtotalplayer=selectedtotalplayer-1;
                     selectbowl=selectbowl-1;
                     credit_left=credit_left+credit;
+                    String contry="India";
+                    try {
+                        contry =jsonArrayBOWL.getJSONObject(position).getString("team_name");
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    if(contry.equals(country1))
+                    {
+                        team1count=team1count-1;
+                    }
+                    else {
+                        team2count=team2count-1;
+                    }
                 }
             }
             tv_player_selected_count.setText(String.valueOf(selectedtotalplayer));
@@ -442,6 +611,8 @@ public class TeamSelectionActivity extends AppCompatActivity  implements CustomT
             tab_home.getTabAt(1).setText("BAT ("+String.valueOf(selectbat)+")");
             tab_home.getTabAt(2).setText("AR ("+String.valueOf(selectar)+")");
             tab_home.getTabAt(3).setText("BOWL ("+String.valueOf(selectbowl)+")");
+            tv_team1_player_count.setText(String.valueOf(team1count));
+            tv_team2_player_count.setText(String.valueOf(team2count));
 
         }
 
