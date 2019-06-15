@@ -11,26 +11,28 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <RelativeLayout
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/cardview_dark_background"
-            android:padding="16dp">
+            android:layout_height="160dp"
+            android:orientation="vertical"
+            android:background="@color/cardview_dark_background">
 
             <TextView
                 android:id="@+id/tv_inst_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
                 android:text="Max 8 Players from a Team"
                 android:textColor="@android:color/white"
-                android:layout_centerHorizontal="true"
-                android:layout_marginBottom="16dp"/>
+                android:layout_gravity="center"
+                android:layout_marginBottom="8dp"/>
 
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
+                android:padding="8dp"
                 android:weightSum="2"
                 android:layout_below="@id/tv_inst_title">
 
@@ -38,12 +40,13 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:layout_marginRight="8dp">
+                    android:layout_marginRight="6dp">
 
                     <TextView
                         android:id="@+id/tv_title_players"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textSize="12sp"
                         android:text="Players"
                         android:textColor="#FFCEC5C5"/>
 
@@ -54,7 +57,7 @@
                         android:text="0"
                         android:textStyle="bold"
                         android:textColor="@android:color/white"
-                        android:textSize="24sp"
+                        android:textSize="20sp"
                         android:layout_below="@id/tv_title_players"/>
 
                     <TextView
@@ -63,7 +66,7 @@
                         android:text="/11"
                         android:textColor="#FFCEC5C5"
                         android:textSize="20sp"
-                        android:layout_toRightOf="@id/tv_player_selected_count"
+                        android:layout_toEndOf="@id/tv_player_selected_count"
                         android:layout_alignBottom="@id/tv_player_selected_count"/>
 
 
@@ -71,7 +74,7 @@
                         android:id="@+id/tv_title_team1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="AFGH"
+                        tools:text="AFGH"
                         android:textSize="10sp"
                         android:textColor="#FFCEC5C5"
                         android:layout_alignParentRight="true"/>
@@ -80,6 +83,7 @@
                         android:id="@+id/tv_team1_player_count"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:gravity="center"
                         android:text="0"
                         android:textColor="@android:color/white"
                         android:textSize="20sp"
@@ -98,13 +102,14 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:layout_marginLeft="8dp">
+                    android:layout_marginLeft="6dp">
 
                     <TextView
                         android:id="@+id/tv_title_credits_left"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="Credits Left"
+                        android:textSize="12sp"
                         android:textColor="#FFCEC5C5"
                         android:layout_alignParentRight="true"/>
 
@@ -115,7 +120,7 @@
                         android:text="100.0"
                         android:textStyle="bold"
                         android:textColor="@android:color/white"
-                        android:textSize="24sp"
+                        android:textSize="20sp"
                         android:layout_below="@id/tv_title_credits_left"
                         android:layout_alignRight="@id/tv_title_credits_left"/>
 
@@ -124,7 +129,7 @@
                         android:id="@+id/tv_title_team2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="SL"
+                        tools:text="SL"
                         android:textSize="10sp"
                         android:textColor="#FFCEC5C5"
                         android:layout_alignParentLeft="true"/>
@@ -133,6 +138,7 @@
                         android:id="@+id/tv_team2_player_count"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:gravity="center"
                         android:text="0"
                         android:textColor="@android:color/white"
                         android:textSize="20sp"
@@ -149,7 +155,7 @@
 
             </LinearLayout>
 
-        </RelativeLayout>
+        </LinearLayout>
 
         <android.support.design.widget.TabLayout
             android:id="@+id/tb_home"

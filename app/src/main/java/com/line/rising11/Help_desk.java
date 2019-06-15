@@ -8,10 +8,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import de.cketti.mailto.EmailIntentBuilder;
 
 public class Help_desk extends AppCompatActivity {
 
     ImageView fb, insta, twitter, yt;
+    TextView sup,info;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,6 +28,61 @@ public class Help_desk extends AppCompatActivity {
         yt = findViewById(R.id.youtube);
         insta = findViewById(R.id.instagram);
         twitter = findViewById(R.id.twitter);
+        sup = findViewById(R.id.support);
+        info = findViewById(R.id.info);
+
+
+
+        sup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+                Intent emailIntent = EmailIntentBuilder.from(Help_desk.this)
+                        .to("support@rising11.com")
+                        .subject("HelpDesk")
+                        .build();
+
+
+                try {
+                    startActivity(emailIntent);
+                } catch (ActivityNotFoundException e) {
+                    Toast.makeText(Help_desk.this, "Gmail not found",
+                            Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+
+
+
+        info.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+                Intent emailIntent = EmailIntentBuilder.from(Help_desk.this)
+                        .to("info@rising11.com")
+                        .subject("HelpDesk")
+                        .build();
+
+
+                try {
+                    startActivity(emailIntent);
+                } catch (ActivityNotFoundException e) {
+                    Toast.makeText(Help_desk.this, "Gmail not found",
+                            Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+
+
+
+
+
+
+
+
+
+
+
 
 
         fb.setOnClickListener(new View.OnClickListener() {

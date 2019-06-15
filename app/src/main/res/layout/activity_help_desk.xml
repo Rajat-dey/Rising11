@@ -27,6 +27,43 @@
         android:text="@string/help_section_1" />
 
     <TextView
+        android:id="@+id/support"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorPrimary"
+        android:textStyle="bold"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="5dp"
+        android:textSize="18sp"
+        android:text="support@rising11.com" />
+
+
+    <TextView
+        android:id="@+id/info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorPrimary"
+        android:textStyle="bold"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:paddingTop="10dp"
+        android:paddingBottom="5dp"
+        android:textSize="18sp"
+        android:text="info@rising11.com" />
+
+
+    <TextView
+        android:id="@+id/textView37"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:padding="10dp"
+        android:textSize="18sp"
+        android:text="@string/help_section_2" />
+
+    <TextView
 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

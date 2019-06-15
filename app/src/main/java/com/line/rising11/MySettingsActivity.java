@@ -141,7 +141,7 @@ public class MySettingsActivity extends AppCompatActivity {
                                     /*editor.putString("login","yes");
                                     editor.putString("number",email.getText().toString().trim());
                                     editor.commit();*/
-                                    Toast.makeText(MySettingsActivity.this, response.getString("msg"), Toast.LENGTH_SHORT).show();
+                                 //   Toast.makeText(MySettingsActivity.this, response.getString("msg"), Toast.LENGTH_SHORT).show();
                                     /*Intent intent = new Intent(MySettingsActivity.this, HomeActivity.class);
                                     startActivity(intent);
                                     finish();*/

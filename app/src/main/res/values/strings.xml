@@ -110,8 +110,10 @@
 
     <!-- More Section Data -->
 
-    <string name="help_section_1">For any queries please write email to us on- \n<b>support@rising11.com</b> \n<b>info@rising11.com</b>
-        \n\nYou can also message us on WhatsApp at -  <b>7023083083</b>
+    <string name="help_section_1">For any queries please write email to us on-
+    </string>
+
+    <string name="help_section_2">You can also message us on WhatsApp at -  <b>7023083083</b>
     </string>
 
     <string name="facebook">https://www.facebook.com/Rising11kk/?ti=as</string>
@@ -122,8 +124,7 @@
 
     <string name="jobs">Thanks for being interested to know about us. Well, we are a bunch of Sports lovers who want to present other Sports lovers an experience like never before. We worked day in and day out to come up with this delightful experience of Sports matches. Hence, we would like to invite you to be a part of our fastest growing &amp; promising family
         \n\nCongratulations! We’re now open to invite more members to join our fantasy family.
-        \n\nSend your resume to us at - <b>info@rising11.com</b>
-        \n\n<b>We look forward to joining hands with you!</b> </string>
+        \n\nSend your resume to us at -</string>
 
 
     <string name="legality_part_1"> Fantasy sports are considered to be a legal practice around the world with certain states being an exception. The fantasy sports are entirely based on the concept of Game of Skills, wherein the users form their own teams and are allocated points on the basis of on-field performance of their chosen players.
