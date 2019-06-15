@@ -137,12 +137,11 @@ public class CustomMatchAdapter extends RecyclerView.Adapter<CustomMatchAdapter.
                 public void onFinish()
                 {
                     holder.tvDateTime.setText("0"+"s left");
-
-                    holder.tvDateTime.setTextColor(Color.RED);
-                    /*holder.cvTeam.setClickable(false);
+                    holder.cvTeam.setClickable(false);
                     holder.cvTeam.setEnabled(false);
-                    holder.cvTeam.setAlpha(0.6f);*/
+                    holder.tvDateTime.setTextColor(Color.RED);
 
+                    holder.cvTeam.setAlpha(0.6f);
                 }
             }.start();
             holder.name1.setText(customerList.getJSONObject(position).get("team-1").toString());

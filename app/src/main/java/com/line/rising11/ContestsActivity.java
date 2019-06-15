@@ -27,7 +27,7 @@ import org.json.JSONObject;
 public class ContestsActivity extends AppCompatActivity {
 
     TextView create_team,contest_code,create_contest,more_contest;
-    CardView entryfee;
+    CardView entryfee,contest_size;
     ContestRecyclerDataClass[] myListData;
 
     @Override
@@ -114,14 +114,122 @@ public class ContestsActivity extends AppCompatActivity {
 
 
 
+        if(connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED ||
+                connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED) {
+
+            JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
+                    (Request.Method.GET, "http://rising11.com/apps/apis/get-all-contest.php", null, new Response.Listener<JSONObject>() {
+                        @Override
+                        public void onResponse(JSONObject response) {
+                            // Log.d("Response: ", response.toString());
+                            //Log.d("Link",getString(R.string.signup) +"?mobile="+email.getText().toString().trim()+"&password="+password.getText().toString().trim());
+
+
+                            try {
+                                if(response.getString("code").equals("1"))
+                                {
+
+                                    JSONArray jsonArray=response.getJSONArray("contests");
+                                    myListData = new ContestRecyclerDataClass[jsonArray.length()];
+
+                                    JSONArray jsonArrayAR=new JSONArray();
+
+                                    for(int i=0;i<jsonArray.length();i++)
+                                    {
+
+                                        myListData[i]=new ContestRecyclerDataClass("₹"+jsonArray.getJSONObject(i).getString("total_winning_amount"),"₹"+jsonArray.getJSONObject(i).getString("entry_fees"),jsonArray.getJSONObject(i).getString("contest_size")+" spots","1,654 spots left","2,500 Winners","C","M");
+
+                                        //jsonArrayAR.put(jsonArray.getJSONObject(i));
+
+
+                                    }
+                                    RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerview);
+                                    ContestRecyclerAdapter adapter = new ContestRecyclerAdapter(myListData);
+                                    recyclerView.setHasFixedSize(true);
+                                    recyclerView.setLayoutManager(new LinearLayoutManager(ContestsActivity.this));
+                                    recyclerView.setAdapter(adapter);
+
+                                }
+                                else
+                                {
+                                    Toast.makeText(ContestsActivity.this, response.getString("msg"), Toast.LENGTH_SHORT).show();
+
+                                }
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+
+                        }
+                    }, new Response.ErrorListener() {
+
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            // TODO: Handle error
+                           /* Toast.makeText(getApplicationContext(), "Error: "
+                                    + error.getLocalizedMessage(), Toast.LENGTH_LONG)
+                                    .show();*/
+                        }
+                    });
+
+            // Access the RequestQueue through your singleton class.
+            RestClient.getInstance(ContestsActivity.this).addToRequestQueue(jsonObjectRequest);
+
+
+
+            connected = true;
+        }
+        else
+        {
+            /*Snackbar.make(, "Please check your Internet connection", Snackbar.LENGTH_LONG)
+                    .setAction("Action", null).show();*/
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
         create_team=findViewById(R.id.create_team);
         contest_code=findViewById(R.id.contest_code);
         create_contest=findViewById(R.id.create_contest);
         entryfee=findViewById(R.id.entryfee);
         more_contest=findViewById(R.id.more_contest);
+        contest_size=findViewById(R.id.contestsize);
 
         entryfee.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(ContestsActivity.this,ContestsFilterActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        contest_size.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(ContestsActivity.this,ContestsFilterActivity.class);
