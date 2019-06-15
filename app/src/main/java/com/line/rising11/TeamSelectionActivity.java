@@ -52,7 +52,7 @@ public class TeamSelectionActivity extends AppCompatActivity  implements CustomT
     private PageviewPlayerAdapter pageviewPlayerAdapter;
     JSONArray jsonArrayWK , jsonArrayBAT, jsonArrayAR, jsonArrayBOWL;
     private TabLayout tab_home;
-    ArrayList<String> pname,pimage,pteam;
+    ArrayList<String> pname,pimage,pteam,pid,puid,prole,pcredit,pteamnew;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -69,6 +69,11 @@ public class TeamSelectionActivity extends AppCompatActivity  implements CustomT
         pname=new ArrayList<>();
         pimage=new ArrayList<>();
         pteam=new ArrayList<>();
+        pid=new ArrayList<>();
+        puid=new ArrayList<>();
+        prole=new ArrayList<>();
+        pcredit=new ArrayList<>();
+        pteamnew=new ArrayList<>();
         btnContinue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -82,6 +87,11 @@ public class TeamSelectionActivity extends AppCompatActivity  implements CustomT
                                 pname.add( jsonArrayWK.getJSONObject(i).getString("player_name"));
                                 pimage.add( jsonArrayWK.getJSONObject(i).getString("image"));
                                 pteam.add( jsonArrayWK.getJSONObject(i).getString("team_name")+" - WK");
+                                pteamnew.add( jsonArrayWK.getJSONObject(i).getString("team_name"));
+                                pid.add( jsonArrayWK.getJSONObject(i).getString("player_id"));
+                                puid.add( jsonArrayWK.getJSONObject(i).getString("unique_id"));
+                                prole.add( jsonArrayWK.getJSONObject(i).getString("role"));
+                                pcredit.add( jsonArrayWK.getJSONObject(i).getString("credits"));
 
                             } catch (JSONException e) {
                                 e.printStackTrace();
@@ -96,6 +106,11 @@ public class TeamSelectionActivity extends AppCompatActivity  implements CustomT
                                 pname.add( jsonArrayBAT.getJSONObject(i).getString("player_name"));
                                 pimage.add( jsonArrayBAT.getJSONObject(i).getString("image"));
                                 pteam.add( jsonArrayBAT.getJSONObject(i).getString("team_name")+" - BAT");
+                                pteamnew.add( jsonArrayBAT.getJSONObject(i).getString("team_name"));
+                                pid.add( jsonArrayBAT.getJSONObject(i).getString("player_id"));
+                                puid.add( jsonArrayBAT.getJSONObject(i).getString("unique_id"));
+                                prole.add( jsonArrayBAT.getJSONObject(i).getString("role"));
+                                pcredit.add( jsonArrayBAT.getJSONObject(i).getString("credits"));
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
@@ -109,6 +124,11 @@ public class TeamSelectionActivity extends AppCompatActivity  implements CustomT
                                 pname.add( jsonArrayAR.getJSONObject(i).getString("player_name"));
                                 pimage.add( jsonArrayAR.getJSONObject(i).getString("image"));
                                 pteam.add( jsonArrayAR.getJSONObject(i).getString("team_name")+" - ALL");
+                                pteamnew.add( jsonArrayAR.getJSONObject(i).getString("team_name"));
+                                pid.add( jsonArrayAR.getJSONObject(i).getString("player_id"));
+                                puid.add( jsonArrayAR.getJSONObject(i).getString("unique_id"));
+                                prole.add( jsonArrayAR.getJSONObject(i).getString("role"));
+                                pcredit.add( jsonArrayAR.getJSONObject(i).getString("credits"));
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
@@ -122,19 +142,26 @@ public class TeamSelectionActivity extends AppCompatActivity  implements CustomT
                                 pname.add( jsonArrayBOWL.getJSONObject(i).getString("player_name"));
                                 pimage.add( jsonArrayBOWL.getJSONObject(i).getString("image"));
                                 pteam.add( jsonArrayBOWL.getJSONObject(i).getString("team_name")+" - BOWL");
+                                pteamnew.add( jsonArrayBOWL.getJSONObject(i).getString("team_name"));
+                                pid.add( jsonArrayBOWL.getJSONObject(i).getString("player_id"));
+                                puid.add( jsonArrayBOWL.getJSONObject(i).getString("unique_id"));
+                                prole.add( jsonArrayBOWL.getJSONObject(i).getString("role"));
+                                pcredit.add( jsonArrayBOWL.getJSONObject(i).getString("credits"));
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
                         }
                     }
-                    for(int i=0;i<pname.size();i++)
-                    {
-                        Log.d("data send",pname.get(i));
-                    }
+
                     Intent intent = new Intent(TeamSelectionActivity.this, CaptainViceCaptainSelectionActivity.class);
                     intent.putStringArrayListExtra("pname",pname);
                     intent.putStringArrayListExtra("pimage",pimage);
                     intent.putStringArrayListExtra("pteam",pteam);
+                    intent.putStringArrayListExtra("pteamnew",pteamnew);
+                    intent.putStringArrayListExtra("pid",pid);
+                    intent.putStringArrayListExtra("puid",puid);
+                    intent.putStringArrayListExtra("prole",prole);
+                    intent.putStringArrayListExtra("pcredit",pcredit);
                     startActivity(intent);
                 }
                 else

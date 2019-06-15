@@ -45,7 +45,7 @@ public class ContestsActivity extends AppCompatActivity {
                 connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED) {
 
             JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
-                    (Request.Method.GET, "http://rising11.com/apps/apis/get-all-contest.php", null, new Response.Listener<JSONObject>() {
+                    (Request.Method.GET, "http://rising11.com/apps/apis/get-all-contest.php?unique_id="+getIntent().getStringExtra("uid"), null, new Response.Listener<JSONObject>() {
                         @Override
                         public void onResponse(JSONObject response) {
                             // Log.d("Response: ", response.toString());
