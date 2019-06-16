@@ -15,6 +15,7 @@ import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -41,6 +42,7 @@ public class TeamSelectionActivity extends AppCompatActivity  implements CustomT
     int tposition=0;
     Float credit_left=100.0f;
     int dataload=0;
+    ProgressBar pb;
     String country1="India",country2="India";
     int selectedtotalplayer=0,selectwk=0,selectbat=0,selectar=0,selectbowl=0,team1count=0,team2count=0;
     ArrayList<String> listwk,listbat,listar,listbowl;
@@ -66,6 +68,7 @@ public class TeamSelectionActivity extends AppCompatActivity  implements CustomT
         tv_title_team2=findViewById(R.id.tv_title_team2);
         tv_team1_player_count=findViewById(R.id.tv_team1_player_count);
         tv_team2_player_count=findViewById(R.id.tv_team2_player_count);
+        pb=findViewById(R.id.pb);
         pname=new ArrayList<>();
         pimage=new ArrayList<>();
         pteam=new ArrayList<>();
@@ -77,7 +80,7 @@ public class TeamSelectionActivity extends AppCompatActivity  implements CustomT
         btnContinue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(selectar>=1&&selectbat>=3&&selectbowl>=3&&selectwk>=1 && selectedtotalplayer==11)
+                if(selectar>=1&&selectbat>=3&&selectbowl>=3&&selectwk>=1 && selectedtotalplayer==11 && team1count<=7 && team2count<=7)
                 {
                     for(int i=0;i<listwk.size();i++)
                     {
@@ -184,6 +187,16 @@ public class TeamSelectionActivity extends AppCompatActivity  implements CustomT
                   else if(selectbowl<3)
                   {
                       Toast.makeText(TeamSelectionActivity.this, "Please select at least three Player from Bowler", Toast.LENGTH_LONG).show();
+
+                  }
+                  else if(team1count>7)
+                  {
+                      Toast.makeText(TeamSelectionActivity.this, "Sorry, You can select maximum 7 player from first team", Toast.LENGTH_LONG).show();
+
+                  }
+                  else if(team2count>7)
+                  {
+                      Toast.makeText(TeamSelectionActivity.this, "Sorry, You can select maximum 7 player from second team", Toast.LENGTH_LONG).show();
 
                   }
                     else
@@ -640,6 +653,7 @@ public class TeamSelectionActivity extends AppCompatActivity  implements CustomT
             tab_home.getTabAt(3).setText("BOWL ("+String.valueOf(selectbowl)+")");
             tv_team1_player_count.setText(String.valueOf(team1count));
             tv_team2_player_count.setText(String.valueOf(team2count));
+            pb.setProgress(selectedtotalplayer);
 
         }
 

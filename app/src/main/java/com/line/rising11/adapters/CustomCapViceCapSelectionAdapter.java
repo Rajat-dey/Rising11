@@ -47,7 +47,9 @@ public class CustomCapViceCapSelectionAdapter extends RecyclerView.Adapter<Custo
     @Override
     public void onBindViewHolder(CustomViewHolder holder, int position)
     {
-        Picasso.get().load(pimage.get(position)).into(holder.civDP);
+        if(!pimage.get(position).equals("")) {
+            Picasso.get().load(pimage.get(position)).into(holder.civDP);
+        }
         holder.tvUsername.setText(pname.get(position));
         holder.tv_teams.setText(pteam.get(position));
 

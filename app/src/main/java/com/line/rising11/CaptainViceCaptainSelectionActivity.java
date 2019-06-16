@@ -116,19 +116,16 @@ public class CaptainViceCaptainSelectionActivity extends AppCompatActivity imple
                         }
 
                     }
-
-                    boolean connected = false;
+                   boolean connected = false;
                     ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
                     if(connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED ||
-                            connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED) {
+                            connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED)
+                    {
 
                         JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
-                                (Request.Method.GET, "http://rising11.com/apps/apis/add-user-team.php"+"?mobile="+sharedPreferences.getString("number","")+"&player_list="+playerarrayjson, null, new Response.Listener<JSONObject>() {
+                                (Request.Method.GET, "http://rising11.com/apps/apis/add-user-team.php"+"?mobile="+sharedPreferences.getString("number","")+"&player_list="+playerarrayjson+"&unique_id="+puid.get(0), null, new Response.Listener<JSONObject>() {
                                     @Override
                                     public void onResponse(JSONObject response) {
-                                        // Log.d("Response: ", response.toString());
-                                        //Log.d("Link",getString(R.string.signup) +"?mobile="+email.getText().toString().trim()+"&password="+password.getText().toString().trim());
-
 
                                         try {
                                             if(response.getString("code").equals("1"))

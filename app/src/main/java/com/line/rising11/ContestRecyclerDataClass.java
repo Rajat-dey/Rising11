@@ -1,8 +1,8 @@
 package com.line.rising11;
 
 public class ContestRecyclerDataClass {
-    private String prize,entry,max_pb_val,min_pb_val,winner,box1,box2;
-    public ContestRecyclerDataClass(String prize,String entry,String max_pb_val,String min_pb_val,String winner,String box1,String box2)
+    private String prize,entry,max_pb_val,min_pb_val,winner,box1,box2,cid;
+    public ContestRecyclerDataClass(String prize,String entry,String max_pb_val,String min_pb_val,String winner,String box1,String box2,String cid)
     {
         this.prize=prize;
         this.entry=entry;
@@ -11,6 +11,7 @@ public class ContestRecyclerDataClass {
         this.winner=winner;
         this.box1=box1;
         this.box2=box2;
+        this.cid=cid;
     }
 
     public String getEntry() {
@@ -71,4 +72,11 @@ public class ContestRecyclerDataClass {
         this.winner = winner;
     }
 
+    public String getCid() {
+        return cid;
+    }
+
+    public void setCid(String cid) {
+        this.cid = cid;
+    }
 }

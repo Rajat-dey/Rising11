@@ -21,7 +21,7 @@
                 android:id="@+id/tv_inst_title"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Max 8 Players from a Team"
+                android:text="Max 7 Players from a Team"
                 android:textColor="@android:color/white"
                 android:layout_centerHorizontal="true"
                 android:layout_marginBottom="16dp"/>
@@ -31,6 +31,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
+                android:id="@+id/ll"
                 android:weightSum="2"
                 android:layout_below="@id/tv_inst_title">
 
@@ -147,8 +148,19 @@
                         android:layout_toRightOf="@id/tv_team2_player_count"/>
                 </RelativeLayout>
 
-            </LinearLayout>
 
+            </LinearLayout>
+            <ProgressBar
+                style="?android:attr/progressBarStyleHorizontal"
+                android:layout_width="match_parent"
+                android:layout_height="5dp"
+                android:id="@+id/pb"
+                android:layout_below="@+id/ll"
+                android:layout_marginLeft="8dp"
+                android:progressDrawable="@drawable/pb_gradient"
+                android:layout_marginRight="16dp"
+                android:max="11"
+                android:layout_marginTop="8dp"/>
         </RelativeLayout>
 
         <android.support.design.widget.TabLayout

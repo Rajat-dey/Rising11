@@ -131,6 +131,8 @@ public class HomeActivity extends AppCompatActivity
                                     JSONObject obj=response.getJSONObject("contest");
 
                                 username.setText(obj.getString("name"));
+                                editor.putString("name",obj.getString("name"));
+                                editor.commit();
                                     /*
                                   //  Toast.makeText(HomeActivity.this, response.getString("msg"), Toast.LENGTH_SHORT).show();
 

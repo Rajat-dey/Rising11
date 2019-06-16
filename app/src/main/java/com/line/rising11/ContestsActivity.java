@@ -2,6 +2,7 @@ package com.line.rising11;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.support.design.widget.Snackbar;
@@ -24,22 +25,27 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class ContestsActivity extends AppCompatActivity {
+public class ContestsActivity extends AppCompatActivity implements ContestRecyclerAdapter.OnAddListner2 {
 
     TextView create_team,contest_code,create_contest,more_contest;
     CardView entryfee,contest_size;
     ContestRecyclerDataClass[] myListData;
+    int loaddata=0;
+    SharedPreferences sharedPreferences;
+    JSONArray jsonArray1;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contests);
         setTitle("CONTESTS");
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
+        jsonArray1 = new JSONArray();
 
         boolean connected = false;
+        sharedPreferences=getSharedPreferences("loginstatus", Context.MODE_PRIVATE);
         ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
         if(connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED ||
                 connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED) {
@@ -64,14 +70,14 @@ public class ContestsActivity extends AppCompatActivity {
                                     for(int i=0;i<jsonArray.length();i++)
                                     {
 
-                                            myListData[i]=new ContestRecyclerDataClass("₹"+jsonArray.getJSONObject(i).getString("total_winning_amount"),"₹"+jsonArray.getJSONObject(i).getString("entry_fees"),jsonArray.getJSONObject(i).getString("contest_size")+" spots","1,654 spots left","2,500 Winners","C","M");
+                                            myListData[i]=new ContestRecyclerDataClass("₹"+jsonArray.getJSONObject(i).getString("total_winning_amount"),"₹"+jsonArray.getJSONObject(i).getString("entry_fees"),jsonArray.getJSONObject(i).getString("contest_size")+" spots","1,654 spots left","2,500 Winners","C","M",jsonArray.getJSONObject(i).getString("contest_id"));
 
                                             //jsonArrayAR.put(jsonArray.getJSONObject(i));
 
 
                                     }
                                     RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerview);
-                                    ContestRecyclerAdapter adapter = new ContestRecyclerAdapter(myListData);
+                                    ContestRecyclerAdapter adapter = new ContestRecyclerAdapter(myListData,ContestsActivity.this);
                                     recyclerView.setHasFixedSize(true);
                                     recyclerView.setLayoutManager(new LinearLayoutManager(ContestsActivity.this));
                                     recyclerView.setAdapter(adapter);
@@ -114,46 +120,35 @@ public class ContestsActivity extends AppCompatActivity {
 
 
 
-        if(connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED ||
+        boolean connected2 = false;
+        ConnectivityManager connectivityManager2 = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
+        if(connectivityManager2.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED ||
                 connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED) {
 
             JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
-                    (Request.Method.GET, "http://rising11.com/apps/apis/get-all-contest.php", null, new Response.Listener<JSONObject>() {
+                    (Request.Method.GET, "http://rising11.com/apps/apis/get-user-teams.php?unique_id="+getIntent().getStringExtra("uid")+"&user_id="+sharedPreferences.getString("number",""), null, new Response.Listener<JSONObject>() {
                         @Override
                         public void onResponse(JSONObject response) {
-                            // Log.d("Response: ", response.toString());
-                            //Log.d("Link",getString(R.string.signup) +"?mobile="+email.getText().toString().trim()+"&password="+password.getText().toString().trim());
 
 
                             try {
                                 if(response.getString("code").equals("1"))
                                 {
-
-                                    JSONArray jsonArray=response.getJSONArray("contests");
-                                    myListData = new ContestRecyclerDataClass[jsonArray.length()];
-
-                                    JSONArray jsonArrayAR=new JSONArray();
-
-                                    for(int i=0;i<jsonArray.length();i++)
+                                    loaddata=1;
+                                    for(int i=0;i<response.getJSONArray("teams").length();i++)
                                     {
-
-                                        myListData[i]=new ContestRecyclerDataClass("₹"+jsonArray.getJSONObject(i).getString("total_winning_amount"),"₹"+jsonArray.getJSONObject(i).getString("entry_fees"),jsonArray.getJSONObject(i).getString("contest_size")+" spots","1,654 spots left","2,500 Winners","C","M");
-
-                                        //jsonArrayAR.put(jsonArray.getJSONObject(i));
-
-
+                                        loaddata=2;
+                                        jsonArray1.put(response.getJSONArray("teams").get(i));
                                     }
-                                    RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerview);
-                                    ContestRecyclerAdapter adapter = new ContestRecyclerAdapter(myListData);
-                                    recyclerView.setHasFixedSize(true);
-                                    recyclerView.setLayoutManager(new LinearLayoutManager(ContestsActivity.this));
-                                    recyclerView.setAdapter(adapter);
-
-                                }
+                                        }
                                 else
                                 {
+                                    loaddata=3;
                                     Toast.makeText(ContestsActivity.this, response.getString("msg"), Toast.LENGTH_SHORT).show();
-
+                                               /* Toast.makeText(getApplicationContext(), "Error "
+                                                        + response.getString("code") + ": "
+                                                        + response.getString("message"), Toast.LENGTH_LONG)
+                                                        .show();*/
                                 }
                             } catch (JSONException e) {
                                 e.printStackTrace();
@@ -165,9 +160,9 @@ public class ContestsActivity extends AppCompatActivity {
                         @Override
                         public void onErrorResponse(VolleyError error) {
                             // TODO: Handle error
-                           /* Toast.makeText(getApplicationContext(), "Error: "
+                            Toast.makeText(getApplicationContext(), "Error: "
                                     + error.getLocalizedMessage(), Toast.LENGTH_LONG)
-                                    .show();*/
+                                    .show();
                         }
                     });
 
@@ -180,37 +175,9 @@ public class ContestsActivity extends AppCompatActivity {
         }
         else
         {
-            /*Snackbar.make(, "Please check your Internet connection", Snackbar.LENGTH_LONG)
+            /*Snackbar.make(v, "Please check your Internet connection", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show();*/
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -242,6 +209,7 @@ public class ContestsActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(ContestsActivity.this, TeamSelectionActivity.class);
                 intent.putExtra("uid",getIntent().getStringExtra("uid"));
+                intent.putExtra("for","teamcreate");
                 startActivity(intent);
             }
         });
@@ -269,6 +237,7 @@ public class ContestsActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(ContestsActivity.this, ContestsFilterActivity.class);
+                intent.putExtra("uid",getIntent().getStringExtra("uid"));
                 startActivity(intent);
             }
         });
@@ -279,5 +248,89 @@ public class ContestsActivity extends AppCompatActivity {
     public boolean onSupportNavigateUp() {
         onBackPressed();
         return true;
+    }
+
+    @Override
+    public void onAddClick(int position)
+    {
+
+
+
+        if(loaddata==2)
+        {
+            String tid=null;
+            try {
+                tid=jsonArray1.getJSONObject(0).getString("team_id");
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            boolean connected1 = false;
+            ConnectivityManager connectivityManager1 = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
+
+            if(connectivityManager1.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED ||
+                    connectivityManager1.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED) {
+
+
+                JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
+                        (Request.Method.GET, "http://rising11.com/apps/apis/join-contest.php?user_id="+sharedPreferences.getString("number","")+"&contest_id="+myListData[position].getCid()+"&user_name="+sharedPreferences.getString("name","")+"&team_id="+tid+"&status=pending", null, new Response.Listener<JSONObject>() {
+                            @Override
+                            public void onResponse(JSONObject response) {
+
+                                 try {
+                                    if(response.getString("code").equals("1"))
+                                    {
+
+                                        Toast.makeText(ContestsActivity.this, response.getString("msg"), Toast.LENGTH_SHORT).show();
+                                    }
+                                    else
+                                    {
+
+                                        Toast.makeText(ContestsActivity.this, response.getString("msg"), Toast.LENGTH_SHORT).show();
+                                               /* Toast.makeText(getApplicationContext(), "Error "
+                                                        + response.getString("code") + ": "
+                                                        + response.getString("message"), Toast.LENGTH_LONG)
+                                                        .show();*/
+                                    }
+                                } catch (JSONException e) {
+                                    e.printStackTrace();
+                                }
+
+                            }
+                        }, new Response.ErrorListener() {
+
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
+                                // TODO: Handle error
+                                Toast.makeText(getApplicationContext(), "Error: "
+                                        + error.getLocalizedMessage(), Toast.LENGTH_LONG)
+                                        .show();
+                            }
+                        });
+
+                // Access the RequestQueue through your singleton class.
+                RestClient.getInstance(ContestsActivity.this).addToRequestQueue(jsonObjectRequest);
+
+
+
+                connected1 = true;
+            }
+            else
+            {
+            /*Snackbar.make(v, "Please check your Internet connection", Snackbar.LENGTH_LONG)
+                    .setAction("Action", null).show();*/
+            }
+
+
+        }
+        if(loaddata==3)
+        {
+            Toast.makeText(this, "Please create team first", Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(ContestsActivity.this, TeamSelectionActivity.class);
+            intent.putExtra("uid",getIntent().getStringExtra("uid"));
+            intent.putExtra("for","teamcreate");
+            startActivity(intent);
+            finish();
+        }
+
     }
 }

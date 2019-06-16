@@ -37,6 +37,7 @@ public class CreateContest extends AppCompatActivity {
     String efees="10",pamount="1";
     Switch switch1;
     int swithval=0;
+    SharedPreferences sharedPreferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -136,14 +137,11 @@ public class CreateContest extends AppCompatActivity {
                    ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
                    if(connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED ||
                            connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED) {
-                       SharedPreferences sharedPreferences=getSharedPreferences("loginstatus", Context.MODE_PRIVATE);
+                       sharedPreferences=getSharedPreferences("loginstatus", Context.MODE_PRIVATE);
                        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
                                (Request.Method.GET, getString(R.string.create_contest)+"?contest_name="+cname.getText().toString().trim()+"&total_winning_amount="+wammount.getText().toString().trim()+"&contest_size="+csize.getText().toString().trim()+"&entry_fees="+efees+"&mobile="+sharedPreferences.getString("number","")+"&is_multiple="+String.valueOf(swithval)+"&type=private&unique_id="+getIntent().getStringExtra("uid"), null, new Response.Listener<JSONObject>() {
                                    @Override
                                    public void onResponse(JSONObject response) {
-                                       Log.d("Response: ", response.toString());
-                                       //Log.d("Link",getString(R.string.signup) +"?mobile="+email.getText().toString().trim()+"&password="+password.getText().toString().trim());
-
 
                                        try {
                                            if(response.getString("code").equals("1"))

@@ -69,8 +69,9 @@ public class CustomTeamSelectionAdapter extends RecyclerView.Adapter<CustomTeamS
             {
                 teamname=customerList.getJSONObject(position).getString("team_name")+" - BOWL";
             }
-
-            Picasso.get().load(customerList.getJSONObject(position).get("image").toString()).into(holder.civDP);
+            if(!customerList.getJSONObject(position).get("image").toString().equals("")) {
+                Picasso.get().load(customerList.getJSONObject(position).get("image").toString()).into(holder.civDP);
+            }
             holder.tvUsername.setText(customerList.getJSONObject(position).get("player_name").toString());
             holder.tvCredits.setText(customerList.getJSONObject(position).get("credits").toString());
            credit.add(customerList.getJSONObject(position).get("credits").toString());

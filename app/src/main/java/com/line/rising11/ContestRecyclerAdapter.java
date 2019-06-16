@@ -12,17 +12,19 @@ import android.widget.TextView;
 
 public class ContestRecyclerAdapter extends RecyclerView.Adapter<ContestRecyclerAdapter.ViewHolder>{
     private ContestRecyclerDataClass[] listdata;
+    private OnAddListner2 monAddListner;
 
 
-    public ContestRecyclerAdapter(ContestRecyclerDataClass[] listdata) {
+    public ContestRecyclerAdapter(ContestRecyclerDataClass[] listdata,OnAddListner2 onAddListner) {
         this.listdata = listdata;
+        this.monAddListner=onAddListner;
     }
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
         View listItem= layoutInflater.inflate(R.layout.contestrecycler, parent, false);
-        ViewHolder viewHolder = new ViewHolder(listItem);
-        return viewHolder;
+
+        return new ViewHolder(listItem,monAddListner);
     }
 
     @Override
@@ -36,6 +38,7 @@ public class ContestRecyclerAdapter extends RecyclerView.Adapter<ContestRecycler
         holder.contesttv4.setText(listdata[position].getWinner());
         holder.contesttv5.setText(listdata[position].getBox1());
         holder.contesttv6.setText(listdata[position].getBox2());
+
 
        /* holder.textView3.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -53,13 +56,14 @@ public class ContestRecyclerAdapter extends RecyclerView.Adapter<ContestRecycler
         return listdata.length;
     }
 
-    public static class ViewHolder extends RecyclerView.ViewHolder {
+    public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{
         public TextView contesttv1,contesttv2,contesttv3,contesttv4,contesttv5,contesttv6;
         public Button contestbt1;
         public ProgressBar contestpb1;
-        public ViewHolder(View itemView) {
+        OnAddListner2 onAddListner;
+        public ViewHolder(View itemView,OnAddListner2 onAddListner) {
             super(itemView);
-
+            this.onAddListner=onAddListner;
             this.contesttv1 = (TextView) itemView.findViewById(R.id.contesttv1);
             this.contesttv2 = (TextView) itemView.findViewById(R.id.contesttv2);
             this.contesttv3 = (TextView) itemView.findViewById(R.id.contesttv3);
@@ -68,7 +72,20 @@ public class ContestRecyclerAdapter extends RecyclerView.Adapter<ContestRecycler
             this.contesttv6 = (TextView) itemView.findViewById(R.id.contesttv6);
             this.contestbt1 = (Button) itemView.findViewById(R.id.contestbt1);
             this.contestpb1 = (ProgressBar) itemView.findViewById(R.id.contestpb1);
+            contestbt1.setOnClickListener(this);
+
 
         }
+
+        @Override
+        public void onClick(View v)
+        {
+                onAddListner.onAddClick(getAdapterPosition());
+        }
+    }
+
+    public interface OnAddListner2
+    {
+        void onAddClick(int position);
     }
 }
