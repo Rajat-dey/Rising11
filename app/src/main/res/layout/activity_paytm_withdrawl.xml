@@ -30,6 +30,25 @@
         android:textSize="18sp"
         tools:text="TextView" />
 
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp"
+        android:layout_height="wrap_content">
+
+        <EditText
+            android:id="@+id/withdraw_amount"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:hint="Amount"
+            android:inputType="number"
+            android:padding="7dp"
+            android:textColor="@color/black_text"
+            android:textColorHint="@android:color/white" />
+    </android.support.design.widget.TextInputLayout>
+
     <Button
         android:id="@+id/paytm_send"
         android:layout_width="match_parent"

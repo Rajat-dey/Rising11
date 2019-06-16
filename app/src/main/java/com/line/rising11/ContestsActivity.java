@@ -27,12 +27,13 @@ import org.json.JSONObject;
 
 public class ContestsActivity extends AppCompatActivity implements ContestRecyclerAdapter.OnAddListner2 {
 
-    TextView create_team,contest_code,create_contest,more_contest;
+    TextView create_team,contest_code,create_contest,more_contest,all_filters;
     CardView entryfee,contest_size;
     ContestRecyclerDataClass[] myListData;
     int loaddata=0;
     SharedPreferences sharedPreferences;
     JSONArray jsonArray1;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState)  {
@@ -187,11 +188,20 @@ public class ContestsActivity extends AppCompatActivity implements ContestRecycl
         entryfee=findViewById(R.id.entryfee);
         more_contest=findViewById(R.id.more_contest);
         contest_size=findViewById(R.id.contestsize);
+        all_filters=findViewById(R.id.all_filters);
 
         entryfee.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(ContestsActivity.this,ContestsFilterActivity.class);
+                startActivity(intent);
+            }
+        });
+
+        all_filters.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(ContestsActivity.this,contest_filter.class);
                 startActivity(intent);
             }
         });
