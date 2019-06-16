@@ -2,6 +2,7 @@ package com.line.rising11;
 
 import android.Manifest;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -10,10 +11,12 @@ import android.net.NetworkInfo;
 import android.os.Bundle;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -29,6 +32,7 @@ public class MyBalanceActivity extends AppCompatActivity  {
     private Button add_cash, verify_user,withdrawl;
     TextView bonus,deposits,win,Balance;
     SharedPreferences sharedPreferences;
+    ImageView info1,info2,info3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,6 +57,10 @@ public class MyBalanceActivity extends AppCompatActivity  {
        deposits=findViewById(R.id.deposit);
        win=findViewById(R.id.winnings);
        Balance=findViewById(R.id.balance);
+
+       info1=findViewById(R.id.info1);
+       info2=findViewById(R.id.info2);
+       info3=findViewById(R.id.info3);
 
        add_cash.setOnClickListener(new View.OnClickListener() {
            @Override
@@ -156,9 +164,52 @@ public class MyBalanceActivity extends AppCompatActivity  {
 
 
 
+        //info section
+
+        info1.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(MyBalanceActivity.this, R.style.MyDialogTheme);
+                builder.setMessage("Money deposited by you that you can use to join any contests but can't withdraw");
+
+                AlertDialog dialog = builder.create();
+                dialog.show();
+            }
+
+        });
 
 
 
+        info2.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(MyBalanceActivity.this, R.style.MyDialogTheme);
+                builder.setMessage("Money that you can withdraw or re-use to join any contests");
+                AlertDialog dialog = builder.create();
+
+                dialog.show();
+
+
+
+            }
+
+        });
+
+        info3.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View view) {
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(MyBalanceActivity.this, R.style.MyDialogTheme);
+                builder.setMessage("Money that you can use to join any public contests");
+                AlertDialog dialog = builder.create();
+
+                dialog.show();
+
+
+
+            }
+
+        });
 
 
 

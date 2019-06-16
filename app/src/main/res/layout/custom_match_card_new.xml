@@ -59,7 +59,7 @@
             android:orientation="vertical">
 
 
-            <TextView
+          <!--  <TextView
                 android:id="@+id/tv_title_ipl"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -74,19 +74,21 @@
                 android:text="IPL"
                 android:textAllCaps="true"
                 android:textColor="@android:color/darker_gray" />
-
+-->
             <TextView
                 android:id="@+id/tv_vs"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:layout_gravity="center"
                 android:layout_marginTop="5dp"
                 android:paddingLeft="20dp"
-                android:textSize="12sp"
-                android:textStyle="bold"
                 android:paddingRight="20dp"
-                android:text="VS"
-                android:textColor="@android:color/white" />
+                android:gravity="center"
+                android:textColor="@android:color/white"
+                android:textSize="12sp"
+
+                android:textStyle="bold"
+                tools:text="VS" />
 
         </LinearLayout>
 

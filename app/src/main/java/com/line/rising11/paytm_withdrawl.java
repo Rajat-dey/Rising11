@@ -9,6 +9,6 @@ public class paytm_withdrawl extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_paytm_withdrawl);
-        setTitle("TRANSFER BALANCE TO BANK");
+        setTitle("TRANSFER BALANCE TO PAYTM");
     }
 }

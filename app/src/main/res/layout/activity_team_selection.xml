@@ -148,7 +148,6 @@
                         android:layout_toRightOf="@id/tv_team2_player_count"/>
                 </RelativeLayout>
 
-
             </LinearLayout>
             <ProgressBar
                 style="?android:attr/progressBarStyleHorizontal"
