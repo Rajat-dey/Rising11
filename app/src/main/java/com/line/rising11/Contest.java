@@ -61,7 +61,7 @@ public class Contest extends AppCompatActivity {
                 connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED) {
 
             JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
-                    (Request.Method.GET, getString(R.string.Cric_cricket_score)+"&unique_id=1144494", null, new Response.Listener<JSONObject>() {
+                    (Request.Method.GET, getString(R.string.Cric_cricket_score)+"&unique_id=1144504", null, new Response.Listener<JSONObject>() {
                         @Override
                         public void onResponse(JSONObject response) {
                             Log.d("Response: ", response.toString());

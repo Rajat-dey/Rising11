@@ -24,6 +24,8 @@ public class JoinedContest extends AppCompatActivity {
 
     TextView playerpoints,TM1,TM2,match_status,score1,score2,statics;
 
+    TextView prizepool,spots,entry,joined_with,points,rank;
+
     LinearLayout joinedcontest;
 
     String scorepart1,scorepart2;
@@ -35,11 +37,9 @@ public class JoinedContest extends AppCompatActivity {
         setContentView(R.layout.activity_joined_contest);
         setTitle("JOINED CONTEST");
 
-
         playerpoints=findViewById(R.id.player_points);
 
         joinedcontest=findViewById(R.id.joined_contest);
-
 
         TM1=findViewById(R.id.TM1);
         TM2=findViewById(R.id.TM2);
@@ -47,6 +47,13 @@ public class JoinedContest extends AppCompatActivity {
         score1=findViewById(R.id.score1);
         score2=findViewById(R.id.score2);
         statics=findViewById(R.id.statics);
+
+        prizepool=findViewById(R.id.prize_pool);
+        spots=findViewById(R.id.spots);
+        entry=findViewById(R.id.entry);
+        joined_with=findViewById(R.id.joined_with);
+        points=findViewById(R.id.points);
+        rank=findViewById(R.id.rank);
 
 
         joinedcontest.setOnClickListener(new View.OnClickListener() {
@@ -71,14 +78,13 @@ public class JoinedContest extends AppCompatActivity {
 
 
 
-
         boolean connected = false;
         ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
         if(connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED ||
                 connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED) {
 
             JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
-                    (Request.Method.GET, getString(R.string.Cric_cricket_score)+"&unique_id=1144494", null, new Response.Listener<JSONObject>() {
+                    (Request.Method.GET, getString(R.string.Cric_cricket_score)+"&unique_id=1144504", null, new Response.Listener<JSONObject>() {
                         @Override
                         public void onResponse(JSONObject response) {
                             Log.d("Response: ", response.toString());
@@ -159,6 +165,71 @@ public class JoinedContest extends AppCompatActivity {
         }
 
 
+
+
+
+
+
+        if(connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED ||
+                connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED) {
+
+            JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
+                    (Request.Method.GET, getString(R.string.Cric_ranking)+"contest_id=27"+"&mobile=7062018163", null, new Response.Listener<JSONObject>() {
+                        @Override
+                        public void onResponse(JSONObject response) {
+                            Log.d("Response: ", response.toString());
+                            //Log.d("Link",getString(R.string.signup) +"?mobile="+email.getText().toString().trim()+"&password="+password.getText().toString().trim());
+
+
+                            try {
+                                if(response != null)
+                                {
+
+
+                                    prizepool.setText(response.getString("total_winning_amount"));
+                                    spots.setText(response.getString("contest_size"));
+                                    entry.setText(response.getString("entry_fees"));
+                                    joined_with.setText(response.getString("team_id"));
+                                    points.setText(response.getString("points"));
+                                    rank.setText(response.getString("rank"));
+
+
+
+
+                                }
+                                else
+                                {
+                                    Toast.makeText(JoinedContest.this, response.getString("msg"), Toast.LENGTH_SHORT).show();
+
+                                }
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+
+                        }
+                    }, new Response.ErrorListener() {
+
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            // TODO: Handle error
+                            Toast.makeText(getApplicationContext(), "Error: "
+                                    + error.getLocalizedMessage(), Toast.LENGTH_LONG)
+                                    .show();
+                        }
+                    });
+
+            // Access the RequestQueue through your singleton class.
+            RestClient.getInstance(JoinedContest.this).addToRequestQueue(jsonObjectRequest);
+
+
+
+            connected = true;
+        }
+        else
+        {
+            /*Snackbar.make(v, "Please check your Internet connection", Snackbar.LENGTH_LONG)
+                    .setAction("Action", null).show();*/
+        }
 
 
 

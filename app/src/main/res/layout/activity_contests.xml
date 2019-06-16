@@ -118,12 +118,14 @@
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
                 android:layout_alignParentRight="true">
+
                 <TextView
+                    android:id="@+id/all_filters"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:textSize="11sp"
+                    android:text="All Filters"
                     android:textColor="@color/black_text"
-                    android:text="All Filters"/>
+                    android:textSize="11sp" />
                 <ImageView
                     android:layout_width="10dp"
                     android:layout_height="10dp"
