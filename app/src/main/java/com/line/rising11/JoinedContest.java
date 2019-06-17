@@ -111,27 +111,31 @@ public class JoinedContest extends AppCompatActivity {
                                     }
 
 
-                                   /* String ScoreData = response.getString("description");
+                                    if(response.getJSONObject("data").has("description"))
+                                    {
+                                        String ScoreData = response.getJSONObject("data").getString("description");
 
-                                    String[] parts = ScoreData.split("v");
+                                        String[] parts = ScoreData.split("v");
 
-                                    scorepart1 =  parts[0];
-                                    scorepart2= parts[1];
+                                        scorepart1 =  parts[0];
+                                        scorepart2= parts[1];
 
 
-                                    score1.setText(scorepart1);
-                                    score2.setText(scorepart2);
-*/
+                                        score1.setText(scorepart1);
+                                        score2.setText(scorepart2);
+                                    }
+
+                                    else
+                                    {
+                                        score1.setText("Match not started");
+                                        score2.setText("Match not started");
+                                    }
+
 
                                     statics.setText(response.getJSONObject("data").getString("stat"));
 
 
-                                    /*editor.putString("login","yes");
-                                    editor.putString("number",email.getText().toString().trim());
-                                    editor.commit();*/
-                                      /*Intent intent = new Intent(MySettingsActivity.this, HomeActivity.class);
-                                    startActivity(intent);
-                                    finish();*/
+
                                 }
                                 else
                                 {
@@ -188,16 +192,16 @@ public class JoinedContest extends AppCompatActivity {
 
 
                             try {
-                                if(response != null)
+                                if(response.getString("code").equals("1"))
                                 {
 
 
-                                    prizepool.setText(response.getString("total_winning_amount"));
-                                    spots.setText(response.getString("contest_size"));
-                                    entry.setText(response.getString("entry_fees"));
-                                    joined_with.setText(response.getString("team_id"));
-                                    points.setText(response.getString("points"));
-                                    rank.setText(response.getString("rank"));
+                                    prizepool.setText(response.getJSONObject("contest").getString("total_winning_amount"));
+                                    spots.setText(response.getJSONObject("contest").getString("contest_size"));
+                                    entry.setText(response.getJSONObject("contest").getString("entry_fees"));
+                                    joined_with.setText(response.getJSONObject("contest").getString("team_id"));
+                                    points.setText(response.getJSONObject("contest").getString("points"));
+                                    rank.setText(response.getJSONObject("contest").getString("rank"));
 
 
 
