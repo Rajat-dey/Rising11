@@ -12,6 +12,7 @@ import android.support.design.widget.BottomNavigationView;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.FragmentManager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.util.Log;
 import android.view.View;
 import android.support.v4.view.GravityCompat;
@@ -32,12 +33,15 @@ import com.android.volley.Request;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
+import com.line.rising11.adapters.CustomMatchAdapter;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 
 public class HomeActivity extends AppCompatActivity
@@ -80,8 +84,84 @@ public class HomeActivity extends AppCompatActivity
                 }
                 else if (menuItem.getItemId()==R.id.navigation_dashboard)
                 {
-                    Intent intent=new Intent(HomeActivity.this,MyMatchActivity.class);
-                    startActivity(intent);
+                    boolean connected = false;
+                    ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
+                    if(connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED ||
+                            connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED) {
+
+                        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
+                                (Request.Method.GET, "http://rising11.com/apps/apis/get-upcoming-matches.php", null, new Response.Listener<JSONObject>() {
+                                    @Override
+                                    public void onResponse(JSONObject response) {
+                                        ArrayList<String> uid=new ArrayList<>();
+                                        ArrayList<String> teamname1=new ArrayList<>();
+                                        ArrayList<String> teamname2=new ArrayList<>();
+                                        ArrayList<String> time=new ArrayList<>();
+
+
+                                        try {
+
+                                            if(response.getString("code").equals("1"))
+                                            {
+                                                JSONObject obj=response.getJSONObject("data");
+                                                JSONArray array=obj.getJSONArray("matches");
+
+
+                                                JSONArray jsonArray=new JSONArray();
+
+                                                for(int i=0;i<array.length();i++)
+                                                {
+
+                                                    uid.add(array.getJSONObject(i).getString("unique_id"));
+                                                    teamname1.add(array.getJSONObject(i).getString("team-1"));
+                                                    teamname2.add(array.getJSONObject(i).getString("team-2"));
+                                                    time.add(array.getJSONObject(i).getString("dateTimeGMT"));
+
+
+
+                                                }
+                                                Intent intent=new Intent(HomeActivity.this,MyMatchActivity.class);
+                                                intent.putStringArrayListExtra("uid",uid);
+                                                intent.putStringArrayListExtra("teamname1",teamname1);
+                                                intent.putStringArrayListExtra("teamname2",teamname2);
+                                                intent.putStringArrayListExtra("time",time);
+                                                startActivity(intent);
+                                              }
+                                            else
+                                            {
+                                                Toast.makeText(HomeActivity.this, response.getString("msg"), Toast.LENGTH_SHORT).show();
+
+                                            }
+                                        } catch (JSONException e) {
+                                            e.printStackTrace();
+                                        }
+
+                                    }
+                                },new Response.ErrorListener() {
+
+                                    @Override
+                                    public void onErrorResponse(VolleyError error) {
+                                        // TODO: Handle error
+                           /* Toast.makeText(getApplicationContext(), "Error: "
+                                    + error.getLocalizedMessage(), Toast.LENGTH_LONG)
+                                    .show();*/
+                                    }
+                                });
+
+                        // Access the RequestQueue through your singleton class.
+                        RestClient.getInstance(HomeActivity.this).addToRequestQueue(jsonObjectRequest);
+
+
+
+                        connected = true;
+                    }
+                    else
+                    {
+                        /*Snackbar.make(view, "Please check your Internet connection", Snackbar.LENGTH_LONG)
+                                .setAction("Action", null).show();*/
+                    }
+
+
                 }
                 else if(menuItem.getItemId()==R.id.navigation_notifications)
                 {
