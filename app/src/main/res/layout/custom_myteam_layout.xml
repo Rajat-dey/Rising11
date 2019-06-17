@@ -127,6 +127,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:paddingLeft="8dp"
+                        android:id="@+id/pimage1"
                         android:paddingRight="8dp"
                         />
                     <TextView
@@ -156,6 +157,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:paddingLeft="8dp"
+                        android:id="@+id/pimage2"
                         android:paddingRight="8dp"/>
                     <TextView
                         android:layout_width="match_parent"

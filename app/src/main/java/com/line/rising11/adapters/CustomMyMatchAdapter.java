@@ -9,9 +9,11 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.line.rising11.ContestsActivity;
+import com.line.rising11.JoinedContest;
 import com.line.rising11.R;
 import com.mikhaellopez.circularimageview.CircularImageView;
 
@@ -55,10 +57,30 @@ public class CustomMyMatchAdapter extends RecyclerView.Adapter<CustomMyMatchAdap
     {
         if(!joincontestlist.get(position).equals("0"))
         {
-            holder.team1.setText(teamname1.get(position));
-            holder.team2.setText(teamname2.get(position));
-            holder.joincontest.setText(joincontestlist.get(position));
+            if(tab==0 && tabtype.get(position).equals("upcoming"))
+            {
+                holder.team1.setText(teamname1.get(position));
+                holder.team2.setText(teamname2.get(position));
+                holder.joincontest.setText(joincontestlist.get(position));
+            }
+            else if(tab==1 && tabtype.get(position).equals("live"))
+            {
+                holder.team1.setText(teamname1.get(position));
+                holder.team2.setText(teamname2.get(position));
+                holder.joincontest.setText(joincontestlist.get(position));
+            }
         }
+        holder.matchll.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i=new Intent(context, JoinedContest.class);
+                i.putExtra("team1",teamname1.get(position));
+                i.putExtra("team2",teamname2.get(position));
+                i.putExtra("uid",uid.get(position));
+                context.startActivity(i);
+            }
+        });
+
 
     }
 
@@ -71,12 +93,14 @@ public class CustomMyMatchAdapter extends RecyclerView.Adapter<CustomMyMatchAdap
     class CustomViewHolder extends RecyclerView.ViewHolder{
 
         TextView team1,team2,joincontest;
+        LinearLayout matchll;
                 public CustomViewHolder (View view) {
             super(view);
 
                 team1=view.findViewById(R.id.tm1);
                 team2=view.findViewById(R.id.tm2);
                 joincontest=view.findViewById(R.id.textView3);
+                    matchll=view.findViewById(R.id.matchll);
 
         }
 

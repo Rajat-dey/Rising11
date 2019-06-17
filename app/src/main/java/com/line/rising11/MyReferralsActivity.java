@@ -60,7 +60,10 @@ public class MyReferralsActivity extends AppCompatActivity {
             moreshare=findViewById(R.id.moreshare);
             number = sharedPreferences.getString("number", "");
 
-            sharetv.setText(String.valueOf(Long.parseLong(number, 16)));
+        Long n=Long.parseLong(number);
+
+
+        sharetv.setText(Long.toHexString(n));
 
             sharerl.setOnClickListener(new View.OnClickListener() {
                 @Override

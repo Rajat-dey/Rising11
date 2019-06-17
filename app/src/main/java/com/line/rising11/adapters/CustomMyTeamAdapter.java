@@ -5,9 +5,11 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.line.rising11.R;
+import com.squareup.picasso.Picasso;
 
 import org.json.JSONArray;
 
@@ -34,7 +36,8 @@ public class CustomMyTeamAdapter extends RecyclerView.Adapter<CustomMyTeamAdapte
     public void onBindViewHolder(final CustomViewHolder holder, final int position)
     {
 
-
+        Picasso.get().load("https://www.cricapi.com/playerpic/34102.jpg").into(holder.pimage1);
+        Picasso.get().load("https://www.cricapi.com/playerpic/253802.jpg").into(holder.pimage2);
     }
 
 
@@ -43,11 +46,14 @@ public class CustomMyTeamAdapter extends RecyclerView.Adapter<CustomMyTeamAdapte
         return 2;
     }
 
-    class CustomViewHolder extends RecyclerView.ViewHolder{
-
+    class CustomViewHolder extends RecyclerView.ViewHolder
+    {
+        ImageView pimage1,pimage2;
 
         public CustomViewHolder (View view) {
             super(view);
+            pimage1=view.findViewById(R.id.pimage1);
+            pimage2=view.findViewById(R.id.pimage2);
 
 
         }
