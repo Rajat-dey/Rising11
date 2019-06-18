@@ -45,7 +45,7 @@ public class TeamSelectionActivity extends AppCompatActivity  implements CustomT
     ProgressBar pb;
     String country1="India",country2="India";
     int selectedtotalplayer=0,selectwk=0,selectbat=0,selectar=0,selectbowl=0,team1count=0,team2count=0;
-    ArrayList<String> listwk,listbat,listar,listbowl;
+    ArrayList<String> listwk,listbat,listar,listbowl,listtype2;
     private TabItem t1,t2,t3,t4;
 
 
@@ -54,7 +54,7 @@ public class TeamSelectionActivity extends AppCompatActivity  implements CustomT
     private PageviewPlayerAdapter pageviewPlayerAdapter;
     JSONArray jsonArrayWK , jsonArrayBAT, jsonArrayAR, jsonArrayBOWL;
     private TabLayout tab_home;
-    ArrayList<String> pname,pimage,pteam,pid,puid,prole,pcredit,pteamnew;
+    ArrayList<String> pname,pimage,pteam,pid,puid,prole,pcredit,pteamnew,prole1;
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
@@ -77,6 +77,7 @@ public class TeamSelectionActivity extends AppCompatActivity  implements CustomT
         prole=new ArrayList<>();
         pcredit=new ArrayList<>();
         pteamnew=new ArrayList<>();
+        prole1=new ArrayList<>();
         btnContinue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -92,6 +93,7 @@ public class TeamSelectionActivity extends AppCompatActivity  implements CustomT
                                 pteam.add( jsonArrayWK.getJSONObject(i).getString("team_name")+" - WK");
                                 pteamnew.add( jsonArrayWK.getJSONObject(i).getString("team_name"));
                                 pid.add( jsonArrayWK.getJSONObject(i).getString("player_id"));
+                                prole1.add("wk");
                                 puid.add( jsonArrayWK.getJSONObject(i).getString("unique_id"));
                                 prole.add( jsonArrayWK.getJSONObject(i).getString("role"));
                                 pcredit.add( jsonArrayWK.getJSONObject(i).getString("credits"));
@@ -114,6 +116,7 @@ public class TeamSelectionActivity extends AppCompatActivity  implements CustomT
                                 puid.add( jsonArrayBAT.getJSONObject(i).getString("unique_id"));
                                 prole.add( jsonArrayBAT.getJSONObject(i).getString("role"));
                                 pcredit.add( jsonArrayBAT.getJSONObject(i).getString("credits"));
+                                prole1.add("bat");
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
@@ -132,6 +135,7 @@ public class TeamSelectionActivity extends AppCompatActivity  implements CustomT
                                 puid.add( jsonArrayAR.getJSONObject(i).getString("unique_id"));
                                 prole.add( jsonArrayAR.getJSONObject(i).getString("role"));
                                 pcredit.add( jsonArrayAR.getJSONObject(i).getString("credits"));
+                                prole1.add("ar");
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
@@ -150,6 +154,7 @@ public class TeamSelectionActivity extends AppCompatActivity  implements CustomT
                                 puid.add( jsonArrayBOWL.getJSONObject(i).getString("unique_id"));
                                 prole.add( jsonArrayBOWL.getJSONObject(i).getString("role"));
                                 pcredit.add( jsonArrayBOWL.getJSONObject(i).getString("credits"));
+                                prole1.add("bowl");
                             } catch (JSONException e) {
                                 e.printStackTrace();
                             }
@@ -165,6 +170,7 @@ public class TeamSelectionActivity extends AppCompatActivity  implements CustomT
                     intent.putStringArrayListExtra("puid",puid);
                     intent.putStringArrayListExtra("prole",prole);
                     intent.putStringArrayListExtra("pcredit",pcredit);
+                    intent.putStringArrayListExtra("prole1",prole1);
                     startActivity(intent);
                 }
                 else
@@ -213,7 +219,87 @@ public class TeamSelectionActivity extends AppCompatActivity  implements CustomT
         btnTeamPreview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                    ArrayList<String> pname1,pimage1,pteam1,prole1,pcredit1;
+                    int wk=0,bat=0,ar=0,bowl=0;
+                    pname1=new ArrayList<>();
+                    pimage1=new ArrayList<>();
+                    pteam1=new ArrayList<>();
+                    prole1=new ArrayList<>();
+                    pcredit1=new ArrayList<>();
+
+                for(int i=0;i<listwk.size();i++)
+                {
+                    if(listwk.get(i).equals("1"))
+                    {
+                        try {
+                            pname1.add( jsonArrayWK.getJSONObject(i).getString("player_name"));
+                            pimage1.add( jsonArrayWK.getJSONObject(i).getString("image"));
+                            pteam1.add( jsonArrayWK.getJSONObject(i).getString("team_name"));
+                            prole1.add( "wk");
+                            pcredit1.add( jsonArrayWK.getJSONObject(i).getString("credits"));
+                            wk=wk+1;
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+                for(int i=0;i<listbat.size();i++)
+                {
+                    if(listbat.get(i).equals("1"))
+                    {
+                        try {
+                            pname1.add( jsonArrayBAT.getJSONObject(i).getString("player_name"));
+                            pimage1.add( jsonArrayBAT.getJSONObject(i).getString("image"));
+                            pteam1.add( jsonArrayBAT.getJSONObject(i).getString("team_name"));
+                            prole1.add( "bat");
+                            pcredit1.add( jsonArrayBAT.getJSONObject(i).getString("credits"));
+                            bat=bat+1;
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+                for(int i=0;i<listar.size();i++)
+                {
+                    if(listar.get(i).equals("1"))
+                    {
+                        try {
+                            pname1.add( jsonArrayAR.getJSONObject(i).getString("player_name"));
+                            pimage1.add( jsonArrayAR.getJSONObject(i).getString("image"));
+                            pteam1.add( jsonArrayAR.getJSONObject(i).getString("team_name"));
+                            prole1.add( "ar");
+                            pcredit1.add( jsonArrayAR.getJSONObject(i).getString("credits"));
+                            ar=ar+1;
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+                for(int i=0;i<listbowl.size();i++)
+                {
+                    if(listbowl.get(i).equals("1"))
+                    {
+                        try {
+                            pname1.add( jsonArrayBOWL.getJSONObject(i).getString("player_name"));
+                            pimage1.add( jsonArrayBOWL.getJSONObject(i).getString("image"));
+                            pteam1.add( jsonArrayBOWL.getJSONObject(i).getString("team_name"));
+                            prole1.add( "bowl");
+                            pcredit1.add( jsonArrayBOWL.getJSONObject(i).getString("credits"));
+                            bowl=bowl+1;
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                }
+
                 Intent intent = new Intent(TeamSelectionActivity.this, TeamPreviewActivity.class);
+                intent.putStringArrayListExtra("pname1",pname1);
+                intent.putStringArrayListExtra("pimage1",pimage1);
+                intent.putStringArrayListExtra("pteam1",pteam1);
+                intent.putStringArrayListExtra("prole1",prole1);
+                intent.putStringArrayListExtra("pcredit1",pcredit1);
                 startActivity(intent);
             }
         });

@@ -27,18 +27,21 @@
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
+                android:id="@+id/wkl1"
                 android:gravity="center"
                 android:orientation="vertical">
 
                 <ImageView
                     android:layout_width="48dp"
                     android:layout_height="48dp"
+                    android:id="@+id/wkimg1"
                     android:src="@drawable/ic_profile" />
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:background="@android:color/holo_red_dark"
+                    android:id="@+id/wkpname1"
                     android:paddingLeft="4dp"
                     android:paddingTop="2dp"
                     android:paddingRight="4dp"
@@ -65,12 +68,14 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
+                android:id="@+id/wkl2"
                 android:orientation="vertical"
                 android:visibility="visible">
 
                 <ImageView
                     android:layout_width="48dp"
                     android:layout_height="48dp"
+                    android:id="@+id/wkimg2"
                     android:src="@drawable/ic_profile" />
 
                 <TextView
@@ -78,6 +83,47 @@
                     android:layout_height="wrap_content"
                     android:background="@android:color/holo_red_dark"
                     android:paddingLeft="4dp"
+                    android:paddingTop="2dp"
+                    android:paddingRight="4dp"
+                    android:id="@+id/wkpname2"
+                    android:paddingBottom="2dp"
+                    android:text="M. Shahad"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="4dp"
+                    android:text="9.5 Cr"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/wkl3"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:id="@+id/wkimg3"
+                    android:src="@drawable/ic_profile" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/holo_red_dark"
+                    android:paddingLeft="4dp"
+                    android:id="@+id/wkpname3"
                     android:paddingTop="2dp"
                     android:paddingRight="4dp"
                     android:paddingBottom="2dp"
@@ -102,12 +148,14 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:id="@+id/wkl4"
                 android:gravity="center"
                 android:orientation="vertical">
 
                 <ImageView
                     android:layout_width="48dp"
                     android:layout_height="48dp"
+                    android:id="@+id/wkimg4"
                     android:src="@drawable/ic_profile" />
 
                 <TextView
@@ -115,43 +163,7 @@
                     android:layout_height="wrap_content"
                     android:background="@android:color/holo_red_dark"
                     android:paddingLeft="4dp"
-                    android:paddingTop="2dp"
-                    android:paddingRight="4dp"
-                    android:paddingBottom="2dp"
-                    android:text="M. Shahad"
-                    android:textAlignment="center"
-                    android:textColor="@android:color/white"
-                    android:textSize="12sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="4dp"
-                    android:text="9.5 Cr"
-                    android:textAlignment="center"
-                    android:textColor="@android:color/white"
-                    android:textSize="12sp" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:src="@drawable/ic_profile" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@android:color/holo_red_dark"
-                    android:paddingLeft="4dp"
+                    android:id="@+id/wkpname4"
                     android:paddingTop="2dp"
                     android:paddingRight="4dp"
                     android:paddingBottom="2dp"
@@ -193,6 +205,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:id="@+id/batl1"
                 android:gravity="center"
                 android:orientation="vertical"
                 android:visibility="visible">
@@ -200,6 +213,7 @@
                 <ImageView
                     android:layout_width="48dp"
                     android:layout_height="48dp"
+                    android:id="@+id/batimg1"
                     android:src="@drawable/ic_profile" />
 
                 <TextView
@@ -207,6 +221,47 @@
                     android:layout_height="wrap_content"
                     android:background="@android:color/holo_red_dark"
                     android:paddingLeft="4dp"
+                    android:paddingTop="2dp"
+                    android:paddingRight="4dp"
+                    android:id="@+id/batpname1"
+                    android:paddingBottom="2dp"
+                    android:text="M. Shahad"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="4dp"
+                    android:text="9.5 Cr"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:id="@+id/batl2"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:id="@+id/batimg2"
+                    android:src="@drawable/ic_profile" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/holo_red_dark"
+                    android:paddingLeft="4dp"
+                    android:id="@+id/batpname2"
                     android:paddingTop="2dp"
                     android:paddingRight="4dp"
                     android:paddingBottom="2dp"
@@ -231,12 +286,14 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:id="@+id/batl3"
                 android:gravity="center"
                 android:orientation="vertical">
 
                 <ImageView
                     android:layout_width="48dp"
                     android:layout_height="48dp"
+                    android:id="@+id/batimg3"
                     android:src="@drawable/ic_profile" />
 
                 <TextView
@@ -245,6 +302,7 @@
                     android:background="@android:color/holo_red_dark"
                     android:paddingLeft="4dp"
                     android:paddingTop="2dp"
+                    android:id="@+id/batpname3"
                     android:paddingRight="4dp"
                     android:paddingBottom="2dp"
                     android:text="M. Shahad"
@@ -268,12 +326,14 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:id="@+id/batl4"
                 android:gravity="center"
                 android:orientation="vertical">
 
                 <ImageView
                     android:layout_width="48dp"
                     android:layout_height="48dp"
+                    android:id="@+id/batimg4"
                     android:src="@drawable/ic_profile" />
 
                 <TextView
@@ -282,43 +342,7 @@
                     android:background="@android:color/holo_red_dark"
                     android:paddingLeft="4dp"
                     android:paddingTop="2dp"
-                    android:paddingRight="4dp"
-                    android:paddingBottom="2dp"
-                    android:text="M. Shahad"
-                    android:textAlignment="center"
-                    android:textColor="@android:color/white"
-                    android:textSize="12sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="4dp"
-                    android:text="9.5 Cr"
-                    android:textAlignment="center"
-                    android:textColor="@android:color/white"
-                    android:textSize="12sp" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:src="@drawable/ic_profile" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@android:color/holo_red_dark"
-                    android:paddingLeft="4dp"
-                    android:paddingTop="2dp"
+                    android:id="@+id/batpname4"
                     android:paddingRight="4dp"
                     android:paddingBottom="2dp"
                     android:text="M. Shahad"
@@ -352,12 +376,14 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
+                android:id="@+id/batl5"
                 android:orientation="vertical"
                 android:visibility="visible">
 
                 <ImageView
                     android:layout_width="48dp"
                     android:layout_height="48dp"
+                    android:id="@+id/batimg5"
                     android:src="@drawable/ic_profile" />
 
                 <TextView
@@ -366,6 +392,7 @@
                     android:background="@android:color/holo_red_dark"
                     android:paddingLeft="4dp"
                     android:paddingTop="2dp"
+                    android:id="@+id/batpname5"
                     android:paddingRight="4dp"
                     android:paddingBottom="2dp"
                     android:text="M. Shahad"
@@ -389,12 +416,14 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:id="@+id/batl6"
                 android:gravity="center"
                 android:orientation="vertical">
 
                 <ImageView
                     android:layout_width="48dp"
                     android:layout_height="48dp"
+                    android:id="@+id/batimg6"
                     android:src="@drawable/ic_profile" />
 
                 <TextView
@@ -404,6 +433,7 @@
                     android:paddingLeft="4dp"
                     android:paddingTop="2dp"
                     android:paddingRight="4dp"
+                    android:id="@+id/batpname6"
                     android:paddingBottom="2dp"
                     android:text="M. Shahad"
                     android:textAlignment="center"
@@ -443,6 +473,7 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:id="@+id/arl1"
                 android:gravity="center"
                 android:orientation="vertical"
                 android:visibility="visible">
@@ -450,6 +481,7 @@
                 <ImageView
                     android:layout_width="48dp"
                     android:layout_height="48dp"
+                    android:id="@+id/arimg1"
                     android:src="@drawable/ic_profile" />
 
                 <TextView
@@ -458,6 +490,7 @@
                     android:background="@android:color/holo_red_dark"
                     android:paddingLeft="4dp"
                     android:paddingTop="2dp"
+                    android:id="@+id/arpname1"
                     android:paddingRight="4dp"
                     android:paddingBottom="2dp"
                     android:text="M. Shahad"
@@ -482,12 +515,14 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
+                android:id="@+id/arl2"
                 android:orientation="vertical"
                 android:visibility="visible">
 
                 <ImageView
                     android:layout_width="48dp"
                     android:layout_height="48dp"
+                    android:id="@+id/arimg2"
                     android:src="@drawable/ic_profile" />
 
                 <TextView
@@ -495,6 +530,47 @@
                     android:layout_height="wrap_content"
                     android:background="@android:color/holo_red_dark"
                     android:paddingLeft="4dp"
+                    android:id="@+id/arpname2"
+                    android:paddingTop="2dp"
+                    android:paddingRight="4dp"
+                    android:paddingBottom="2dp"
+                    android:text="M. Shahad"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="4dp"
+                    android:text="9.5 Cr"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/arl3"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:id="@+id/arimg3"
+                    android:src="@drawable/ic_profile" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/holo_red_dark"
+                    android:paddingLeft="4dp"
+                    android:id="@+id/arpname3"
                     android:paddingTop="2dp"
                     android:paddingRight="4dp"
                     android:paddingBottom="2dp"
@@ -520,11 +596,13 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
+                android:id="@+id/arl4"
                 android:orientation="vertical">
 
                 <ImageView
                     android:layout_width="48dp"
                     android:layout_height="48dp"
+                    android:id="@+id/arimg4"
                     android:src="@drawable/ic_profile" />
 
                 <TextView
@@ -532,43 +610,7 @@
                     android:layout_height="wrap_content"
                     android:background="@android:color/holo_red_dark"
                     android:paddingLeft="4dp"
-                    android:paddingTop="2dp"
-                    android:paddingRight="4dp"
-                    android:paddingBottom="2dp"
-                    android:text="M. Shahad"
-                    android:textAlignment="center"
-                    android:textColor="@android:color/white"
-                    android:textSize="12sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="4dp"
-                    android:text="9.5 Cr"
-                    android:textAlignment="center"
-                    android:textColor="@android:color/white"
-                    android:textSize="12sp" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:src="@drawable/ic_profile" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@android:color/holo_red_dark"
-                    android:paddingLeft="4dp"
+                    android:id="@+id/arpname4"
                     android:paddingTop="2dp"
                     android:paddingRight="4dp"
                     android:paddingBottom="2dp"
@@ -611,12 +653,14 @@
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:id="@+id/bowll1"
                 android:gravity="center"
                 android:orientation="vertical">
 
                 <ImageView
                     android:layout_width="48dp"
                     android:layout_height="48dp"
+                    android:id="@+id/bowlimg1"
                     android:src="@drawable/ic_profile" />
 
                 <TextView
@@ -624,6 +668,47 @@
                     android:layout_height="wrap_content"
                     android:background="@android:color/holo_red_dark"
                     android:paddingLeft="4dp"
+                    android:paddingTop="2dp"
+                    android:id="@+id/bowlpname1"
+                    android:paddingRight="4dp"
+                    android:paddingBottom="2dp"
+                    android:text="M. Shahad"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:padding="4dp"
+                    android:text="9.5 Cr"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/white"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:id="@+id/bowll2"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:id="@+id/bowlimg2"
+                    android:src="@drawable/ic_profile" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@android:color/holo_red_dark"
+                    android:paddingLeft="4dp"
+                    android:id="@+id/bowlpname2"
                     android:paddingTop="2dp"
                     android:paddingRight="4dp"
                     android:paddingBottom="2dp"
@@ -649,11 +734,13 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
+                android:id="@+id/bowll3"
                 android:orientation="vertical">
 
                 <ImageView
                     android:layout_width="48dp"
                     android:layout_height="48dp"
+                    android:id="@+id/bowlimg3"
                     android:src="@drawable/ic_profile" />
 
                 <TextView
@@ -661,6 +748,7 @@
                     android:layout_height="wrap_content"
                     android:background="@android:color/holo_red_dark"
                     android:paddingLeft="4dp"
+                    android:id="@+id/bowlpname3"
                     android:paddingTop="2dp"
                     android:paddingRight="4dp"
                     android:paddingBottom="2dp"
@@ -686,11 +774,13 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
+                android:id="@+id/bowll4"
                 android:orientation="vertical">
 
                 <ImageView
                     android:layout_width="48dp"
                     android:layout_height="48dp"
+                    android:id="@+id/bowlimg4"
                     android:src="@drawable/ic_profile" />
 
                 <TextView
@@ -698,43 +788,7 @@
                     android:layout_height="wrap_content"
                     android:background="@android:color/holo_red_dark"
                     android:paddingLeft="4dp"
-                    android:paddingTop="2dp"
-                    android:paddingRight="4dp"
-                    android:paddingBottom="2dp"
-                    android:text="M. Shahad"
-                    android:textAlignment="center"
-                    android:textColor="@android:color/white"
-                    android:textSize="12sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:padding="4dp"
-                    android:text="9.5 Cr"
-                    android:textAlignment="center"
-                    android:textColor="@android:color/white"
-                    android:textSize="12sp" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:gravity="center"
-                android:orientation="vertical">
-
-                <ImageView
-                    android:layout_width="48dp"
-                    android:layout_height="48dp"
-                    android:src="@drawable/ic_profile" />
-
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@android:color/holo_red_dark"
-                    android:paddingLeft="4dp"
+                    android:id="@+id/bowlpname4"
                     android:paddingTop="2dp"
                     android:paddingRight="4dp"
                     android:paddingBottom="2dp"
@@ -769,11 +823,13 @@
                 android:layout_weight="1"
                 android:gravity="center"
                 android:orientation="vertical"
+                android:id="@+id/bowll5"
                 android:visibility="visible">
 
                 <ImageView
                     android:layout_width="48dp"
                     android:layout_height="48dp"
+                    android:id="@+id/bowlimg5"
                     android:src="@drawable/ic_profile" />
 
                 <TextView
@@ -781,6 +837,7 @@
                     android:layout_height="wrap_content"
                     android:background="@android:color/holo_red_dark"
                     android:paddingLeft="4dp"
+                    android:id="@+id/bowlpname5"
                     android:paddingTop="2dp"
                     android:paddingRight="4dp"
                     android:paddingBottom="2dp"
@@ -806,11 +863,13 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:gravity="center"
+                android:id="@+id/bowll6"
                 android:orientation="vertical">
 
                 <ImageView
                     android:layout_width="48dp"
                     android:layout_height="48dp"
+                    android:id="@+id/bowlimg6"
                     android:src="@drawable/ic_profile" />
 
                 <TextView
@@ -818,6 +877,7 @@
                     android:layout_height="wrap_content"
                     android:background="@android:color/holo_red_dark"
                     android:paddingLeft="4dp"
+                    android:id="@+id/bowlpname6"
                     android:paddingTop="2dp"
                     android:paddingRight="4dp"
                     android:paddingBottom="2dp"

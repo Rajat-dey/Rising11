@@ -38,7 +38,7 @@ public class CaptainViceCaptainSelectionActivity extends AppCompatActivity imple
     int c=-1,vc=-1;
     JSONArray playerarrayjson;
     JSONObject  playerobjectjson;
-    private Button save_team;
+    private Button save_team,team_prev;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,6 +53,7 @@ public class CaptainViceCaptainSelectionActivity extends AppCompatActivity imple
         pteamnew=getIntent().getStringArrayListExtra("pteamnew");
         pcredit=getIntent().getStringArrayListExtra("pcredit");
         save_team=findViewById(R.id.save_team);
+        team_prev=findViewById(R.id.team_prev);
         ctype=new ArrayList<>();
         vctype=new ArrayList<>();
         sharedPreferences=getSharedPreferences("loginstatus", Context.MODE_PRIVATE);
@@ -70,7 +71,8 @@ public class CaptainViceCaptainSelectionActivity extends AppCompatActivity imple
         customCapViceCapSelectionAdapter=new CustomCapViceCapSelectionAdapter(getContext(),pname,pimage,CaptainViceCaptainSelectionActivity.this,pteam,ctype,vctype);
         rvHomeMatches.setAdapter(customCapViceCapSelectionAdapter);
 
-        save_team.setOnClickListener(new View.OnClickListener() {
+        save_team.setOnClickListener(new View.OnClickListener()
+        {
             @Override
             public void onClick(View v) {
                  if( c<0 || vc<0)
@@ -178,6 +180,23 @@ public class CaptainViceCaptainSelectionActivity extends AppCompatActivity imple
                 }
             }
         });
+
+        team_prev.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+                Intent intent=new Intent(CaptainViceCaptainSelectionActivity.this,TeamPreviewActivity.class);
+
+                 intent.putStringArrayListExtra("pname1",pname);
+                intent.putStringArrayListExtra("pimage1",pimage);
+                intent.putStringArrayListExtra("pteam1",pteam);
+                intent.putStringArrayListExtra("prole1",getIntent().getStringArrayListExtra("prole1"));
+                intent.putStringArrayListExtra("pcredit1",pcredit);
+                startActivity(intent);
+            }
+        });
+
+
     }
 
     @Override
