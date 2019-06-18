@@ -43,6 +43,7 @@ public class MyMatchActivity extends AppCompatActivity {
     LinearLayout ll_no_matches;
     TabLayout tablayout2;
     ArrayList<String> uid,teamname1,teamname2,time,joincontestlist,tabtype;
+    ArrayList<String> uid1,teamname11,teamname21,time1,joincontestlist1,tabtype1;
     SharedPreferences sharedPreferences;
     JSONArray joincontestJSON;
     int tab1=0,tab2=0,tab3=0;
@@ -99,6 +100,11 @@ public class MyMatchActivity extends AppCompatActivity {
                        tabtype.add("upcoming");
                        tab1=1;
                    }
+                   else
+                   {
+                       tabtype.add("live");
+                       tab2=1;
+                   }
                }
                else
                {
@@ -152,9 +158,28 @@ public class MyMatchActivity extends AppCompatActivity {
                                     }
                                     if(flagjoinany==1 && tab1==1)
                                     {
+                                        uid1=new ArrayList<>();
+                                        teamname11=new ArrayList<>();
+                                        teamname21=new ArrayList<>();
+                                        time1=new ArrayList<>();
+                                        joincontestlist1=new ArrayList<>();
+                                        tabtype1=new ArrayList<>();
+
+                                        for(int i=0;i<tabtype.size();i++)
+                                        {
+                                            if(tabtype.get(i).equals("upcoming"))
+                                            {
+                                                uid1.add(uid.get(i));
+                                                teamname11.add(teamname1.get(i));
+                                                teamname21.add(teamname2.get(i));
+                                                time1.add(time.get(i));
+                                                joincontestlist1.add(joincontestlist.get(i));
+                                                tabtype1.add(tabtype.get(i));
+                                            }
+                                        }
 
                                         rv_my_matches.setLayoutManager(new LinearLayoutManager(MyMatchActivity.this, LinearLayoutManager.VERTICAL, false));
-                                        rv_my_matches.setAdapter(new CustomMyMatchAdapter(MyMatchActivity.this,uid,teamname1,teamname2,time,joincontestlist,tabtype,tabcount));
+                                        rv_my_matches.setAdapter(new CustomMyMatchAdapter(MyMatchActivity.this,uid1,teamname11,teamname21,time1,joincontestlist1,tabtype1,tabcount));
 
                                     }
                                     else
@@ -214,9 +239,28 @@ public class MyMatchActivity extends AppCompatActivity {
                             ll_no_matches.setVisibility(View.GONE);
                             rv_my_matches.setVisibility(View.VISIBLE);
                             rv_my_matches=findViewById(R.id.rv_my_matches);
-                            rv_my_matches.setLayoutManager(new LinearLayoutManager(MyMatchActivity.this, LinearLayoutManager.VERTICAL, false));
-                            rv_my_matches.setAdapter(new CustomMyMatchAdapter(MyMatchActivity.this,uid,teamname1,teamname2,time,joincontestlist,tabtype,tabcount));
+                            uid1=new ArrayList<>();
+                            teamname11=new ArrayList<>();
+                            teamname21=new ArrayList<>();
+                            time1=new ArrayList<>();
+                            joincontestlist1=new ArrayList<>();
+                            tabtype1=new ArrayList<>();
 
+                            for(int i=0;i<tabtype.size();i++)
+                            {
+                                if(tabtype.get(i).equals("upcoming"))
+                                {
+                                    uid1.add(uid.get(i));
+                                    teamname11.add(teamname1.get(i));
+                                    teamname21.add(teamname2.get(i));
+                                    time1.add(time.get(i));
+                                    joincontestlist1.add(joincontestlist.get(i));
+                                    tabtype1.add(tabtype.get(i));
+                                }
+                            }
+
+                            rv_my_matches.setLayoutManager(new LinearLayoutManager(MyMatchActivity.this, LinearLayoutManager.VERTICAL, false));
+                            rv_my_matches.setAdapter(new CustomMyMatchAdapter(MyMatchActivity.this,uid1,teamname11,teamname21,time1,joincontestlist1,tabtype1,tabcount));
                         }
                         else
                         {
@@ -240,9 +284,28 @@ public class MyMatchActivity extends AppCompatActivity {
                             ll_no_matches.setVisibility(View.GONE);
                             rv_my_matches.setVisibility(View.VISIBLE);
                             rv_my_matches=findViewById(R.id.rv_my_matches);
-                            rv_my_matches.setLayoutManager(new LinearLayoutManager(MyMatchActivity.this, LinearLayoutManager.VERTICAL, false));
-                            rv_my_matches.setAdapter(new CustomMyMatchAdapter(MyMatchActivity.this,uid,teamname1,teamname2,time,joincontestlist,tabtype,tabcount));
+                            uid1=new ArrayList<>();
+                            teamname11=new ArrayList<>();
+                            teamname21=new ArrayList<>();
+                            time1=new ArrayList<>();
+                            joincontestlist1=new ArrayList<>();
+                            tabtype1=new ArrayList<>();
 
+                            for(int i=0;i<tabtype.size();i++)
+                            {
+                                if(tabtype.get(i).equals("live"))
+                                {
+                                    uid1.add(uid.get(i));
+                                    teamname11.add(teamname1.get(i));
+                                    teamname21.add(teamname2.get(i));
+                                    time1.add(time.get(i));
+                                    joincontestlist1.add(joincontestlist.get(i));
+                                    tabtype1.add(tabtype.get(i));
+                                }
+                            }
+
+                            rv_my_matches.setLayoutManager(new LinearLayoutManager(MyMatchActivity.this, LinearLayoutManager.VERTICAL, false));
+                            rv_my_matches.setAdapter(new CustomMyMatchAdapter(MyMatchActivity.this,uid1,teamname11,teamname21,time1,joincontestlist1,tabtype1,tabcount));
                         }
                         else
                         {
