@@ -60,7 +60,7 @@ public class MyReferralsActivity extends AppCompatActivity {
             moreshare=findViewById(R.id.moreshare);
             number = sharedPreferences.getString("number", "");
 
-        Long n=Long.parseLong(number);
+      final  Long n=Long.parseLong(number);
 
 
         sharetv.setText(Long.toHexString(n));
@@ -71,7 +71,7 @@ public class MyReferralsActivity extends AppCompatActivity {
                     Intent whatsappIntent = new Intent(Intent.ACTION_SEND);
                     whatsappIntent.setType("text/plain");
                     whatsappIntent.setPackage("com.whatsapp");
-                    whatsappIntent.putExtra(Intent.EXTRA_TEXT, "Download the app & Register on Rising11 by my referral code "+String.valueOf(Long.parseLong(number, 16))+" & get RS.50 sign up bonus");
+                    whatsappIntent.putExtra(Intent.EXTRA_TEXT, "Download the app & Register on Rising11 by my referral code: "+String.valueOf(Long.toHexString(n))+" & get RS.50 sign up bonus");
                     try {
                         startActivity(whatsappIntent);
                     } catch (android.content.ActivityNotFoundException ex) {
@@ -84,7 +84,7 @@ public class MyReferralsActivity extends AppCompatActivity {
                 public void onClick(View v) {
                     Intent sendIntent = new Intent();
                     sendIntent.setAction(Intent.ACTION_SEND);
-                    sendIntent.putExtra(Intent.EXTRA_TEXT, "Download the app & Register on Rising11 by my referral code "+String.valueOf(Long.parseLong(number, 16))+" & get RS.50 sign up bonus");
+                    sendIntent.putExtra(Intent.EXTRA_TEXT, "Download the app & Register on Rising11 by my referral code: "+String.valueOf(Long.toHexString(n))+" & get RS.50 sign up bonus");
                     sendIntent.setType("text/plain");
 
                     try {
