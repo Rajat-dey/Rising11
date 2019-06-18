@@ -19,6 +19,8 @@ public class jobs extends AppCompatActivity {
         setContentView(R.layout.activity_jobs);
         setTitle("JOBS");
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
 
         email=findViewById(R.id.email);
@@ -44,5 +46,10 @@ public class jobs extends AppCompatActivity {
 
 
 
+    }
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 }

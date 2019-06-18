@@ -45,6 +45,12 @@ public class CreateContest extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_create_contest);
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+
+
+
         winning_breakup=findViewById(R.id.winning_breakup);
         cname=findViewById(R.id.cname);
         wammount=findViewById(R.id.wammount);
@@ -196,5 +202,11 @@ public class CreateContest extends AppCompatActivity {
 
             }
         });
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 }

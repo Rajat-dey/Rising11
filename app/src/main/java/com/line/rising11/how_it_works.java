@@ -10,5 +10,13 @@ public class how_it_works extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.how_it_works);
         setTitle("How Referal Works");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+    }
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 }

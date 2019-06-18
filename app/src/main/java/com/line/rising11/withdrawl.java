@@ -15,7 +15,8 @@ public class withdrawl extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_withdrawl);
         setTitle("WITHDRAW BALANCE");
-
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
 
         bank=findViewById(R.id.bnk_withdraw);
@@ -39,5 +40,10 @@ public class withdrawl extends AppCompatActivity {
             }
         });
 
+    }
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 }

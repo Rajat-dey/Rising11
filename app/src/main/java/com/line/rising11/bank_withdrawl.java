@@ -24,7 +24,8 @@ public class bank_withdrawl extends AppCompatActivity {
         setContentView(R.layout.activity_bank_withdrawl);
         setTitle("TRANSFER BALANCE TO BANK");
 
-
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
 
 
@@ -130,5 +131,11 @@ public class bank_withdrawl extends AppCompatActivity {
 
 
 
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 }

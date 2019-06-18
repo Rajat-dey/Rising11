@@ -10,5 +10,17 @@ public class fairPlay_TC extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fair_play__tc);
         setTitle("Fair Play T&C");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+
+
+
+    }
+
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 }

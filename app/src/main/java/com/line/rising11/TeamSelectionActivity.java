@@ -60,7 +60,8 @@ public class TeamSelectionActivity extends AppCompatActivity  implements CustomT
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_team_selection);
-
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
 
         btnContinue = findViewById(R.id.btn_continue);
@@ -743,5 +744,10 @@ public class TeamSelectionActivity extends AppCompatActivity  implements CustomT
 
         }
 
+    }
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 }

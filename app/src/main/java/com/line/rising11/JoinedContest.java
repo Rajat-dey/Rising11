@@ -36,6 +36,8 @@ public class JoinedContest extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_joined_contest);
         setTitle("JOINED CONTEST");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
         playerpoints=findViewById(R.id.player_points);
 
@@ -246,5 +248,10 @@ public class JoinedContest extends AppCompatActivity {
 
 
 
+    }
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 }

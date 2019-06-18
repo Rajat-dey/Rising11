@@ -477,4 +477,6 @@ public class ContestsActivity extends AppCompatActivity implements ContestRecycl
         }
 
     }
+
+
 }
