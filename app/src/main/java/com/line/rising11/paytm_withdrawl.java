@@ -26,7 +26,8 @@ public class paytm_withdrawl extends AppCompatActivity {
 
 
 
-
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
 
 
 
@@ -126,5 +127,10 @@ public class paytm_withdrawl extends AppCompatActivity {
 
 
 
+    }
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 }

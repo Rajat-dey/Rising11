@@ -35,6 +35,8 @@ public class wining_breakup extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_wining_breakup);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
         amount1=findViewById(R.id.amount1);
         amount2=findViewById(R.id.amount2);
         amount3=findViewById(R.id.amount3);
@@ -210,5 +212,10 @@ public class wining_breakup extends AppCompatActivity {
                 r7=0;
             }
         });
+    }
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 }

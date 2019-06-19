@@ -24,6 +24,10 @@ public class Help_desk extends AppCompatActivity {
         setContentView(R.layout.activity_help_desk);
         setTitle("Help Desk");
 
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+
         fb = findViewById(R.id.fb);
         yt = findViewById(R.id.youtube);
         insta = findViewById(R.id.instagram);
@@ -195,6 +199,10 @@ public class Help_desk extends AppCompatActivity {
         this.startActivity(intent);
 
     }
-
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
+    }
 
 }

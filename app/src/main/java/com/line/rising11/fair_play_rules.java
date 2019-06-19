@@ -15,6 +15,11 @@ public class fair_play_rules extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.fair_play);
         setTitle("Fair Play Rules");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+
+
 
         TC = findViewById(R.id.fair_play_TC);
 
@@ -32,5 +37,10 @@ public class fair_play_rules extends AppCompatActivity {
 
 
 
+    }
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 }

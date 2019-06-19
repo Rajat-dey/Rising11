@@ -46,18 +46,11 @@
     <string name="add_contets_prize">http://rising11.com/apps/apis/add-contest-prize.php</string>
 
 
-
-
     <!-- Verification design data -->
 
     <string name="mobile_tab">MOBILE &amp; EMAIL</string>
     <string name="ID_tab">ID PROOF</string>
     <string name="bank_tab">BANK</string>
-
-
-
-
-
 
 
     <string name="how_it_works_step">Step-1:- Verify your email &amp; mobile no.\n\nStep-2:-Refer your Friend <b>Rising11</b> by unique referral code.

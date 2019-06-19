@@ -10,5 +10,13 @@ public class legality extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_legality);
         setTitle("LEGALITY");
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
+    }
+    @Override
+    public boolean onSupportNavigateUp() {
+        onBackPressed();
+        return true;
     }
 }
