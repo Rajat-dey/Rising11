@@ -14,7 +14,9 @@
         android:networkSecurityConfig="@xml/network_security_config"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".team_preview_c_vc"></activity>
+
+
+
         <activity android:name=".contest_filter" />
         <activity android:name=".paytm_withdrawl" />
         <activity android:name=".bank_withdrawl" />
@@ -57,7 +59,8 @@
         <activity android:name=".Football_Home_Activity" />
         <activity android:name=".ContestsActivity" />
         <activity android:name=".FantasyPointSystemActivity" />
-        <activity android:name=".TeamPreviewActivity" />
+        <activity android:name=".TeamPreviewActivity"
+            android:theme="@style/AppTheme.NoActionBar"/>
         <activity android:name=".CaptainViceCaptainSelectionActivity" />
         <activity android:name=".TeamSelectionActivity" />
         <activity android:name=".MyMatchActivity" />

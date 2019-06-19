@@ -328,6 +328,7 @@ public class ContestsActivity extends AppCompatActivity implements ContestRecycl
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(ContestsActivity.this,ContestsFilterActivity.class);
+                intent.putExtra("uid",getIntent().getStringExtra("uid"));
                 startActivity(intent);
             }
         });
@@ -336,6 +337,7 @@ public class ContestsActivity extends AppCompatActivity implements ContestRecycl
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(ContestsActivity.this,contest_filter.class);
+
                 startActivity(intent);
             }
         });
@@ -344,6 +346,7 @@ public class ContestsActivity extends AppCompatActivity implements ContestRecycl
             @Override
             public void onClick(View v) {
                 Intent intent=new Intent(ContestsActivity.this,ContestsFilterActivity.class);
+                intent.putExtra("uid",getIntent().getStringExtra("uid"));
                 startActivity(intent);
             }
         });

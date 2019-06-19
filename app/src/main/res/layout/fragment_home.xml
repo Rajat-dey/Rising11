@@ -43,7 +43,7 @@
     <ImageView
         android:id="@+id/iv_home_banner"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="150dp"
         android:src="@drawable/home_banner"
         android:scaleType="fitXY"
         android:layout_below="@id/tb_home"/>

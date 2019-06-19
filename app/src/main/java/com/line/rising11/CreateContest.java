@@ -49,8 +49,6 @@ public class CreateContest extends AppCompatActivity {
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
 
-
-
         winning_breakup=findViewById(R.id.winning_breakup);
         cname=findViewById(R.id.cname);
         wammount=findViewById(R.id.wammount);

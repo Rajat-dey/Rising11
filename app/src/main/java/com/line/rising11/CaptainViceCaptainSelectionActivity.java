@@ -42,25 +42,11 @@ public class CaptainViceCaptainSelectionActivity extends AppCompatActivity imple
     private Button save_team,team_prev;
 
 
-
-
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_captain_vice_captain_selection);
         setTitle("Team Preview");
-
-
-
-
-
-
-
-
-
 
 
         pname=getIntent().getStringArrayListExtra("pname");

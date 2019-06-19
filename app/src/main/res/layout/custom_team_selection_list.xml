@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    xmlns:tools="http://schemas.android.com/tools"
     android:padding="16dp">
 
     <com.mikhaellopez.circularimageview.CircularImageView
@@ -35,12 +36,13 @@
         android:id="@+id/tv_points"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="138.5"
-        android:textSize="16sp"
-        android:textAlignment="center"
-        android:layout_toRightOf="@id/tv_player_name"
+        android:layout_centerVertical="true"
         android:layout_toLeftOf="@id/tv_credits"
-        android:layout_centerVertical="true"/>
+        android:layout_toRightOf="@id/tv_player_name"
+        tools:text="138.5"
+        android:textAlignment="center"
+        android:textSize="16sp"
+        android:visibility="invisible" />
 
     <ImageView
         android:id="@+id/iv_add_button"
