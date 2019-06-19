@@ -25,6 +25,8 @@ public class TeamPreviewActivity extends AppCompatActivity
     TextView wkpname1,wkpname2,wkpname3,wkpname4,batpname1,batpname2,batpname3,batpname4,batpname5,batpname6,arpname1,arpname2,arpname3,arpname4,bowlpname1,bowlpname2,bowlpname3,bowlpname4,bowlpname5,bowlpname6;
     ArrayList<String> pname1,pimage1,pteam1,prole1,pcredit1;
     JSONArray jsonArraywk,jsonArraybat,jsonArrayar,jsonArraybowl;
+    TextView wkc1,wkc2,wkc3,wkc4,batc1,batc2,batc3,batc4,batc5,batc6,arc1,arc2,arc3,arc4,bowlc1,bowlc2,bowlc3,bowlc4,bowlc5,bowlc6;
+    int c,vc;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -104,6 +106,54 @@ public class TeamPreviewActivity extends AppCompatActivity
         bowlpname5=findViewById(R.id.bowlpname5);
         bowlpname6=findViewById(R.id.bowlpname6);
 
+        wkc1=findViewById(R.id.wkc1);
+        wkc2=findViewById(R.id.wkc2);
+        wkc3=findViewById(R.id.wkc3);
+        wkc4=findViewById(R.id.wkc4);
+
+        batc1=findViewById(R.id.batc1);
+        batc2=findViewById(R.id.batc2);
+        batc3=findViewById(R.id.batc3);
+        batc4=findViewById(R.id.batc4);
+        batc5=findViewById(R.id.batc5);
+        batc6=findViewById(R.id.batc6);
+
+        arc1=findViewById(R.id.arc1);
+        arc2=findViewById(R.id.arc2);
+        arc3=findViewById(R.id.arc3);
+        arc4=findViewById(R.id.arc4);
+
+        bowlc1=findViewById(R.id.bowlc1);
+        bowlc2=findViewById(R.id.bowlc2);
+        bowlc3=findViewById(R.id.bowlc3);
+        bowlc4=findViewById(R.id.bowlc4);
+        bowlc5=findViewById(R.id.bowlc5);
+        bowlc6=findViewById(R.id.bowlc6);
+
+        wkc1.setVisibility(View.GONE);
+        wkc2.setVisibility(View.GONE);
+        wkc3.setVisibility(View.GONE);
+        wkc4.setVisibility(View.GONE);
+
+        batc1.setVisibility(View.GONE);
+        batc2.setVisibility(View.GONE);
+        batc3.setVisibility(View.GONE);
+        batc4.setVisibility(View.GONE);
+        batc5.setVisibility(View.GONE);
+        batc6.setVisibility(View.GONE);
+
+        arc1.setVisibility(View.GONE);
+        arc2.setVisibility(View.GONE);
+        arc3.setVisibility(View.GONE);
+        arc4.setVisibility(View.GONE);
+
+        bowlc1.setVisibility(View.GONE);
+        bowlc2.setVisibility(View.GONE);
+        bowlc3.setVisibility(View.GONE);
+        bowlc4.setVisibility(View.GONE);
+        bowlc5.setVisibility(View.GONE);
+        bowlc6.setVisibility(View.GONE);
+
         wkl1.setVisibility(View.GONE);
         wkl2.setVisibility(View.GONE);
         wkl3.setVisibility(View.GONE);
@@ -138,6 +188,12 @@ public class TeamPreviewActivity extends AppCompatActivity
         pteam1=getIntent().getStringArrayListExtra("pteam1");
         prole1=getIntent().getStringArrayListExtra("prole1");
         pcredit1=getIntent().getStringArrayListExtra("pcredit1");
+
+
+        c= Integer.parseInt(getIntent().getStringExtra("c"));
+        vc= Integer.parseInt((getIntent().getStringExtra("vc")));
+
+
 
         for (int i=0;i<prole1.size();i++)
         {
@@ -213,6 +269,17 @@ public class TeamPreviewActivity extends AppCompatActivity
                 }
                 wkpname2.setText(jsonArraywk.getJSONObject(0).getString("pname"));
 
+                if(c==0)
+                {
+                    wkc2.setVisibility(View.VISIBLE);
+                    wkc2.setText("c");
+                }
+                if(vc==0)
+                {
+                    wkc2.setVisibility(View.VISIBLE);
+                    wkc2.setText("vc");
+                }
+
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -230,6 +297,26 @@ public class TeamPreviewActivity extends AppCompatActivity
                     Picasso.get().load(jsonArraywk.getJSONObject(1).getString("pimage")).into(wkimg3);
                 }
                 wkpname3.setText(jsonArraywk.getJSONObject(1).getString("pname"));
+                if(c==0)
+                {
+                    wkc2.setVisibility(View.VISIBLE);
+                    wkc2.setText("c");
+                }
+                if(vc==0)
+                {
+                    wkc2.setVisibility(View.VISIBLE);
+                    wkc2.setText("vc");
+                }
+                if(c==1)
+                {
+                    wkc3.setVisibility(View.VISIBLE);
+                    wkc3.setText("c");
+                }
+                if(vc==1)
+                {
+                    wkc3.setVisibility(View.VISIBLE);
+                    wkc3.setText("vc");
+                }
 
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -253,6 +340,36 @@ public class TeamPreviewActivity extends AppCompatActivity
                     Picasso.get().load(jsonArraywk.getJSONObject(2).getString("pimage")).into(wkimg4);
                 }
                 wkpname4.setText(jsonArraywk.getJSONObject(2).getString("pname"));
+                if(c==0)
+                {
+                    wkc2.setVisibility(View.VISIBLE);
+                    wkc2.setText("c");
+                }
+                if(vc==0)
+                {
+                    wkc2.setVisibility(View.VISIBLE);
+                    wkc2.setText("vc");
+                }
+                if(c==1)
+                {
+                    wkc3.setVisibility(View.VISIBLE);
+                    wkc3.setText("c");
+                }
+                if(vc==1)
+                {
+                    wkc3.setVisibility(View.VISIBLE);
+                    wkc3.setText("vc");
+                }
+                if(c==2)
+                {
+                    wkc4.setVisibility(View.VISIBLE);
+                    wkc4.setText("c");
+                }
+                if(vc==2)
+                {
+                    wkc4.setVisibility(View.VISIBLE);
+                    wkc4.setText("vc");
+                }
 
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -282,6 +399,47 @@ public class TeamPreviewActivity extends AppCompatActivity
                 }
                 wkpname1.setText(jsonArraywk.getJSONObject(0).getString("pname"));
 
+                if(c==1)
+                {
+                    wkc2.setVisibility(View.VISIBLE);
+                    wkc2.setText("c");
+                }
+                if(vc==1)
+                {
+                    wkc2.setVisibility(View.VISIBLE);
+                    wkc2.setText("vc");
+                }
+                if(c==2)
+                {
+                    wkc3.setVisibility(View.VISIBLE);
+                    wkc3.setText("c");
+                }
+                if(vc==2)
+                {
+                    wkc3.setVisibility(View.VISIBLE);
+                    wkc3.setText("vc");
+                }
+                if(c==3)
+                {
+                    wkc4.setVisibility(View.VISIBLE);
+                    wkc4.setText("c");
+                }
+                if(vc==3)
+                {
+                    wkc4.setVisibility(View.VISIBLE);
+                    wkc4.setText("vc");
+                }
+                if(c==0)
+                {
+                    wkc1.setVisibility(View.VISIBLE);
+                    wkc1.setText("c");
+                }
+                if(vc==0)
+                {
+                    wkc1.setVisibility(View.VISIBLE);
+                    wkc1.setText("vc");
+                }
+
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -295,6 +453,20 @@ public class TeamPreviewActivity extends AppCompatActivity
                     Picasso.get().load(jsonArraybat.getJSONObject(0).getString("pimage")).into(batimg2);
                 }
                 batpname2.setText(jsonArraybat.getJSONObject(0).getString("pname"));
+
+                int c1=c-jsonArraywk.length();
+                int vc1=vc-jsonArraywk.length();
+
+                if(c1==0)
+                {
+                    batc2.setVisibility(View.VISIBLE);
+                    batc2.setText("c");
+                }
+                if(vc1==0)
+                {
+                    batc2.setVisibility(View.VISIBLE);
+                    batc2.setText("vc");
+                }
 
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -313,6 +485,30 @@ public class TeamPreviewActivity extends AppCompatActivity
                     Picasso.get().load(jsonArraybat.getJSONObject(1).getString("pimage")).into(batimg3);
                 }
                 batpname3.setText(jsonArraybat.getJSONObject(1).getString("pname"));
+
+                int c1=c-jsonArraywk.length();
+                int vc1=vc-jsonArraywk.length();
+
+                if(c1==0)
+                {
+                    batc2.setVisibility(View.VISIBLE);
+                    batc2.setText("c");
+                }
+                if(vc1==0)
+                {
+                    batc2.setVisibility(View.VISIBLE);
+                    batc2.setText("vc");
+                }
+                if(c1==1)
+                {
+                    batc3.setVisibility(View.VISIBLE);
+                    batc3.setText("c");
+                }
+                if(vc1==1)
+                {
+                    batc3.setVisibility(View.VISIBLE);
+                    batc3.setText("vc");
+                }
 
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -336,6 +532,39 @@ public class TeamPreviewActivity extends AppCompatActivity
                     Picasso.get().load(jsonArraybat.getJSONObject(2).getString("pimage")).into(batimg5);
                 }
                 batpname5.setText(jsonArraybat.getJSONObject(2).getString("pname"));
+                int c1=c-jsonArraywk.length();
+                int vc1=vc-jsonArraywk.length();
+
+                if(c1==0)
+                {
+                    batc2.setVisibility(View.VISIBLE);
+                    batc2.setText("c");
+                }
+                if(vc1==0)
+                {
+                    batc2.setVisibility(View.VISIBLE);
+                    batc2.setText("vc");
+                }
+                if(c1==1)
+                {
+                    batc3.setVisibility(View.VISIBLE);
+                    batc3.setText("c");
+                }
+                if(vc1==1)
+                {
+                    batc3.setVisibility(View.VISIBLE);
+                    batc3.setText("vc");
+                }
+                if(c1==2)
+                {
+                    batc5.setVisibility(View.VISIBLE);
+                    batc5.setText("c");
+                }
+                if(vc1==2)
+                {
+                    batc5.setVisibility(View.VISIBLE);
+                    batc5.setText("vc");
+                }
 
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -364,6 +593,50 @@ public class TeamPreviewActivity extends AppCompatActivity
                     Picasso.get().load(jsonArraybat.getJSONObject(3).getString("pimage")).into(batimg6);
                 }
                 batpname6.setText(jsonArraybat.getJSONObject(3).getString("pname"));
+
+                int c1=c-jsonArraywk.length();
+                int vc1=vc-jsonArraywk.length();
+
+                if(c1==0)
+                {
+                    batc2.setVisibility(View.VISIBLE);
+                    batc2.setText("c");
+                }
+                if(vc1==0)
+                {
+                    batc2.setVisibility(View.VISIBLE);
+                    batc2.setText("vc");
+                }
+                if(c1==1)
+                {
+                    batc3.setVisibility(View.VISIBLE);
+                    batc3.setText("c");
+                }
+                if(vc1==1)
+                {
+                    batc3.setVisibility(View.VISIBLE);
+                    batc3.setText("vc");
+                }
+                if(c1==2)
+                {
+                    batc5.setVisibility(View.VISIBLE);
+                    batc5.setText("c");
+                }
+                if(vc1==2)
+                {
+                    batc5.setVisibility(View.VISIBLE);
+                    batc5.setText("vc");
+                }
+                if(c1==3)
+                {
+                    batc6.setVisibility(View.VISIBLE);
+                    batc6.setText("c");
+                }
+                if(vc1==3)
+                {
+                    batc6.setVisibility(View.VISIBLE);
+                    batc6.setText("vc");
+                }
 
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -397,6 +670,61 @@ public class TeamPreviewActivity extends AppCompatActivity
                     Picasso.get().load(jsonArraybat.getJSONObject(4).getString("pimage")).into(batimg1);
                 }
                 batpname1.setText(jsonArraybat.getJSONObject(4).getString("pname"));
+
+                int c1=c-jsonArraywk.length();
+                int vc1=vc-jsonArraywk.length();
+
+                if(c1==0)
+                {
+                    batc2.setVisibility(View.VISIBLE);
+                    batc2.setText("c");
+                }
+                if(vc1==0)
+                {
+                    batc2.setVisibility(View.VISIBLE);
+                    batc2.setText("vc");
+                }
+                if(c1==1)
+                {
+                    batc3.setVisibility(View.VISIBLE);
+                    batc3.setText("c");
+                }
+                if(vc1==1)
+                {
+                    batc3.setVisibility(View.VISIBLE);
+                    batc3.setText("vc");
+                }
+                if(c1==2)
+                {
+                    batc5.setVisibility(View.VISIBLE);
+                    batc5.setText("c");
+                }
+                if(vc1==2)
+                {
+                    batc5.setVisibility(View.VISIBLE);
+                    batc5.setText("vc");
+                }
+                if(c1==3)
+                {
+                    batc6.setVisibility(View.VISIBLE);
+                    batc6.setText("c");
+                }
+                if(vc1==3)
+                {
+                    batc6.setVisibility(View.VISIBLE);
+                    batc6.setText("vc");
+                }
+                if(c1==4)
+                {
+                    batc1.setVisibility(View.VISIBLE);
+                    batc1.setText("c");
+                }
+                if(vc1==4)
+                {
+                    batc1.setVisibility(View.VISIBLE);
+                    batc1.setText("vc");
+                }
+
 
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -435,6 +763,69 @@ public class TeamPreviewActivity extends AppCompatActivity
                     Picasso.get().load(jsonArraybat.getJSONObject(5).getString("pimage")).into(batimg4);
                 }
                 batpname4.setText(jsonArraybat.getJSONObject(5).getString("pname"));
+                int c1=c-jsonArraywk.length();
+                int vc1=vc-jsonArraywk.length();
+
+                if(c1==0)
+                {
+                    batc2.setVisibility(View.VISIBLE);
+                    batc2.setText("c");
+                }
+                if(vc1==0)
+                {
+                    batc2.setVisibility(View.VISIBLE);
+                    batc2.setText("vc");
+                }
+                if(c1==1)
+                {
+                    batc3.setVisibility(View.VISIBLE);
+                    batc3.setText("c");
+                }
+                if(vc1==1)
+                {
+                    batc3.setVisibility(View.VISIBLE);
+                    batc3.setText("vc");
+                }
+                if(c1==2)
+                {
+                    batc5.setVisibility(View.VISIBLE);
+                    batc5.setText("c");
+                }
+                if(vc1==2)
+                {
+                    batc5.setVisibility(View.VISIBLE);
+                    batc5.setText("vc");
+                }
+                if(c1==3)
+                {
+                    batc6.setVisibility(View.VISIBLE);
+                    batc6.setText("c");
+                }
+                if(vc1==3)
+                {
+                    batc6.setVisibility(View.VISIBLE);
+                    batc6.setText("vc");
+                }
+                if(c1==4)
+                {
+                    batc1.setVisibility(View.VISIBLE);
+                    batc1.setText("c");
+                }
+                if(vc1==4)
+                {
+                    batc1.setVisibility(View.VISIBLE);
+                    batc1.setText("vc");
+                }
+                if(c1==5)
+                {
+                    batc4.setVisibility(View.VISIBLE);
+                    batc4.setText("c");
+                }
+                if(vc1==5)
+                {
+                    batc4.setVisibility(View.VISIBLE);
+                    batc4.setText("vc");
+                }
 
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -449,6 +840,20 @@ public class TeamPreviewActivity extends AppCompatActivity
                     Picasso.get().load(jsonArrayar.getJSONObject(0).getString("pimage")).into(arimg2);
                 }
                 arpname2.setText(jsonArrayar.getJSONObject(0).getString("pname"));
+
+                int c1=c-jsonArraywk.length()-jsonArraybat.length();
+                int vc1=vc-jsonArraywk.length()-jsonArraybat.length();
+
+                if(c1==0)
+                {
+                    arc2.setVisibility(View.VISIBLE);
+                    arc2.setText("c");
+                }
+                if(vc1==0)
+                {
+                    arc2.setVisibility(View.VISIBLE);
+                    arc2.setText("vc");
+                }
 
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -467,6 +872,30 @@ public class TeamPreviewActivity extends AppCompatActivity
                     Picasso.get().load(jsonArrayar.getJSONObject(1).getString("pimage")).into(arimg3);
                 }
                 arpname3.setText(jsonArrayar.getJSONObject(1).getString("pname"));
+
+                int c1=c-jsonArraywk.length()-jsonArraybat.length();
+                int vc1=vc-jsonArraywk.length()-jsonArraybat.length();
+
+                if(c1==0)
+                {
+                    arc2.setVisibility(View.VISIBLE);
+                    arc2.setText("c");
+                }
+                if(vc1==0)
+                {
+                    arc2.setVisibility(View.VISIBLE);
+                    arc2.setText("vc");
+                }
+                if(c1==1)
+                {
+                    arc3.setVisibility(View.VISIBLE);
+                    arc3.setText("c");
+                }
+                if(vc1==1)
+                {
+                    arc3.setVisibility(View.VISIBLE);
+                    arc3.setText("vc");
+                }
 
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -490,6 +919,40 @@ public class TeamPreviewActivity extends AppCompatActivity
                     Picasso.get().load(jsonArrayar.getJSONObject(2).getString("pimage")).into(arimg4);
                 }
                 arpname4.setText(jsonArrayar.getJSONObject(2).getString("pname"));
+
+                int c1=c-jsonArraywk.length()-jsonArraybat.length();
+                int vc1=vc-jsonArraywk.length()-jsonArraybat.length();
+
+                if(c1==0)
+                {
+                    arc2.setVisibility(View.VISIBLE);
+                    arc2.setText("c");
+                }
+                if(vc1==0)
+                {
+                    arc2.setVisibility(View.VISIBLE);
+                    arc2.setText("vc");
+                }
+                if(c1==1)
+                {
+                    arc3.setVisibility(View.VISIBLE);
+                    arc3.setText("c");
+                }
+                if(vc1==1)
+                {
+                    arc3.setVisibility(View.VISIBLE);
+                    arc3.setText("vc");
+                }
+                if(c1==2)
+                {
+                    arc4.setVisibility(View.VISIBLE);
+                    arc4.setText("c");
+                }
+                if(vc1==2)
+                {
+                    arc4.setVisibility(View.VISIBLE);
+                    arc4.setText("vc");
+                }
 
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -519,6 +982,51 @@ public class TeamPreviewActivity extends AppCompatActivity
                 }
                 arpname1.setText(jsonArrayar.getJSONObject(0).getString("pname"));
 
+                int c1=c-jsonArraywk.length()-jsonArraybat.length();
+                int vc1=vc-jsonArraywk.length()-jsonArraybat.length();
+
+                if(c1==1)
+                {
+                    arc2.setVisibility(View.VISIBLE);
+                    arc2.setText("c");
+                }
+                if(vc1==1)
+                {
+                    arc2.setVisibility(View.VISIBLE);
+                    arc2.setText("vc");
+                }
+                if(c1==2)
+                {
+                    arc3.setVisibility(View.VISIBLE);
+                    arc3.setText("c");
+                }
+                if(vc1==2)
+                {
+                    arc3.setVisibility(View.VISIBLE);
+                    arc3.setText("vc");
+                }
+                if(c1==3)
+                {
+                    arc4.setVisibility(View.VISIBLE);
+                    arc4.setText("c");
+                }
+                if(vc1==3)
+                {
+                    arc4.setVisibility(View.VISIBLE);
+                    arc4.setText("vc");
+                }
+                if(c1==0)
+                {
+                    arc1.setVisibility(View.VISIBLE);
+                    arc1.setText("c");
+                }
+                if(vc1==0)
+                {
+                    arc1.setVisibility(View.VISIBLE);
+                    arc1.setText("vc");
+                }
+
+
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -532,6 +1040,19 @@ public class TeamPreviewActivity extends AppCompatActivity
                     Picasso.get().load(jsonArraybowl.getJSONObject(0).getString("pimage")).into(bowlimg2);
                 }
                 bowlpname2.setText(jsonArraybowl.getJSONObject(0).getString("pname"));
+                int c1=c-jsonArraywk.length()-jsonArraybat.length()-jsonArrayar.length();
+                int vc1=vc-jsonArraywk.length()-jsonArraybat.length()-jsonArrayar.length();
+
+                if(c1==0)
+                {
+                    bowlc2.setVisibility(View.VISIBLE);
+                    bowlc2.setText("c");
+                }
+                if(vc1==0)
+                {
+                    bowlc2.setVisibility(View.VISIBLE);
+                    bowlc2.setText("vc");
+                }
 
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -550,6 +1071,30 @@ public class TeamPreviewActivity extends AppCompatActivity
                     Picasso.get().load(jsonArraybowl.getJSONObject(1).getString("pimage")).into(bowlimg3);
                 }
                 bowlpname3.setText(jsonArraybowl.getJSONObject(1).getString("pname"));
+
+                int c1=c-jsonArraywk.length()-jsonArraybat.length()-jsonArrayar.length();
+                int vc1=vc-jsonArraywk.length()-jsonArraybat.length()-jsonArrayar.length();
+
+                if(c1==0)
+                {
+                    bowlc2.setVisibility(View.VISIBLE);
+                    bowlc2.setText("c");
+                }
+                if(vc1==0)
+                {
+                    bowlc2.setVisibility(View.VISIBLE);
+                    bowlc2.setText("vc");
+                }
+                if(c1==1)
+                {
+                    bowlc3.setVisibility(View.VISIBLE);
+                    bowlc3.setText("c");
+                }
+                if(vc1==1)
+                {
+                    bowlc3.setVisibility(View.VISIBLE);
+                    bowlc3.setText("vc");
+                }
 
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -573,6 +1118,41 @@ public class TeamPreviewActivity extends AppCompatActivity
                     Picasso.get().load(jsonArraybowl.getJSONObject(2).getString("pimage")).into(bowlimg5);
                 }
                 bowlpname5.setText(jsonArraybowl.getJSONObject(2).getString("pname"));
+
+                int c1=c-jsonArraywk.length()-jsonArraybat.length()-jsonArrayar.length();
+                int vc1=vc-jsonArraywk.length()-jsonArraybat.length()-jsonArrayar.length();
+
+                if(c1==0)
+                {
+                    bowlc2.setVisibility(View.VISIBLE);
+                    bowlc2.setText("c");
+                }
+                if(vc1==0)
+                {
+                    bowlc2.setVisibility(View.VISIBLE);
+                    bowlc2.setText("vc");
+                }
+                if(c1==1)
+                {
+                    bowlc3.setVisibility(View.VISIBLE);
+                    bowlc3.setText("c");
+                }
+                if(vc1==1)
+                {
+                    bowlc3.setVisibility(View.VISIBLE);
+                    bowlc3.setText("vc");
+                }
+                if(c1==2)
+                {
+                    bowlc5.setVisibility(View.VISIBLE);
+                    bowlc5.setText("c");
+                }
+                if(vc1==2)
+                {
+                    bowlc5.setVisibility(View.VISIBLE);
+                    bowlc5.setText("vc");
+                }
+
 
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -601,6 +1181,50 @@ public class TeamPreviewActivity extends AppCompatActivity
                     Picasso.get().load(jsonArraybowl.getJSONObject(3).getString("pimage")).into(bowlimg6);
                 }
                 bowlpname6.setText(jsonArraybowl.getJSONObject(3).getString("pname"));
+                int c1=c-jsonArraywk.length()-jsonArraybat.length()-jsonArrayar.length();
+                int vc1=vc-jsonArraywk.length()-jsonArraybat.length()-jsonArrayar.length();
+
+                if(c1==0)
+                {
+                    bowlc2.setVisibility(View.VISIBLE);
+                    bowlc2.setText("c");
+                }
+                if(vc1==0)
+                {
+                    bowlc2.setVisibility(View.VISIBLE);
+                    bowlc2.setText("vc");
+                }
+                if(c1==1)
+                {
+                    bowlc3.setVisibility(View.VISIBLE);
+                    bowlc3.setText("c");
+                }
+                if(vc1==1)
+                {
+                    bowlc3.setVisibility(View.VISIBLE);
+                    bowlc3.setText("vc");
+                }
+                if(c1==2)
+                {
+                    bowlc5.setVisibility(View.VISIBLE);
+                    bowlc5.setText("c");
+                }
+                if(vc1==2)
+                {
+                    bowlc5.setVisibility(View.VISIBLE);
+                    bowlc5.setText("vc");
+                }
+                if(c1==3)
+                {
+                    bowlc6.setVisibility(View.VISIBLE);
+                    bowlc6.setText("c");
+                }
+                if(vc1==3)
+                {
+                    bowlc6.setVisibility(View.VISIBLE);
+                    bowlc6.setText("vc");
+                }
+
 
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -634,6 +1258,60 @@ public class TeamPreviewActivity extends AppCompatActivity
                     Picasso.get().load(jsonArraybowl.getJSONObject(4).getString("pimage")).into(bowlimg1);
                 }
                 bowlpname1.setText(jsonArraybowl.getJSONObject(4).getString("pname"));
+
+                int c1=c-jsonArraywk.length()-jsonArraybat.length()-jsonArrayar.length();
+                int vc1=vc-jsonArraywk.length()-jsonArraybat.length()-jsonArrayar.length();
+
+                if(c1==0)
+                {
+                    bowlc2.setVisibility(View.VISIBLE);
+                    bowlc2.setText("c");
+                }
+                if(vc1==0)
+                {
+                    bowlc2.setVisibility(View.VISIBLE);
+                    bowlc2.setText("vc");
+                }
+                if(c1==1)
+                {
+                    bowlc3.setVisibility(View.VISIBLE);
+                    bowlc3.setText("c");
+                }
+                if(vc1==1)
+                {
+                    bowlc3.setVisibility(View.VISIBLE);
+                    bowlc3.setText("vc");
+                }
+                if(c1==2)
+                {
+                    bowlc5.setVisibility(View.VISIBLE);
+                    bowlc5.setText("c");
+                }
+                if(vc1==2)
+                {
+                    bowlc5.setVisibility(View.VISIBLE);
+                    bowlc5.setText("vc");
+                }
+                if(c1==3)
+                {
+                    bowlc6.setVisibility(View.VISIBLE);
+                    bowlc6.setText("c");
+                }
+                if(vc1==3)
+                {
+                    bowlc6.setVisibility(View.VISIBLE);
+                    bowlc6.setText("vc");
+                }
+                if(c1==4)
+                {
+                    bowlc1.setVisibility(View.VISIBLE);
+                    bowlc1.setText("c");
+                }
+                if(vc1==4)
+                {
+                    bowlc1.setVisibility(View.VISIBLE);
+                    bowlc1.setText("vc");
+                }
 
             } catch (JSONException e) {
                 e.printStackTrace();
@@ -672,6 +1350,71 @@ public class TeamPreviewActivity extends AppCompatActivity
                     Picasso.get().load(jsonArraybowl.getJSONObject(5).getString("pimage")).into(bowlimg4);
                 }
                 bowlpname4.setText(jsonArraybowl.getJSONObject(5).getString("pname"));
+
+
+                int c1=c-jsonArraywk.length()-jsonArraybat.length()-jsonArrayar.length();
+                int vc1=vc-jsonArraywk.length()-jsonArraybat.length()-jsonArrayar.length();
+
+                if(c1==0)
+                {
+                    bowlc2.setVisibility(View.VISIBLE);
+                    bowlc2.setText("c");
+                }
+                if(vc1==0)
+                {
+                    bowlc2.setVisibility(View.VISIBLE);
+                    bowlc2.setText("vc");
+                }
+                if(c1==1)
+                {
+                    bowlc3.setVisibility(View.VISIBLE);
+                    bowlc3.setText("c");
+                }
+                if(vc1==1)
+                {
+                    bowlc3.setVisibility(View.VISIBLE);
+                    bowlc3.setText("vc");
+                }
+                if(c1==2)
+                {
+                    bowlc5.setVisibility(View.VISIBLE);
+                    bowlc5.setText("c");
+                }
+                if(vc1==2)
+                {
+                    bowlc5.setVisibility(View.VISIBLE);
+                    bowlc5.setText("vc");
+                }
+                if(c1==3)
+                {
+                    bowlc6.setVisibility(View.VISIBLE);
+                    bowlc6.setText("c");
+                }
+                if(vc1==3)
+                {
+                    bowlc6.setVisibility(View.VISIBLE);
+                    bowlc6.setText("vc");
+                }
+                if(c1==4)
+                {
+                    bowlc1.setVisibility(View.VISIBLE);
+                    bowlc1.setText("c");
+                }
+                if(vc1==4)
+                {
+                    bowlc1.setVisibility(View.VISIBLE);
+                    bowlc1.setText("vc");
+                }
+                if(c1==5)
+                {
+                    bowlc4.setVisibility(View.VISIBLE);
+                    bowlc4.setText("c");
+                }
+                if(vc1==5)
+                {
+                    bowlc4.setVisibility(View.VISIBLE);
+                    bowlc4.setText("vc");
+                }
 
             } catch (JSONException e) {
                 e.printStackTrace();

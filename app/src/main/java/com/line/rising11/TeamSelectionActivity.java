@@ -301,6 +301,8 @@ public class TeamSelectionActivity extends AppCompatActivity  implements CustomT
                 intent.putStringArrayListExtra("pteam1",pteam1);
                 intent.putStringArrayListExtra("prole1",prole1);
                 intent.putStringArrayListExtra("pcredit1",pcredit1);
+                intent.putExtra("c",String.valueOf(-1));
+                intent.putExtra("vc",String.valueOf(-1));
                 startActivity(intent);
             }
         });

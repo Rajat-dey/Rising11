@@ -34,8 +34,14 @@
 
                 <TextView
                     android:id="@+id/wkc1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" />
+                    android:layout_marginRight="30dp"
+                    android:layout_width="25dp"
+                    android:alpha="0.7"
+                    android:text="C"
+                    android:textColor="@color/white_text"
+                    android:gravity="center"
+                    android:background="@drawable/bg_round_black"
+                    android:layout_height="25dp" />
 
                 <ImageView
                     android:id="@+id/wkimg1"
@@ -80,8 +86,14 @@
 
                 <TextView
                     android:id="@+id/wkc2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_marginRight="30dp"
+                    android:layout_width="25dp"
+                    android:alpha="0.7"
+                    android:text="C"
+                    android:textColor="@color/white_text"
+                    android:gravity="center"
+                    android:background="@drawable/bg_round_black"
+                    android:layout_height="25dp"/>
 
                 <ImageView
                     android:id="@+id/wkimg2"
@@ -125,8 +137,15 @@
 
                 <TextView
                     android:id="@+id/wkc3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_marginRight="30dp"
+                    android:layout_width="25dp"
+
+                    android:alpha="0.7"
+                    android:text="C"
+                    android:textColor="@color/white_text"
+                    android:gravity="center"
+                    android:background="@drawable/bg_round_black"
+                    android:layout_height="25dp"/>
 
                 <ImageView
                     android:id="@+id/wkimg3"
@@ -170,8 +189,14 @@
 
                 <TextView
                     android:id="@+id/wkc4"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_marginRight="30dp"
+                    android:layout_width="25dp"
+                    android:alpha="0.7"
+                    android:text="C"
+                    android:textColor="@color/white_text"
+                    android:gravity="center"
+                    android:background="@drawable/bg_round_black"
+                    android:layout_height="25dp" />
 
                 <ImageView
                     android:id="@+id/wkimg4"
@@ -233,8 +258,14 @@
 
                 <TextView
                     android:id="@+id/batc1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_marginRight="30dp"
+                    android:layout_width="25dp"
+                    android:alpha="0.7"
+                    android:text="C"
+                    android:textColor="@color/white_text"
+                    android:gravity="center"
+                    android:background="@drawable/bg_round_black"
+                    android:layout_height="25dp" />
 
                 <ImageView
                     android:id="@+id/batimg1"
@@ -278,8 +309,14 @@
 
                 <TextView
                     android:id="@+id/batc2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_marginRight="30dp"
+                    android:layout_width="25dp"
+                    android:alpha="0.7"
+                    android:text="C"
+                    android:textColor="@color/white_text"
+                    android:gravity="center"
+                    android:background="@drawable/bg_round_black"
+                    android:layout_height="25dp"/>
 
                 <ImageView
                     android:id="@+id/batimg2"
@@ -323,8 +360,14 @@
 
                 <TextView
                     android:id="@+id/batc3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_marginRight="30dp"
+                    android:layout_width="25dp"
+                    android:alpha="0.7"
+                    android:text="C"
+                    android:textColor="@color/white_text"
+                    android:gravity="center"
+                    android:background="@drawable/bg_round_black"
+                    android:layout_height="25dp" />
 
                 <ImageView
                     android:id="@+id/batimg3"
@@ -368,8 +411,14 @@
 
                 <TextView
                     android:id="@+id/batc4"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_marginRight="30dp"
+                    android:layout_width="25dp"
+                    android:alpha="0.7"
+                    android:text="C"
+                    android:textColor="@color/white_text"
+                    android:gravity="center"
+                    android:background="@drawable/bg_round_black"
+                    android:layout_height="25dp" />
 
                 <ImageView
                     android:id="@+id/batimg4"
@@ -423,8 +472,14 @@
 
                 <TextView
                     android:id="@+id/batc5"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_marginRight="30dp"
+                    android:layout_width="25dp"
+                    android:alpha="0.7"
+                    android:text="C"
+                    android:textColor="@color/white_text"
+                    android:gravity="center"
+                    android:background="@drawable/bg_round_black"
+                    android:layout_height="25dp" />
 
                 <ImageView
                     android:id="@+id/batimg5"
@@ -468,8 +523,14 @@
 
                 <TextView
                     android:id="@+id/batc6"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_marginRight="30dp"
+                    android:layout_width="25dp"
+                    android:alpha="0.7"
+                    android:text="C"
+                    android:textColor="@color/white_text"
+                    android:gravity="center"
+                    android:background="@drawable/bg_round_black"
+                    android:layout_height="25dp" />
 
                 <ImageView
                     android:id="@+id/batimg6"
@@ -531,8 +592,14 @@
 
                 <TextView
                     android:id="@+id/arc1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_marginRight="30dp"
+                    android:layout_width="25dp"
+                    android:alpha="0.7"
+                    android:text="C"
+                    android:textColor="@color/white_text"
+                    android:gravity="center"
+                    android:background="@drawable/bg_round_black"
+                    android:layout_height="25dp" />
 
                 <ImageView
                     android:id="@+id/arimg1"
@@ -577,8 +644,14 @@
 
                 <TextView
                     android:id="@+id/arc2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_marginRight="30dp"
+                    android:layout_width="25dp"
+                    android:alpha="0.7"
+                    android:text="C"
+                    android:textColor="@color/white_text"
+                    android:gravity="center"
+                    android:background="@drawable/bg_round_black"
+                    android:layout_height="25dp"/>
 
                 <ImageView
                     android:id="@+id/arimg2"
@@ -622,8 +695,14 @@
 
                 <TextView
                     android:id="@+id/arc3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_marginRight="30dp"
+                    android:layout_width="25dp"
+                    android:alpha="0.7"
+                    android:text="C"
+                    android:textColor="@color/white_text"
+                    android:gravity="center"
+                    android:background="@drawable/bg_round_black"
+                    android:layout_height="25dp"/>
 
                 <ImageView
                     android:id="@+id/arimg3"
@@ -667,8 +746,14 @@
 
                 <TextView
                     android:id="@+id/arc4"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_marginRight="30dp"
+                    android:layout_width="25dp"
+                    android:alpha="0.7"
+                    android:text="C"
+                    android:textColor="@color/white_text"
+                    android:gravity="center"
+                    android:background="@drawable/bg_round_black"
+                    android:layout_height="25dp" />
 
                 <ImageView
                     android:id="@+id/arimg4"
@@ -730,8 +815,14 @@
 
                 <TextView
                     android:id="@+id/bowlc1"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_marginRight="30dp"
+                    android:layout_width="25dp"
+                    android:alpha="0.7"
+                    android:text="C"
+                    android:textColor="@color/white_text"
+                    android:gravity="center"
+                    android:background="@drawable/bg_round_black"
+                    android:layout_height="25dp"/>
 
                 <ImageView
                     android:id="@+id/bowlimg1"
@@ -775,8 +866,14 @@
 
                 <TextView
                     android:id="@+id/bowlc2"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_marginRight="30dp"
+                    android:layout_width="25dp"
+                    android:alpha="0.7"
+                    android:text="C"
+                    android:textColor="@color/white_text"
+                    android:gravity="center"
+                    android:background="@drawable/bg_round_black"
+                    android:layout_height="25dp" />
 
                 <ImageView
                     android:id="@+id/bowlimg2"
@@ -820,8 +917,14 @@
 
                 <TextView
                     android:id="@+id/bowlc3"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_marginRight="30dp"
+                    android:layout_width="25dp"
+                    android:alpha="0.7"
+                    android:text="C"
+                    android:textColor="@color/white_text"
+                    android:gravity="center"
+                    android:background="@drawable/bg_round_black"
+                    android:layout_height="25dp" />
 
                 <ImageView
                     android:id="@+id/bowlimg3"
@@ -865,8 +968,14 @@
 
                 <TextView
                     android:id="@+id/bowlc4"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_marginRight="30dp"
+                    android:layout_width="25dp"
+                    android:alpha="0.7"
+                    android:text="C"
+                    android:textColor="@color/white_text"
+                    android:gravity="center"
+                    android:background="@drawable/bg_round_black"
+                    android:layout_height="25dp" />
 
                 <ImageView
                     android:id="@+id/bowlimg4"
@@ -919,8 +1028,14 @@
 
                 <TextView
                     android:id="@+id/bowlc5"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_marginRight="30dp"
+                    android:layout_width="25dp"
+                    android:alpha="0.7"
+                    android:text="C"
+                    android:textColor="@color/white_text"
+                    android:gravity="center"
+                    android:background="@drawable/bg_round_black"
+                    android:layout_height="25dp"/>
 
                 <ImageView
                     android:id="@+id/bowlimg5"
@@ -964,8 +1079,14 @@
 
                 <TextView
                     android:id="@+id/bowlc6"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content" />
+                    android:layout_marginRight="30dp"
+                    android:layout_width="25dp"
+                    android:alpha="0.7"
+                    android:text="C"
+                    android:textColor="@color/white_text"
+                    android:gravity="center"
+                    android:background="@drawable/bg_round_black"
+                    android:layout_height="25dp"/>
 
                 <ImageView
                     android:id="@+id/bowlimg6"

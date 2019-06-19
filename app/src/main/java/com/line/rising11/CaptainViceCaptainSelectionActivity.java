@@ -44,7 +44,6 @@ public class CaptainViceCaptainSelectionActivity extends AppCompatActivity imple
 
 
 
-    TextView wkc1,wkc2,wkc3,wkc4,batc1,batc2,batc3,batc4,batc5,batc6,arc1,arc2,arc3,arc4,bowlc1,bowlc2,bowlc3,bowlc4,bowlc5,bowlc6;
 
 
 
@@ -59,30 +58,7 @@ public class CaptainViceCaptainSelectionActivity extends AppCompatActivity imple
 
 
 
-        wkc1=findViewById(R.id.wkc1);
-        wkc2=findViewById(R.id.wkc2);
-        wkc3=findViewById(R.id.wkc3);
-        wkc4=findViewById(R.id.wkc4);
 
-        batc1=findViewById(R.id.batc1);
-        batc2=findViewById(R.id.batc2);
-        batc3=findViewById(R.id.batc3);
-        batc4=findViewById(R.id.batc4);
-        batc5=findViewById(R.id.batc5);
-        batc6=findViewById(R.id.batc6);
-
-        arc1=findViewById(R.id.arc1);
-        arc2=findViewById(R.id.arc2);
-        arc3=findViewById(R.id.arc3);
-        arc4=findViewById(R.id.arc4);
-
-
-        bowlc1=findViewById(R.id.bowlc1);
-        bowlc2=findViewById(R.id.bowlc2);
-        bowlc3=findViewById(R.id.bowlc3);
-        bowlc4=findViewById(R.id.bowlc4);
-        bowlc5=findViewById(R.id.bowlc5);
-        bowlc6=findViewById(R.id.bowlc6);
 
 
 
@@ -235,6 +211,8 @@ public class CaptainViceCaptainSelectionActivity extends AppCompatActivity imple
                 intent.putStringArrayListExtra("pteam1",pteam);
                 intent.putStringArrayListExtra("prole1",getIntent().getStringArrayListExtra("prole1"));
                 intent.putStringArrayListExtra("pcredit1",pcredit);
+                intent.putExtra("c",String.valueOf(c));
+                intent.putExtra("vc",String.valueOf(vc));
                 startActivity(intent);
             }
         });
