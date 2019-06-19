@@ -154,7 +154,7 @@ public class MyMatchActivity extends AppCompatActivity {
                                         }
 
                                         joincontestlist.add(String.valueOf(n));
-                                        Toast.makeText(MyMatchActivity.this, String.valueOf(n), Toast.LENGTH_SHORT).show();
+                                       /* Toast.makeText(MyMatchActivity.this, String.valueOf(n), Toast.LENGTH_SHORT).show();*/
                                     }
                                     if(flagjoinany==1 && tab1==1)
                                     {
@@ -164,10 +164,10 @@ public class MyMatchActivity extends AppCompatActivity {
                                         time1=new ArrayList<>();
                                         joincontestlist1=new ArrayList<>();
                                         tabtype1=new ArrayList<>();
-
-                                        for(int i=0;i<tabtype.size();i++)
+                                        int p=0;
+                                          for(int i=0;i<tabtype.size();i++)
                                         {
-                                            if(tabtype.get(i).equals("upcoming"))
+                                            if(tabtype.get(i).equals("upcoming") && !joincontestlist.get(i).equals("0"))
                                             {
                                                 uid1.add(uid.get(i));
                                                 teamname11.add(teamname1.get(i));
@@ -175,12 +175,21 @@ public class MyMatchActivity extends AppCompatActivity {
                                                 time1.add(time.get(i));
                                                 joincontestlist1.add(joincontestlist.get(i));
                                                 tabtype1.add(tabtype.get(i));
+                                                p=1;
                                             }
                                         }
 
-                                        rv_my_matches.setLayoutManager(new LinearLayoutManager(MyMatchActivity.this, LinearLayoutManager.VERTICAL, false));
-                                        rv_my_matches.setAdapter(new CustomMyMatchAdapter(MyMatchActivity.this,uid1,teamname11,teamname21,time1,joincontestlist1,tabtype1,tabcount));
+                                        if(p==1)
+                                        {
+                                            rv_my_matches.setLayoutManager(new LinearLayoutManager(MyMatchActivity.this, LinearLayoutManager.VERTICAL, false));
+                                            rv_my_matches.setAdapter(new CustomMyMatchAdapter(MyMatchActivity.this,uid1,teamname11,teamname21,time1,joincontestlist1,tabtype1,tabcount));
 
+                                        }
+                                        else
+                                        {
+                                            rv_my_matches.setVisibility(View.GONE);
+                                            ll_no_matches.setVisibility(View.VISIBLE);
+                                        }
                                     }
                                     else
                                     {
@@ -248,7 +257,7 @@ public class MyMatchActivity extends AppCompatActivity {
 
                             for(int i=0;i<tabtype.size();i++)
                             {
-                                if(tabtype.get(i).equals("upcoming"))
+                                if(tabtype.get(i).equals("upcoming") && !joincontestlist.get(i).equals("0"))
                                 {
                                     uid1.add(uid.get(i));
                                     teamname11.add(teamname1.get(i));
@@ -281,8 +290,7 @@ public class MyMatchActivity extends AppCompatActivity {
                     {
                         if(flagjoinany==1)
                         {
-                            ll_no_matches.setVisibility(View.GONE);
-                            rv_my_matches.setVisibility(View.VISIBLE);
+
                             rv_my_matches=findViewById(R.id.rv_my_matches);
                             uid1=new ArrayList<>();
                             teamname11=new ArrayList<>();
@@ -290,10 +298,10 @@ public class MyMatchActivity extends AppCompatActivity {
                             time1=new ArrayList<>();
                             joincontestlist1=new ArrayList<>();
                             tabtype1=new ArrayList<>();
-
+                            int p=0;
                             for(int i=0;i<tabtype.size();i++)
                             {
-                                if(tabtype.get(i).equals("live"))
+                                if(tabtype.get(i).equals("live") && !joincontestlist.get(i).equals("0"))
                                 {
                                     uid1.add(uid.get(i));
                                     teamname11.add(teamname1.get(i));
@@ -301,12 +309,24 @@ public class MyMatchActivity extends AppCompatActivity {
                                     time1.add(time.get(i));
                                     joincontestlist1.add(joincontestlist.get(i));
                                     tabtype1.add(tabtype.get(i));
+                                    p=1;
                                 }
                             }
+                            if(p==1)
+                            {
+                                ll_no_matches.setVisibility(View.GONE);
+                                rv_my_matches.setVisibility(View.VISIBLE);
+                                rv_my_matches.setLayoutManager(new LinearLayoutManager(MyMatchActivity.this, LinearLayoutManager.VERTICAL, false));
+                                rv_my_matches.setAdapter(new CustomMyMatchAdapter(MyMatchActivity.this,uid1,teamname11,teamname21,time1,joincontestlist1,tabtype1,tabcount));
 
-                            rv_my_matches.setLayoutManager(new LinearLayoutManager(MyMatchActivity.this, LinearLayoutManager.VERTICAL, false));
-                            rv_my_matches.setAdapter(new CustomMyMatchAdapter(MyMatchActivity.this,uid1,teamname11,teamname21,time1,joincontestlist1,tabtype1,tabcount));
-                        }
+                            }
+                            else
+                            {
+                                ll_no_matches.setVisibility(View.VISIBLE);
+                                rv_my_matches.setVisibility(View.GONE);
+                            }
+
+                                  }
                         else
                         {
                             ll_no_matches.setVisibility(View.VISIBLE);
