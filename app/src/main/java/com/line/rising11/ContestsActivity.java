@@ -32,16 +32,18 @@ import org.json.JSONObject;
 
 public class ContestsActivity extends AppCompatActivity implements ContestRecyclerAdapter.OnAddListner2 {
 
-    TextView create_team,contest_code,create_contest,more_contest,all_filters;
+    TextView create_team,contest_code,create_contest,more_contest,all_filters,team;
     CardView entryfee,contest_size;
     ContestRecyclerDataClass[] myListData;
+    MycontestRecyclerDataClass[] myContestDatalist;
     int loaddata=0;
     SharedPreferences sharedPreferences;
     JSONArray jsonArray1;
     RelativeLayout rl_for_hide;
-    int countjoincontest=0,countteam=0;
+    int countjoincontest=0,countteam=0,privatecontest=0;
     RecyclerView rv_my_team,rv_my_contest;
     TabLayout tabLayout1;
+    int q=0;
 
 
     @Override
@@ -63,7 +65,11 @@ public class ContestsActivity extends AppCompatActivity implements ContestRecycl
         rv_my_contest.setVisibility(View.GONE);
         rv_my_team.setVisibility(View.GONE);
 
-        boolean connected1 = false;
+        team=findViewById(R.id.team);
+
+        team.setText(getIntent().getStringExtra("team1")+"  vs  "+getIntent().getStringExtra("team2"));
+
+        /*boolean connected1 = false;
         ConnectivityManager connectivityManager1 = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
         if(connectivityManager1.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED ||
                 connectivityManager1.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED) {
@@ -111,9 +117,9 @@ public class ContestsActivity extends AppCompatActivity implements ContestRecycl
                         @Override
                         public void onErrorResponse(VolleyError error) {
                             // TODO: Handle error
-                           /* Toast.makeText(getApplicationContext(), "Error: "
+                           *//* Toast.makeText(getApplicationContext(), "Error: "
                                     + error.getLocalizedMessage(), Toast.LENGTH_LONG)
-                                    .show();*/
+                                    .show();*//*
                         }
                     });
 
@@ -126,11 +132,11 @@ public class ContestsActivity extends AppCompatActivity implements ContestRecycl
         }
         else
         {
-                        /*Snackbar.make(view, "Please check your Internet connection", Snackbar.LENGTH_LONG)
-                                .setAction("Action", null).show();*/
+                        *//*Snackbar.make(view, "Please check your Internet connection", Snackbar.LENGTH_LONG)
+                                .setAction("Action", null).show();*//*
         }
 
-
+*/
 
 
 
@@ -155,23 +161,54 @@ public class ContestsActivity extends AppCompatActivity implements ContestRecycl
 
                                     JSONArray jsonArray=response.getJSONArray("contests");
                                     myListData = new ContestRecyclerDataClass[jsonArray.length()];
+                                    myContestDatalist=new MycontestRecyclerDataClass[jsonArray.length()];
 
                                     JSONArray jsonArrayAR=new JSONArray();
-
+                                    int p=0;
                                     for(int i=0;i<jsonArray.length();i++)
                                     {
 
-                                            myListData[i]=new ContestRecyclerDataClass("₹"+jsonArray.getJSONObject(i).getString("total_winning_amount"),"₹"+jsonArray.getJSONObject(i).getString("entry_fees"),jsonArray.getJSONObject(i).getString("contest_size")+" spots","1,654 spots left","2,500 Winners","C","M",jsonArray.getJSONObject(i).getString("contest_id"));
+                                            if(jsonArray.getJSONObject(i).getString("type").equals("public"))
+                                            {
+                                                if(jsonArray.getJSONObject(i).getString("is_multiple").equals("1")) {
+                                                    myListData[p] = new ContestRecyclerDataClass("₹" + jsonArray.getJSONObject(i).getString("total_winning_amount"), "₹" + jsonArray.getJSONObject(i).getString("entry_fees"), jsonArray.getJSONObject(i).getString("contest_size") + " spots", "1,654 spots left", "2,500 Winners", "C", "M", jsonArray.getJSONObject(i).getString("contest_id"));
+                                                }
+                                                else
+                                                {
+                                                    myListData[p] = new ContestRecyclerDataClass("₹" + jsonArray.getJSONObject(i).getString("total_winning_amount"), "₹" + jsonArray.getJSONObject(i).getString("entry_fees"), jsonArray.getJSONObject(i).getString("contest_size") + " spots", "1,654 spots left", "2,500 Winners", "C", "S", jsonArray.getJSONObject(i).getString("contest_id"));
+
+                                                }
+                                                p=p+1;
+                                            }
+
+                                            else if(jsonArray.getJSONObject(i).getString("type").equals("private") && jsonArray.getJSONObject(i).getString("user_id").equals(sharedPreferences.getString("number","")))
+                                            {
+                                                if(jsonArray.getJSONObject(i).getString("is_multiple").equals("1")) {
+                                                    myContestDatalist[q] = new MycontestRecyclerDataClass("₹" + jsonArray.getJSONObject(i).getString("total_winning_amount"), "₹" + jsonArray.getJSONObject(i).getString("entry_fees"), jsonArray.getJSONObject(i).getString("contest_size") + " spots", "1,654 spots left", "2,500 Winners", "C", "M", jsonArray.getJSONObject(i).getString("contest_id"));
+                                                }
+                                                else
+                                                {
+                                                    myContestDatalist[q] = new MycontestRecyclerDataClass("₹" + jsonArray.getJSONObject(i).getString("total_winning_amount"), "₹" + jsonArray.getJSONObject(i).getString("entry_fees"), jsonArray.getJSONObject(i).getString("contest_size") + " spots", "1,654 spots left", "2,500 Winners", "C", "S", jsonArray.getJSONObject(i).getString("contest_id"));
+
+                                                }
+
+                                                privatecontest=privatecontest+1;
+                                                q=q+1;
+                                            }
 
                                             //jsonArrayAR.put(jsonArray.getJSONObject(i));
 
 
                                     }
-                                    RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerview);
-                                    ContestRecyclerAdapter adapter = new ContestRecyclerAdapter(myListData,ContestsActivity.this);
-                                    recyclerView.setHasFixedSize(true);
-                                    recyclerView.setLayoutManager(new LinearLayoutManager(ContestsActivity.this));
-                                    recyclerView.setAdapter(adapter);
+                                    tabLayout1.getTabAt(1).setText("MY CONTESTS ("+String.valueOf(privatecontest)+")");
+                                    if(p>0)
+                                    {
+                                        RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerview);
+                                        ContestRecyclerAdapter adapter = new ContestRecyclerAdapter(myListData,ContestsActivity.this,p);
+                                        recyclerView.setHasFixedSize(true);
+                                        recyclerView.setLayoutManager(new LinearLayoutManager(ContestsActivity.this));
+                                        recyclerView.setAdapter(adapter);
+                                    }
 
                                 }
                                 else
@@ -298,8 +335,15 @@ public class ContestsActivity extends AppCompatActivity implements ContestRecycl
                     rl_for_hide.setVisibility(View.GONE);
                     rv_my_team.setVisibility(View.GONE);
                     rv_my_contest.setVisibility(View.VISIBLE);
-                    rv_my_contest.setLayoutManager(new LinearLayoutManager(ContestsActivity.this, LinearLayoutManager.VERTICAL, false));
-                    rv_my_contest.setAdapter(new CustomMyContestAdapter(ContestsActivity.this));
+                    if(q>0)
+                    {
+                        rv_my_contest.setLayoutManager(new LinearLayoutManager(ContestsActivity.this, LinearLayoutManager.VERTICAL, false));
+                        rv_my_contest.setAdapter(new CustomMyContestAdapter(ContestsActivity.this));
+                        MycontestRecyclerAdapter adapter1 = new MycontestRecyclerAdapter(myContestDatalist,q);
+
+                        rv_my_contest.setLayoutManager(new LinearLayoutManager(ContestsActivity.this));
+                        rv_my_contest.setAdapter(adapter1);
+                    }
                 }
                 else if(tab.getPosition()==2)
                 {

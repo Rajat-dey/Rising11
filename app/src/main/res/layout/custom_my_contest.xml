@@ -132,14 +132,14 @@
                     android:layout_height="20dp"
                     android:text="C"
                     android:id="@+id/contesttv5"
-                    android:paddingLeft="6dp"
+                    android:gravity="center"
                     android:background="@drawable/button_design_round_simple_gray_gray_border"/>
                 <TextView
                     android:layout_width="20dp"
                     android:layout_height="20dp"
                     android:text="M"
                     android:id="@+id/contesttv6"
-                    android:paddingLeft="4dp"
+                    android:gravity="center"
                     android:layout_marginLeft="24dp"
                     android:background="@drawable/button_design_round_simple_gray_gray_border"/>
 

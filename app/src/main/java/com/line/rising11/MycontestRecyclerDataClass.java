@@ -1,8 +1,8 @@
 package com.line.rising11;
 
-public class ContestRecyclerDataClass {
-    private String prize,entry,max_pb_val,min_pb_val,winner,box1,box2,cid,multiple;
-    public ContestRecyclerDataClass(String prize,String entry,String max_pb_val,String min_pb_val,String winner,String box1,String box2,String cid)
+public class MycontestRecyclerDataClass {
+    private String prize,entry,max_pb_val,min_pb_val,winner,box1,box2,cid;
+    public MycontestRecyclerDataClass(String prize,String entry,String max_pb_val,String min_pb_val,String winner,String box1,String box2,String cid)
     {
         this.prize=prize;
         this.entry=entry;

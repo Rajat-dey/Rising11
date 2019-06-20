@@ -26,6 +26,8 @@ public class ContestsFilterActivity extends AppCompatActivity {
     ContestFilterRecyclerDataClass[] myListData;
     private TextView price,spots,winners,entry,contestavail;
     RecyclerView recyclerView;
+    int loaddata=0;
+    int p=0;
     ContestFilterRecyclerAdapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -62,21 +64,33 @@ public class ContestsFilterActivity extends AppCompatActivity {
 
                                     JSONArray jsonArrayAR=new JSONArray();
                                     contestavail.setText(String.valueOf(jsonArray.length())+" Contests Available");
+
                                     for(int i=0;i<jsonArray.length();i++)
                                     {
+                                        if(jsonArray.getJSONObject(i).getString("type").equals("public")) {
 
-                                        myListData[i]=new ContestFilterRecyclerDataClass(jsonArray.getJSONObject(i).getString("total_winning_amount"),jsonArray.getJSONObject(i).getString("entry_fees"),jsonArray.getJSONObject(i).getString("contest_size"),"1654","2500","C","M");
+                                            if(jsonArray.getJSONObject(i).getString("is_multiple").equals("1")) {
+                                                myListData[p] = new ContestFilterRecyclerDataClass(jsonArray.getJSONObject(i).getString("total_winning_amount"), jsonArray.getJSONObject(i).getString("entry_fees"), jsonArray.getJSONObject(i).getString("contest_size"), "1654", "2500", "C", "M");
+                                            }
+                                            else
+                                            {
+                                                myListData[p] = new ContestFilterRecyclerDataClass(jsonArray.getJSONObject(i).getString("total_winning_amount"), jsonArray.getJSONObject(i).getString("entry_fees"), jsonArray.getJSONObject(i).getString("contest_size"), "1654", "2500", "C", "S");
 
+                                            }
+                                            p=p+1;
+                                            loaddata=1;
+                                        }
                                         //jsonArrayAR.put(jsonArray.getJSONObject(i));
 
 
                                     }
-
-                                    recyclerView = (RecyclerView) findViewById(R.id.recyclerview);
-                                    adapter = new ContestFilterRecyclerAdapter(myListData);
-                                    recyclerView.setHasFixedSize(true);
-                                    recyclerView.setLayoutManager(new LinearLayoutManager(ContestsFilterActivity.this));
-                                    recyclerView.setAdapter(adapter);
+                                    if(loaddata==1) {
+                                        recyclerView = (RecyclerView) findViewById(R.id.recyclerview);
+                                        adapter = new ContestFilterRecyclerAdapter(myListData,p);
+                                        recyclerView.setHasFixedSize(true);
+                                        recyclerView.setLayoutManager(new LinearLayoutManager(ContestsFilterActivity.this));
+                                        recyclerView.setAdapter(adapter);
+                                    }
 
                                 }
                                 else
@@ -125,46 +139,49 @@ public class ContestsFilterActivity extends AppCompatActivity {
                 entry.setTextColor(Color.BLACK);
                 entry.setTextSize(14.0f);
 
-                String tempprize=null,tempentry=null,tempwinners=null,tempspotstotal=null,tempspotsleft=null;
-                boolean swapped;
-                for (int i = 0; i < myListData.length - 1; i++)
+                if(loaddata==1)
                 {
-                    swapped = false;
-                    for (int j = 0; j < myListData.length - i - 1; j++)
+                    String tempprize=null,tempentry=null,tempwinners=null,tempspotstotal=null,tempspotsleft=null;
+                    boolean swapped;
+                    for (int i = 0; i < p - 1; i++)
                     {
-
-                        if ( Float.parseFloat(myListData[j].getPrize())>Float.parseFloat(myListData[j+1].getPrize()) )
+                        swapped = false;
+                        for (int j = 0; j < p - i - 1; j++)
                         {
-                            tempprize=myListData[j].getPrize();
-                            myListData[j].setPrize(myListData[j+1].getPrize());
-                            myListData[j+1].setPrize(tempprize);
 
-                            tempentry=myListData[j].getEntry();
-                            myListData[j].setEntry(myListData[j+1].getEntry());
-                            myListData[j+1].setEntry(tempentry);
+                            if ( Float.parseFloat(myListData[j].getPrize())>Float.parseFloat(myListData[j+1].getPrize()) )
+                            {
+                                tempprize=myListData[j].getPrize();
+                                myListData[j].setPrize(myListData[j+1].getPrize());
+                                myListData[j+1].setPrize(tempprize);
 
-                            tempwinners=myListData[j].getWinner();
-                            myListData[j].setWinner(myListData[j+1].getWinner());
-                            myListData[j+1].setWinner(tempwinners);
+                                tempentry=myListData[j].getEntry();
+                                myListData[j].setEntry(myListData[j+1].getEntry());
+                                myListData[j+1].setEntry(tempentry);
 
-                            tempspotstotal=myListData[j].getMax_pb_val();
-                            myListData[j].setMax_pb_val(myListData[j+1].getMax_pb_val());
-                            myListData[j+1].setMax_pb_val(tempspotstotal);
+                                tempwinners=myListData[j].getWinner();
+                                myListData[j].setWinner(myListData[j+1].getWinner());
+                                myListData[j+1].setWinner(tempwinners);
 
-                            tempspotsleft=myListData[j].getMin_pb_val();
-                            myListData[j].setMin_pb_val(myListData[j+1].getMin_pb_val());
-                            myListData[j+1].setMin_pb_val(tempspotsleft);
+                                tempspotstotal=myListData[j].getMax_pb_val();
+                                myListData[j].setMax_pb_val(myListData[j+1].getMax_pb_val());
+                                myListData[j+1].setMax_pb_val(tempspotstotal);
+
+                                tempspotsleft=myListData[j].getMin_pb_val();
+                                myListData[j].setMin_pb_val(myListData[j+1].getMin_pb_val());
+                                myListData[j+1].setMin_pb_val(tempspotsleft);
 
 
-                            swapped = true;
+                                swapped = true;
+                            }
                         }
+
+                        if (swapped == false)
+                            break;
                     }
+                    adapter.notifyDataSetChanged();
 
-                    if (swapped == false)
-                        break;
                 }
-                adapter.notifyDataSetChanged();
-
             }
         });
 
@@ -180,48 +197,51 @@ public class ContestsFilterActivity extends AppCompatActivity {
                 winners.setTextSize(14.0f);
                 entry.setTextColor(Color.BLACK);
                 entry.setTextSize(14.0f);
-                String tempprize=null,tempentry=null,tempwinners=null,tempspotstotal=null,tempspotsleft=null;
-                boolean swapped;
-                for (int i = 0; i < myListData.length - 1; i++)
-                {
-                    swapped = false;
-                    for (int j = 0; j < myListData.length - i - 1; j++)
-                    {
-                        if (Integer.parseInt(myListData[j].getMax_pb_val()) > Integer.parseInt(myListData[j+1].getMax_pb_val()))
-                        {
-                            // swap arr[j] and arr[j+1]
+               if(loaddata==1)
+               {
+                   String tempprize=null,tempentry=null,tempwinners=null,tempspotstotal=null,tempspotsleft=null;
+                   boolean swapped;
+                   for (int i = 0; i < p - 1; i++)
+                   {
+                       swapped = false;
+                       for (int j = 0; j < p - i - 1; j++)
+                       {
+                           if (Integer.parseInt(myListData[j].getMax_pb_val()) > Integer.parseInt(myListData[j+1].getMax_pb_val()))
+                           {
+                               // swap arr[j] and arr[j+1]
 
-                            tempprize=myListData[j].getPrize();
-                            myListData[j].setPrize(myListData[j+1].getPrize());
-                            myListData[j+1].setPrize(tempprize);
+                               tempprize=myListData[j].getPrize();
+                               myListData[j].setPrize(myListData[j+1].getPrize());
+                               myListData[j+1].setPrize(tempprize);
 
-                            tempentry=myListData[j].getEntry();
-                            myListData[j].setEntry(myListData[j+1].getEntry());
-                            myListData[j+1].setEntry(tempentry);
+                               tempentry=myListData[j].getEntry();
+                               myListData[j].setEntry(myListData[j+1].getEntry());
+                               myListData[j+1].setEntry(tempentry);
 
-                            tempwinners=myListData[j].getWinner();
-                            myListData[j].setWinner(myListData[j+1].getWinner());
-                            myListData[j+1].setWinner(tempwinners);
+                               tempwinners=myListData[j].getWinner();
+                               myListData[j].setWinner(myListData[j+1].getWinner());
+                               myListData[j+1].setWinner(tempwinners);
 
-                            tempspotstotal=myListData[j].getMax_pb_val();
-                            myListData[j].setMax_pb_val(myListData[j+1].getMax_pb_val());
-                            myListData[j+1].setMax_pb_val(tempspotstotal);
+                               tempspotstotal=myListData[j].getMax_pb_val();
+                               myListData[j].setMax_pb_val(myListData[j+1].getMax_pb_val());
+                               myListData[j+1].setMax_pb_val(tempspotstotal);
 
-                            tempspotsleft=myListData[j].getMin_pb_val();
-                            myListData[j].setMin_pb_val(myListData[j+1].getMin_pb_val());
-                            myListData[j+1].setMin_pb_val(tempspotsleft);
+                               tempspotsleft=myListData[j].getMin_pb_val();
+                               myListData[j].setMin_pb_val(myListData[j+1].getMin_pb_val());
+                               myListData[j+1].setMin_pb_val(tempspotsleft);
 
 
-                            swapped = true;
-                        }
-                    }
+                               swapped = true;
+                           }
+                       }
 
-                    // IF no two elements were
-                    // swapped by inner loop, then break
-                    if (swapped == false)
-                        break;
-                }
-                adapter.notifyDataSetChanged();
+                       // IF no two elements were
+                       // swapped by inner loop, then break
+                       if (swapped == false)
+                           break;
+                   }
+                   adapter.notifyDataSetChanged();
+               }
             }
         });
 
@@ -237,48 +257,51 @@ public class ContestsFilterActivity extends AppCompatActivity {
                 price.setTextSize(14.0f);
                 entry.setTextColor(Color.BLACK);
                 entry.setTextSize(14.0f);
-                String tempprize=null,tempentry=null,tempwinners=null,tempspotstotal=null,tempspotsleft=null;
-                boolean swapped;
-                for (int i = 0; i < myListData.length - 1; i++)
+                if(loaddata==1)
                 {
-                    swapped = false;
-                    for (int j = 0; j < myListData.length - i - 1; j++)
+                    String tempprize=null,tempentry=null,tempwinners=null,tempspotstotal=null,tempspotsleft=null;
+                    boolean swapped;
+                    for (int i = 0; i <p - 1; i++)
                     {
-                        if (Integer.parseInt(myListData[j].getWinner()) > Integer.parseInt(myListData[j+1].getWinner()))
+                        swapped = false;
+                        for (int j = 0; j < p - i - 1; j++)
                         {
-                            // swap arr[j] and arr[j+1]
+                            if (Integer.parseInt(myListData[j].getWinner()) > Integer.parseInt(myListData[j+1].getWinner()))
+                            {
+                                // swap arr[j] and arr[j+1]
 
-                            tempprize=myListData[j].getPrize();
-                            myListData[j].setPrize(myListData[j+1].getPrize());
-                            myListData[j+1].setPrize(tempprize);
+                                tempprize=myListData[j].getPrize();
+                                myListData[j].setPrize(myListData[j+1].getPrize());
+                                myListData[j+1].setPrize(tempprize);
 
-                            tempentry=myListData[j].getEntry();
-                            myListData[j].setEntry(myListData[j+1].getEntry());
-                            myListData[j+1].setEntry(tempentry);
+                                tempentry=myListData[j].getEntry();
+                                myListData[j].setEntry(myListData[j+1].getEntry());
+                                myListData[j+1].setEntry(tempentry);
 
-                            tempwinners=myListData[j].getWinner();
-                            myListData[j].setWinner(myListData[j+1].getWinner());
-                            myListData[j+1].setWinner(tempwinners);
+                                tempwinners=myListData[j].getWinner();
+                                myListData[j].setWinner(myListData[j+1].getWinner());
+                                myListData[j+1].setWinner(tempwinners);
 
-                            tempspotstotal=myListData[j].getMax_pb_val();
-                            myListData[j].setMax_pb_val(myListData[j+1].getMax_pb_val());
-                            myListData[j+1].setMax_pb_val(tempspotstotal);
+                                tempspotstotal=myListData[j].getMax_pb_val();
+                                myListData[j].setMax_pb_val(myListData[j+1].getMax_pb_val());
+                                myListData[j+1].setMax_pb_val(tempspotstotal);
 
-                            tempspotsleft=myListData[j].getMin_pb_val();
-                            myListData[j].setMin_pb_val(myListData[j+1].getMin_pb_val());
-                            myListData[j+1].setMin_pb_val(tempspotsleft);
+                                tempspotsleft=myListData[j].getMin_pb_val();
+                                myListData[j].setMin_pb_val(myListData[j+1].getMin_pb_val());
+                                myListData[j+1].setMin_pb_val(tempspotsleft);
 
 
-                            swapped = true;
+                                swapped = true;
+                            }
                         }
-                    }
 
-                    // IF no two elements were
-                    // swapped by inner loop, then break
-                    if (swapped == false)
-                        break;
+                        // IF no two elements were
+                        // swapped by inner loop, then break
+                        if (swapped == false)
+                            break;
+                    }
+                    adapter.notifyDataSetChanged();
                 }
-                adapter.notifyDataSetChanged();
 
             }
         });
@@ -296,49 +319,52 @@ public class ContestsFilterActivity extends AppCompatActivity {
                 winners.setTextSize(14.0f);
                 price.setTextColor(Color.BLACK);
                 price.setTextSize(14.0f);
-                String tempprize=null,tempentry=null,tempwinners=null,tempspotstotal=null,tempspotsleft=null;
-                boolean swapped;
-                for (int i = 0; i < myListData.length - 1; i++)
+                if(loaddata==1)
                 {
-                    swapped = false;
-                    for (int j = 0; j < myListData.length - i - 1; j++)
+                    String tempprize=null,tempentry=null,tempwinners=null,tempspotstotal=null,tempspotsleft=null;
+                    boolean swapped;
+                    for (int i = 0; i < p - 1; i++)
                     {
-                        if (Float.parseFloat(myListData[j].getEntry()) > Float.parseFloat(myListData[j+1].getEntry()))
+                        swapped = false;
+                        for (int j = 0; j < p - i - 1; j++)
                         {
-                            // swap arr[j] and arr[j+1]
+                            if (Float.parseFloat(myListData[j].getEntry()) > Float.parseFloat(myListData[j+1].getEntry()))
+                            {
+                                // swap arr[j] and arr[j+1]
 
-                            tempprize=myListData[j].getPrize();
-                            myListData[j].setPrize(myListData[j+1].getPrize());
-                            myListData[j+1].setPrize(tempprize);
+                                tempprize=myListData[j].getPrize();
+                                myListData[j].setPrize(myListData[j+1].getPrize());
+                                myListData[j+1].setPrize(tempprize);
 
-                            tempentry=myListData[j].getEntry();
-                            myListData[j].setEntry(myListData[j+1].getEntry());
-                            myListData[j+1].setEntry(tempentry);
+                                tempentry=myListData[j].getEntry();
+                                myListData[j].setEntry(myListData[j+1].getEntry());
+                                myListData[j+1].setEntry(tempentry);
 
-                            tempwinners=myListData[j].getWinner();
-                            myListData[j].setWinner(myListData[j+1].getWinner());
-                            myListData[j+1].setWinner(tempwinners);
+                                tempwinners=myListData[j].getWinner();
+                                myListData[j].setWinner(myListData[j+1].getWinner());
+                                myListData[j+1].setWinner(tempwinners);
 
-                            tempspotstotal=myListData[j].getMax_pb_val();
-                            myListData[j].setMax_pb_val(myListData[j+1].getMax_pb_val());
-                            myListData[j+1].setMax_pb_val(tempspotstotal);
+                                tempspotstotal=myListData[j].getMax_pb_val();
+                                myListData[j].setMax_pb_val(myListData[j+1].getMax_pb_val());
+                                myListData[j+1].setMax_pb_val(tempspotstotal);
 
-                            tempspotsleft=myListData[j].getMin_pb_val();
-                            myListData[j].setMin_pb_val(myListData[j+1].getMin_pb_val());
-                            myListData[j+1].setMin_pb_val(tempspotsleft);
+                                tempspotsleft=myListData[j].getMin_pb_val();
+                                myListData[j].setMin_pb_val(myListData[j+1].getMin_pb_val());
+                                myListData[j+1].setMin_pb_val(tempspotsleft);
 
 
-                            swapped = true;
+                                swapped = true;
+                            }
                         }
+
+                        // IF no two elements were
+                        // swapped by inner loop, then break
+                        if (swapped == false)
+                            break;
                     }
 
-                    // IF no two elements were
-                    // swapped by inner loop, then break
-                    if (swapped == false)
-                        break;
+                    adapter.notifyDataSetChanged();
                 }
-
-                adapter.notifyDataSetChanged();
 
             }
         });

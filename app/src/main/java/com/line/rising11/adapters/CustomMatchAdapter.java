@@ -155,6 +155,8 @@ public class CustomMatchAdapter extends RecyclerView.Adapter<CustomMatchAdapter.
                     try {
                         Intent intent = new Intent(context, ContestsActivity.class);
                         intent.putExtra("uid",customerList.getJSONObject(position).get("unique_id").toString());
+                        intent.putExtra("team1",customerList.getJSONObject(position).get("team-1").toString());
+                        intent.putExtra("team2",customerList.getJSONObject(position).get("team-2").toString());
                         context.startActivity(intent);
                     } catch (JSONException e)
                     {

@@ -9,34 +9,37 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 
-public class ContestFilterRecyclerAdapter extends RecyclerView.Adapter<ContestFilterRecyclerAdapter.ViewHolder>{
-    private ContestFilterRecyclerDataClass[] listdata;
+public class MycontestRecyclerAdapter extends RecyclerView.Adapter<MycontestRecyclerAdapter.ViewHolder>{
+    private MycontestRecyclerDataClass[] listdata;
+    private OnAddListner2 monAddListner;
     int len;
 
 
-    public ContestFilterRecyclerAdapter(ContestFilterRecyclerDataClass[] listdata,int len) {
+    public MycontestRecyclerAdapter(MycontestRecyclerDataClass[] listdata,int len) {
         this.listdata = listdata;
+      //  this.monAddListner=onAddListner;
         this.len=len;
     }
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         LayoutInflater layoutInflater = LayoutInflater.from(parent.getContext());
-        View listItem= layoutInflater.inflate(R.layout.contestfilterrecycler, parent, false);
-        ViewHolder viewHolder = new ViewHolder(listItem);
-        return viewHolder;
+        View listItem= layoutInflater.inflate(R.layout.custom_my_contest, parent, false);
+
+        return new ViewHolder(listItem);
     }
 
     @Override
     public void onBindViewHolder(ViewHolder holder, int position) {
-        final ContestFilterRecyclerDataClass myListData = listdata[position];
+        final MycontestRecyclerDataClass myListData = listdata[position];
 
-        holder.contesttv1.setText("₹"+listdata[position].getPrize());
-        holder.contestbt1.setText("₹"+listdata[position].getEntry());
-        holder.contesttv2.setText(listdata[position].getMin_pb_val()+" spots left");
-        holder.contesttv3.setText(listdata[position].getMax_pb_val()+" spots");
-        holder.contesttv4.setText(listdata[position].getWinner()+" Winners");
+        holder.contesttv1.setText(listdata[position].getPrize());
+        holder.contestbt1.setText(listdata[position].getEntry());
+        holder.contesttv2.setText(listdata[position].getMin_pb_val());
+        holder.contesttv3.setText(listdata[position].getMax_pb_val());
+        holder.contesttv4.setText(listdata[position].getWinner());
         holder.contesttv5.setText(listdata[position].getBox1());
         holder.contesttv6.setText(listdata[position].getBox2());
+
 
        /* holder.textView3.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,9 +61,10 @@ public class ContestFilterRecyclerAdapter extends RecyclerView.Adapter<ContestFi
         public TextView contesttv1,contesttv2,contesttv3,contesttv4,contesttv5,contesttv6;
         public Button contestbt1;
         public ProgressBar contestpb1;
+        OnAddListner2 onAddListner;
         public ViewHolder(View itemView) {
             super(itemView);
-
+            this.onAddListner=onAddListner;
             this.contesttv1 = (TextView) itemView.findViewById(R.id.contesttv1);
             this.contesttv2 = (TextView) itemView.findViewById(R.id.contesttv2);
             this.contesttv3 = (TextView) itemView.findViewById(R.id.contesttv3);
@@ -70,6 +74,15 @@ public class ContestFilterRecyclerAdapter extends RecyclerView.Adapter<ContestFi
             this.contestbt1 = (Button) itemView.findViewById(R.id.contestbt1);
             this.contestpb1 = (ProgressBar) itemView.findViewById(R.id.contestpb1);
 
+
+
         }
+
+
+    }
+
+    public interface OnAddListner2
+    {
+        void onAddClick(int position);
     }
 }

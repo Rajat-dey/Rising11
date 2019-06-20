@@ -13,11 +13,13 @@ import android.widget.TextView;
 public class ContestRecyclerAdapter extends RecyclerView.Adapter<ContestRecyclerAdapter.ViewHolder>{
     private ContestRecyclerDataClass[] listdata;
     private OnAddListner2 monAddListner;
+    int len;
 
 
-    public ContestRecyclerAdapter(ContestRecyclerDataClass[] listdata,OnAddListner2 onAddListner) {
+    public ContestRecyclerAdapter(ContestRecyclerDataClass[] listdata,OnAddListner2 onAddListner,int len) {
         this.listdata = listdata;
         this.monAddListner=onAddListner;
+        this.len=len;
     }
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -53,7 +55,7 @@ public class ContestRecyclerAdapter extends RecyclerView.Adapter<ContestRecycler
 
     @Override
     public int getItemCount() {
-        return listdata.length;
+        return len;
     }
 
     public static class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener{

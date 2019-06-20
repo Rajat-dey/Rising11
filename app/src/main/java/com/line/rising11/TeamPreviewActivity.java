@@ -26,6 +26,7 @@ public class TeamPreviewActivity extends AppCompatActivity
     ArrayList<String> pname1,pimage1,pteam1,prole1,pcredit1;
     JSONArray jsonArraywk,jsonArraybat,jsonArrayar,jsonArraybowl;
     TextView wkc1,wkc2,wkc3,wkc4,batc1,batc2,batc3,batc4,batc5,batc6,arc1,arc2,arc3,arc4,bowlc1,bowlc2,bowlc3,bowlc4,bowlc5,bowlc6;
+    TextView wkcr1,wkcr2,wkcr3,wkcr4,batcr1,batcr2,batcr3,batcr4,batcr5,batcr6,arcr1,arcr2,arcr3,arcr4,bowlcr1,bowlcr2,bowlcr3,bowlcr4,bowlcr5,bowlcr6;
     int c,vc;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -129,6 +130,30 @@ public class TeamPreviewActivity extends AppCompatActivity
         bowlc4=findViewById(R.id.bowlc4);
         bowlc5=findViewById(R.id.bowlc5);
         bowlc6=findViewById(R.id.bowlc6);
+
+        wkcr1=findViewById(R.id.wkcr1);
+        wkcr2=findViewById(R.id.wkcr2);
+        wkcr3=findViewById(R.id.wkcr3);
+        wkcr4=findViewById(R.id.wkcr4);
+
+        batcr1=findViewById(R.id.batcr1);
+        batcr2=findViewById(R.id.batcr2);
+        batcr3=findViewById(R.id.batcr3);
+        batcr4=findViewById(R.id.batcr4);
+        batcr5=findViewById(R.id.batcr5);
+        batcr6=findViewById(R.id.batcr6);
+
+        arcr1=findViewById(R.id.arcr1);
+        arcr2=findViewById(R.id.arcr2);
+        arcr3=findViewById(R.id.arcr3);
+        arcr4=findViewById(R.id.arcr4);
+
+        bowlcr1=findViewById(R.id.bowlcr1);
+        bowlcr2=findViewById(R.id.bowlcr2);
+        bowlcr3=findViewById(R.id.bowlcr3);
+        bowlcr4=findViewById(R.id.bowlcr4);
+        bowlcr5=findViewById(R.id.bowlcr5);
+        bowlcr6=findViewById(R.id.bowlcr6);
 
         wkc1.setVisibility(View.GONE);
         wkc2.setVisibility(View.GONE);
@@ -268,6 +293,7 @@ public class TeamPreviewActivity extends AppCompatActivity
                     Picasso.get().load(jsonArraywk.getJSONObject(0).getString("pimage")).into(wkimg2);
                 }
                 wkpname2.setText(jsonArraywk.getJSONObject(0).getString("pname"));
+                wkcr2.setText(jsonArraywk.getJSONObject(0).getString("pcredit"));
 
                 if(c==0)
                 {
@@ -297,6 +323,8 @@ public class TeamPreviewActivity extends AppCompatActivity
                     Picasso.get().load(jsonArraywk.getJSONObject(1).getString("pimage")).into(wkimg3);
                 }
                 wkpname3.setText(jsonArraywk.getJSONObject(1).getString("pname"));
+                wkcr2.setText(jsonArraywk.getJSONObject(0).getString("pcredit"));
+                wkcr3.setText(jsonArraywk.getJSONObject(1).getString("pcredit"));
                 if(c==0)
                 {
                     wkc2.setVisibility(View.VISIBLE);
@@ -340,6 +368,9 @@ public class TeamPreviewActivity extends AppCompatActivity
                     Picasso.get().load(jsonArraywk.getJSONObject(2).getString("pimage")).into(wkimg4);
                 }
                 wkpname4.setText(jsonArraywk.getJSONObject(2).getString("pname"));
+                wkcr2.setText(jsonArraywk.getJSONObject(0).getString("pcredit"));
+                wkcr3.setText(jsonArraywk.getJSONObject(1).getString("pcredit"));
+                wkcr4.setText(jsonArraywk.getJSONObject(2).getString("pcredit"));
                 if(c==0)
                 {
                     wkc2.setVisibility(View.VISIBLE);
@@ -399,6 +430,11 @@ public class TeamPreviewActivity extends AppCompatActivity
                 }
                 wkpname1.setText(jsonArraywk.getJSONObject(0).getString("pname"));
 
+                wkcr2.setText(jsonArraywk.getJSONObject(1).getString("pcredit"));
+                wkcr3.setText(jsonArraywk.getJSONObject(2).getString("pcredit"));
+                wkcr4.setText(jsonArraywk.getJSONObject(3).getString("pcredit"));
+                wkcr1.setText(jsonArraywk.getJSONObject(0).getString("pcredit"));
+
                 if(c==1)
                 {
                     wkc2.setVisibility(View.VISIBLE);
@@ -454,6 +490,8 @@ public class TeamPreviewActivity extends AppCompatActivity
                 }
                 batpname2.setText(jsonArraybat.getJSONObject(0).getString("pname"));
 
+                batcr2.setText(jsonArraybat.getJSONObject(0).getString("pcredit"));
+
                 int c1=c-jsonArraywk.length();
                 int vc1=vc-jsonArraywk.length();
 
@@ -485,6 +523,9 @@ public class TeamPreviewActivity extends AppCompatActivity
                     Picasso.get().load(jsonArraybat.getJSONObject(1).getString("pimage")).into(batimg3);
                 }
                 batpname3.setText(jsonArraybat.getJSONObject(1).getString("pname"));
+
+                batcr2.setText(jsonArraybat.getJSONObject(0).getString("pcredit"));
+                batcr3.setText(jsonArraybat.getJSONObject(1).getString("pcredit"));
 
                 int c1=c-jsonArraywk.length();
                 int vc1=vc-jsonArraywk.length();
@@ -532,6 +573,11 @@ public class TeamPreviewActivity extends AppCompatActivity
                     Picasso.get().load(jsonArraybat.getJSONObject(2).getString("pimage")).into(batimg5);
                 }
                 batpname5.setText(jsonArraybat.getJSONObject(2).getString("pname"));
+
+                batcr2.setText(jsonArraybat.getJSONObject(0).getString("pcredit"));
+                batcr3.setText(jsonArraybat.getJSONObject(1).getString("pcredit"));
+                batcr5.setText(jsonArraybat.getJSONObject(2).getString("pcredit"));
+
                 int c1=c-jsonArraywk.length();
                 int vc1=vc-jsonArraywk.length();
 
@@ -593,6 +639,11 @@ public class TeamPreviewActivity extends AppCompatActivity
                     Picasso.get().load(jsonArraybat.getJSONObject(3).getString("pimage")).into(batimg6);
                 }
                 batpname6.setText(jsonArraybat.getJSONObject(3).getString("pname"));
+
+                batcr2.setText(jsonArraybat.getJSONObject(0).getString("pcredit"));
+                batcr3.setText(jsonArraybat.getJSONObject(1).getString("pcredit"));
+                batcr5.setText(jsonArraybat.getJSONObject(2).getString("pcredit"));
+                batcr6.setText(jsonArraybat.getJSONObject(3).getString("pcredit"));
 
                 int c1=c-jsonArraywk.length();
                 int vc1=vc-jsonArraywk.length();
@@ -670,6 +721,12 @@ public class TeamPreviewActivity extends AppCompatActivity
                     Picasso.get().load(jsonArraybat.getJSONObject(4).getString("pimage")).into(batimg1);
                 }
                 batpname1.setText(jsonArraybat.getJSONObject(4).getString("pname"));
+
+                batcr2.setText(jsonArraybat.getJSONObject(0).getString("pcredit"));
+                batcr3.setText(jsonArraybat.getJSONObject(1).getString("pcredit"));
+                batcr5.setText(jsonArraybat.getJSONObject(2).getString("pcredit"));
+                batcr6.setText(jsonArraybat.getJSONObject(3).getString("pcredit"));
+                batcr1.setText(jsonArraybat.getJSONObject(4).getString("pcredit"));
 
                 int c1=c-jsonArraywk.length();
                 int vc1=vc-jsonArraywk.length();
@@ -763,6 +820,13 @@ public class TeamPreviewActivity extends AppCompatActivity
                     Picasso.get().load(jsonArraybat.getJSONObject(5).getString("pimage")).into(batimg4);
                 }
                 batpname4.setText(jsonArraybat.getJSONObject(5).getString("pname"));
+
+                batcr2.setText(jsonArraybat.getJSONObject(0).getString("pcredit"));
+                batcr3.setText(jsonArraybat.getJSONObject(1).getString("pcredit"));
+                batcr5.setText(jsonArraybat.getJSONObject(2).getString("pcredit"));
+                batcr6.setText(jsonArraybat.getJSONObject(3).getString("pcredit"));
+                batcr1.setText(jsonArraybat.getJSONObject(4).getString("pcredit"));
+                batcr4.setText(jsonArraybat.getJSONObject(5).getString("pcredit"));
                 int c1=c-jsonArraywk.length();
                 int vc1=vc-jsonArraywk.length();
 
@@ -841,6 +905,8 @@ public class TeamPreviewActivity extends AppCompatActivity
                 }
                 arpname2.setText(jsonArrayar.getJSONObject(0).getString("pname"));
 
+                arcr2.setText(jsonArrayar.getJSONObject(0).getString("pcredit"));
+
                 int c1=c-jsonArraywk.length()-jsonArraybat.length();
                 int vc1=vc-jsonArraywk.length()-jsonArraybat.length();
 
@@ -872,6 +938,9 @@ public class TeamPreviewActivity extends AppCompatActivity
                     Picasso.get().load(jsonArrayar.getJSONObject(1).getString("pimage")).into(arimg3);
                 }
                 arpname3.setText(jsonArrayar.getJSONObject(1).getString("pname"));
+
+                arcr2.setText(jsonArrayar.getJSONObject(0).getString("pcredit"));
+                arcr3.setText(jsonArrayar.getJSONObject(1).getString("pcredit"));
 
                 int c1=c-jsonArraywk.length()-jsonArraybat.length();
                 int vc1=vc-jsonArraywk.length()-jsonArraybat.length();
@@ -919,6 +988,10 @@ public class TeamPreviewActivity extends AppCompatActivity
                     Picasso.get().load(jsonArrayar.getJSONObject(2).getString("pimage")).into(arimg4);
                 }
                 arpname4.setText(jsonArrayar.getJSONObject(2).getString("pname"));
+
+                arcr2.setText(jsonArrayar.getJSONObject(0).getString("pcredit"));
+                arcr3.setText(jsonArrayar.getJSONObject(1).getString("pcredit"));
+                arcr4.setText(jsonArrayar.getJSONObject(2).getString("pcredit"));
 
                 int c1=c-jsonArraywk.length()-jsonArraybat.length();
                 int vc1=vc-jsonArraywk.length()-jsonArraybat.length();
@@ -982,6 +1055,11 @@ public class TeamPreviewActivity extends AppCompatActivity
                 }
                 arpname1.setText(jsonArrayar.getJSONObject(0).getString("pname"));
 
+                arcr2.setText(jsonArrayar.getJSONObject(1).getString("pcredit"));
+                arcr3.setText(jsonArrayar.getJSONObject(2).getString("pcredit"));
+                arcr4.setText(jsonArrayar.getJSONObject(3).getString("pcredit"));
+                arcr1.setText(jsonArrayar.getJSONObject(0).getString("pcredit"));
+
                 int c1=c-jsonArraywk.length()-jsonArraybat.length();
                 int vc1=vc-jsonArraywk.length()-jsonArraybat.length();
 
@@ -1040,6 +1118,9 @@ public class TeamPreviewActivity extends AppCompatActivity
                     Picasso.get().load(jsonArraybowl.getJSONObject(0).getString("pimage")).into(bowlimg2);
                 }
                 bowlpname2.setText(jsonArraybowl.getJSONObject(0).getString("pname"));
+
+                bowlcr2.setText(jsonArraybowl.getJSONObject(0).getString("pcredit"));
+
                 int c1=c-jsonArraywk.length()-jsonArraybat.length()-jsonArrayar.length();
                 int vc1=vc-jsonArraywk.length()-jsonArraybat.length()-jsonArrayar.length();
 
@@ -1071,6 +1152,9 @@ public class TeamPreviewActivity extends AppCompatActivity
                     Picasso.get().load(jsonArraybowl.getJSONObject(1).getString("pimage")).into(bowlimg3);
                 }
                 bowlpname3.setText(jsonArraybowl.getJSONObject(1).getString("pname"));
+
+                bowlcr2.setText(jsonArraybowl.getJSONObject(0).getString("pcredit"));
+                bowlcr3.setText(jsonArraybowl.getJSONObject(1).getString("pcredit"));
 
                 int c1=c-jsonArraywk.length()-jsonArraybat.length()-jsonArrayar.length();
                 int vc1=vc-jsonArraywk.length()-jsonArraybat.length()-jsonArrayar.length();
@@ -1118,6 +1202,10 @@ public class TeamPreviewActivity extends AppCompatActivity
                     Picasso.get().load(jsonArraybowl.getJSONObject(2).getString("pimage")).into(bowlimg5);
                 }
                 bowlpname5.setText(jsonArraybowl.getJSONObject(2).getString("pname"));
+
+                bowlcr2.setText(jsonArraybowl.getJSONObject(0).getString("pcredit"));
+                bowlcr3.setText(jsonArraybowl.getJSONObject(1).getString("pcredit"));
+                bowlcr5.setText(jsonArraybowl.getJSONObject(2).getString("pcredit"));
 
                 int c1=c-jsonArraywk.length()-jsonArraybat.length()-jsonArrayar.length();
                 int vc1=vc-jsonArraywk.length()-jsonArraybat.length()-jsonArrayar.length();
@@ -1181,6 +1269,11 @@ public class TeamPreviewActivity extends AppCompatActivity
                     Picasso.get().load(jsonArraybowl.getJSONObject(3).getString("pimage")).into(bowlimg6);
                 }
                 bowlpname6.setText(jsonArraybowl.getJSONObject(3).getString("pname"));
+
+                bowlcr2.setText(jsonArraybowl.getJSONObject(0).getString("pcredit"));
+                bowlcr3.setText(jsonArraybowl.getJSONObject(1).getString("pcredit"));
+                bowlcr5.setText(jsonArraybowl.getJSONObject(2).getString("pcredit"));
+                bowlcr6.setText(jsonArraybowl.getJSONObject(3).getString("pcredit"));
                 int c1=c-jsonArraywk.length()-jsonArraybat.length()-jsonArrayar.length();
                 int vc1=vc-jsonArraywk.length()-jsonArraybat.length()-jsonArrayar.length();
 
@@ -1258,6 +1351,12 @@ public class TeamPreviewActivity extends AppCompatActivity
                     Picasso.get().load(jsonArraybowl.getJSONObject(4).getString("pimage")).into(bowlimg1);
                 }
                 bowlpname1.setText(jsonArraybowl.getJSONObject(4).getString("pname"));
+
+                bowlcr2.setText(jsonArraybowl.getJSONObject(0).getString("pcredit"));
+                bowlcr3.setText(jsonArraybowl.getJSONObject(1).getString("pcredit"));
+                bowlcr5.setText(jsonArraybowl.getJSONObject(2).getString("pcredit"));
+                bowlcr6.setText(jsonArraybowl.getJSONObject(3).getString("pcredit"));
+                bowlcr1.setText(jsonArraybowl.getJSONObject(4).getString("pcredit"));
 
                 int c1=c-jsonArraywk.length()-jsonArraybat.length()-jsonArrayar.length();
                 int vc1=vc-jsonArraywk.length()-jsonArraybat.length()-jsonArrayar.length();
@@ -1350,6 +1449,13 @@ public class TeamPreviewActivity extends AppCompatActivity
                     Picasso.get().load(jsonArraybowl.getJSONObject(5).getString("pimage")).into(bowlimg4);
                 }
                 bowlpname4.setText(jsonArraybowl.getJSONObject(5).getString("pname"));
+
+                bowlcr2.setText(jsonArraybowl.getJSONObject(0).getString("pcredit"));
+                bowlcr3.setText(jsonArraybowl.getJSONObject(1).getString("pcredit"));
+                bowlcr5.setText(jsonArraybowl.getJSONObject(2).getString("pcredit"));
+                bowlcr6.setText(jsonArraybowl.getJSONObject(3).getString("pcredit"));
+                bowlcr1.setText(jsonArraybowl.getJSONObject(4).getString("pcredit"));
+                bowlcr4.setText(jsonArraybowl.getJSONObject(5).getString("pcredit"));
 
 
                 int c1=c-jsonArraywk.length()-jsonArraybat.length()-jsonArrayar.length();
