@@ -2,10 +2,13 @@ package com.line.rising11;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
 import android.widget.LinearLayout;
@@ -17,10 +20,12 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonObjectRequest;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-public class JoinedContest extends AppCompatActivity {
+public class JoinedContest extends AppCompatActivity implements JoinedContest_Recycler_adapter.OnAddListner2
+{
 
     TextView playerpoints,TM1,TM2,match_status,score1,score2,statics;
 
@@ -29,7 +34,9 @@ public class JoinedContest extends AppCompatActivity {
     LinearLayout joinedcontest;
 
     String scorepart1,scorepart2;
+    SharedPreferences sharedPreferences;
 
+    joinedcontest_recyclerdataclass[] myListData1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +48,9 @@ public class JoinedContest extends AppCompatActivity {
 
         playerpoints=findViewById(R.id.player_points);
 
-        joinedcontest=findViewById(R.id.joined_contest);
+        sharedPreferences=getSharedPreferences("loginstatus", Context.MODE_PRIVATE);
+
+      //  joinedcontest=findViewById(R.id.joined_contest);
 
         TM1=findViewById(R.id.TM1);
         TM2=findViewById(R.id.TM2);
@@ -59,28 +68,32 @@ public class JoinedContest extends AppCompatActivity {
 
 
 
-
+/*
         joinedcontest.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v)
             {
                 Intent intent=new Intent(JoinedContest.this,Contest.class);
+                intent.putExtra("uid",getIntent().getStringExtra("uid"));
                 startActivity(intent);
             }
-        });
+        });*/
 
 
         playerpoints.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v)
             {
-                Intent intent=new Intent(JoinedContest.this,player_points.class);
+
+               // Intent intent=new Intent(JoinedContest.this,player_points.class);
+
+
+                Intent intent=new Intent(JoinedContest.this,Coming_soon.class);
+
+
                 startActivity(intent);
             }
         });
-
-
-
 
         boolean connected = false;
         ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -180,16 +193,14 @@ public class JoinedContest extends AppCompatActivity {
 
 
 
-
-
         if(connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED ||
                 connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED) {
 
             JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
-                    (Request.Method.GET, getString(R.string.Cric_ranking)+"contest_id=27"+"&mobile=7062018163", null, new Response.Listener<JSONObject>() {
+                    (Request.Method.GET,getString(R.string.Cric_ranking)+"contest_id=526"+"&mobile="+sharedPreferences.getString("number","") , null, new Response.Listener<JSONObject>() {
                         @Override
                         public void onResponse(JSONObject response) {
-                            Log.d("Response: ", response.toString());
+                             Log.d("Response: ", response.toString());
                             //Log.d("Link",getString(R.string.signup) +"?mobile="+email.getText().toString().trim()+"&password="+password.getText().toString().trim());
 
 
@@ -197,16 +208,26 @@ public class JoinedContest extends AppCompatActivity {
                                 if(response.getString("code").equals("1"))
                                 {
 
+                                    JSONArray jsonArray=response.getJSONArray("contest");
+                                    myListData1 = new joinedcontest_recyclerdataclass[jsonArray.length()];
 
-                                    prizepool.setText(response.getJSONObject("contest").getString("total_winning_amount"));
-                                    spots.setText(response.getJSONObject("contest").getString("contest_size"));
-                                    entry.setText(response.getJSONObject("contest").getString("entry_fees"));
-                                    joined_with.setText(response.getJSONObject("contest").getString("team_id"));
-                                    points.setText(response.getJSONObject("contest").getString("points"));
-                                    rank.setText(response.getJSONObject("contest").getString("rank"));
+                                    JSONArray jsonArrayAR=new JSONArray();
+
+                                    for(int i=0;i<jsonArray.length();i++)
+                                    {
+
+                                       myListData1[i]=new joinedcontest_recyclerdataclass("₹"+jsonArray.getJSONObject(i).getString("total_winning_amount"),"₹"+jsonArray.getJSONObject(i).getString("contest_size"),jsonArray.getJSONObject(i).getString("entry_fees"),jsonArray.getJSONObject(i).getString("team_id"),jsonArray.getJSONObject(i).getString("points"),jsonArray.getJSONObject(i).getString("rank"));
+
+                                        //jsonArrayAR.put(jsonArray.getJSONObject(i));
 
 
+                                    }
+                                    RecyclerView recyclerView = (RecyclerView) findViewById(R.id.recyclerview);
+                                    JoinedContest_Recycler_adapter adapter = new JoinedContest_Recycler_adapter(myListData1,JoinedContest.this);
+                                    recyclerView.setHasFixedSize(true);
+                                    recyclerView.setLayoutManager(new LinearLayoutManager(JoinedContest.this));
 
+                                    recyclerView.setAdapter(adapter);
 
                                 }
                                 else
@@ -224,9 +245,9 @@ public class JoinedContest extends AppCompatActivity {
                         @Override
                         public void onErrorResponse(VolleyError error) {
                             // TODO: Handle error
-                            Toast.makeText(getApplicationContext(), "Error: "
+                           /* Toast.makeText(getApplicationContext(), "Error: "
                                     + error.getLocalizedMessage(), Toast.LENGTH_LONG)
-                                    .show();
+                                    .show();*/
                         }
                     });
 
@@ -239,9 +260,51 @@ public class JoinedContest extends AppCompatActivity {
         }
         else
         {
-            /*Snackbar.make(v, "Please check your Internet connection", Snackbar.LENGTH_LONG)
+            /*Snackbar.make(, "Please check your Internet connection", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show();*/
         }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -253,5 +316,10 @@ public class JoinedContest extends AppCompatActivity {
     public boolean onSupportNavigateUp() {
         onBackPressed();
         return true;
+    }
+
+    @Override
+    public void onAddClick(int position) {
+
     }
 }

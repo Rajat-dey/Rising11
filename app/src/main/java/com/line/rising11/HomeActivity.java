@@ -314,7 +314,9 @@ public class HomeActivity extends AppCompatActivity
           }
           else if(id==R.id.nav_my_rewards_offers)
           {
-              Intent intent=new Intent(HomeActivity.this,RewardOffer1Activity.class);
+            //  Intent intent=new Intent(HomeActivity.this,RewardOffer1Activity.class);
+
+              Intent intent=new Intent(HomeActivity.this,Coming_soon.class);
               startActivity(intent);
           }
           else if(id==R.id.nav_my_info_settings)
@@ -324,7 +326,11 @@ public class HomeActivity extends AppCompatActivity
           }
           else if(id==R.id.nav_profile)
           {
-              Intent intent=new Intent(HomeActivity.this,MyProfileActivity.class);
+            //  Intent intent=new Intent(HomeActivity.this,MyProfileActivity.class);
+
+
+              Intent intent=new Intent(HomeActivity.this,Coming_soon.class);
+
               startActivity(intent);
           }
           else if(id==R.id.nav_point_system)
