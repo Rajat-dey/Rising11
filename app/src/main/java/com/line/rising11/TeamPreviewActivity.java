@@ -33,8 +33,7 @@ public class TeamPreviewActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_team_preview);
         setTitle("Team Preview");
-        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        getSupportActionBar().setDisplayShowHomeEnabled(true);
+
         wkl1=findViewById(R.id.wkl1);
         wkl2=findViewById(R.id.wkl2);
         wkl3=findViewById(R.id.wkl3);
@@ -1531,9 +1530,5 @@ public class TeamPreviewActivity extends AppCompatActivity
 
 
     }
-    @Override
-    public boolean onSupportNavigateUp() {
-        onBackPressed();
-        return true;
-    }
+
 }
