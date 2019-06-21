@@ -191,13 +191,13 @@ public class JoinedContest extends AppCompatActivity implements JoinedContest_Re
 
 
 
-
+//Please check this code and the response
 
         if(connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED ||
                 connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED) {
 
             JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
-                    (Request.Method.GET,getString(R.string.Cric_ranking)+"contest_id=526"+"&mobile="+sharedPreferences.getString("number","") , null, new Response.Listener<JSONObject>() {
+                    (Request.Method.GET,getString(R.string.Cric_ranking)+"contest_id="+getIntent().getStringExtra("contest_id")+"&mobile="+sharedPreferences.getString("number","") , null, new Response.Listener<JSONObject>() {
                         @Override
                         public void onResponse(JSONObject response) {
                              Log.d("Response: ", response.toString());
