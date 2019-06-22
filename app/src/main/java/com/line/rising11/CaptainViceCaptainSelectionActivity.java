@@ -54,7 +54,7 @@ public class CaptainViceCaptainSelectionActivity extends AppCompatActivity imple
         pteam=getIntent().getStringArrayListExtra("pteam");
         pid=getIntent().getStringArrayListExtra("pid");
         puid=getIntent().getStringArrayListExtra("puid");
-        prole=getIntent().getStringArrayListExtra("prole");
+        prole=getIntent().getStringArrayListExtra("prole1");
         pteamnew=getIntent().getStringArrayListExtra("pteamnew");
         pcredit=getIntent().getStringArrayListExtra("pcredit");
         save_team=findViewById(R.id.save_team);

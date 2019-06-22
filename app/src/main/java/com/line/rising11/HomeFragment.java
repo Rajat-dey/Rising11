@@ -29,6 +29,12 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.concurrent.TimeUnit;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -104,9 +110,47 @@ public class HomeFragment extends Fragment {
 
                                     for(int i=0;i<array.length();i++)
                                     {
+                                        Date date = null;
+                                        try {
+                                            SimpleDateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'");
+                                            SimpleDateFormat outputFormat = new SimpleDateFormat("dd/MM/yyyy");
+                                            SimpleDateFormat outputFormat1 = new SimpleDateFormat("HH:mm:ss");
+                                            date = inputFormat.parse(array.getJSONObject(i).getString("dateTimeGMT"));
+                                            String formattedDate = outputFormat.format(date);
+                                            String formattedDate1 = outputFormat1.format(date);
+                                            Calendar cal = Calendar.getInstance();
+                                            String currentdate=outputFormat.format(cal.getTime());
+                                            String currenttime=outputFormat1.format(cal.getTime());
+                                            Date time1=outputFormat1.parse(formattedDate1);
+                                            Date time2=outputFormat1.parse(currenttime);
+                                            long diffInMillies = outputFormat.parse(formattedDate).getTime() - outputFormat.parse(currentdate).getTime();
+                                            Long tday = TimeUnit.DAYS.convert(diffInMillies, TimeUnit.MILLISECONDS);
+                                            Long ttime = (time1.getTime() - time2.getTime())+330*60*1000;
+                                            if(tday>0)
+                                            {
+                                                jsonArray.put(array.getJSONObject(i));
+                                            }
+                                            else if(tday==0)
+                                            {
+                                                if(ttime>=0)
+                                                {
+                                                    jsonArray.put(array.getJSONObject(i));
+                                                }
+                                                else
+                                                {
+
+                                                }
+                                            }
+                                            else
+                                            {
+
+                                            }
+
+                                        } catch (ParseException e) {
+                                            e.printStackTrace();
+                                        }
 
 
-                                            jsonArray.put(array.getJSONObject(i));
 
 
 

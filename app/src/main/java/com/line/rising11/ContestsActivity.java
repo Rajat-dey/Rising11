@@ -30,9 +30,11 @@ import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.util.ArrayList;
+
 public class ContestsActivity extends AppCompatActivity implements ContestRecyclerAdapter.OnAddListner2 {
 
-    TextView create_team,contest_code,create_contest,more_contest,all_filters,team;
+    TextView create_team,contest_code,create_contest,more_contest,all_filters,team1,team2;
     CardView entryfee,contest_size;
     ContestRecyclerDataClass[] myListData;
     MycontestRecyclerDataClass[] myContestDatalist;
@@ -44,6 +46,9 @@ public class ContestsActivity extends AppCompatActivity implements ContestRecycl
     RecyclerView rv_my_team,rv_my_contest;
     TabLayout tabLayout1;
     int q=0;
+    int ldata=0;
+     ArrayList<String> teamnumber,teamname1,teamname2,team1count,team2count,cname,cimage,vcname,vcimage,wk,bat,ar,bowl;
+
 
 
     @Override
@@ -65,9 +70,11 @@ public class ContestsActivity extends AppCompatActivity implements ContestRecycl
         rv_my_contest.setVisibility(View.GONE);
         rv_my_team.setVisibility(View.GONE);
 
-        team=findViewById(R.id.team);
+        team1=findViewById(R.id.team1);
+        team2=findViewById(R.id.team2);
 
-        team.setText(getIntent().getStringExtra("team1")+"  vs  "+getIntent().getStringExtra("team2"));
+        team1.setText(getIntent().getStringExtra("team1"));
+        team2.setText(getIntent().getStringExtra("team2"));
 
         /*boolean connected1 = false;
         ConnectivityManager connectivityManager1 = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
@@ -350,8 +357,152 @@ public class ContestsActivity extends AppCompatActivity implements ContestRecycl
                     rl_for_hide.setVisibility(View.GONE);
                     rv_my_team.setVisibility(View.VISIBLE);
                     rv_my_contest.setVisibility(View.GONE);
-                    rv_my_team.setLayoutManager(new LinearLayoutManager(ContestsActivity.this, LinearLayoutManager.VERTICAL, false));
-                    rv_my_team.setAdapter(new CustomMyTeamAdapter(ContestsActivity.this));
+
+                        ldata=0;
+                    boolean connected = false;
+                    ConnectivityManager connectivityManager = (ConnectivityManager)getSystemService(Context.CONNECTIVITY_SERVICE);
+                    if(connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED ||
+                            connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED)
+                    {
+
+                        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
+                                (Request.Method.GET, "http://rising11.com/apps/apis/get-create-team-players.php"+"?mobile="+sharedPreferences.getString("number","")+"&unique_id="+getIntent().getStringExtra("uid"), null, new Response.Listener<JSONObject>() {
+                                    @Override
+                                    public void onResponse(JSONObject response) {
+
+                                        try {
+                                            JSONArray array=response.getJSONArray("list");
+                                            if(response.getString("code").equals("1"))
+                                            {
+                                                teamnumber=new ArrayList<>();
+                                                teamname1=new ArrayList<>();
+                                                teamname2=new ArrayList<>();
+                                                team1count=new ArrayList<>();
+                                                team2count=new ArrayList<>();
+                                                cname=new ArrayList<>();
+                                                cimage=new ArrayList<>();
+                                                vcname=new ArrayList<>();
+                                                vcimage=new ArrayList<>();
+                                                wk=new ArrayList<>();
+                                                bat=new ArrayList<>();
+                                                ar=new ArrayList<>();
+                                                bowl=new ArrayList<>();
+
+                                                for(int i=0;i<array.length();i=i+11)
+                                                {
+                                                    ldata=1;
+                                                    int x=0;
+                                                    int c=0;
+                                                    c=c+1;
+                                                    int wkc=0,batc=0,arc=0,bowlc=0,t1=0,t2=0;
+                                                    String capimage="",capname="",vcapimage="",vcapname="",team1="IND",team2="IND";
+                                                    for(int j=i;j<i+11;j++)
+                                                    {
+                                                        if(x==0)
+                                                        {
+                                                            team1=array.getJSONObject(j).getString("country");
+                                                            x=x+1;
+                                                        }
+                                                        if(!array.getJSONObject(j).getString("country").equals(team1))
+                                                        {
+                                                            team2=   array.getJSONObject(j).getString("country");
+                                                            t2=t2+1;
+                                                            x=x+1;
+                                                        }
+                                                        if(array.getJSONObject(j).getString("tag").equals("captain"))
+                                                        {
+                                                            capname=array.getJSONObject(j).getString("player_name");
+                                                            capimage=array.getJSONObject(j).getString("image");
+                                                        }
+                                                        if(array.getJSONObject(j).getString("tag").equals("vice captain"))
+                                                        {
+                                                            vcapname=array.getJSONObject(j).getString("player_name");
+                                                            vcapimage=array.getJSONObject(j).getString("image");
+                                                        }
+                                                        if(array.getJSONObject(j).getString("country").equals(team1))
+                                                        {
+                                                            t1=t1+1;
+                                                        }
+                                                        if(array.getJSONObject(j).getString("role").equals("wk"))
+                                                        {
+                                                           wkc=wkc+1;
+                                                        }
+                                                        if(array.getJSONObject(j).getString("role").equals("bat"))
+                                                        {
+                                                            batc=batc+1;
+                                                        }
+                                                        if(array.getJSONObject(j).getString("role").equals("ar"))
+                                                        {
+                                                            arc=arc+1;
+                                                        }
+                                                        if(array.getJSONObject(j).getString("role").equals("bowl"))
+                                                        {
+                                                            bowlc=bowlc+1;
+                                                        }
+
+                                                    }
+                                                    teamnumber.add(String.valueOf(c));
+                                                    teamname1.add(team1);
+                                                    teamname2.add(team2);
+                                                    team1count.add(String.valueOf(t1));
+                                                    team2count.add(String.valueOf(t2));
+                                                    cimage.add(capimage);
+                                                    cname.add(capname);
+                                                    vcimage.add(vcapimage);
+                                                    vcname.add(vcapname);
+                                                    wk.add(String.valueOf(wkc));
+                                                    bat.add(String.valueOf(batc));
+                                                    ar.add(String.valueOf(arc));
+                                                    bowl.add(String.valueOf(bowlc));
+                                                }
+                                                if(ldata==1)
+                                                {
+                                                    rv_my_team.setLayoutManager(new LinearLayoutManager(ContestsActivity.this, LinearLayoutManager.VERTICAL, false));
+                                                    rv_my_team.setAdapter(new CustomMyTeamAdapter(ContestsActivity.this,teamnumber,teamname1,teamname2,team1count,team2count,cimage,cname,vcimage,vcname,wk,bat,ar,bowl));
+
+                                                }
+
+
+                                            }
+                                            else
+                                            {
+                                                Toast.makeText(ContestsActivity.this, response.getString("msg"), Toast.LENGTH_SHORT).show();
+                                               /* Toast.makeText(getApplicationContext(), "Error "
+                                                        + response.getString("code") + ": "
+                                                        + response.getString("message"), Toast.LENGTH_LONG)
+                                                        .show();*/
+                                            }
+                                        } catch (JSONException e) {
+                                            e.printStackTrace();
+                                        }
+
+                                    }
+                                }, new Response.ErrorListener() {
+
+                                    @Override
+                                    public void onErrorResponse(VolleyError error) {
+                                        // TODO: Handle error
+                                        Toast.makeText(getApplicationContext(), "Error: "
+                                                + error.getLocalizedMessage(), Toast.LENGTH_LONG)
+                                                .show();
+                                    }
+                                });
+
+                        // Access the RequestQueue through your singleton class.
+                        RestClient.getInstance(ContestsActivity.this).addToRequestQueue(jsonObjectRequest);
+
+
+
+                        connected = true;
+                    }
+                    else
+                    {
+                       /* Snackbar.make(v, "Please check your Internet connection", Snackbar.LENGTH_LONG)
+                                .setAction("Action", null).show();*/
+                    }
+
+
+
 
                 }
 

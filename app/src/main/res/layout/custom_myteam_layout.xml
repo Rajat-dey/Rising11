@@ -30,8 +30,9 @@
                 android:textColor="@color/white_text"
                 android:text="VIVEKA24800P (T1)"
                 android:textStyle="bold"
+                android:id="@+id/teamnumber"
                 android:layout_weight="0.4"/>
-            <LinearLayout
+            <!--<LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="0.6"
@@ -52,7 +53,7 @@
                     android:layout_height="match_parent"
                     android:src="@drawable/ic_share_white_24dp"
                     android:layout_weight="1"/>
-            </LinearLayout>
+            </LinearLayout>-->
 
         </LinearLayout>
         <LinearLayout
@@ -78,6 +79,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:text="BAN"
+                        android:id="@+id/t1name"
                         />
                     <TextView
                         android:layout_width="wrap_content"
@@ -86,6 +88,7 @@
                         android:text="6"
                         android:layout_marginTop="8dp"
                         android:textStyle="bold"
+                        android:id="@+id/t1c"
                         android:textColor="@color/white_text"
                         />
 
@@ -99,6 +102,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:id="@+id/t2name"
                         android:text="WI"
                         />
                     <TextView
@@ -106,6 +110,7 @@
                         android:layout_height="wrap_content"
                         android:textSize="24sp"
                         android:text="5"
+                        android:id="@+id/t2c"
                         android:layout_marginTop="8dp"
                         android:textStyle="bold"
                         android:textColor="@color/white_text"
@@ -137,6 +142,7 @@
                         android:text="M.Rahim"
                         android:background="@drawable/button_design_round_blue_my_team"
                         android:textStyle="bold"
+                        android:id="@+id/cname"
                         android:textColor="@color/white_text"
                         android:layout_alignParentBottom="true"/>
                     <TextView
@@ -163,6 +169,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="25dp"
                         android:gravity="center"
+                        android:id="@+id/vcname"
                         android:textColor="@color/white_text"
                         android:textStyle="bold"
                         android:text="S. HOPE"
@@ -204,6 +211,7 @@
                 android:textSize="18sp"
                 android:textColor="@color/black_text"
                 android:textStyle="bold"
+                android:id="@+id/wk"
                 android:layout_marginLeft="8dp"
                 android:text="3"/>
         </LinearLayout>
@@ -217,11 +225,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
+
                 android:text="BAT"/>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
+                android:id="@+id/bat"
                 android:textColor="@color/black_text"
                 android:textStyle="bold"
                 android:layout_marginLeft="8dp"
@@ -244,6 +254,7 @@
                 android:textSize="18sp"
                 android:textColor="@color/black_text"
                 android:textStyle="bold"
+                android:id="@+id/ar"
                 android:layout_marginLeft="8dp"
                 android:text="2"/>
         </LinearLayout>
@@ -262,6 +273,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
+                android:id="@+id/bowl"
                 android:textColor="@color/black_text"
                 android:textStyle="bold"
                 android:layout_marginLeft="8dp"
