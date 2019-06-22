@@ -233,9 +233,7 @@ public class ContestsActivity extends AppCompatActivity implements ContestRecycl
                         @Override
                         public void onErrorResponse(VolleyError error) {
                             // TODO: Handle error
-                           /* Toast.makeText(getApplicationContext(), "Error: "
-                                    + error.getLocalizedMessage(), Toast.LENGTH_LONG)
-                                    .show();*/
+
                         }
                     });
 
@@ -281,11 +279,8 @@ public class ContestsActivity extends AppCompatActivity implements ContestRecycl
                                 else
                                 {
                                     loaddata=3;
-                                    Toast.makeText(ContestsActivity.this, response.getString("msg"), Toast.LENGTH_SHORT).show();
-                                               /* Toast.makeText(getApplicationContext(), "Error "
-                                                        + response.getString("code") + ": "
-                                                        + response.getString("message"), Toast.LENGTH_LONG)
-                                                        .show();*/
+                                 //   Toast.makeText(ContestsActivity.this, response.getString("msg"), Toast.LENGTH_SHORT).show();
+
                                 }
                             } catch (JSONException e) {
                                 e.printStackTrace();

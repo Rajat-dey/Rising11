@@ -24,11 +24,16 @@ public class Contest extends AppCompatActivity {
 
     String scorepart1,scorepart2;
     TextView playerpoints,TM1,TM2,match_status,score1,score2,statics;
+
+    TextView prizepool,spots,entry;
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contest);
-        setTitle("JOINED CONTEST");
+        setTitle("Leader Board");
 
 
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -43,7 +48,7 @@ public class Contest extends AppCompatActivity {
             @Override
             public void onClick(View v)
             {
-                Intent intent=new Intent(Contest.this,player_points.class);
+                Intent intent=new Intent(Contest.this,Coming_soon.class);
                 startActivity(intent);
             }
         });
@@ -56,6 +61,9 @@ public class Contest extends AppCompatActivity {
         score2=findViewById(R.id.score2);
         statics=findViewById(R.id.statics);
 
+        prizepool=findViewById(R.id.prize_pool);
+        spots=findViewById(R.id.spots);
+        entry=findViewById(R.id.entry);
 
 
 
@@ -66,48 +74,56 @@ public class Contest extends AppCompatActivity {
                 connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED) {
 
             JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
-                    (Request.Method.GET, getString(R.string.Cric_cricket_score)+"&unique_id=1144504", null, new Response.Listener<JSONObject>() {
+                    (Request.Method.GET, getString(R.string.Cric_cricket_score)+"&unique_id="+getIntent().getStringExtra("uid"), null, new Response.Listener<JSONObject>() {
                         @Override
                         public void onResponse(JSONObject response) {
                             Log.d("Response: ", response.toString());
                             //Log.d("Link",getString(R.string.signup) +"?mobile="+email.getText().toString().trim()+"&password="+password.getText().toString().trim());
 
+                          /*  Toast.makeText(JoinedContest.this, getString(R.string.Cric_cricket_score)+"&unique_id="+getIntent().getStringExtra("uid"), Toast.LENGTH_LONG).show();
+                            Toast.makeText(JoinedContest.this, response.toString(), Toast.LENGTH_SHORT).show();
+
+                          */
 
                             try {
-                                if(response != null)
+                                if(response.getString("code").equals("1"))
                                 {
 
 
-                                    TM1.setText(response.getString("team-1"));
-                                    TM2.setText(response.getString("team-2"));
+                                    TM1.setText(response.getJSONObject("data").getString("team-1"));
+                                    TM2.setText(response.getJSONObject("data").getString("team-2"));
 
-                                    if(!response.getString("matchStarted").equals("true")) {
+
+                                    if(!response.getJSONObject("data").getString("matchStarted").equals("true")) {
                                         match_status.setText("COMPLETED");
                                     }
 
 
-                                    String ScoreData = response.getString("description");
+                                    if(response.getJSONObject("data").has("description"))
+                                    {
+                                        String ScoreData = response.getJSONObject("data").getString("description");
 
-                                    String[] parts = ScoreData.split("v");
+                                        String[] parts = ScoreData.split("v");
 
-                                    scorepart1 =  parts[0];
-                                    scorepart2= parts[1];
-
-
-                                    score1.setText(scorepart1);
-                                    score2.setText(scorepart2);
+                                        scorepart1 =  parts[0];
+                                        scorepart2= parts[1];
 
 
-                                    statics.setText(response.getString("stat"));
+                                        score1.setText(scorepart1);
+                                        score2.setText(scorepart2);
+                                    }
+
+                                    else
+                                    {
+                                        score1.setText("Match not started");
+                                        score2.setText("Match not started");
+                                    }
 
 
-                                    /*editor.putString("login","yes");
-                                    editor.putString("number",email.getText().toString().trim());
-                                    editor.commit();*/
-                                    Toast.makeText(Contest.this, response.getString("msg"), Toast.LENGTH_SHORT).show();
-                                    /*Intent intent = new Intent(MySettingsActivity.this, HomeActivity.class);
-                                    startActivity(intent);
-                                    finish();*/
+                                    statics.setText(response.getJSONObject("data").getString("stat"));
+
+
+
                                 }
                                 else
                                 {
@@ -145,6 +161,68 @@ public class Contest extends AppCompatActivity {
             /*Snackbar.make(v, "Please check your Internet connection", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show();*/
         }
+
+
+
+
+        if(connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED ||
+                connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED) {
+
+            JsonObjectRequest jsonObjectRequest = new JsonObjectRequest
+                    (Request.Method.GET, getString(R.string.Cric_ranking)+"contest_id=27"+"&mobile=7062018163", null, new Response.Listener<JSONObject>() {
+                        @Override
+                        public void onResponse(JSONObject response) {
+                            Log.d("Response: ", response.toString());
+                            //Log.d("Link",getString(R.string.signup) +"?mobile="+email.getText().toString().trim()+"&password="+password.getText().toString().trim());
+
+
+                            try {
+                                if(response.getString("code").equals("1"))
+                                {
+
+
+                                    prizepool.setText(response.getJSONObject("contest").getString("total_winning_amount"));
+                                    spots.setText(response.getJSONObject("contest").getString("contest_size"));
+                                    entry.setText(response.getJSONObject("contest").getString("entry_fees"));
+
+
+
+
+                                }
+                                else
+                                {
+                                    Toast.makeText(Contest.this, response.getString("msg"), Toast.LENGTH_SHORT).show();
+
+                                }
+                            } catch (JSONException e) {
+                                e.printStackTrace();
+                            }
+
+                        }
+                    }, new Response.ErrorListener() {
+
+                        @Override
+                        public void onErrorResponse(VolleyError error) {
+                            // TODO: Handle error
+                            Toast.makeText(getApplicationContext(), "Error: "
+                                    + error.getLocalizedMessage(), Toast.LENGTH_LONG)
+                                    .show();
+                        }
+                    });
+
+            // Access the RequestQueue through your singleton class.
+            RestClient.getInstance(Contest.this).addToRequestQueue(jsonObjectRequest);
+
+
+
+            connected = true;
+        }
+        else
+        {
+            /*Snackbar.make(v, "Please check your Internet connection", Snackbar.LENGTH_LONG)
+                    .setAction("Action", null).show();*/
+        }
+
 
 
 
