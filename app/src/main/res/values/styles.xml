@@ -27,4 +27,9 @@
         <item name="android:windowBackground">@drawable/dialogbox_style</item>
     </style>
 
+
+    <style name="MyCustomTabText" parent="TextAppearance.Design.Tab">
+        <item name="android:textSize">12sp</item>
+    </style>
+
 </resources>

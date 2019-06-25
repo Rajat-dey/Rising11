@@ -53,6 +53,11 @@
     <string name="bank_tab">BANK</string>
 
 
+    <string name="alert_title">Exit App!</string>
+    <string name="alert_detail"> Sure to exit RISING 11?</string>
+
+
+
     <string name="how_it_works_step">Step-1:- Verify your email &amp; mobile no.\n\nStep-2:-Refer your Friend <b>Rising11</b> by unique referral code.
         \n\nStep-3:-When your Friend Register and Verify their email &amp; mobile no. , your friend will get ₹50 instantly and you will get ₹15 cash bonus instantly.
         \n\nStep-4:-when your Friend Verify their pan-card &amp; Bank-account further you will get ₹10 cash bonus.</string>

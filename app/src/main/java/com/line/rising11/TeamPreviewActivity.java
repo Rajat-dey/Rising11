@@ -1,8 +1,10 @@
 package com.line.rising11;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -20,6 +22,7 @@ public class TeamPreviewActivity extends AppCompatActivity
 {
 
 
+    ImageView preview_cancel;
     LinearLayout wkl1,wkl2,wkl3,wkl4,batl1,batl2,batl3,batl4,batl5,batl6,arl1,arl2,arl3,arl4,bowll1,bowll2,bowll3,bowll4,bowll5,bowll6;
     ImageView wkimg1,wkimg2,wkimg3,wkimg4,batimg1,batimg2,batimg3,batimg4,batimg5,batimg6,arimg1,arimg2,arimg3,arimg4,bowlimg1,bowlimg2,bowlimg3,bowlimg4,bowlimg5,bowlimg6;
     TextView wkpname1,wkpname2,wkpname3,wkpname4,batpname1,batpname2,batpname3,batpname4,batpname5,batpname6,arpname1,arpname2,arpname3,arpname4,bowlpname1,bowlpname2,bowlpname3,bowlpname4,bowlpname5,bowlpname6;
@@ -33,6 +36,8 @@ public class TeamPreviewActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_team_preview);
         setTitle("Team Preview");
+
+        preview_cancel=findViewById(R.id.preview_cancel);
 
         wkl1=findViewById(R.id.wkl1);
         wkl2=findViewById(R.id.wkl2);
@@ -154,6 +159,8 @@ public class TeamPreviewActivity extends AppCompatActivity
         bowlcr5=findViewById(R.id.bowlcr5);
         bowlcr6=findViewById(R.id.bowlcr6);
 
+        preview_cancel.setVisibility(View.VISIBLE);
+
         wkc1.setVisibility(View.GONE);
         wkc2.setVisibility(View.GONE);
         wkc3.setVisibility(View.GONE);
@@ -202,6 +209,17 @@ public class TeamPreviewActivity extends AppCompatActivity
         bowll5.setVisibility(View.GONE);
         bowll6.setVisibility(View.GONE);
 
+
+        preview_cancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v)
+            {
+
+                finish();
+            }
+        });
+
+
         jsonArraywk=new JSONArray();
         jsonArraybat=new JSONArray();
         jsonArrayar=new JSONArray();
@@ -216,6 +234,9 @@ public class TeamPreviewActivity extends AppCompatActivity
 
         c= Integer.parseInt(getIntent().getStringExtra("c"));
         vc= Integer.parseInt((getIntent().getStringExtra("vc")));
+
+
+
 
 
 

@@ -27,14 +27,14 @@
 
             <ImageView
                 android:id="@+id/iv_team1_logo"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:layout_gravity="center"
                 android:layout_margin="8dp"
                 android:layout_marginStart="12dp"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="8dp"
                 android:layout_marginEnd="12dp"
-                android:layout_marginBottom="12dp"
+                android:layout_marginBottom="8dp"
                 android:src="@drawable/ic_default_avatar" />
 
             <TextView
@@ -42,12 +42,12 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginBottom="5dp"
+                android:layout_marginBottom="2dp"
                 android:gravity="center"
-                android:padding="5dp"
+                android:padding="2dp"
                 android:text="MI"
                 android:textColor="@color/colorPrimary"
-                android:textSize="18sp" />
+                android:textSize="16sp" />
 
 
         </LinearLayout>
@@ -100,14 +100,14 @@
 
             <ImageView
                 android:id="@+id/iv_team2_logo"
-                android:layout_width="60dp"
-                android:layout_height="60dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:layout_gravity="center"
                 android:layout_margin="8dp"
                 android:layout_marginStart="12dp"
-                android:layout_marginTop="12dp"
+                android:layout_marginTop="8dp"
                 android:layout_marginEnd="12dp"
-                android:layout_marginBottom="12dp"
+                android:layout_marginBottom="8dp"
                 android:src="@drawable/ic_default_avatar" />
 
             <TextView
@@ -115,11 +115,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
-                android:layout_marginBottom="5dp"
+                android:layout_marginBottom="2dp"
                 android:gravity="center"
-                android:padding="5dp"
+                android:padding="2dp"
                 android:textColor="@color/colorPrimary"
-                android:textSize="18sp"
+                android:textSize="16sp"
                 tools:text="KXIP" />
 
         </LinearLayout>

@@ -89,17 +89,16 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp"
+            android:layout_height="40dp"
             android:orientation="horizontal"
             android:layout_marginLeft="16dp"
             android:layout_marginRight="16dp"
             android:layout_marginTop="4dp"
-            android:weightSum="2"
+
             >
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="38dp"
-                android:layout_weight="1"
                 android:id="@+id/male"
                 android:orientation="horizontal"
                 android:background="@drawable/button_design_round_simple_white_gray_border"
@@ -108,20 +107,22 @@
                         android:layout_width="20dp"
                         android:layout_height="20dp"
                         android:layout_marginLeft="16dp"
+
                         android:src="@drawable/male"
                         android:layout_gravity="center_vertical"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="male"
-                    android:layout_marginLeft="16dp"
+                    android:text="Male"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="10dp"
                     android:layout_gravity="center_vertical"
                     android:textSize="16sp"/>
             </LinearLayout>
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="38dp"
-                android:layout_weight="1"
+
                 android:id="@+id/female"
                 android:orientation="horizontal"
                 android:background="@drawable/button_design_round_simple"
@@ -135,8 +136,9 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="female"
-                    android:layout_marginLeft="16dp"
+                    android:text="Female"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="10dp"
                     android:layout_gravity="center_vertical"
                     android:textSize="16sp"/>
             </LinearLayout>
@@ -230,7 +232,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
-                android:textColor="#c0c0c0"
+                android:textColor="@color/black_text"
                 android:hint="Country"
                 android:id="@+id/country"
                 android:inputType="text"
