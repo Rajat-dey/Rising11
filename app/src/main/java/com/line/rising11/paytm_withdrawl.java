@@ -24,7 +24,6 @@ public class paytm_withdrawl extends AppCompatActivity {
         setContentView(R.layout.activity_paytm_withdrawl);
         setTitle("TRANSFER BALANCE TO PAYTM");
 
-
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 
