@@ -25,7 +25,6 @@ public class paytm_withdrawl extends AppCompatActivity {
         setTitle("TRANSFER BALANCE TO PAYTM");
 
 
-
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setDisplayShowHomeEnabled(true);
 

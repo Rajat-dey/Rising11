@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
+import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
@@ -165,6 +166,7 @@ public class Contest extends AppCompatActivity {
 
 
 
+
         if(connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_MOBILE).getState() == NetworkInfo.State.CONNECTED ||
                 connectivityManager.getNetworkInfo(ConnectivityManager.TYPE_WIFI).getState() == NetworkInfo.State.CONNECTED) {
 
@@ -184,7 +186,6 @@ public class Contest extends AppCompatActivity {
                                     prizepool.setText(response.getJSONObject("contest").getString("total_winning_amount"));
                                     spots.setText(response.getJSONObject("contest").getString("contest_size"));
                                     entry.setText(response.getJSONObject("contest").getString("entry_fees"));
-
 
 
 
@@ -219,9 +220,11 @@ public class Contest extends AppCompatActivity {
         }
         else
         {
-            /*Snackbar.make(v, "Please check your Internet connection", Snackbar.LENGTH_LONG)
+          /*  Snackbar.make(v, "Please check your Internet connection", Snackbar.LENGTH_LONG)
                     .setAction("Action", null).show();*/
+
         }
+
 
 
 

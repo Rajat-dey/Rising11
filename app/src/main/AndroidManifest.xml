@@ -77,7 +77,6 @@
         <activity android:name=".OtpVerify_Activity" />
         <activity android:name=".AddCashActivity" />
         <activity android:name=".Contest" />
-        <activity android:name=".wining_breakup" />
         <activity android:name=".JoinedContest" />
         <activity
             android:name=".HomeActivity"
